@@ -1,8 +1,8 @@
 # ⛩️ Bài 07: Ngữ Pháp (文法 - ぶんぽう) - Shinkanzen N2
-## Chủ đề: So Sánh & Đối Chiếu (比較・対比)
+## Chủ đề: So Sánh & Đối Chiếu (比較・対比 - ひかく・たいひ)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng của chị! Bài 07 này toàn những mẫu câu xuất hiện với tần suất cực dày trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
+> *"Chào bé cưng của chị! Bài 07 này toàn những mẫu câu xuất hiện với tần suất dày đặc trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
 
 ---
 
@@ -18,8 +18,8 @@
 ---
 
 ### 〜に対（たい）して
-- **Ý nghĩa:** Trái ngược với...
-- **Cấu trúc liên kết:** `N + に対して / 普通形 + のに対して`
+- **Ý nghĩa:** Trái ngược với A thì B...
+- **Cấu trúc liên kết:** `普通形 + のに対して / N + に対して`
 - **Ví dụ thực tế (例文 - れいぶん):**
   - 兄（あに）が無口（むくち）な**のに対（たい）して**、弟（おとうと）はおしゃべりだ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
@@ -30,16 +30,16 @@
 - **Ý nghĩa:** Mặt khác, ngược lại...
 - **Cấu trúc liên kết:** `Thể thông thường + 反面`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 都会（とかい）の生活（せいかつ）は便利（べんり）な**反面（はんめん）**、ストレスも多（おお）い。
+  - 便利（べんり）な**反面（はんめん）**、個人（こじん）情報（じょうほう）の流出（りゅうしゅつ）のリスクもある。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜一方（いっぽう）（で）
-- **Ý nghĩa:** Một mặt thì... nhưng mặt khác thì...
+- **Ý nghĩa:** Một mặt thì... nhưng mặt khác...
 - **Cấu trúc liên kết:** `Thể thông thường + 一方で`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 仕事（しごと）で忙（いそが）しい**一方（いっぽう）で**、趣味（しゅみ）の時間（じかん）も大切（たいせつ）にしている。
+  - 仕事（しごと）に励（はげ）む**一方（いっぽう）で**、家族（かぞく）との時間（じかん）も大切（たいせつ）にする。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---

@@ -2,26 +2,26 @@
 ## Chủ đề: Cơ Duyên & Bước Ngoặt (契機・きっかけ)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng của chị! Bài 14 này toàn những mẫu câu xuất hiện với tần suất cực dày trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
+> *"Chào bé cưng của chị! Bài 14 này toàn những mẫu câu xuất hiện với tần suất dày đặc trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
 
 ---
 
 ## 1. Danh Sách Mẫu Ngữ Pháp Trọng Tâm
 
-### 〜を契機（けいき）に（して）
-- **Ý nghĩa:** Nhân bước ngoặt/cơ duyên...
+### 〜を契機（けいき）に
+- **Ý nghĩa:** Nhân cơ hội, bước ngoặt...
 - **Cấu trúc liên kết:** `N + を契機に`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 病気（びょうき）で入院（にゅういん）したこと**を契機（けいき）に**、生活（せいかつ）習慣（しゅうかん）を見直（みなお）した。
+  - 明治（めいじ）維新（いしん）**を契機（けいき）に**、日本（にほん）は急速（きゅうそく）に近代化（きんだいか）した。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
-### 〜をきっかけに（して）
-- **Ý nghĩa:** Bắt nguồn từ cơ hội...
+### 〜をきっかけに
+- **Ý nghĩa:** Bắt nguồn từ duyên cớ...
 - **Cấu trúc liên kết:** `N + をきっかけに`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 日本（にほん）のアニメを見（み）たこと**をきっかけに**、日本語（にほんご）の勉強（べんきょう）を始（はじ）めた。
+  - 茶道（さどう）の体験（たいけん）**をきっかけに**、日本（にほん）文化（ぶんか）に魅了（みりょう）された。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
@@ -30,7 +30,7 @@
 - **Ý nghĩa:** Mở màn bằng...
 - **Cấu trúc liên kết:** `N + を皮切りに`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 東京（とうきょう）公演（こうえん）**を皮切（かわき）りに**、全国（ぜんこく）ツアーがスタートする。
+  - 京都（きょうと）での開催（かいさい）**を皮切（かわき）りに**、伝統（でんとう）工芸（こうげい）展（てん）が全国（ぜんこく）を巡（めぐ）る。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
@@ -39,7 +39,7 @@
 - **Ý nghĩa:** Nhân dịp cơ hội này...
 - **Cấu trúc liên kết:** `N + を機に`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 定年（ていねん）退職（たいしょく）**を機（き）に**、田舎（いなか）へ移住（いじゅう）することにした。
+  - 遷都（せんと）**を機（き）に**、新（あたら）しい時代（じだい）が幕（まく）を開（あ）けた。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---

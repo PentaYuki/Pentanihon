@@ -2,44 +2,44 @@
 ## Chủ đề: Dáng Vẻ & Khuynh Hướng (様子・傾向)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng của chị! Bài 15 này toàn những mẫu câu xuất hiện với tần suất cực dày trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
+> *"Chào bé cưng của chị! Bài 15 này toàn những mẫu câu xuất hiện với tần suất dày đặc trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
 
 ---
 
 ## 1. Danh Sách Mẫu Ngữ Pháp Trọng Tâm
 
 ### 〜気味（ぎみ）
-- **Ý nghĩa:** Có vẻ hơi... (cảm giác mệt mỏi)
+- **Ý nghĩa:** Hơi có cảm giác tiêu cực...
 - **Cấu trúc liên kết:** `N / V-masu + 気味`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 最近（さいきん）仕事（しごと）が忙（いそが）しくて、少（すこ）し風邪（かぜ）**気味（ぎみ）**だ。
+  - プレッシャーで少（すこ）し焦（あせ）り**気味（ぎみ）**だ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜がち
-- **Ý nghĩa:** Thường hay có xu hướng xấu
+- **Ý nghĩa:** Thường hay có xu hướng xấu...
 - **Cấu trúc liên kết:** `N / V-masu + がち`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 一人（ひとり）暮（ぐ）らしの若者（わかもの）は、野菜（やさい）不足（ぶそく）になり**がち**だ。
+  - 疲（つか）れると、物事（ものごと）をネガティブに考（かんが）え**がち**だ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜っぽい
-- **Ý nghĩa:** Đậm tính chất / Dễ nổi nóng
-- **Cấu trúc liên kết:** `N / A-i / V-masu + っぽい`
+- **Ý nghĩa:** Đậm tính chất...
+- **Cấu trúc liên kết:** `N / A-i + っぽい`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 彼（かれ）は年（とし）をとって、少（すこ）し怒（おこ）り**っぽく**なった。
+  - 彼（かれ）は怒（おこ）り**っぽく**て近寄（ちかよ）りがたい。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜だらけ
-- **Ý nghĩa:** Đầy rẫy toàn là điều xấu
+- **Ý nghĩa:** Đầy rẫy toàn điều xấu...
 - **Cấu trúc liên kết:** `N + だらけ`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 間違（まちが）い**だらけ**の答案（とうあん）を提出（ていしゅつ）して恥（は）ずかしい。
+  - 誤字（ごじ）脱字（だつじ）**だらけ**のレポートを直（なお）す。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---

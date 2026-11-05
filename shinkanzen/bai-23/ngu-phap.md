@@ -2,44 +2,44 @@
 ## Chủ đề: Quan Điểm & Góc Nhìn (視点・立場)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng của chị! Bài 23 này toàn những mẫu câu xuất hiện với tần suất cực dày trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
+> *"Chào bé cưng của chị! Bài 23 này toàn những mẫu câu xuất hiện với tần suất dày đặc trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
 
 ---
 
 ## 1. Danh Sách Mẫu Ngữ Pháp Trọng Tâm
 
-### 〜から言（い）えば / 〜から言（い）うと
+### 〜から言（い）えば
 - **Ý nghĩa:** Đứng từ góc độ... mà nói
 - **Cấu trúc liên kết:** `N + から言えば`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - コストの面（めん）**から言（い）えば**、このプランが最（もっと）も安上（やすあ）がりだ。
+  - 人生（じんせい）の長（なが）い旅路（たびじ）**から言（い）えば**、今（いま）の失敗（しっぱい）は一瞬（いっしゅん）の躓（つまず）きだ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
-### 〜からすると / 〜から見（み）れば
+### 〜からすると
 - **Ý nghĩa:** Căn cứ từ lập trường...
 - **Cấu trúc liên kết:** `N + からすると`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 親（おや）の立場（たちば）**からすると**、子（こ）どもの安全（あんぜん）が何（なに）よりも大切（たいせつ）だ。
+  - 哲学者（てつがくしゃ）の視点（してん）**からすると**、孤独（こどく）こそが自己（じこ）対話（たいわ）の時間（じかん）だ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜にとって
-- **Ý nghĩa:** Đối với... (ai đó cảm thấy thế nào)
+- **Ý nghĩa:** Đối với... (ý nghĩa tồn tại)
 - **Cấu trúc liên kết:** `N + にとって`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 彼（かれ）**にとって**、この試合（しあい）は選手（せんしゅ）生命（せいめい）をかけた戦（たたか）いだ。
+  - 彼（かれ）**にとって**、絵（え）を描（え）くことは生（い）きる証（あかし）そのものだ。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜上（じょう）（は）
 - **Ý nghĩa:** Về mặt / Trên phương diện...
-- **Cấu trúc liên kết:** `N + 上（じょう）`
+- **Cấu trúc liên kết:** `N + 上`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 法律（ほうりつ）**上（じょう）**は問題（もんだい）がなくても、道徳的（どうとくてき）には許（ゆる）されない。
+  - 倫理（りんり）**上（じょう）**許（ゆる）されない行為（こうい）である。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---

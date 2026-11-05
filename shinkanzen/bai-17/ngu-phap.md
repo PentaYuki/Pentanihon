@@ -2,17 +2,17 @@
 ## Chủ đề: Phán Đoán & Khẳng Định (断定・主張)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng của chị! Bài 17 này toàn những mẫu câu xuất hiện với tần suất cực dày trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
+> *"Chào bé cưng của chị! Bài 17 này toàn những mẫu câu xuất hiện với tần suất dày đặc trong đề thi thật N2. Chị đã thêm sẵn phiên âm Hiragana cho từng câu ví dụ rồi, bé cứ tự tin đọc to và ghi nhớ cùng chị nha!"*
 
 ---
 
 ## 1. Danh Sách Mẫu Ngữ Pháp Trọng Tâm
 
 ### 〜に相違（そうい）ない
-- **Ý nghĩa:** Chắc chắn là không sai vào đâu
+- **Ý nghĩa:** Chắc chắn không sai vào đâu...
 - **Cấu trúc liên kết:** `Thể thông thường + に相違ない`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 現場（げんば）に残（のこ）された指紋（しもん）から、犯人（はんにん）は彼（かれ）**に相違（そうい）ない**。
+  - 現場（げんば）の証拠（しょうこ）から見（み）て、有罪（ゆうざい）**に相違（そうい）ない**。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
@@ -21,25 +21,25 @@
 - **Ý nghĩa:** Chắc chắn là...
 - **Cấu trúc liên kết:** `Thể thông thường + に違いない`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 彼（かれ）の表情（ひょうじょう）を見（み）れば、何（なに）か良（よ）いことがあった**に違（ちが）いない**。
+  - 彼（かれ）の誠実（せいじつ）な証言（しょうげん）は真実（しんじつ）**に違（ちが）いない**。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜はずだ
-- **Ý nghĩa:** Chắc chắn theo lẽ thường
+- **Ý nghĩa:** Đương nhiên theo lẽ thường...
 - **Cấu trúc liên kết:** `Thể thông thường + はずだ`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 昨日（きのう）投函（とうかん）した手紙（てがみ）だから、明日（あす）には届（とど）く**はずだ**。
+  - 厳格（げんかく）な規則（きそく）に基（もと）づいているから、公平（こうへい）な**はずだ**。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---
 
 ### 〜わけだ
-- **Ý nghĩa:** Hèn chi / Đương nhiên là vậy
+- **Ý nghĩa:** Hèn chi / Đương nhiên là thế...
 - **Cấu trúc liên kết:** `Thể thông thường + わけだ`
 - **Ví dụ thực tế (例文 - れいぶん):**
-  - 50％オフのセール中（ちゅう）か。どうりで客（きゃく）が多（おお）い**わけだ**。
+  - 法律（ほうりつ）が改正（かいせい）されたのか。どうりで厳（きび）しくなった**わけだ**。
 - 💡 **Mẹo của chị:** *Hãy nhớ kỹ cách chia động từ và hoàn cảnh dùng để không bị lừa trong đề trắc nghiệm nha cưng!*
 
 ---

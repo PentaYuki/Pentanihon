@@ -8,16 +8,12 @@
 
 ## 1. Danh Sách Từ Vựng Trọng Tâm Bài 16
 
-| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Kèm Hiragana) |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 1 | **重要（じゅうよう）** | じゅうよう | TRỌNG YẾU | Quan trọng cốt lõi | 最（もっと）も重要（じゅうよう）な点（てん） |
-| 2 | **徹底（てってい）** | てってい | TRIỆT ĐỂ | Triệt để, thấu đáo | 徹底的（てっていてき）に調査（ちょうさ）する |
-| 3 | **判断（はんだん）** | はんだん | PHÁN ĐOÁN | Đánh giá, phán đoán | 状況（じょうきょう）を冷静（れいせい）に判断（はんだん）する |
-| 4 | **慎重（しんちょう）** | しんちょう | THẬN TRỌNG | Cẩn thận, dè dặt | 慎重（しんちょう）に行動（こうどう）する |
-| 5 | **急速（きゅうそく）** | きゅうそく | CẤP TỐC | Nhanh chóng, cấp tốc | 急速（きゅうそく）に普及（ふきゅう）する |
-| 6 | **克服（こくふく）** | こくふく | KHẮC PHỤC | Vượt qua khó khăn | 弱点（じゃくてん）を克服（こくふく）する |
-| 7 | **把握（はあく）** | はあく | BẢ ÁC | Nắm bắt rõ ngọn ngành | 現状（げんじょう）を正（ただ）しく把握（はあく）する |
-| 8 | **維持（いじ）** | いじ | DUY TRÌ | Gìn giữ, duy trì | 健康（けんこう）を維持（いじ）する |
+| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | **鑑賞（かんしょう）** | かんしょう | GIÁM THƯỞNG | Thưởng thức nghệ thuật |
+| 2 | **迫力（はくりょく）** | はくりょく | BÁCH LỰC | Sức lôi cuốn mạnh mẽ |
+| 3 | **傑作（けっさく）** | けっさく | KIỆT TÁC | Tác phẩm kiệt xuất |
+| 4 | **繊細（せんさい）な** | せんさい | TIÊM TẾ | Tinh tế, tinh xảo |
 
 ---
 

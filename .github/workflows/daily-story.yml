@@ -1,10 +1,13 @@
-name: Daily NihonGo Study & Story Runner
+name: Daily NihonGo Study & Story Automation
 
 on:
   schedule:
-    # Chạy mỗi ngày lúc 00:00 UTC (07:00 sáng giờ Việt Nam)
+    # Tự động chạy mỗi ngày lúc 00:00 UTC (tức 07:00 sáng giờ Việt Nam)
     - cron: '0 0 * * *'
-  workflow_dispatch: # Cho phép kích hoạt thủ công bằng 1 click trên GitHub
+  workflow_dispatch: # Cho phép kích hoạt thủ công bằng 1 nút bấm trên GitHub
+
+permissions:
+  contents: write
 
 jobs:
   daily-update:
@@ -18,6 +21,19 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Daily Study Scheduler
+      - name: Generate New Daily Story & Update Dashboard
         run: |
+          python scripts/generate_daily_story.py
           python scripts/daily_study_scheduler.py
+
+      - name: Commit and Push New Daily Story
+        run: |
+          git config --global user.name "PentaYuki Bot"
+          git config --global user.email "bot@pentanihon.local"
+          git add story/
+          if git diff --staged --quiet; then
+            echo "No new story generated today."
+          else
+            git commit -m "feat(daily-story): tự động xuất bản câu chuyện Nhật ngữ mới [skip ci]"
+            git push origin main
+          fi

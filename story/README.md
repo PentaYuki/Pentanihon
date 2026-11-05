@@ -17,6 +17,7 @@ Học tiếng Nhật qua câu chuyện thực tế (Storytelling) là phương p
 | 01 | [**秋のパン屋と一期一会の出会い**<br>*(Tiệm bánh mì mùa thu & Cuộc gặp gỡ định mệnh)*](./story-01_tiem_banh_mua_thu.md) | `〜際して`, `〜たとたん`, `〜てたまらない`, `〜に違いない` | ✅ Hoàn thành |
 | 02 | [**夜行列車と明日への切符**<br>*(Chuyến tàu đêm & Tấm vé đến tương lai)*](./story-02_chuyen_tau_dem.md) | `〜ものなら`, `〜からこそ`, `〜ざるを得ない`, `〜にすぎない` | ✅ Hoàn thành |
 | 03 | [**雨音のカフェと忘れ物の傘**<br>*(Quán cà phê ngày mưa & Chiếc ô bỏ quên)*](./story-03_quan_ca_phe_ngay_mua.md) | `〜を契機に`, `〜にもかかわらず`, `〜わけにはいかない`, `〜つつ` | ✅ Hoàn thành |
+| 04 | [**遅咲（おそざ）きの桜（さくら）と新（あたら）しい旅立（たびだ）ち**<br>*(Hoa Anh Đào Nở Muộn Và Chuyến Khởi Hành Mới)*](./story-04_hoa_anh_dao_no_muon.md) | `〜にほかならない, 〜どころか, 〜にすぎない, 〜からこそ` | ✅ Hoàn thành |
 
 ---
 

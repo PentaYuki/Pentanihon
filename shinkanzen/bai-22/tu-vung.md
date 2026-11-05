@@ -1,5 +1,5 @@
 # 📖 Bài 22: Từ Vựng & Chữ Hán (語彙・漢字 - ごい・かんじ) - Shinkanzen N2
-## Chủ đề: Kinh Tế & Thị Trường (経済・貿易)
+## Chủ đề: Kinh Tế & Giao Thương (経済・貿易)
 
 > 🌸 **Lời dặn của chị gái:**  
 > *"Từ vựng Bài 22 gắn liền với thực tế cuộc sống và đề thi đọc hiểu N2 đó em! Chị đã chú thích phiên âm Hiragana và âm Hán Việt chi tiết cho em rồi nè!"*
@@ -8,16 +8,12 @@
 
 ## 1. Danh Sách Từ Vựng Trọng Tâm Bài 22
 
-| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Kèm Hiragana) |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 1 | **重要（じゅうよう）** | じゅうよう | TRỌNG YẾU | Quan trọng cốt lõi | 最（もっと）も重要（じゅうよう）な点（てん） |
-| 2 | **徹底（てってい）** | てってい | TRIỆT ĐỂ | Triệt để, thấu đáo | 徹底的（てっていてき）に調査（ちょうさ）する |
-| 3 | **判断（はんだん）** | はんだん | PHÁN ĐOÁN | Đánh giá, phán đoán | 状況（じょうきょう）を冷静（れいせい）に判断（はんだん）する |
-| 4 | **慎重（しんちょう）** | しんちょう | THẬN TRỌNG | Cẩn thận, dè dặt | 慎重（しんちょう）に行動（こうどう）する |
-| 5 | **急速（きゅうそく）** | きゅうそく | CẤP TỐC | Nhanh chóng, cấp tốc | 急速（きゅうそく）に普及（ふきゅう）する |
-| 6 | **克服（こくふく）** | こくふく | KHẮC PHỤC | Vượt qua khó khăn | 弱点（じゃくてん）を克服（こくふく）する |
-| 7 | **把握（はあく）** | はあく | BẢ ÁC | Nắm bắt rõ ngọn ngành | 現状（げんじょう）を正（ただ）しく把握（はあく）する |
-| 8 | **維持（いじ）** | いじ | DUY TRÌ | Gìn giữ, duy trì | 健康（けんこう）を維持（いじ）する |
+| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | **取引（とりひき）** | とりひき | THỦ THIỆN | Giao dịch kinh doanh |
+| 2 | **契約（けいやく）** | けいやく | KHẾ ƯỚC | Hợp đồng |
+| 3 | **輸出（ゆしゅつ）** | ゆしゅつ | THUẤT XUẤT | Xuất khẩu |
+| 4 | **利益（りえき）** | りえき | LỢI ÍCH | Lợi nhuận thương mại |
 
 ---
 
