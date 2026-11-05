@@ -1,44 +1,44 @@
 # 📖 Bài 03: Từ Vựng & Chữ Hán (語彙・漢字 - ごい・かんじ) - Shinkanzen N2
-## Chủ đề: Giao Tiếp Xã Hội & Tranh Luận (社会生活・人間関係)
+## Chủ đề: Giao Tiếp Xã Hội & Tranh Luận (社会生活・人間関係 - しゃかいせいかつ・にんげんかんけい)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Bé ơi, các từ vựng về 'Tranh luận & Lập trường' trong Bài 3 này là kho vàng để em đọc hiểu báo chí và giải đề trắc nghiệm Mondai 1 và 4 đó nha! Chị đã thêm đầy đủ Hiragana, Hán Việt và cụm từ đi kèm (collocation) rồi nè!"*
+> *"Chào bé cưng! Bài 3 nâng cấp trọn bộ 25 từ vựng then chốt về lập trường, hòa giải và đàm phán xã hội chuẩn Shinkanzen N2:"*
 
 ---
 
-## 1. Danh Sách Từ Vựng Trọng Tâm Bài 03
+## 1. Bảng 25 Từ Vựng Trọng Tâm Bài 03 (Giáo Trình Shinkanzen Master N2)
 
-| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Kèm Hiragana) |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 1 | **関心（かんしん）** | かんしん | QUAN TÂM | Mối quan tâm, sự hứng thú | 環境（かんきょう）問題（もんだい）に関心（かんしん）を持（も）つ *(quan tâm vấn đề môi trường)* |
-| 2 | **立場（たちば）** | たちば | LẬP TRƯỜNG | Lập trường, vị thế, hoàn cảnh | 相手（あいて）の立場（たちば）に立（た）って考（かんが）える *(đặt mình vào vị trí đối phương)* |
-| 3 | **主張（しゅちょう）する** | しゅちょうする | CHỦ TRƯƠNG | Khẳng định, bảo vệ quan điểm | 自分（じぶん）の意見（いけん）を強（づよ）く主張（しゅちょう）する *(khẳng định mạnh mẽ ý kiến)* |
-| 4 | **対立（たいりつ）する** | たいりつする | ĐỐI LẬP | Đối đầu, xung đột ý kiến | 二（ふた）つの意見（いけん）が激（はげ）しく対立（たいりつ）する *(hai ý kiến đối chọi kịch liệt)* |
-| 5 | **妥協（だきょう）する** | だきょうする | THỎA HIỆP | Nhượng bộ, thỏa hiệp lẫn nhau | 互（たが）いに譲（ゆず）り合（あ）って妥協（だきょう）点（てん）を探（さが）す *(tìm điểm thỏa hiệp)* |
-| 6 | **配慮（はいりょ）する** | はいりょする | PHỐI LỰ | Quan tâm, chu đáo, để ý đến | 周囲（しゅうい）の人（ひと）への配慮（はいりょ）を欠（か）かさない *(không thiếu sự chu đáo)* |
-| 7 | **もめる** | もめる | xích mích | Tranh cãi, cãi vã, lùm xùm | 遺産（いさん）の配分（はいぶん）でもめる *(tranh chấp về chia chác tài sản)* |
-| 8 | **譲（ゆず）る** | ゆずる | NHƯỢNG | Nhường nhịn, bàn giao lại | お年寄（としよ）りに席（せき）を譲（ゆず）る *(nhường ghế cho người già)* |
-| 9 | **誤解（ごかい）を解（と）く** | ごかいをとく | NGỘ GIẢI | Xóa bỏ hiểu lầm | 話（はな）し合（あ）って誤解（ごかい）を解（と）く *(nói chuyện để hóa giải hiểu lầm)* |
-| 10 | **仲直（なかなお）り** | なかなおり | TRỌNG TRỰC | Làm lành, giảng hòa | 喧嘩（けんか）した友（とも）だちと仲直（なかなお）りする *(làm lành với bạn sau cãi nhau)* |
-| 11 | **口論（こうろん）する** | こうろんする | KHẨU LUẬN | Khẩu chiến, cãi vã to tiếng | 些細（ささい）なことで口論（こうろん）になる *(cãi vã vì chuyện cỏn con)* |
-| 12 | **偏見（へんけん）** | へんけん | THIÊN KIẾN | Định kiến, thành kiến hẹp hòi | 偏見（へんけん）を持（も）たずに接（せっ）する *(tiếp xúc mà không mang định kiến)* |
-
----
-
-## 2. Người Chị Giải Thích Cặn Kẽ Từng Từ & Cách Dùng
-
-### 💡 1. Cặp từ giải quyết bất đồng: `対立` vs `妥協`
-- Khi hai bên tranh cãi gay gắt, người ta dùng `対立（たいりつ）する` (đối đầu).
-- Để dập tắt mâu thuẫn, mỗi bên lùi một bước để `妥協（だきょう）する` (nhượng bộ lẫn nhau = `互いに譲り合う`). Đề thi cực kỳ thích hỏi câu đồng nghĩa này nha cưng!
-
-### 💡 2. Cụm từ vàng trong giao tiếp công sở: `配慮（はいりょ）する`
-- Nghĩa là suy nghĩ thấu đáo để không làm phiền hay tổn thương người khác.
-- Trong email công việc người Nhật hay viết: `ご配慮いただき、心より感謝申し上げます` *(Xin chân thành cảm ơn sự quan tâm chu đáo của quý công ty)*.
-
-### 💡 3. Thành ngữ: `相手の立場に立つ` (あいてのたちばにたつ)
-- Nghĩa đen là đứng vào vị trí của đối phương ➔ Biết đồng cảm, đặt mình vào hoàn cảnh của người khác.
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Collocation) |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | **関心（かんしん）** | QUAN TÂM | Mối quan tâm, hứng thú | 環境（かんきょう）に関心（かんしん）を持（も）つ |
+| 2 | **立場（たちば）** | LẬP TRƯỜNG | Lập trường, hoàn cảnh | 相手（あいて）の立場（たちば）に立（た）つ |
+| 3 | **主張（しゅちょう）する** | CHỦ TRƯƠNG | Khẳng định, bảo vệ quan điểm | 権利（けんり）を主張（しゅちょう）する |
+| 4 | **対立（たいりつ）する** | ĐỐI LẬP | Đối đầu, xung đột ý kiến | 意見（いけん）が対立（たいりつ）する |
+| 5 | **妥協（だきょう）する** | THỎA HIỆP | Nhượng bộ lẫn nhau | 妥協（だきょう）点（てん）を探（さが）す |
+| 6 | **配慮（はいりょ）する** | PHỐI LỰ | Quan tâm chu đáo | 周囲（しゅうい）に配慮（はいりょ）する |
+| 7 | **もめる** | xích mích | Tranh cãi, lùm xùm | 遺産（いさん）でもめる |
+| 8 | **譲（ゆず）る** | NHƯỢNG | Nhường nhịn | 席（せき）を譲（ゆず）る |
+| 9 | **誤解（ごかい）を解（と）く** | NGỘ GIẢI | Xóa bỏ hiểu lầm | 話（はな）して誤解（ごかい）を解（と）く |
+| 10 | **仲直（なかなお）り** | TRỌNG TRỰC | Làm lành giảng hòa | 喧嘩（けんか）のあと仲直（なかなお）りする |
+| 11 | **口論（こうろん）する** | KHẨU LUẬN | Khẩu chiến, cãi vã to tiếng | 些細（ささい）なことで口論（こうろん）する |
+| 12 | **偏見（へんけん）** | THIÊN KIẾN | Thành kiến, định kiến | 偏見（へんけん）を持（も）たない |
+| 13 | **当事者（とうじしゃ）** | ĐƯƠNG SỰ GIẢ | Người trong cuộc, các bên liên quan | 当事者（とうじしゃ）同士（どうし）で話（はな）し合（あ）う |
+| 14 | **仲裁（ちゅうさい）する** | TRỌNG TÀI | Đứng ra hòa giải | 喧嘩（けんか）を仲裁（ちゅうさい）する |
+| 15 | **食（く）い違（ちが）う** | THỰC VI | Bất đồng, cọc cạch không khớp | 証言（しょうげん）が食（く）い違（ちが）う |
+| 16 | **歩（あゆ）み寄（よ）る** | BỘ KÝ | Cùng xích lại gần, nhượng bộ | 互（たが）いに歩（あゆ）み寄（よ）る |
+| 17 | **紛争（ふんそう）** | PHÂN TRANH | Tranh chấp, xung đột quốc tế | 国境（こっきょう）の紛争（ふんそう） |
+| 18 | **衝突（しょうとつ）する** | XUNG ĐỘT | Đâm va, xung đột quan điểm | 意見（いけん）が衝突（しょうとつ）する |
+| 19 | **異論（いろん）** | DỊ LUẬN | Ý kiến phản đối, quan điểm khác | 異論（いろん）を唱（とな）える |
+| 20 | **満場（まんじょう）一致（いっち）** | MÃN TRƯỜNG NHẤT TRÍ | Đồng thuận 100%, nhất trí hoàn toàn | 満場（まんじょう）一致（いっち）で可決（かけつ）する |
+| 21 | **合意（ごうい）する** | HỢP Ý | Thống nhất, đạt thỏa thuận | 条件（じょうけん）に合意（ごうい）する |
+| 22 | **溝（みぞ）が深（ふか）まる** | CÂU THÂM | Hố ngăn cách ngày càng sâu | 二人の溝（みぞ）が深（ふか）まる |
+| 23 | **摩擦（まさつ）** | MA SÁT | Ma sát, xích mích va chạm | 貿易（ぼうえき）摩擦（まさつ） |
+| 24 | **根回（ねまわ）し** | CĂN HỒI | Vận động hành lang trước cuộc họp | 根回（ねまわ）しをしておく |
+| 25 | **見解（けんかい）** | KIẾN GIẢI | Quan điểm, cách nhìn nhận | 公式（こうしき）な見解（けんかい）を発表（はっぴょう）する |
 
 ---
 
-## 3. Lời Nhắn Nhủ Dễ Thương Của Chị
-> 💖 *"Em hãy nhẩm đọc 12 từ này 2 lần trước khi làm bài tập nhé! Chị tin bé sẽ nhớ như in từng từ một luôn nè!"*
+## 2. Người Chị Giải Thích Cặn Kẽ & Mẹo Nhớ Siêu Tốc
+> 💖 *Cụm `妥協する` đồng nghĩa với `互いに譲り合う` (nhượng bộ lẫn nhau), xuất hiện cực nhiều trong Mondai 4!*
+
+- **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!

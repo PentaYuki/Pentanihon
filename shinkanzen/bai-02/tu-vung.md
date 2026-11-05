@@ -1,41 +1,44 @@
 # 📖 Bài 02: Từ Vựng & Chữ Hán (語彙・漢字 - ごい・かんじ) - Shinkanzen N2
-## Chủ đề: Đời Sống Hàng Ngày & Việc Nhà (日常生活・家事 - にちじょうせいかつ・かじ)
+## Chủ đề: Đời Sống Hàng Ngày & Nhà Cửa (日常生活・家事 - にちじょうせいかつ・かじ)
 
 > 🌸 **Lời dặn của chị gái:**  
-> *"Bé ơi, chị đã thêm đầy đủ phiên âm Hiragana cho toàn bộ bảng từ vựng và các câu ví dụ mẫu của Bài 2 rồi nhé! Đọc từ vựng có sẵn Hiragana sẽ giúp em luyện phản xạ đọc nhanh gấp đôi luôn đó!"*
+> *"Chào bé cưng! Chủ đề nhà cửa và việc nhà có trọn bộ 25 từ đắt giá giúp em tự tin đọc hiểu hợp đồng thuê nhà và đời sống Nhật Bản:"*
 
 ---
 
-## 1. Danh Sách Từ Vựng Trọng Tâm Bài 02
+## 1. Bảng 25 Từ Vựng Trọng Tâm Bài 02 (Giáo Trình Shinkanzen Master N2)
 
-| STT | Từ vựng (Kanji) | Hiragana | Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Kèm Hiragana) |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 1 | **炊事（すいじ）** | すいじ | XUY SỰ | Việc bếp núc, nấu nướng | 炊事（すいじ）や洗濯（せんたく）に追（お）われる *(bận rộn cơm nước, giặt giũ)* |
-| 2 | **献立（こんだて）** | こんだて | HIẾN LẬP | Thực đơn, cơ cấu bữa ăn | 今日（きょう）の夕食（ゆうしょく）の献立（こんだて）を考（かんが）える *(nghĩ thực đơn tối)* |
-| 3 | **手際（てぎわ）** | てぎわ | THỦ TẾ | Kỹ năng, thao tác thoăn thoắt | 料理（りょうり）の手際（てぎわ）がいい *(thao tác nấu ăn thoăn thoắt)* |
-| 4 | **省（はぶ）く** | はぶく | TỈNH | Lược bỏ, cắt giảm (thời gian, công sức) | 手間（てま）を省（はぶ）く *(cắt giảm bớt công sức rườm rà)* |
-| 5 | **買（か）い出（だ）し** | かいだし | MÃI XUẤT | Mua sắm tích trữ số lượng lớn | 週末（しゅうまつ）にスーパーへ買（か）い出（だ）しに行（い）く *(cuối tuần đi siêu thị gom đồ sỉ)* |
-| 6 | **すすぐ** | すすぐ | tráng | Tráng nước, giũ sạch bọt xà phòng | 洗濯物（せんたくもの）を水（みず）ですすぐ *(giũ sạch quần áo bằng nước sạch)* |
-| 7 | **こする** | こする | cọ | Cọ rửa, chà xát bằng bàn chải/giẻ | 鍋（なべ）の焦（こ）げ付（つ）きをこすり落（お）とす *(cọ sạch vết cháy khét đáy nồi)* |
-| 8 | **散（ち）らかる** | ちらかる | TẢN | Bừa bộn, vương vãi lung tung | 部屋（へや）が散（ち）らかっている *(căn phòng bừa bộn như bãi chiến trường)* |
-| 9 | **粗大（そだい）ごみ** | そだいごみ | THÔ ĐẠI | Rác cồng kềnh (bàn, ghế, nệm...) | 粗大（そだい）ごみの回収（かいしゅう）を申（もう）し込（こ）む *(đăng ký thu gom rác cồng kềnh)* |
-| 10 | **買（か）い換（か）える** | かいかえる | MÃI HOÁN | Mua đồ mới thay thế đồ cũ | 古（ふる）くなった冷蔵庫（れいぞうこ）を買（か）い換（か）える *(mua tủ lạnh mới thay tủ cũ)* |
-| 11 | **重（かさ）なる** | かさなる | TRỌNG | Chồng chất, dồn dập kéo đến | 出費（しゅっぴ）が重（かさ）なる *(các khoản chi tiêu dồn dập kéo đến cùng lúc)* |
-| 12 | **やり繰（く）り** | やりくり | KHIỂN LAI | Khéo thu vén, liệu cơm gắp mắm | 給料（きゅうりょう）の中（なか）で家計（かけい）をやり繰（く）りする *(khéo thu vén chi tiêu)* |
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Collocation) |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | **炊事（すいじ）** | XUY SỰ | Việc bếp núc, nấu nướng | 毎朝（まいあさ）の炊事（すいじ） |
+| 2 | **献立（こんだて）** | HIẾN LẬP | Thực đơn, cơ cấu bữa ăn | 栄養（えいよう）バランスの良（よ）い献立（こんだて） |
+| 3 | **手際（てぎわ）** | THỦ TẾ | Kỹ năng xử lý thoăn thoắt | 料理（りょうり）の手際（てぎわ）がいい |
+| 4 | **省（はぶ）く** | TỈNH | Lược bỏ, cắt giảm bớt | 無駄（むだ）な手間（てま）を省（はぶ）く |
+| 5 | **買（か）い出（だ）し** | MÃI XUẤT | Mua sắm tích trữ số lượng lớn | スーパーへ買（か）い出（だ）しに行（い）く |
+| 6 | **すすぐ** | tráng | Tráng nước, giũ sạch xà phòng | 洗剤（せんざい）を水（みず）ですすぐ |
+| 7 | **こする** | cọ | Cọ rửa, chà xát | 鍋（なべ）の焦（こ）げ付（つ）きをこする |
+| 8 | **散（ち）らかる** | TẢN | Bừa bộn, vương vãi | 部屋（へや）が散（ち）らかる |
+| 9 | **粗大（そだい）ごみ** | THÔ ĐẠI | Rác cồng kềnh | 粗大（そだい）ごみシールを貼（は）る |
+| 10 | **買（か）い換（か）える** | MÃI HOÁN | Mua đồ mới thay đồ cũ | テレビを買（か）い換（か）える |
+| 11 | **重（かさ）なる** | TRỌNG | Chồng chất, dồn dập kéo đến | 不運（ふうん）が重（かさ）なる |
+| 12 | **やり繰（く）り** | KHIỂN LAI | Khéo thu vén chi tiêu | 家計（かけい）をやり繰（く）りする |
+| 13 | **敷金（しききん）** | PHU KIM | Tiền cọc thuê nhà | 敷金（しききん）2か月分（にかげつぶん） |
+| 14 | **礼金（れいきん）** | LỄ KIM | Tiền lễ tạ ơn chủ nhà | 礼金（れいきん）なしの物件（ぶっけん） |
+| 15 | **間取（まど）り** | GIAN THỦ | Sơ đồ bố trí phòng ốc | 間取（まど）り図（ず）を見（み）る |
+| 16 | **家賃（やちん）** | GIA THẢI | Tiền thuê nhà hàng tháng | 家賃（やちん）を振（ふ）り込（こ）む |
+| 17 | **築年数（ちくねんすう）** | TRÚC NIÊN SỐ | Số năm kể từ khi xây dựng | 築（ちく）10年（じゅうねん）のマンション |
+| 18 | **徒歩（とほ）** | ĐỒ BỘ | Đi bộ | 駅（えき）から徒歩（とほ）5分（ごふん） |
+| 19 | **日当（ひあ）たり** | NHẬT ĐƯƠNG | Ánh sáng mặt trời chiếu rọi | 日当（ひあ）たりが良（よ）い南向（みなみむ）き |
+| 20 | **水気（みずけ）** | THỦY KHÍ | Hơi nước, nước ẩm ướt | 水気（みずけ）を拭（ふ）き取（と）る |
+| 21 | **湿気（しっけ）** | THẤP KHÍ | Độ ẩm cao, nồm ẩm | 湿気（しっけ）がこもる |
+| 22 | **換気（かんき）する** | HOÁN KHÍ | Thông gió, mở cửa thoáng khí | 部屋（へや）を換気（かんき）する |
+| 23 | **生（なま）ごみ** | SINH | Rác thải hữu cơ đồ ăn | 生（なま）ごみを捨（す）てる |
+| 24 | **分別（ぶんべつ）** | PHÂN BIỆT | Phân loại rác theo quy định | ごみを分別（ぶんべつ）する |
+| 25 | **物干（ものほ）し** | VẬT CAN | Dây phơi, chỗ phơi đồ | 物干（ものほ）し竿（ざお）に干（ほ）す |
 
 ---
 
-## 2. Người Chị Giải Thích Cặn Kẽ Từng Từ & Cách Dùng (Kèm Hiragana)
+## 2. Người Chị Giải Thích Cặn Kẽ & Mẹo Nhớ Siêu Tốc
+> 💖 *Phân biệt kỹ `敷金` (tiền cọc hoàn lại khi trả nhà) và `礼金` (tiền biếu chủ nhà một đi không trở lại) nhé cưng!*
 
-### 💡 1. Khen ngợi ai đó tháo vát: `手際（てぎわ）がいい`
-- `手（て）` là bàn tay, `際（ぎわ）` là ranh giới xử lý. `手際（てぎわ）がいい` miêu tả người làm việc cực kỳ ngăn nắp, nhanh nhẹn, đâu ra đấy mà không tốn sức thừa.
-- 👩‍🏫 *Ví dụ của chị:*  
-  母（はは）は**手際（てぎわ）よく**、わずか30分（さんじゅっぷん）で4品（よんひん）もの料理（りょうり）を作（つく）った。  
-  *(Mẹ thoăn thoắt khéo léo, chỉ trong vỏn vẹn 30 phút đã nấu xong 4 món ăn.)*
-
-### 💡 2. Cặp từ dọn dẹp nhà cửa: `散（ち）らかる` vs `片付（かたづ）ける`
-- `散（ち）らかる` (ちらかる): Là tự động từ miêu tả trạng thái bừa bãi.
-- `片付（かたづ）ける` (かたづける): Dọn dẹp cho gọn gàng lại.
-
-### 💡 3. Từ siêu thực tế ở Nhật: `粗大（そだい）ごみ`
-- Ở Nhật, những đồ to như nệm, tủ quần áo, xe đạp gọi là `粗大（そだい）ごみ`. Muốn vứt phải mua tem (シール) dán vào và gọi điện đặt lịch hẹn. Đề thi đọc hiểu rất hay ra bài về cách phân loại rác này đó bé!
+- **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
