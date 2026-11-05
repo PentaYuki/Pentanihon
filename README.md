@@ -17,7 +17,7 @@ Chào mừng bạn đến với **Pentanihon** – dự án học tiếng Nhật
 - 🌸 **Đồng hành cùng Chị Gái Dễ Thương:** Giọng văn chỉ bảo ân cần, hóm hỉnh, phân tích sắc thái tâm lý người Nhật, mẹo nhớ đời và chỉ điểm các cạm bẫy trắc nghiệm hay gặp.
 - 🔤 **Phiên âm Hiragana 100%:** Mọi chữ Hán trong câu ví dụ, hội thoại nghe, bài đọc hiểu và đề thi trắc nghiệm đều được chú thích Hiragana `漢字（かんじ）` để người học đọc mượt mà, không bị khựng lại.
 - 🎧 **Dữ liệu Nghe sẵn sàng cho Tool Audio (TTS-Ready):** Toàn bộ file kịch bản nghe đều có cấu trúc trường rõ ràng (`track_id`, `speakers: ["Narrator", "Man", "Woman"]`) giúp dễ dàng lập trình bot đọc audio hoặc tích hợp ứng dụng di động.
-- 📖 **Storytelling Mỗi Ngày (`story/`):** Những mẩu chuyện ngắn giàu cảm xúc về đời sống Tokyo, góc phố mùa thu, chuyến tàu đêm... lồng ghép khéo léo các điểm ngữ pháp N2, có kèm bài tập đọc hiểu và bài học nhân sinh.
+- 📖 **Series Dài Tập Nhật Ngữ (`story/`):** Bộ truyện dài tập chính thức **「東京（とうきょう）あおぞら物語（ものがたり）」** (*Câu Chuyện Bầu Trời Xanh Tokyo - Quyển Sổ Ước Mơ Của Ren Và Chị Yuki*). Cốt truyện liên hoàn nhiều tập, lồng ghép khéo léo ngữ pháp N2, từ vựng đắt giá và câu hỏi đọc hiểu Dokkai kịch tính.
 - ⏰ **Tự Động Hóa & Đặt Lịch:** Tích hợp script [**`daily_study_scheduler.py`**](./scripts/daily_study_scheduler.py) và **GitHub Actions Workflow** tự động chạy lịch học mỗi ngày.
 
 ---
@@ -44,13 +44,18 @@ Pentanihon/
 │   │   └── luyen-tap.md               # Trắc nghiệm, bài tập dấu sao (★), đáp án
 │   ├── bai-02/                        # Bài 02: Phạm vi & Giới hạn (範囲・起点)
 │   └── ... (đến bai-25/)              # Đầy đủ trọn bộ từ Bài 01 đến Bài 25!
-├── story/                             # Chuyên mục Mỗi Ngày Một Câu Chuyện
-│   ├── README.md                      # Mục lục và hướng dẫn học qua truyện kể
-│   ├── story-01_tiem_banh_mua_thu.md  # Tiệm bánh mì mùa thu & Cuộc gặp định mệnh
-│   ├── story-02_chuyen_tau_dem.md     # Chuyến tàu đêm & Tấm vé đến ngày mai
-│   └── story-03_quan_ca_phe_ngay_mua.md# Quán cà phê ngày mưa & Chiếc ô bỏ quên
+├── story/                             # Series Dài Tập: Tokyo Aozora Monogatari
+│   ├── README.md                      # Mục lục, sơ đồ nhân vật & hướng dẫn học
+│   ├── series-01_tap-01_chiec_vali_ga_tokyo.md  # Tập 01: Chiếc Vali Ở Ga Tokyo
+│   ├── series-01_tap-02_tach_ca_phe_aozora.md   # Tập 02: Hương Cà Phê & Lời Hứa Ban Đầu
+│   ├── series-01_tap-03_ong_lao_pho_sach.md     # Tập 03: Ông Lão Phố Sách Cổ & Bản CV
+│   ├── series-01_tap-04_con_mua_shibuya.md      # Tập 04: Cơn Mưa Rào Shibuya & Cuộc Gặp Gỡ
+│   ├── series-01_tap-05_canh_cua_phong_van.md   # Tập 05: Cánh Cửa Phỏng Vấn Vòng Một
+│   ├── series-01_tap-06_dem_dong_jimbocho.md    # Tập 06: Đêm Đông Jimbocho & Ký Ức Chị Yuki
+│   └── oneshots/                      # Lưu trữ các truyện ngắn độc lập trước đây
 └── scripts/
-    └── daily_study_scheduler.py       # Script quản lý tiến độ và lịch học hàng ngày
+    ├── daily_study_scheduler.py       # Script quản lý tiến độ và lịch học hàng ngày
+    └── generate_daily_story.py        # Engine tự động xuất bản tập tiếp theo của Series
 ```
 
 ---
@@ -67,15 +72,15 @@ Pentanihon/
 
 ---
 
-## ☕ Góc Truyện Kể Hàng Ngày (`story/`)
+## ☕ Series Dài Tập: 「東京（とうきょう）あおぞら物語（ものがたり）」 (`story/`)
 
-Mỗi ngày mở một câu chuyện ngắn:
-1. Đọc văn bản tiếng Nhật có phiên âm Hiragana.
-2. Cảm nhận bản dịch tiếng Việt giàu cảm xúc.
-3. Ôn lại cấu trúc ngữ pháp N2 xuất hiện tự nhiên trong bài.
-4. Trả lời câu hỏi đọc hiểu và lắng nghe lời dặn dò dịu dàng của chị gái.
+Thay vì những đoạn văn nhỏ rời rạc, dự án phát hành theo **Series phim truyền hình dài tập**:
+1. **Theo chân nhân vật xuyên suốt:** Ren (kỹ sư IT trẻ) và chị Yuki (chủ quán cà phê sách Jimbocho).
+2. **Cốt truyện liền mạch:** Từng tập có phần tóm tắt tập trước (`前回のあらすじ`) và hé lộ tập sau (`次回予告`).
+3. **Thấm nhuần ngữ pháp N2 tự nhiên:** 4-5 mẫu ngữ pháp thực tế được đan cài khéo léo trong lời thoại.
+4. **Luyện đọc hiểu Dokkai:** Câu hỏi trắc nghiệm kiểm tra độ sâu sắc của việc cảm thụ văn bản.
 
-👉 Khám phá danh sách truyện tại: [**`story/README.md`**](./story/README.md)
+👉 Khám phá sơ đồ nhân vật & toàn bộ các tập tại: [**`story/README.md`**](./story/README.md)
 
 ---
 

@@ -1,28 +1,55 @@
-# 📖 Mỗi Ngày Một Câu Chuyện Nhật Ngữ Cùng Chị Gái (デイリー・ストーリー)
+# 🌸 Seri Dài Tập: 「東京（とうきょう）あおぞら物語（ものがたり）」
+### *(Câu Chuyện Bầu Trời Xanh Tokyo - Quyển Sổ Ước Mơ Của Ren Và Chị Yuki)*
 
-Chào mừng bé cưng đến với góc nhỏ **"Mỗi ngày một câu chuyện"**! 🌸
-
-Học tiếng Nhật qua câu chuyện thực tế (Storytelling) là phương pháp tốt nhất giúp em:
-1. **Thấm nhuần ngữ pháp N2 một cách tự nhiên**, không bị cảm giác học vẹt công thức.
-2. **Nâng cao vốn từ vựng và quán dụng ngữ** trong ngữ cảnh đời sống thường nhật của người Nhật.
-3. **Rèn luyện kỹ năng Đọc hiểu Dokkai** qua các câu hỏi trắc nghiệm đúc kết từ nội dung bài viết.
-4. **Được chị gái đồng hành mỗi ngày**, truyền động lực và nhắn nhủ những bài học nhân sinh dịu dàng.
+Chào mừng bé cưng đến với bộ truyện dài tập chính thức của **PentaNihon**! ☕📖  
+Thay vì những mẩu chuyện nhỏ rời rạc, từ nay mỗi ngày chúng ta sẽ cùng theo chân **Ren** và **chị Yuki** trải qua từng chặng đường phấn đấu, vượt khó, học tập và trưởng thành giữa lòng thủ đô Tokyo hoa lệ.
 
 ---
 
-## 📚 Danh Sách Các Câu Chuyện Hàng Ngày
+## 👥 Tuyến Nhân Vật Chính Xuyên Suốt Series
 
-| Số | Tên câu chuyện (Nhật - Việt) | Ngữ pháp N2 trọng tâm | Trạng thái |
+```mermaid
+graph TD
+    Ren["👦 Ren (22 tuổi)<br>Chàng kỹ sư IT trẻ mới sang Tokyo<br>Mục tiêu: Đỗ JLPT N2 & Tìm việc làm"]
+    Yuki["🌸 Chị Yuki (26 tuổi)<br>Chị gái dịu dàng, chủ quán cà phê sách Aozora<br>Chỗ dựa tinh thần & cô giáo tiếng Nhật của Ren"]
+    Tanaka["👴 Ông Tanaka (70 tuổi)<br>Cựu biên tập viên xuất bản danh tiếng<br>Người thông thái phố sách cổ Jimbocho"]
+    Aoi["👧 Aoi (22 tuổi)<br>Bạn đồng môn cùng phỏng vấn xin việc<br>Thông minh, nhiệt huyết nhưng hay tự ti"]
+
+    Ren <-->|Chị em thân thiết, cùng học tiếng Nhật| Yuki
+    Ren <-->|Học hỏi kinh nghiệm đời & văn phong| Tanaka
+    Ren <-->|Đồng đội sát cánh vượt qua kỳ thi & phỏng vấn| Aoi
+    Yuki <-->|Khách quen lâu năm của quán| Tanaka
+```
+
+---
+
+## 🗺️ Cốt Truyện Toàn Cảnh (Storyline Overview)
+
+- **Phần 1: Khởi Đầu Mới Nơi Phố Sách Jimbocho (Tập 01 - Tập 07)**  
+  Ren đặt chân đến Tokyo với chiếc vali trĩu nặng và nỗi lo toan. Cậu tìm thấy mái nhà ấm áp tại quán cà phê sách *Aozora* của chị Yuki, bắt đầu hành trình học tiếng Nhật N2 thực chiến và viết bản sơ yếu lý lịch đầu tiên.
+- **Phần 2: Thử Thách Phỏng Vấn & Kỳ Thi Mùa Đông (Tập 08 - Tập 15)**  
+  Những vòng phỏng vấn cân não tại Akihabara, những đêm thức trắng giải đề Shinkanzen, tình bạn với Aoi và những bài học ứng xử công sở Nhật Bản từ ông Tanaka.
+- **Phần 3: Vươn Ra Biển Lớn (Tập 16+)**  
+  Ngày nhận thư mời nhận việc (Naitei), ngày nhận kết quả thi JLPT và chặng đường mới dưới bầu trời xanh Tokyo.
+
+---
+
+## 📚 Danh Sách Các Tập Truyện Đang Phát Hành (Mỗi Ngày 1 Tập)
+
+| Tập | Tên tập phim (Nhật - Việt) | Ngữ pháp N2 trọng tâm | Tình trạng |
 | :---: | :--- | :--- | :---: |
-| 01 | [**秋のパン屋と一期一会の出会い**<br>*(Tiệm bánh mì mùa thu & Cuộc gặp gỡ định mệnh)*](./story-01_tiem_banh_mua_thu.md) | `〜際して`, `〜たとたん`, `〜てたまらない`, `〜に違いない` | ✅ Hoàn thành |
-| 02 | [**夜行列車と明日への切符**<br>*(Chuyến tàu đêm & Tấm vé đến tương lai)*](./story-02_chuyen_tau_dem.md) | `〜ものなら`, `〜からこそ`, `〜ざるを得ない`, `〜にすぎない` | ✅ Hoàn thành |
-| 03 | [**雨音のカフェと忘れ物の傘**<br>*(Quán cà phê ngày mưa & Chiếc ô bỏ quên)*](./story-03_quan_ca_phe_ngay_mua.md) | `〜を契機に`, `〜にもかかわらず`, `〜わけにはいかない`, `〜つつ` | ✅ Hoàn thành |
-| 04 | [**遅咲（おそざ）きの桜（さくら）と新（あたら）しい旅立（たびだ）ち**<br>*(Hoa Anh Đào Nở Muộn Và Chuyến Khởi Hành Mới)*](./story-04_hoa_anh_dao_no_muon.md) | `〜にほかならない, 〜どころか, 〜にすぎない, 〜からこそ` | ✅ Hoàn thành |
+| **01** | [**東京（とうきょう）駅（えき）のスーツケース**<br>*(Chiếc Vali Ở Ga Tokyo)*](./series-01_tap-01_chiec_vali_ga_tokyo.md) | `〜際して`, `〜たとたん`, `〜てたまらない`, `〜にほかならない` | ✅ Đã phát hành |
+| **02** | [**珈琲（コーヒー）の香（かお）りと最初（さいしょ）の約束（やくそく）**<br>*(Hương Cà Phê Và Lời Hứa Ban Đầu)*](./series-01_tap-02_tach_ca_phe_aozora.md) | `〜からこそ`, `〜ものなら`, `〜わけにはいかない`, `〜つつある` | ✅ Đã phát hành |
+| **03** | [**古書店街（こしょてんがい）の老人（ろうじん）と履歴書（りれきしょ）**<br>*(Ông Lão Phố Sách Cổ & Bản Sơ Yếu Lý Lịch)*](./series-01_tap-03_ong_lao_pho_sach.md) | `〜を契機に`, `〜にもかかわらず`, `〜どころか`, `〜にすぎない` | ✅ Đã phát hành |
+| **04** | [**渋谷（しぶや）の夕立（ゆうだち）と偶然（ぐうぜん）の再会（さいかい）**<br>*(Cơn Mưa Rào Shibuya & Cuộc Gặp Gỡ Bất Ngờ)*](./series-01_tap-04_con_mua_shibuya.md) | `〜一方（で）`, `〜ざるを得ない`, `〜に違いない`, `〜まい` | ✅ Đã phát hành |
+| **05** | [**一次（いちじ）面接（めんせつ）の扉（とびら）を開（あ）けて**<br>*(Cánh Cửa Phỏng Vấn Vòng Một)*](./series-01_tap-05_canh_cua_phong_van.md) | `〜に応じて`, `〜限り`, `〜抜く`, `〜末に` | ✅ Đã phát hành |
+| **06** | [**神保町（じんぼうちょう）の冬（ふゆ）の夜（よる）とユキ姉（ねえ）の過去（かこ）**<br>*(Đêm Đông Jimbocho & Ký Ức Của Chị Yuki)*](./series-01_tap-06_dem_dong_jimbocho.md) | `〜にほかならない, 〜どころか, 〜にすぎない, 〜からこそ` | ✅ Đã phát hành |
 
 ---
 
-### 💡 Quy trình đọc chuyện mỗi ngày của chị:
-1. **Lần 1:** Đọc lướt toàn bộ câu chuyện tiếng Nhật (chú ý phiên âm Hiragana) để cảm nhận nội dung.
-2. **Lần 2:** Đọc bản dịch tiếng Việt để hiểu sâu sắc từng cảm xúc của nhân vật.
-3. **Lần 3:** Đọc kỹ phần **Giải thích ngữ pháp N2** và **Từ vựng hay** mà chị đã ghi chú.
-4. **Lần 4:** Trả lời các **Câu hỏi luyện tập** ở cuối bài để tự kiểm tra mức độ hiểu bài nha!
+### 🗄️ Lưu Trữ Các Mẩu Truyện Ngắn Cũ (One-shots)
+Các câu chuyện độc lập trước đây đã được lưu trữ an toàn tại thư mục [story/oneshots/](./oneshots/):
+- [秋のパン屋と一期一会の出会い (Tiệm bánh mì mùa thu)](./oneshots/story-01_tiem_banh_mua_thu.md)
+- [夜行列車と明日への切符 (Chuyến tàu đêm)](./oneshots/story-02_chuyen_tau_dem.md)
+- [雨音のカフェと忘れ物の傘 (Quán cà phê ngày mưa)](./oneshots/story-03_quan_ca_phe_ngay_mua.md)
+- [遅咲きの桜と新しい旅立ち (Hoa anh đào nở muộn)](./oneshots/story-04_hoa_anh_dao_no_muon.md)

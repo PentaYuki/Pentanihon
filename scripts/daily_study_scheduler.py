@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 PentaNihon Daily Study Scheduler & Story Automation
 Quản lý lịch học 25 bài Shinkanzen và tạo câu chuyện mỗi ngày.
@@ -12,7 +13,7 @@ STORY_DIR = os.path.join(WORKSPACE_DIR, 'story')
 
 def get_study_status():
     lessons = sorted([d for d in os.listdir(SHINKANZEN_DIR) if d.startswith('bai-')])
-    stories = sorted([f for f in os.listdir(STORY_DIR) if f.startswith('story-')])
+    stories = sorted([f for f in os.listdir(STORY_DIR) if (f.startswith('series-') or f.startswith('story-') or f.startswith('tap-')) and f.endswith('.md')])
     return lessons, stories
 
 def display_daily_dashboard():
@@ -22,10 +23,10 @@ def display_daily_dashboard():
     print(f"🌸 PENTANIHONGO - LỊCH HỌC NHẬT NGỮ HÔM NAY ({now.strftime('%d/%m/%Y')}) 🌸")
     print("=" * 60)
     print(f"📚 Tổng số bài Shinkanzen Master N2 đã sẵn sàng: {len(lessons)}/25 bài")
-    print(f"📖 Tổng số câu chuyện đã phát hành: {len(stories)} câu chuyện")
+    print(f"📖 Tổng số tập Series Bầu Trời Xanh Tokyo đã phát hành: {len(stories)} tập")
     print("-" * 60)
-    print("💡 Lời dặn của chị gái:")
-    print("   'Bé ngoan mỗi ngày dành 30 phút luyện 1 bài Shinkanzen và đọc 1 câu chuyện nhé!'")
+    print("💡 Lời dặn của chị Yuki:")
+    print("   'Bé cưng mỗi ngày nhớ dành 30 phút luyện 1 bài Shinkanzen và theo dõi 1 tập phim Tokyo nhé!'")
     print("=" * 60)
 
 if __name__ == '__main__':
