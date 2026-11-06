@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **健**: Kun `健（すこ）やか` = khỏe mạnh (văn viết).
+- **患**: `患者（かんじゃ）` / `疾患（しっかん）`; Kun `患（わずら）う` (mắc bệnh) ≠ `煩（わずら）う` (phiền muộn).
+- **療**: `治療（ちりょう）` / `医療（いりょう）` / `療養（りょうよう）` — đều `リョウ`.
+- **康**: hầu như chỉ gặp trong `健康（けんこう）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

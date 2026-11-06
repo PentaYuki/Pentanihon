@@ -19,3 +19,18 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **創**: `創造（そうぞう）` / `独創（どくそう）`; Kun `創（つく）る` (ít dùng, thường viết `作る`).
+- **科**: `科学（かがく）` / `教科書（きょうかしょ）` / `外科（げか）`.
+- **技 / 術**: ôn lại Bài 16.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

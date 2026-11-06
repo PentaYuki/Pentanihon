@@ -75,3 +75,21 @@
 
 5. 自然（しぜん）の**恩恵（おんけい）**に感謝（かんしゃ）しながら、日々（ひび）の生活（せいかつ）を送（おく）る。  
    *(Vừa cảm tạ ân huệ của thiên nhiên, vừa tận hưởng cuộc sống mỗi ngày.)*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **訪**: `訪（たず）ねる` (đến thăm ai, chủ động) vs `訪（おとず）れる` (ghé thăm / mùa đến: `春（はる）が訪（おとず）れる`).
+- **伴**: âm On có 2 cách: `同伴（どうはん）` nhưng `伴奏（ばんそう）`. Kun: `伴（ともな）う`.
+- **礼**: thường đọc `レイ`, nhưng `礼賛（らいさん）` đọc `ライ`.
+- **恵**: `恩恵（おんけい）` đọc `ケイ`, nhưng `知恵（ちえ）` đọc `エ` — bẫy Mondai 1 kinh điển.
+- **嫌**: `嫌悪（けんお）` đọc `ケン`, nhưng `機嫌（きげん）` đọc `ゲン`. Kun: `嫌（きら）う` / `嫌（いや）`.
+- **断**: `断（ことわ）る` (từ chối) vs `断（た）つ` (cắt đứt: `連絡（れんらく）を断（た）つ`).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

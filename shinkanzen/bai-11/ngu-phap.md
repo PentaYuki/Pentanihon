@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜ものの**: "tuy đã… nhưng" — vế trước là sự thật, vế sau không như mong đợi: `免許（めんきょ）は取（と）ったものの、運転（うんてん）する機会（きかい）がない`.
+- **〜にもかかわらず**: kết quả trái lẽ thường, thường bất ngờ; văn viết; không dùng cho nhờ vả/ý chí ở vế sau.
+- **〜といえども**: "dẫu là (người/vật đặc biệt) thì cũng": `プロといえども失敗（しっぱい）する`.
+- **〜からといって**: "không phải cứ… là" → vế sau thường `〜わけではない・〜とは限（かぎ）らない`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. お金（かね）がある（　　）、幸（しあわ）せだとは限（かぎ）らない。（からといって／ものの）
+   <details><summary>Xem đáp án</summary>からといって — đi với とは限らない.</details>
+2. 新（あたら）しい靴（くつ）を買（か）った（　　）、まだ一度（いちど）もはいていない。（ものの／といえども）
+   <details><summary>Xem đáp án</summary>ものの — tuy đã mua nhưng.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

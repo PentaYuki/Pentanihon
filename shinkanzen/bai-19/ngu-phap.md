@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜べきだ**: "nên" (đạo lý, ý kiến người nói). `する → すべき`. Phủ định `べきではない`.
+- **〜ざるを得ない**: "buộc phải" (bất đắc dĩ). `する → せざるを得（え）ない`.
+- **〜に越したことはない**: "tốt nhất là… (đương nhiên)": `安（やす）いに越（こ）したことはない`.
+- **〜ものだ**: (1) lẽ thường (`人（ひと）は変（か）わるものだ`); (2) hồi tưởng (`よく遊（あそ）んだものだ`); (3) cảm thán.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 上司（じょうし）の命令（めいれい）なので、行（い）か（　　）。（ざるを得ない／べきだ）
+   <details><summary>Xem đáp án</summary>ざるを得ない — bất đắc dĩ.</details>
+2. 健康（けんこう）のためには、早寝（はやね）早起（はやお）きする（　　）。（に越したことはない／ものだ）
+   <details><summary>Xem đáp án</summary>に越したことはない — tốt nhất là.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

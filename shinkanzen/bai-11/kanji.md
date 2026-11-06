@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **務**: ⚠️ ba chữ `つとめる`: `務（つと）める` (đảm nhận vai trò) / `勤（つと）める` (làm việc ở công ty) / `努（つと）める` (nỗ lực). Mondai 2 rất hay ra.
+- **業**: `職業（しょくぎょう）` đọc `ギョウ`, nhưng `自業自得（じごうじとく）` đọc `ゴウ`; Kun `業（わざ）`.
+- **責**: `責任（せきにん）` / `責（せ）める` (trách móc).
+- **職**: `就職（しゅうしょく）` / `職場（しょくば）` / `職人（しょくにん）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

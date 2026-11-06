@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜ことだ**: lời khuyên **trực tiếp, cụ thể** (thường người trên nói): `毎日（まいにち）練習（れんしゅう）することだ`.
+- **〜ものだ / 〜ものではない**: khuyên theo **lẽ thường xã hội**: `人（ひと）の悪口（わるくち）を言（い）うものではない`.
+- **〜てはどうか**: đề xuất lịch sự, văn viết.
+- **〜たらどうか**: hội thoại; giọng điệu có thể hơi trách (`早（はや）く寝（ね）たらどう？`).
+- ⚠️ **Cặp dễ nhầm:** `ことだ` (khuyên cá nhân) vs `ものだ` (đạo lý chung).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 合格（ごうかく）したければ、毎日（まいにち）練習（れんしゅう）する（　　）。（ことだ／ものではない）
+   <details><summary>Xem đáp án</summary>ことだ — lời khuyên cụ thể.</details>
+2. 目上（めうえ）の人（ひと）にそんな口（くち）をきく（　　）。（ものではない／ことだ）
+   <details><summary>Xem đáp án</summary>ものではない — lẽ thường xã hội.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

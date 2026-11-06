@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜ばかりか / 〜ばかりでなく**: vế sau thường có `も・まで・さえ`, mức độ **tăng tiến**. Vế sau không dùng mệnh lệnh/ý chí (khi đó dùng `だけでなく`).
+- **〜のみならず**: văn viết của `だけでなく`. Sau câu: `Na / N + である + のみならず`.
+- **〜に限らず**: chỉ đi với **danh từ**; vế sau là phạm vi rộng (`誰（だれ）でも`, `どこでも`, `〜も`).
+- **〜上（うえ）に**: hai ý **cùng chiều** (tốt + tốt / xấu + xấu). ✗ `安（やす）い上（うえ）にまずい`. Nối: `Na-な / N-である + 上に`.
+- ⚠️ **Bẫy:** `上（うえ）に` (thêm vào đó) ≠ `上（うえ）で` (sau khi làm…/ về mặt…).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. この店（みせ）は安（やす）い（　　）、味（あじ）もいい。（上に／に限らず）
+   <details><summary>Xem đáp án</summary>上に — hai ý tốt cùng chiều.</details>
+2. この問題（もんだい）は日本（にほん）（　　）、世界中（せかいじゅう）で起（お）きている。（に限らず／上に）
+   <details><summary>Xem đáp án</summary>に限らず — sau danh từ, mở rộng phạm vi.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

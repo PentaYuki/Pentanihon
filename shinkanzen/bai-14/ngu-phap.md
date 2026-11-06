@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜を契機に**: văn viết, cho **bước ngoặt lớn** (xã hội, sự nghiệp).
+- **〜をきっかけに**: khẩu ngữ, dùng cho mọi cơ duyên, kể cả nhỏ.
+- **〜を皮切りに**: mở màn cho **chuỗi sự kiện liên tiếp**: `東京（とうきょう）公演（こうえん）を皮切（かわき）りに全国（ぜんこく）ツアー`.
+- **〜を機に**: "nhân dịp" → thường là **chủ động thay đổi**: `退職（たいしょく）を機（き）に田舎（いなか）へ引（ひ）っ越（こ）す`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 大阪（おおさか）公演（こうえん）（　　）、全国（ぜんこく）10都市（とし）を回（まわ）る。（を皮切りに／を機に）
+   <details><summary>Xem đáp án</summary>を皮切りに — mở đầu chuỗi sự kiện.</details>
+2. 結婚（けっこん）（　　）、タバコをやめた。（を機に／を皮切りに）
+   <details><summary>Xem đáp án</summary>を機に — nhân dịp, chủ động thay đổi.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

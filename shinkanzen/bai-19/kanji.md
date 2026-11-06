@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **教**: `教（おし）える` (dạy) vs `教（おそ）わる` (được dạy).
+- **育**: `育（そだ）てる` / `育（そだ）つ` / `育（はぐく）む`.
+- **訓**: `訓練（くんれん）` / `教訓（きょうくん）` / `訓読（くんよ）み`.
+- **導**: ôn lại Bài 10: `導（みちび）く`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

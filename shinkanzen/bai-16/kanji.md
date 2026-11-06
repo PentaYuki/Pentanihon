@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **技**: Kun `技（わざ）` (kỹ thuật) ≠ `業（わざ）` (việc làm, nghiệp).
+- **演**: `演奏（えんそう）` / `演出（えんしゅつ）` / `公演（こうえん）`.
+- **芸**: `芸術（げいじゅつ）` / `芸能（げいのう）` / `園芸（えんげい）`.
+- **術**: `技術（ぎじゅつ）` / `手術（しゅじゅつ）` / `美術（びじゅつ）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

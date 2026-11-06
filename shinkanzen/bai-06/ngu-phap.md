@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜に限って**: (1) "đúng lúc… thì lại" (xui): `急（いそ）いでいる時（とき）に限（かぎ）って電車（でんしゃ）が遅（おく）れる`; (2) "riêng… thì chắc chắn không": `うちの子（こ）に限（かぎ）ってそんなことはしない`.
+- **〜のみ**: văn viết của `だけ`, hay gặp trong thông báo: `会員（かいいん）のみ`, `現金（げんきん）のみ`.
+- **〜にとどまらず**: vượt ra ngoài phạm vi: `国内（こくない）にとどまらず海外（かいがい）でも`.
+- **〜にすぎない**: "chẳng qua chỉ là" → đánh giá **thấp**; hay đi với `ただ・単（たん）なる`.
+- ⚠️ **Cặp đối nghĩa:** `に限って` (chỉ riêng) ↔ `に限らず` (không chỉ riêng – Bài 05).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 傘（かさ）を持（も）っていない日（ひ）（　　）雨（あめ）が降（ふ）る。（に限って／にとどまらず）
+   <details><summary>Xem đáp án</summary>に限って — đúng hôm đó lại xui.</details>
+2. それは単（たん）なる噂（うわさ）（　　）。（にすぎない／に限らない）
+   <details><summary>Xem đáp án</summary>にすぎない — chỉ là tin đồn.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

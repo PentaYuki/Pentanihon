@@ -42,3 +42,18 @@
 > 💖 *Cụm `経験不問` (không đòi hỏi kinh nghiệm) và `一律に` (đồng loạt như nhau) cực hay xuất hiện trong bài đọc thông tin quảng cáo!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `一律（いちりつ）に` ≈ `同（おな）じように` ／ `不問（ふもん）` ≈ `問題（もんだい）にしない` ／ `妥当（だとう）な` ≈ `適切（てきせつ）な` ／ `容認（ようにん）する` ≈ `認（みと）める`.
+- **公平 vs 公正:** `公平（こうへい）` = chia đều, không thiên vị; `公正（こうせい）` = đúng đắn, minh bạch (giao dịch, xét xử).
+- `順守（じゅんしゅ）` và `遵守（じゅんしゅ）` là **cùng một từ**, hai cách viết — đừng tưởng là hai từ khác nhau.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

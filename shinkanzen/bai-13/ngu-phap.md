@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜に伴って**: thay đổi kéo theo (văn viết); `N / V-る + の` + `に伴（ともな）って`. Còn nghĩa "đi kèm" không cần biến đổi.
+- **〜につれて**: A thay đổi dần → B thay đổi dần; vế sau không dùng ý chí/mệnh lệnh.
+- **〜にしたがって**: giống `につれて`, nhưng còn nghĩa "làm theo": `指示（しじ）にしたがって` (lúc này **không** có ý biến đổi).
+- **〜一方（いっぽう）だ**: "ngày càng" (một chiều, thường tiêu cực): `悪（わる）くなる一方（いっぽう）だ`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 年（とし）をとる（　　）、体力（たいりょく）が落（お）ちる。（につれて／一方だ）
+   <details><summary>Xem đáp án</summary>につれて — thay đổi song song.</details>
+2. 物価（ぶっか）は上（あ）がる（　　）。（一方だ／に伴って）
+   <details><summary>Xem đáp án</summary>一方だ — ngày càng tăng.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

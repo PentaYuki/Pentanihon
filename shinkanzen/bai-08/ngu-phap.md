@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜にしては**: so với tiêu chuẩn của **một đối tượng cụ thể** (`N / V`): `初心者（しょしんしゃ）にしては上手（じょうず）だ`. Không đi với tính từ.
+- **〜わりに（は）**: so với **mức độ** (tuổi, giá, công sức): `値段（ねだん）のわりにおいしい`. Đi được với `Aい / Na-な / Nの`.
+- **〜くせに**: chê trách, bực bội; **hai vế cùng chủ ngữ**; không dùng cho bản thân.
+- **〜に基づいて / 〜に基づいた N**: dựa trên căn cứ (`データ・経験（けいけん）・法律（ほうりつ）`).
+- ⚠️ **Cặp dễ nhầm:** `小学生（しょうがくせい）にしては` (danh từ cụ thể) vs `年（とし）のわりに` (mức độ).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 知（し）っている（　　）、教（おし）えてくれない。（くせに／に基づいて）
+   <details><summary>Xem đáp án</summary>くせに — trách móc.</details>
+2. 調査（ちょうさ）結果（けっか）（　　）計画（けいかく）を立（た）てる。（に基づいて／わりに）
+   <details><summary>Xem đáp án</summary>に基づいて — dựa trên căn cứ.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **末**: thường `マツ` (`週末（しゅうまつ）`), nhưng `末子（ばっし）` đọc `バツ`; Kun `末（すえ）`.
+- **結**: `結（むす）ぶ` / `結（ゆ）う` (búi tóc); `結論（けつろん）`.
+- **果**: `果（は）たす` (hoàn thành: `役割（やくわり）を果（は）たす`) / `果（は）てる` (tận cùng).
+- **終**: `終（お）わる` / `終（お）える`; `終了（しゅうりょう）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

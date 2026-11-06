@@ -42,3 +42,18 @@
 > 💖 *Từ `継承` (kế thừa truyền thống) và `伝承` (lưu truyền đời này sang đời khác) là chìa khóa mở điểm cho các bài văn luận văn hóa N2!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **遺跡 vs 遺産:** `遺跡（いせき）` = di tích (nơi chốn); `遺産（いさん）` = di sản / tài sản thừa kế.
+- **Paraphrase:** `名残（なごり）` ≈ `残（のこ）っている跡（あと）` ／ `由来（ゆらい）` ≈ `起（お）こり・いわれ` ／ `継承（けいしょう）する` ≈ `受（う）け継（つ）ぐ` ／ `変遷（へんせん）` ≈ `移（うつ）り変（か）わり`.
+- `由緒（ゆいしょ）ある` = có lịch sử lâu đời, danh giá — collocation cố định với `寺（てら）・神社（じんじゃ）・家柄（いえがら）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

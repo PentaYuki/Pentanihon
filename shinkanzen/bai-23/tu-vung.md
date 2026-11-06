@@ -42,3 +42,17 @@
 > 💖 *Từ `葛藤` (trăn trở nội tâm) và `理念` (triết lý cốt lõi) kết hợp với `信条` (nguyên tắc sống kiên định) là bộ ba điểm 10 trong bài đọc văn triết học!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **運命・宿命・使命:** `運命（うんめい）` = số phận (có thể thay đổi); `宿命（しゅくめい）` = định mệnh không tránh được; `使命（しめい）` = sứ mệnh được giao.
+- **Paraphrase:** `悟（さと）る` ≈ `はっきり気（き）づく` ／ `挫折（ざせつ）する` ≈ `くじける` ／ `岐路（きろ）` ≈ `分（わ）かれ道（みち）` ／ `模索（もさく）する` ≈ `手探（てさぐ）りで探（さが）す`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

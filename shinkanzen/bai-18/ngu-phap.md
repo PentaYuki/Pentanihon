@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜わけにはいかない**: không thể (vì lương tâm, phép tắc). `V-ないわけにはいかない` = **buộc phải** làm.
+- **〜かねる**: "khó lòng" — từ chối lịch sự: `お答（こた）えしかねます`. ⚠️ ≠ `かねない` (Bài 21, có thể xảy ra điều xấu).
+- **〜ようがない**: không có cách nào: `V-ます + ようがない` (`連絡（れんらく）のしようがない`).
+- **〜っこない**: khẩu ngữ, "làm sao mà… được": `できっこない`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 住所（じゅうしょ）が分（わ）からないので、連絡（れんらく）し（　　）。（ようがない／っこない）
+   <details><summary>Xem đáp án</summary>ようがない — không có cách.</details>
+2. 申（もう）し訳（わけ）ありませんが、その件（けん）はお引（ひ）き受（う）けし（　　）。（かねます／かねません）
+   <details><summary>Xem đáp án</summary>かねます — từ chối lịch sự.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

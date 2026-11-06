@@ -42,3 +42,18 @@
 > 💖 *Từ `こじらせる` (làm bệnh trở nặng thêm vì chủ quan) còn có thể dùng ẩn dụ trong tình cảm: `話がこじれる` (chuyện trở nên rối rắm khó gỡ) đấy bé!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `こじらせる` ≈ `悪化（あっか）させる` ／ `衰（おとろ）える` ≈ `弱（よわ）くなる` ／ `兆候（ちょうこう）` ≈ `前触（まえぶ）れ` ／ `完治（かんち）` ≈ `完全（かんぜん）に治（なお）る`.
+- **慢性 ↔ 急性:** `慢性（まんせい）` kéo dài; `急性（きゅうせい）` bộc phát.
+- **療養 vs 休養:** `療養（りょうよう）` = dưỡng **bệnh**; `休養（きゅうよう）` = nghỉ ngơi lấy sức (không nhất thiết bị bệnh).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -42,3 +42,18 @@
 > 💖 *Nhớ kỹ từ `買収` (M&A thâu tóm công ty) và `合併` (sáp nhập hai doanh nghiệp làm một). Đây là hai khái niệm vàng trong bài đọc hiểu kinh tế!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **買収 vs 合併:** `買収（ばいしゅう）` = mua lại (một bên nuốt bên kia); `合併（がっぺい）` = sáp nhập thành một.
+- **Paraphrase:** `倒産（とうさん）する` ≈ `つぶれる` ／ `提携（ていけい）する` ≈ `協力（きょうりょく）関係（かんけい）を結（むす）ぶ` ／ `立（た）て直（なお）す` ≈ `再建（さいけん）する`.
+- `資金繰（しきんぐ）り` = xoay vòng vốn — hay đi với `苦（くる）しむ`, `悪化（あっか）する`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

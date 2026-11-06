@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜から言えば / 〜から言うと**: nhìn từ góc độ/lập trường: `専門家（せんもんか）の立場（たちば）から言（い）えば`.
+- **〜からすると / 〜からすれば**: (1) từ lập trường; (2) căn cứ để phán đoán: `あの様子（ようす）からすると、合格（ごうかく）したらしい`.
+- **〜にとって**: "đối với ai" + **đánh giá** (`大切（たいせつ）だ・難（むずか）しい`). ✗ dùng cho hành động hướng tới người khác → dùng `に対して`.
+- **〜上（じょう）（は）**: "về mặt": `法律上（ほうりつじょう）`, `健康上（けんこうじょう）`, `表面上（ひょうめんじょう）`.
+- ⚠️ **Bẫy:** ✗ `先生（せんせい）にとって失礼（しつれい）だ` → ✓ `先生（せんせい）に対（たい）して失礼（しつれい）だ`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 私（わたし）（　　）、家族（かぞく）は一番（いちばん）大切（たいせつ）だ。（にとって／に対して）
+   <details><summary>Xem đáp án</summary>にとって — đánh giá giá trị.</details>
+2. あの表情（ひょうじょう）（　　）、何（なに）かいいことがあったようだ。（からすると／上は）
+   <details><summary>Xem đáp án</summary>からすると — căn cứ phán đoán.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

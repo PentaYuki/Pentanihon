@@ -90,3 +90,26 @@
 ## 3. Ghi Chú & Mẹo Nhớ Của Chị Gái
 - [ ] Học thuộc lòng 5 câu ví dụ có Hiragana ở trên.
 - [ ] Nhớ cụm: `足の速さにかけては` (riêng về chạy nhanh thì...), `遺産をめぐって争う` (tranh chấp xoay quanh tài sản).
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜に関して / 〜に関する N**: bản trang trọng của `について`. Trước danh từ dùng `に関する`.
+- **〜をめぐって / 〜をめぐる N**: phải có **tranh cãi, đối lập** xoay quanh vấn đề; vế sau thường là `議論（ぎろん）する・対立（たいりつ）する・争（あらそ）う`.
+- **〜にかけては**: lĩnh vực năng lực + vế sau **khen** (`誰（だれ）にも負（ま）けない`). ✗ dùng để chê.
+- **〜に対して**: hướng thái độ đến đối phương (`客（きゃく）に対（たい）して丁寧（ていねい）だ`). Nghĩa "đối lập A–B" sẽ học kỹ ở Bài 07.
+- **〜に応えて**: `期待（きたい）・要望（ようぼう）・声（こえ）` + `に応（こた）えて` → hành động **đáp lại mong muốn**. Viết `応える`, không phải `答える`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 料理（りょうり）（　　）、彼（かれ）の右（みぎ）に出（で）る者（もの）はいない。（にかけては／をめぐって）
+   <details><summary>Xem đáp án</summary>にかけては — khen năng lực.</details>
+2. ファンの声（こえ）（　　）、バンドが再結成（さいけっせい）した。（に応えて／に関して）
+   <details><summary>Xem đáp án</summary>に応えて — đáp lại mong muốn của fan.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

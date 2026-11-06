@@ -19,7 +19,7 @@
 | 7 | **兆候（ちょうこう）** | TRIỆU HẬU | Manh nha dấu hiệu biến chuyển sắp tới | 景気（けいき）回復（かいふく）の兆候（ちょうこう）が現（あらわ）れる |
 | 8 | **普及率（ふきゅうりつ）** | PHỔ CẬP SUẤT | Tỷ lệ số đông người sở hữu sử dụng | スマートフォンの普及率（ふきゅうりつ）が9割（きゅうわり）を超（こ）える |
 | 9 | **浸透（しんとう）** | TẨM THẤU | Thấm nhuần, ăn sâu vào đời sống hàng ngày | 新（あたら）しい生活（せいかつ）様式（ようしき）が浸透（しんとう）する |
-| 10 | **定着（ていちゃく）** | ĐỊNH TRỨNG | Trở thành thói quen cố định vững chắc | 在宅（ざいたく）勤務（きんむ）が社会（しゃかい）に定着（ていちゃく）する |
+| 10 | **定着（ていちゃく）** | ĐỊNH TRƯỚC | Trở thành thói quen cố định vững chắc | 在宅（ざいたく）勤務（きんむ）が社会（しゃかい）に定着（ていちゃく）する |
 | 11 | **衰退（すいたい）** | SUY THOÁI | Lụi tàn dần, thoái trào mất đi sức sống | 伝統（でんとう）産業（さんぎょう）が衰退（すいたい）する |
 | 12 | **一世（いっせい）を風靡（ふうび）する** | NHẤT THẾ PHONG PHÍ | Làm mưa làm gió, khuynh đảo một thời đại | 一世（いっせい）を風靡（ふうび）した大（だい）ヒット曲（きょく） |
 | 13 | **トレンド（トレンド）** | XU HƯỚNG | Xu hướng mốt thời thượng hiện nay | 最新（さいしん）のファッショントレンドを追（お）う |
@@ -31,7 +31,7 @@
 | 19 | **目（め）まぐるしい** | MỤC | Thay đổi chóng mặt hoa cả mắt từng ngày | 目（め）まぐるしく変化（へんか）する現代（げんだい）社会（しゃかい） |
 | 20 | **激変（げきへん）** | KÍCH BIẾN | Biến chuyển dữ dội mau lẹ ngoài dự đoán | 社会（しゃかい）情勢（じょうせい）が激変（げきへん）する |
 | 21 | **潮流（ちょうりゅう）** | TRIỀU LƯU | Dòng chảy xu thế thời đại cuồn cuộn | 時代（じだい）の潮流（ちょうりゅう）に乗（の）る |
-| 22 | **最前線（さいぜんせん）** | TỐI TIỀN ĐOAN | Nơi tuyến đầu ngọn sóng đi tiên phong | ビジネスの最前線（さいぜんせん）で戦（たたか）う |
+| 22 | **最前線（さいぜんせん）** | TỐI TIỀN TUYẾN | Nơi tuyến đầu ngọn sóng đi tiên phong | ビジネスの最前線（さいぜんせん）で戦（たたか）う |
 | 23 | **変革（へんかく）** | BIẾN CÁCH | Cuộc cải cách thay da đổi thịt toàn diện | 組織（そしき）の大胆（だいたん）な変革（へんかく）を断行（だんこう）する |
 | 24 | **巻（ま）き起（お）こす** | QUYỂN KHỞI | Dấy lên một làn sóng cuồng nhiệt mạnh mẽ | 社会（しゃかい）現象（げんしょう）を巻（ま）き起（お）こす |
 | 25 | **終焉（しゅうえん）** | CHUNG YÊN | Hồi chuông cáo chung kết thúc một kỷ nguyên | 冷戦（れいせん）構造（こうぞう）が終焉（しゅうえん）を迎（むか）える |
@@ -42,3 +42,18 @@
 > 💖 *Cụm thành ngữ `一世を風靡する` (làm mưa làm gió khuynh đảo một thời) cực kỳ đắt giá trong bài đọc hiểu xu hướng lịch sử!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **浸透 vs 定着:** `浸透（しんとう）` = thấm dần vào xã hội (quá trình); `定着（ていちゃく）` = đã bám rễ cố định (kết quả).
+- **Paraphrase:** `発端（ほったん）` ≈ `始（はじ）まり` ／ `経緯（けいい）` ≈ `いきさつ` ／ `廃（すた）れる` ≈ `はやらなくなる` ／ `目（め）まぐるしい` ≈ `変化（へんか）が激（はげ）しい`.
+- `一世（いっせい）を風靡（ふうび）する` = làm mưa làm gió một thời — thành ngữ hay gặp trong đọc hiểu.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

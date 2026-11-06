@@ -14,7 +14,7 @@
 | 2 | **責任（せきにん）** | TRÁCH NHIỆM | Trách nhiệm đối với công việc | 仕事（しごと）の責任（せきにん）を果（は）たす |
 | 3 | **勤務（きんむ）** | CẦN VỤ | Làm việc, công tác tại văn phòng | 本社（ほんしゃ）に勤務（きんむ）する |
 | 4 | **昇進（しょうしん）** | THĂNG TIẾN | Được thăng quan tiến chức | 課長（かちょう）に昇進（しょうしん）する |
-| 5 | **採用（さいよう）** | THẢI DỤNG | Tuyển chọn nhận vào làm | 新卒（しんそつ）社員（しゃいん）を採用（さいよう）する |
+| 5 | **採用（さいよう）** | THÁI DỤNG | Tuyển chọn nhận vào làm | 新卒（しんそつ）社員（しゃいん）を採用（さいよう）する |
 | 6 | **待遇（たいぐう）** | ĐÃI NGỘ | Chế độ lương thưởng phúc lợi | 良（よ）い待遇（たいぐう）で迎（むか）える |
 | 7 | **残業（ざんぎょう）** | TÀN NGHIỆP | Làm việc thêm giờ ngoài giờ hành chính | 毎晩（まいばん）遅（おそ）くまで残業（ざんぎょう）する |
 | 8 | **有給休暇（ゆうきゅうきゅうか）** | HỮU CẤP HƯU HẠ | Ngày nghỉ phép hưởng nguyên lương | 有給休暇（ゆうきゅうきゅうか）を取得（しゅとく）する |
@@ -42,3 +42,18 @@
 > 💖 *Từ `ノルマ` (bắt nguồn từ tiếng Nga) dùng để chỉ chỉ tiêu doanh số bắt buộc phải đạt. Cụm `ノルマを達成する` (hoàn thành chỉ tiêu) cực hay ra thi!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Ba từ "nghỉ việc":** `辞職（じしょく）` (từ chức) / `退職（たいしょく）` (nghỉ việc, về hưu) / `転職（てんしょく）` (chuyển việc).
+- **Paraphrase:** `引（ひ）き継（つ）ぐ` ≈ `受（う）け継（つ）ぐ` ／ `手当（てあて）` ≈ `給料（きゅうりょう）以外（いがい）に出（で）るお金（かね）` ／ `打（う）ち合（あ）わせ` ≈ `事前（じぜん）の相談（そうだん）`.
+- `手当（てあて）` còn nghĩa "sơ cứu": `けがの手当（てあて）をする`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

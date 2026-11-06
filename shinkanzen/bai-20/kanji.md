@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **境**: `環境（かんきょう）` đọc `キョウ`, nhưng `境内（けいだい）` đọc `ケイ`; Kun `境（さかい）`.
+- **源**: `資源（しげん）` / Kun `源（みなもと）` = nguồn gốc.
+- **環**: `環境（かんきょう）` / `循環（じゅんかん）`.
+- **資**: `資源（しげん）` / `資料（しりょう）` / `投資（とうし）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

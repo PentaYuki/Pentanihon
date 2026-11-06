@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **政**: thường `セイ`, nhưng `摂政（せっしょう）` đọc `ショウ`.
+- **治**: `政治（せいじ）` đọc `ジ`, `治療（ちりょう）` đọc `チ`; Kun `治（おさ）める` / `治（なお）る`.
+- **外**: `外国（がいこく）` đọc `ガイ`, nhưng `外科（げか）` đọc `ゲ`; Kun `外（はず）す`.
+- **交**: `交（まじ）わる` / `交（ま）ぜる`; `外交（がいこう）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

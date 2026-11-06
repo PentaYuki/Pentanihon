@@ -42,3 +42,18 @@
 > 💖 *Từ `育む` (ấp ủ, nuôi dưỡng tình yêu/tài năng) là động từ tuyệt đẹp thường xuyên gặp trong văn phong trang trọng và đề thi N2!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `育（はぐく）む` ≈ `大切（たいせつ）に育（そだ）てる` ／ `培（つちか）う` ≈ `時間（じかん）をかけて養（やしな）う` ／ `叱責（しっせき）する` ≈ `厳（きび）しくしかる` ／ `奨励（しょうれい）する` ≈ `すすめる`.
+- `視野（しや）を広（ひろ）げる` / `教養（きょうよう）を身（み）につける` — collocation hay ra Mondai 5.
+- `適性（てきせい）` (sự phù hợp nghề) ≠ `適正（てきせい）` (hợp lý, đúng mức) — đồng âm.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -92,3 +92,27 @@
 - [ ] Học thuộc lòng 5 câu ví dụ tiêu biểu phía trên kèm phiên âm Hiragana.
 - [ ] Nhớ quy tắc: `V-ta` đi với `とたん`, `かと思うと`; còn `に際して` đi với `V-ru` hoặc `Danh từ`.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật có dùng `〜たとたん` để khoe với chị nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜際（に）**: bản trang trọng của `とき`, hay gặp trong thông báo: `ご利用（りよう）の際（さい）は…`. Đi với `V-る / V-た / Nの`.
+- **〜に際して / 〜にあたって**: chỉ dùng cho sự kiện **đặc biệt, một lần** (khai trương, kết hôn, du học). ✗ `食事（しょくじ）に際して` (việc thường ngày). `にあたって` còn mang ý "chuẩn bị trước khi bắt đầu".
+- **〜たとたん（に）**: chỉ đi với `V-た`. Vế sau là chuyện **bất ngờ, ngoài tầm kiểm soát** → không dùng ý chí/mệnh lệnh ở vế sau.
+- **〜（か）と思うと / 〜（か）と思ったら**: người nói **quan sát** một thay đổi chớp nhoáng → **không dùng cho hành động của chính mình**.
+- **〜か〜ないかのうちに**: lặp lại **cùng một động từ**: `鳴（な）るか鳴（な）らないかのうちに`.
+- ⚠️ **Cặp dễ nhầm:** `たとたん` dùng được cho hành động của bản thân (`私（わたし）が窓（まど）を開（あ）けたとたん…`), còn `かと思うと` thì **không**.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 家（いえ）に着（つ）いた（　　）、雨（あめ）が降（ふ）り出（だ）した。（とたん／かと思うと）
+   <details><summary>Xem đáp án</summary>とたん — chủ ngữ vế trước là chính mình nên không dùng かと思うと.</details>
+2. 赤（あか）ちゃんは泣（な）いた（　　）、もう笑（わら）っている。（かと思うと／に際して）
+   <details><summary>Xem đáp án</summary>かと思うと — quan sát người khác thay đổi trạng thái nhanh.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

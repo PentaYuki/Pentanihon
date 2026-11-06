@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜べく**: "để mà" (văn viết): `V-る + べく`, riêng `する → すべく`. Vế sau **không** dùng mệnh lệnh/nhờ vả.
+- **〜をもって**: (1) phương tiện trang trọng: `書面（しょめん）をもって通知（つうち）する`; (2) mốc kết thúc: `本日（ほんじつ）をもって閉店（へいてん）いたします`.
+- **〜によって / 〜により**: nguyên nhân, phương tiện, tác giả trong câu bị động, "tùy theo" (`人（ひと）によって違（ちが）う`).
+- **〜を通じて**: thông qua trung gian (ôn lại Bài 02).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 本日（ほんじつ）（　　）営業（えいぎょう）を終了（しゅうりょう）いたします。（をもって／べく）
+   <details><summary>Xem đáp án</summary>をもって — mốc kết thúc trang trọng.</details>
+2. 夢（ゆめ）を実現（じつげん）す（　　）、毎日（まいにち）努力（どりょく）している。（べく／によって）
+   <details><summary>Xem đáp án</summary>べく — để thực hiện ước mơ.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

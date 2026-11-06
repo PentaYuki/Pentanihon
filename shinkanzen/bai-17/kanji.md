@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **法**: thường `ホウ`, nhưng `法度（はっと）` đọc `ハッ`, `法主（ほっす）` đọc `ホッ`.
+- **律**: `法律（ほうりつ）` đọc `リツ`, nhưng `律儀（りちぎ）` đọc `リチ`.
+- **規**: `規則（きそく）` / `規模（きぼ）` / `規制（きせい）`.
+- **制**: `制度（せいど）` / `制限（せいげん）` / `制服（せいふく）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

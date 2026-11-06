@@ -45,6 +45,7 @@ graph TD
 | **05** | [**一次（いちじ）面接（めんせつ）の扉（とびら）を開（あ）けて**<br>*(Cánh Cửa Phỏng Vấn Vòng Một)*](./series-01_tap-05_canh_cua_phong_van.md) | `〜に応じて`, `〜限り`, `〜抜く`, `〜末に` | ✅ Đã phát hành |
 | **06** | [**神保町（じんぼうちょう）の冬（ふゆ）の夜（よる）とユキ姉（ねえ）の過去（かこ）**<br>*(Đêm Đông Jimbocho & Ký Ức Của Chị Yuki)*](./series-01_tap-06_dem_dong_jimbocho.md) | `〜にほかならない, 〜どころか, 〜にすぎない, 〜からこそ` | ✅ Đã phát hành |
 | **07** | [**運命（うんめい）の12月（じゅうにがつ）！ JLPT N2決戦（けっせん）の日（ひ）**<br>*(Tháng 12 Định Mệnh! Ngày Quyết Chiến JLPT N2)*](./series-01_tap-07_ngay_quyet_chien_jlpt.md) | `〜に際して, 〜を契機に, 〜ざるを得ない, 〜抜く` | ✅ Đã phát hành |
+| **08** | [**役員（やくいん）面接（めんせつ）と青空（あおぞら）の誓（ちか）い**<br>*(Phỏng Vấn Ban Giám Đốc & Lời Thề Dưới Bầu Trời Xanh)*](./series-01_tap-08_phong_van_ban_giam_doc.md) | `〜を込めて, 〜に相違ない, 〜のみならず, 〜かねない` | ✅ Đã phát hành |
 
 ---
 

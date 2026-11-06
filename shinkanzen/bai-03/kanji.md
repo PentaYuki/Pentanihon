@@ -42,3 +42,20 @@
 
 3. 白熱（はくねつ）した**議論（ぎろん）**の末（すえ）に、ようやく全員（ぜんいん）が納得（なっとく）する**結論（けつろん）**に至（いた）った。  
    *(Sau cuộc tranh luận sôi nổi nảy lửa, cuối cùng cũng đi đến một kết luận mà tất cả mọi người đều đồng thuận.)*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **対**: thường `タイ`, nhưng `一対（いっつい）` (một cặp) đọc `ツイ`.
+- **係**: `関係（かんけい）` đọc `ケイ`, nhưng `係（かかり）` (người phụ trách) và `係（かか）わる`.
+- **応**: `応（こた）える` (đáp ứng kỳ vọng) ≠ `答（こた）える` (trả lời câu hỏi).
+- **慮**: chỉ có âm `リョ`: `配慮（はいりょ）`, `遠慮（えんりょ）`, `考慮（こうりょ）`.
+- **配**: `配（くば）る` (phát, chia) / `心配（しんぱい）` / `配慮（はいりょ）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

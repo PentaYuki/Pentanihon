@@ -25,7 +25,7 @@
 | 13 | **考察（こうさつ）** | KHẢO SÁT | Suy ngẫm phân tích logic số liệu | 実験（じっけん）結果（けっか）を考察（こうさつ）する |
 | 14 | **参照（さんしょう）** | THAM CHIẾU | Tra cứu đối chiếu tài liệu đính kèm | 図表（ずひょう）を参照（さんしょう）する |
 | 15 | **添削（てんさく）** | THIÊM TƯỚC | Sửa câu sửa chữ bài văn luận | 先生（せんせい）に小論文（しょうろんぶん）を添削（てんさく）してもらう |
-| 16 | **採点（さいてん）** | THẢI ĐIỂM | Chấm điểm từng câu kiểm tra | テストを厳（きび）しく採点（さいてん）する |
+| 16 | **採点（さいてん）** | THÁI ĐIỂM | Chấm điểm từng câu kiểm tra | テストを厳（きび）しく採点（さいてん）する |
 | 17 | **集中力（しゅうちゅうりょく）** | TẬP TRUNG LỰC | Năng lượng tập trung toàn bộ tâm trí | 集中力（しゅうちゅうりょく）が途切（とぎ）れる |
 | 18 | **克服（こくふく）** | KHẮC PHỤC | Đánh bại nỗi sợ, vượt qua điểm yếu | 苦手（にがて）科目（かもく）を克服（こくふく）する |
 | 19 | **成績（せいせき）** | THÀNH TÍCH | Bảng điểm kết quả học tập | 成績（せいせき）が優秀（ゆうしゅう）な学生（がくせい） |
@@ -42,3 +42,18 @@
 > 💖 *Từ `及第点` (điểm chuẩn đỗ qua môn) hay đi kèm động từ `取る` hoặc `達する`. Đừng nhầm với `落第` là trượt lưu ban nha cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `合否（ごうひ）` ≈ `合格（ごうかく）か不合格（ふごうかく）か` ／ `根気（こんき）` ≈ `粘（ねば）り強（づよ）さ` ／ `克服（こくふく）する` ≈ `乗（の）り越（こ）える`.
+- **添削 vs 採点:** `添削（てんさく）` = sửa câu chữ; `採点（さいてん）` = chấm điểm.
+- **劣（おと）る ↔ 優（すぐ）れる**: cặp trái nghĩa hay ra; `〜より劣（おと）る`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -29,3 +29,19 @@
 
 3. 新（あたら）しい環境（かんきょう）に対（たい）する**心構（こころがま）え**を持（も）つ。  
    *(Có sự chuẩn bị tâm lý sẵn sàng đối với môi trường mới.)*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **問**: `質問（しつもん）` đọc `モン`, `問（と）う`, đặc biệt `問屋（とんや）` (nhà bán buôn).
+- **構**: `構（かま）う` (bận tâm: `もかまわず`) vs `構（かま）える` (thủ thế, dựng: `店（みせ）を構（かま）える`).
+- **通**: `通（とお）る` (đi qua) vs `通（かよ）う` (đi lại thường xuyên); `通夜（つや）` đọc `ツ`.
+- **差**: `差（さ）す` (giương ô: `傘（かさ）を差（さ）す`); `差別（さべつ）` vs `格差（かくさ）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -31,7 +31,7 @@
 | 19 | **異論（いろん）** | DỊ LUẬN | Ý kiến phản đối, quan điểm khác | 異論（いろん）を唱（とな）える |
 | 20 | **満場（まんじょう）一致（いっち）** | MÃN TRƯỜNG NHẤT TRÍ | Đồng thuận 100%, nhất trí hoàn toàn | 満場（まんじょう）一致（いっち）で可決（かけつ）する |
 | 21 | **合意（ごうい）する** | HỢP Ý | Thống nhất, đạt thỏa thuận | 条件（じょうけん）に合意（ごうい）する |
-| 22 | **溝（みぞ）が深（ふか）まる** | CÂU THÂM | Hố ngăn cách ngày càng sâu | 二人の溝（みぞ）が深（ふか）まる |
+| 22 | **溝（みぞ）が深（ふか）まる** | CÂU THÂM | Hố ngăn cách ngày càng sâu | 二人（ふたり）の溝（みぞ）が深（ふか）まる |
 | 23 | **摩擦（まさつ）** | MA SÁT | Ma sát, xích mích va chạm | 貿易（ぼうえき）摩擦（まさつ） |
 | 24 | **根回（ねまわ）し** | CĂN HỒI | Vận động hành lang trước cuộc họp | 根回（ねまわ）しをしておく |
 | 25 | **見解（けんかい）** | KIẾN GIẢI | Quan điểm, cách nhìn nhận | 公式（こうしき）な見解（けんかい）を発表（はっぴょう）する |
@@ -42,3 +42,18 @@
 > 💖 *Cụm `妥協する` đồng nghĩa với `互いに譲り合う` (nhượng bộ lẫn nhau), xuất hiện cực nhiều trong Mondai 4!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `妥協（だきょう）する` ≈ `譲（ゆず）り合（あ）う` ／ `食（く）い違（ちが）う` ≈ `一致（いっち）しない` ／ `もめる` ≈ `争（あらそ）う` ／ `歩（あゆ）み寄（よ）る` ≈ `譲歩（じょうほ）する`.
+- **Collocation cố định:** `異論（いろん）を唱（とな）える`, `誤解（ごかい）を解（と）く`, `溝（みぞ）が深（ふか）まる` — Mondai 5 hay thay động từ sai.
+- **根回（ねまわ）し**: vận động ngầm trước cuộc họp — từ đặc trưng văn hóa công sở Nhật, hay xuất hiện trong đọc hiểu.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜かねない**: "có thể dẫn đến (điều xấu)": `V-ます + かねない`. Chỉ dùng cho kết quả **tiêu cực**.
+- **〜おそれがある**: nguy cơ (tin tức, thông báo): `台風（たいふう）が上陸（じょうりく）するおそれがある`. `Nの / V-る`.
+- **〜ずにはいられない**: "không thể không" (cảm xúc tự trào): `する → せずにはいられない`.
+- **〜気味**: ôn lại Bài 15.
+- ⚠️ **Bẫy lớn nhất bài:** `かねない` (có thể xảy ra điều xấu) vs `かねる` (khó lòng làm – Bài 18). Nhìn đuôi phủ định mà nghĩa lại khẳng định!
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. そんな運転（うんてん）をしていたら、事故（じこ）を起（お）こし（　　）。（かねない／かねる）
+   <details><summary>Xem đáp án</summary>かねない — nguy cơ kết quả xấu.</details>
+2. その映画（えいが）を見（み）て、泣（な）か（　　）。（ずにはいられなかった／おそれがあった）
+   <details><summary>Xem đáp án</summary>ずにはいられなかった — không kìm được.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

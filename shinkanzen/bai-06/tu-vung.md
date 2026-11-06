@@ -13,7 +13,7 @@
 | 1 | **購買意欲（こうばいいよく）** | CẤU MÃI Ý DỤC | Hứng thú muốn mở ví chi tiền mua | 消費者（しょうひしゃ）の購買意欲（こうばいいよく）をそそる |
 | 2 | **在庫（ざいこ）** | TẠI KHỐ | Hàng hóa đang còn trong kho lưu | 在庫（ざいこ）を切（き）らす／在庫（ざいこ）を抱（かか）える |
 | 3 | **販売促進（はんばいそくしん）** | PHIẾN MẠI XÚC TIẾN | Xúc tiến bán lẻ, thúc đẩy doanh số | 販売促進（はんばいそくしん）キャンペーンを実施（じっし）する |
-| 4 | **採算（さいさん）** | THẢI TOÁN | Khả năng sinh lời kinh tế | 採算（さいさん）が合（あ）わない事業（じぎょう）から撤退（てったい）する |
+| 4 | **採算（さいさん）** | THÁI TOÁN | Khả năng sinh lời kinh tế | 採算（さいさん）が合（あ）わない事業（じぎょう）から撤退（てったい）する |
 | 5 | **消費税（しょうひぜい）** | TIÊU PHÍ THUẾ | Thuế giá trị gia tăng tiêu dùng | 消費税（しょうひぜい）が10%に増税（ぞうぜい）される |
 | 6 | **値下（ねさ）がり** | TRỊ HẠ | Rớt giá, hạ giá thành sản phẩm | 野菜（やさい）の価格（かかく）が値下（ねさ）がりする |
 | 7 | **収支（しゅうし）** | THU CHI | Cân đối thu vào chi ra tài chính | 今月（こんげつ）の収支（しゅうし）を計算（けいさん）する |
@@ -42,3 +42,18 @@
 > 💖 *Nhớ cặp bài trùng `黒字` (hắc tự = có lãi/thặng dư) và `赤字` (xích tự = lỗ thâm hụt). Người Nhật dùng mực đen ghi số dương và mực đỏ ghi số âm đó bé cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `採算（さいさん）が合（あ）う` ≈ `利益（りえき）が出（で）る` ／ `見積（みつ）もり` ≈ `前（まえ）もって計算（けいさん）した費用（ひよう）` ／ `顧客（こきゃく）` ≈ `お得意（とくい）様（さま）`.
+- **Hướng hàng hóa:** `仕入（しい）れる` = mua hàng **vào** để bán; `納入（のうにゅう）` = giao hàng **đến** khách.
+- **赤字 / 黒字:** đỏ = lỗ, đen = lãi. `黒字（くろじ）に転換（てんかん）する` = chuyển sang có lãi.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

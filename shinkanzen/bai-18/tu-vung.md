@@ -42,3 +42,18 @@
 > 💖 *Từ `画期的` (mang tính đột phá lịch sử) xuất hiện dày đặc trong các bài giới thiệu phát minh khoa học mới!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `画期的（かっきてき）` ≈ `今（いま）までにない新（あたら）しい` ／ `解明（かいめい）する` ≈ `明（あき）らかにする` ／ `検証（けんしょう）する` ≈ `確（たし）かめる`.
+- `精度（せいど）` (độ chính xác của máy/đo lường) ≠ `制度（せいど）` (chế độ) — đồng âm, Mondai 2 hay ra.
+- `仮説（かせつ）を立（た）てる` / `特許（とっきょ）を出願（しゅつがん）する` — collocation cố định.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

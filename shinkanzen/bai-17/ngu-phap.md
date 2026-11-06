@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜に相違ない**: bản văn viết của `に違いない`.
+- **〜に違いない**: phán đoán chắc chắn, dựa nhiều vào **cảm nhận** của người nói.
+- **〜はずだ**: suy luận dựa trên **căn cứ logic**; `はずがない` = không thể nào.
+- **〜わけだ**: "thảo nào / hóa ra là thế" — hiểu ra lý do **sau khi** biết sự thật.
+- ⚠️ **Cặp dễ nhầm:** `はずだ` = dự đoán trước khi xác nhận; `わけだ` = vỡ lẽ sau khi biết.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 10年（じゅうねん）も日本（にほん）に住（す）んでいたのか。日本語（にほんご）が上手（じょうず）な（　　）。（わけだ／はずだ）
+   <details><summary>Xem đáp án</summary>わけだ — thảo nào.</details>
+2. 彼（かれ）は昨日（きのう）出発（しゅっぱつ）したから、もう着（つ）いている（　　）。（はずだ／わけだ）
+   <details><summary>Xem đáp án</summary>はずだ — suy luận từ căn cứ.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

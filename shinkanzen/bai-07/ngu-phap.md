@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜に比べて**: so sánh mức độ giữa hai đối tượng/thời điểm: `去年（きょねん）に比（くら）べて`.
+- **〜に対して (đối chiếu)**: "A thì…, còn B thì…" — **hai chủ thể khác nhau**: `兄（あに）が活発（かっぱつ）なのに対（たい）して、弟（おとうと）はおとなしい`.
+- **〜反面**: hai mặt trái ngược của **cùng một** sự vật/người: `便利（べんり）な反面（はんめん）、危険（きけん）もある`.
+- **〜一方（で）**: hai mặt song song, có thể khác chủ thể. ⚠️ Đừng nhầm với `〜一方（いっぽう）だ` = "ngày càng" (Bài 13).
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. スマホは便利（べんり）な（　　）、依存（いぞん）しやすい。（反面／に比べて）
+   <details><summary>Xem đáp án</summary>反面 — hai mặt của cùng một thứ.</details>
+2. 兄（あに）が活発（かっぱつ）な（　　）、弟（おとうと）はおとなしい。（のに対して／反面）
+   <details><summary>Xem đáp án</summary>のに対して — hai người khác nhau.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

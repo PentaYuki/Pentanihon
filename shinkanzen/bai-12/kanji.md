@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **営**: Kun `営（いとな）む` = kinh doanh, vận hành (`店（みせ）を営（いとな）む`).
+- **経**: thường `ケイ`, nhưng `お経（きょう）` (kinh Phật) đọc `キョウ`; Kun `経（へ）る` = trải qua.
+- **管**: `管理（かんり）` / Kun `管（くだ）` (ống).
+- **統**: `統計（とうけい）` / `伝統（でんとう）`; Kun `統（す）べる` = thống lĩnh.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

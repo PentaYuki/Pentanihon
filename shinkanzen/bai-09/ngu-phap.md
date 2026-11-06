@@ -47,3 +47,26 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜だけに**: "chính vì… nên càng…" — kết quả **tương xứng** (tốt hoặc xấu): `期待（きたい）していただけに、がっかりした`.
+- **〜ばかりに**: "chỉ vì… mà" → kết quả **luôn xấu**, kèm hối tiếc: `一言（ひとこと）言（い）ったばかりに嫌（きら）われた`.
+- **〜からこそ**: nhấn mạnh lý do **duy nhất**, thường tích cực; hay kết thúc bằng `〜のだ`.
+- **〜以上（は）**: "một khi đã… thì phải" → vế sau: `べきだ・なければならない・つもりだ`. Đồng nghĩa `からには`, `上（うえ）は`.
+- ⚠️ **Cặp dễ nhầm:** `ばかりに` chỉ dùng cho kết quả xấu; `だけに` dùng được cả hai chiều.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 漢字（かんじ）が読（よ）めなかった（　　）、道（みち）に迷（まよ）った。（ばかりに／以上は）
+   <details><summary>Xem đáp án</summary>ばかりに — kết quả xấu, tiếc nuối.</details>
+2. 約束（やくそく）した（　　）、守（まも）らなければならない。（以上は／だけに）
+   <details><summary>Xem đáp án</summary>以上は — một khi đã hứa.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

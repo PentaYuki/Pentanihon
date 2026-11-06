@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **契**: `契約（けいやく）` / `契機（けいき）`; Kun `契（ちぎ）る` = thề hẹn.
+- **機**: `機会（きかい）` / `機械（きかい）` — đồng âm; Kun `機（はた）` (khung cửi).
+- **歴**: `歴史（れきし）` / `経歴（けいれき）` / `学歴（がくれき）`.
+- **史**: `史（し）` hầu như chỉ đọc `シ`: `歴史（れきし）`, `日本史（にほんし）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

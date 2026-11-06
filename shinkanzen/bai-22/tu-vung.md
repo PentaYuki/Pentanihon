@@ -42,3 +42,18 @@
 > 💖 *Nhớ kỹ: `円高` (yên tăng giá) thì có lợi cho nhập khẩu `輸入`, còn `円安` (yên giảm giá) thì kích thích các hãng xuất khẩu `輸出` nha cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **高騰 ↔ 暴落:** `高騰（こうとう）` giá tăng vọt; `暴落（ぼうらく）` giá rớt thảm.
+- **円高 / 円安:** `円高（えんだか）` có lợi cho **nhập khẩu**; `円安（えんやす）` có lợi cho **xuất khẩu**.
+- **Paraphrase:** `融資（ゆうし）` ≈ `お金（かね）を貸（か）すこと` ／ `不況（ふきょう）` ≈ `景気（けいき）が悪（わる）いこと`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

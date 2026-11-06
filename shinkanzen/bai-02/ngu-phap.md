@@ -68,3 +68,27 @@
      *(Chừng nào anh còn sống trên đời này, anh tuyệt đối sẽ không để em phải cô đơn.)*
   2. 私（わたし）が知（し）っている**限（かぎ）りでは**、彼（かれ）はそんな不正（ふせい）をする人（ひと）ではない。  
      *(Theo như trong phạm vi những gì tôi biết, anh ấy không phải kiểu người làm trò gian lận như thế.)*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜をはじめ（として）**: nêu ví dụ tiêu biểu nhất, vế sau thường có `など`, `多（おお）くの`, `さまざまな`. Chỉ đi với **danh từ**.
+- **〜からして**: "ngay từ cái cơ bản nhất đã…" → thường **chê**: `態度（たいど）からして失礼（しつれい）だ`. Còn nghĩa căn cứ phán đoán (giống `からすると`).
+- **〜にわたって**: phạm vi **rộng/dài** về thời gian, không gian, số lần: `3日間（みっかかん）にわたって`, `全国（ぜんこく）にわたって`. ✗ phạm vi nhỏ như `5分（ごふん）にわたって`.
+- **〜を通じて / 〜を通して**: (1) suốt một khoảng: `一年（いちねん）を通じて`; (2) thông qua trung gian: `友人（ゆうじん）を通じて知（し）り合（あ）う`. `を通して` nhấn mạnh hành động có chủ ý hơn.
+- **〜限り**: 3 nghĩa — giới hạn tối đa (`できる限（かぎ）り`), "chừng nào còn" (`生（い）きている限（かぎ）り`), phạm vi hiểu biết (`私（わたし）の知（し）る限（かぎ）り`).
+- ⚠️ **Cặp dễ nhầm:** `にわたって` nhấn **độ rộng**; `を通じて` nhấn **liên tục, không gián đoạn suốt** khoảng đó.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. この地方（ちほう）は一年（いちねん）（　　）温暖（おんだん）だ。（を通じて／からして）
+   <details><summary>Xem đáp án</summary>を通じて — suốt cả năm.</details>
+2. 私（わたし）の知（し）る（　　）、彼（かれ）は嘘（うそ）をつく人（ひと）ではない。（限り／をはじめ）
+   <details><summary>Xem đáp án</summary>限り — trong phạm vi hiểu biết của tôi.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

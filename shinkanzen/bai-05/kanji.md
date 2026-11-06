@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **報**: Kun `報（むく）いる` = đền đáp (`努力（どりょく）が報（むく）われる`).
+- **伝**: `伝（つた）える` (truyền đạt) / `伝（つた）わる` (được truyền) / `手伝（てつだ）う` (giúp đỡ).
+- **広**: `広（ひろ）まる` (tự lan) vs `広（ひろ）める` (làm lan); `広（ひろ）がる` vs `広（ひろ）げる`.
+- **及**: `及（およ）ぶ` (lan tới) / `及（およ）ぼす` (gây ảnh hưởng: `影響（えいきょう）を及（およ）ぼす`) / `及（およ）び` (và – văn viết).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -13,7 +13,7 @@
 | 1 | **渋滞（じゅうたい）** | SÁP TRỆ | Ùn tắc giao thông, kẹt xe hàng dài | 高速（こうそく）道路（どうろ）が渋滞（じゅうたい）する |
 | 2 | **運行（うんこう）** | VẬN HÀNH | Chạy tàu xe theo lịch trình | ダイヤ通（どお）りに正常（せいじょう）運行（うんこう）する |
 | 3 | **迂回（うかい）** | VU HỒI | Đi đường vòng để tránh kẹt hay sự cố | 迂回（うかい）ルートを通（とお）る |
-| 4 | **運賃（うんちん）** | VẬN THẢI | Giá cước tiền vé tàu xe | 運賃（うんちん）を改定（かいてい）する |
+| 4 | **運賃（うんちん）** | VẬN NHẪM | Giá cước tiền vé tàu xe | 運賃（うんちん）を改定（かいてい）する |
 | 5 | **車線（しゃせん）** | XA TUYẾN | Làn đường kẻ vạch cho xe | 片側（かたがわ）2車線（しゃせん）の道路（どうろ） |
 | 6 | **踏切（ふみきり）** | ĐẠP THIẾT | Điểm giao cắt có rào chắn đường ray | 踏切（ふみきり）で一時（いちじ）停止（ていし）する |
 | 7 | **横断（おうだん）** | HOÀNH ĐOẠN | Băng ngang qua đường phố lớn | 横断（おうだん）歩道（ほどう）を渡（わた）る |
@@ -42,3 +42,18 @@
 > 💖 *Khi nghe phát thanh ga tàu, cụm `運転を見合わせる` có nghĩa là tạm dừng chạy tàu để kiểm tra/xử lý sự cố, nhớ chuẩn bị tinh thần tìm lộ trình khác nha em!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `見合（みあ）わせる` ≈ `一時（いちじ）やめる` ／ `迂回（うかい）する` ≈ `遠回（とおまわ）りする` ／ `運休（うんきゅう）` ≈ `運転（うんてん）を休（やす）む`.
+- **Ba kiểu va chạm:** `衝突（しょうとつ）` (đâm trực diện) / `追突（ついとつ）` (đâm vào đuôi) / `接触（せっしょく）` (quẹt nhẹ).
+- **Nghe ga tàu:** `運転（うんてん）を見合（みあ）わせております` = đang tạm dừng chạy — bài nghe N2 rất thích câu này.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

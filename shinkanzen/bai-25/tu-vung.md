@@ -42,3 +42,18 @@
 > 💖 *Bài thi Mondai 4 rất thích ra `一長一短` (có ưu có khuyết) và `臨機応変` (tùy cơ ứng biến). Học thuộc lòng để lấy trọn điểm tuyệt đối nhé cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase thành ngữ 4 chữ:** `臨機応変（りんきおうへん）に` ≈ `その場（ば）に合（あ）わせて` ／ `一長一短（いっちょういったん）` ≈ `良（よ）い点（てん）も悪（わる）い点（てん）もある` ／ `試行錯誤（しこうさくご）` ≈ `何度（なんど）も試（ため）して失敗（しっぱい）しながら`.
+- `本末転倒（ほんまつてんとう）` = đảo lộn chính phụ — hay gặp trong bài luận phê phán.
+- `目処（めど）が立（た）つ` ≈ `見通（みとお）しがつく` ／ `手落（てお）ち` ≈ `ミス・不注意（ふちゅうい）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

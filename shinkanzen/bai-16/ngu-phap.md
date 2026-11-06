@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜てたまらない**: cảm xúc/cảm giác mạnh không kìm được, ngôi thứ nhất: `うれしくてたまらない`.
+- **〜てならない**: cảm xúc **tự trào ra**, hay đi với `気（き）がする・思（おも）える・心配（しんぱい）だ`: `気（き）がしてならない`.
+- **〜てしょうがない**: khẩu ngữ của `しかたがない`, nghĩa tương tự `たまらない`.
+- **〜にほかならない**: **không phải** mẫu cảm xúc! Nghĩa là "chính là, không gì khác": `成功（せいこう）の理由（りゆう）は努力（どりょく）にほかならない`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 何（なに）か悪（わる）いことが起（お）こる気（き）がし（　　）。（てならない／にほかならない）
+   <details><summary>Xem đáp án</summary>てならない — đi với 気がする.</details>
+2. 今回（こんかい）の勝利（しょうり）はチームワークの結果（けっか）（　　）。（にほかならない／てたまらない）
+   <details><summary>Xem đáp án</summary>にほかならない — khẳng định bản chất.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

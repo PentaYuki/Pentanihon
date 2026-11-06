@@ -76,3 +76,26 @@
 | :--- | :--- |
 | **〜を問わず** vs **〜にかかわらず** | - `を問わず`: Thường đi với các tiêu chí tuyển dụng, quy định chung (`年齢・性別・国籍を問わず`).<br>- `にかかわらず`: Thường đi với cặp hành động trái ngược (`晴雨にかかわらず`, `参加するしないにかかわらず`). |
 | **〜はともかく** vs **〜はさておき** | - `はともかく`: Gác A lại để nhấn mạnh vế B mới là điểm đáng khen/đáng chú ý.<br>- `はさておき`: Mang tính chất **chuyển hướng cuộc hội thoại** từ chuyện râu ria sang chuyện nghiêm túc. |
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜を問わず**: hay đi với tiêu chí/cặp đối lập: `年齢（ねんれい）・性別（せいべつ）・昼夜（ちゅうや）を問（と）わず`. Văn viết, tin tuyển dụng.
+- **〜にかかわらず**: đi với cặp `V-る V-ない` (`参加（さんか）するしないにかかわらず`) hoặc danh từ chỉ sự đa dạng (`天候（てんこう）にかかわらず`).
+- **〜もかまわず**: "chẳng thèm để ý" → thường **phê phán**: `人目（ひとめ）もかまわず泣（な）く`.
+- **〜はともかく**: tạm gác A (A cũng đáng bàn) để nói B quan trọng hơn: `味（あじ）はともかく、値段（ねだん）が安（やす）い`.
+- **〜はさておき**: gác chuyện phụ để **chuyển sang chuyện chính**: `冗談（じょうだん）はさておき、本題（ほんだい）に入（はい）ろう`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 彼女（かのじょ）は人目（ひとめ）（　　）大声（おおごえ）で泣（な）いた。（もかまわず／を問わず）
+   <details><summary>Xem đáp án</summary>もかまわず — không để ý ánh mắt người khác.</details>
+2. 経験（けいけん）の有無（うむ）（　　）、誰（だれ）でも応募（おうぼ）できます。（を問わず／はさておき）
+   <details><summary>Xem đáp án</summary>を問わず — tiêu chí tuyển dụng.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

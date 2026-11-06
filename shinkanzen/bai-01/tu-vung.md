@@ -42,3 +42,18 @@
 > 💖 *Nhớ kỹ từ `気が置けない` là thân thiết thoải mái không cần giữ kẽ, đừng nhầm với không đáng tin nha cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase Mondai 4:** `気（き）が置（お）けない` ≈ `遠慮（えんりょ）しなくていい` ／ `打（う）ち明（あ）ける` ≈ `秘密（ひみつ）を話（はな）す` ／ `見下（みくだ）す` ≈ `ばかにする` ／ `お世辞（せじ）` ≈ `心（こころ）にもないほめ言葉（ことば）`.
+- **いたわる vs ねぎらう:** `いたわる` = chăm sóc người yếu (người già, người bệnh); `ねぎらう` = ghi nhận công sức (thường người trên → người dưới). Đề Mondai 5 rất hay tráo hai từ này.
+- **冷（ひ）やかす** còn nghĩa thứ hai: xem hàng mà không mua → `冷（ひ）やかし客（きゃく）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

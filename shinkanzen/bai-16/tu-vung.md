@@ -24,7 +24,7 @@
 | 12 | **独自性（どくじせい）** | ĐỘC TỰ TÍNH | Tính độc đáo, phong cách riêng biệt | 作品（さくひん）の独自性（どくじせい）を追求（ついきゅう）する |
 | 13 | **独創的（どくそうてき）** | ĐỘC SÁNG ĐÍCH | Sáng tạo mới lạ chưa từng có trước đó | 独創的（どくそうてき）な発想（はっそう）に驚（おどろ）く |
 | 14 | **拍手（はくしゅ）** | PHÁCH THỦ | Vỗ tay tán thưởng nồng nhiệt | 惜（お）しみない拍手（はくしゅ）を送（おく）る |
-| 15 | **喝采（かっさい）** | HÁT THẢI | Reo hò cổ vũ vang dội cầu trường | 満場（まんじょう）の喝采（かっさい）を浴（あ）びる |
+| 15 | **喝采（かっさい）** | HÁT THÁI | Reo hò cổ vũ vang dội cầu trường | 満場（まんじょう）の喝采（かっさい）を浴（あ）びる |
 | 16 | **陶酔（とうすい）** | ĐÀO TÚY | Say sưa mê đắm chìm trong giai điệu | 美（うつく）しい音色（ねいろ）に陶酔（とうすい）する |
 | 17 | **魅了（みりょう）** | MỊ LIỄU | Mê hoặc, cuốn hút hớp hồn khán giả | 観客（かんきゃく）を魅了（みりょう）する |
 | 18 | **感銘（かんめい）を受（う）ける** | CẢM MINH | Xúc động sâu sắc, khắc cốt ghi tâm | 名作（めいさく）に深（ふか）く感銘（かんめい）を受（う）ける |
@@ -42,3 +42,18 @@
 > 💖 *Cụm `感銘を受ける` (cảm động sâu sắc, khắc cốt ghi tâm trước một tác phẩm) là cụm từ vàng trong các bài văn nghị luận nghệ thuật!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- ⚠️ **鑑賞 vs 観賞:** `鑑賞（かんしょう）` = thưởng thức nghệ thuật (tranh, nhạc, phim); `観賞（かんしょう）` = ngắm cảnh/hoa/cá cảnh.
+- **Paraphrase:** `魅了（みりょう）する` ≈ `引（ひ）きつける` ／ `感銘（かんめい）を受（う）ける` ≈ `深（ふか）く感動（かんどう）する` ／ `喝采（かっさい）` ≈ `拍手（はくしゅ）と歓声（かんせい）`.
+- `余韻（よいん）に浸（ひた）る` = đắm chìm trong dư âm — collocation cố định.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

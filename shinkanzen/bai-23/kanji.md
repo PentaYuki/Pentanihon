@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **想**: thường `ソウ`, nhưng `愛想（あいそ）` đọc `ソ`.
+- **観**: `観察（かんさつ）` / `観光（かんこう）` / `人生観（じんせいかん）`.
+- **念**: `記念（きねん）` / `念（ねん）のため` / `残念（ざんねん）`.
+- **思**: `思想（しそう）` / `意思（いし）`; ⚠️ `意志（いし）` (ý chí) khác chữ với `意思（いし）` (ý định).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

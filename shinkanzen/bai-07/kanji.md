@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **情**: thường `ジョウ`, nhưng `風情（ふぜい）` đọc `ゼイ`; Kun `情（なさ）け` (lòng thương).
+- **比**: `比（くら）べる`; `比較（ひかく）` / `比例（ひれい）`.
+- **較**: hầu như chỉ gặp trong `比較（ひかく）`.
+- **態**: `態度（たいど）` / `状態（じょうたい）` / `事態（じたい）` — đều đọc `タイ`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

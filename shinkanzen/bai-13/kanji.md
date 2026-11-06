@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **象**: `現象（げんしょう）` / `印象（いんしょう）` đọc `ショウ`, nhưng con voi `象（ぞう）` đọc `ゾウ`.
+- **候**: `気候（きこう）` / `天候（てんこう）`; `候補（こうほ）`.
+- **災**: Kun `災（わざわ）い` = tai họa; `災害（さいがい）` / `火災（かさい）`.
+- **害**: `被害（ひがい）` / `障害（しょうがい）` / `公害（こうがい）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -42,3 +42,18 @@
 > 💖 *Nhớ cặp đôi trong phiên tòa: `原告` (nguyên cáo = người đâm đơn đi kiện) và `被告` (bị cáo = người bị kiện ra trước tòa) nha cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **原告 ↔ 被告:** bên kiện ↔ bên bị kiện. `控訴（こうそ）` = kháng cáo; `棄却（ききゃく）` = bác đơn.
+- **Paraphrase:** `遵守（じゅんしゅ）する` ≈ `守（まも）る` ／ `棄却（ききゃく）する` ≈ `退（しりぞ）ける` ／ `違法（いほう）` ≈ `法（ほう）に反（はん）する`.
+- `施行` đọc chuẩn là `しこう` (giới luật pháp đôi khi đọc `せこう`).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

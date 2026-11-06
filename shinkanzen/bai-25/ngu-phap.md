@@ -47,3 +47,31 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- Bài 25 là **tổng duyệt** — đây là bản đồ các cặp bẫy xuyên suốt cả giáo trình, em ôn theo cặp sẽ nhớ lâu hơn:
+- `に限って` (Bài 06) ↔ `に限らず` (Bài 05) — chỉ riêng / không chỉ riêng.
+- `反面` vs `に対して` (Bài 07) — cùng một chủ thể / hai chủ thể.
+- `だけに` vs `ばかりに` (Bài 09) — hai chiều / chỉ kết quả xấu.
+- `はずだ` vs `わけだ` (Bài 17) — dự đoán / vỡ lẽ.
+- `かねる` (Bài 18) vs `かねない` (Bài 21) — khó lòng làm / có thể xảy ra điều xấu.
+- `ことだ` vs `ものだ` (Bài 20) — khuyên cá nhân / đạo lý chung.
+- `あげく` vs `末に` (Bài 24) — kết quả xấu / trung tính.
+- `にとって` vs `に対して` (Bài 23, 03) — đánh giá / thái độ hướng tới.
+- Khiêm nhường vs tôn kính (Bài 22) — `お〜する` cho mình, `お〜になる` cho người trên.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. この仕事（しごと）は私（わたし）一人（ひとり）では決（き）め（　　）。（かねます／かねません）
+   <details><summary>Xem đáp án</summary>かねます — khó lòng quyết (từ chối lịch sự).</details>
+2. 無理（むり）をすると、体（からだ）を壊（こわ）し（　　）。（かねない／かねる）
+   <details><summary>Xem đáp án</summary>かねない — nguy cơ xấu.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

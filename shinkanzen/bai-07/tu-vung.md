@@ -42,3 +42,18 @@
 > 💖 *Phân biệt `図々しい` (trơ tráo, không biết ngượng) và `厚かましい` (mặt dày xin xỏ). Cả hai đều mang sắc thái tiêu cực trong đối nhân xử thế!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `几帳面（きちょうめん）` ≈ `きちんとしている` ／ `図々（ずうずう）しい` ≈ `厚（あつ）かましい` ／ `朗（ほが）らか` ≈ `明（あか）るい` ／ `戸惑（とまど）う` ≈ `どうしていいか分（わ）からない`.
+- **負（ま）けず嫌（ぎら）い** không phải tính xấu — thường mang sắc thái **tích cực** (cầu tiến). Đề hay gài như từ tiêu cực.
+- **短気（たんき） = 気（き）が短（みじか）い**: cặp paraphrase gần như chắc chắn xuất hiện.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

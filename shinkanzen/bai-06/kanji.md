@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **商**: Kun `商（あきな）う` = buôn bán; `商（あきな）い` = việc buôn bán.
+- **費**: Kun `費（つい）やす` = tiêu tốn (thời gian, tiền): `時間（じかん）を費（つい）やす`.
+- **限**: `限（かぎ）る` / `限（かぎ）り` / `限界（げんかい）` / `制限（せいげん）` — chữ trung tâm của cả Bài 05 lẫn 06.
+- **売**: `売（う）る` / `売（う）れる` (bán chạy) / `販売（はんばい）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

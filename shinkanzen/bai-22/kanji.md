@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **易**: `貿易（ぼうえき）` đọc `エキ`, nhưng `容易（ようい）` đọc `イ`; Kun `易（やさ）しい` (dễ) ≠ `優（やさ）しい` (hiền).
+- **済**: `経済（けいざい）` / `返済（へんさい）`; Kun `済（す）む` / `済（す）ます`.
+- **貿**: hầu như chỉ gặp trong `貿易（ぼうえき）`.
+- **経**: ôn lại Bài 12 (`お経（きょう）`, `経（へ）る`).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

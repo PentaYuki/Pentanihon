@@ -20,7 +20,7 @@
 | 8 | **排出量（はいしゅつりょう）** | BÀI XUẤT LƯỢNG | Lượng khói bụi khí thải nhả ra trời | 温室（おんしつ）効果（こうか）ガスの排出量（はいしゅつりょう） |
 | 9 | **生態系（せいたいけい）** | SINH THÁI HỆ | Hệ sinh thái muôn loài cân bằng | 生態系（せいたいけい）が破壊（はかい）される |
 | 10 | **絶滅（ぜつめつ）** | TUYỆT DIỆT | Tuyệt chủng biến mất vĩnh viễn trên đời | 希少（きしょう）な野生（やせい）動物（どうぶつ）が絶滅（ぜつめつ）の危機（きき）に瀕（ひん）する |
-| 11 | **温暖化（おんだんか）** | ÔN NOÃN HÓA | Sự nóng lên của nhiệt độ toàn cầu | 地球（ちきゅう）温暖化（おんだんか）を食（と）め止（と）める |
+| 11 | **温暖化（おんだんか）** | ÔN NOÃN HÓA | Sự nóng lên của nhiệt độ toàn cầu | 地球（ちきゅう）温暖化（おんだんか）を食（く）い止（と）める |
 | 12 | **再利用（さいりよう）** | TÁI LỢI DỤNG | Tái sử dụng đồ cũ nhiều lần bền lâu | 不用品（ふようひん）を再利用（さいりよう）する |
 | 13 | **省（しょう）エネ** | TỈNH | Tiết kiệm điện năng tối đa khi dùng | 省（しょう）エネ家電（かでん）に買（か）い換（か）える |
 | 14 | **太陽光（たいようこう）** | THÁI DƯƠNG QUANG | Năng lượng ánh sáng mặt trời tự nhiên | 太陽光（たいようこう）発電（はつでん）パネルを設置（せっち）する |
@@ -42,3 +42,18 @@
 > 💖 *Từ `枯渇` (khô kiệt = cạn kiệt tài nguyên) và `削減` (tước giảm = cắt giảm khí thải CO2) xuất hiện tới 90% trong bài đọc hiểu khoa học môi trường!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **保護・保全・保存:** `保護（ほご）` = bảo vệ (động vật, người); `保全（ほぜん）` = giữ nguyên trạng môi trường; `保存（ほぞん）` = lưu giữ (thức ăn, dữ liệu).
+- **Paraphrase:** `枯渇（こかつ）する` ≈ `尽（つ）きる` ／ `削減（さくげん）する` ≈ `減（へ）らす` ／ `伐採（ばっさい）` ≈ `木（き）を切（き）ること`.
+- `食（く）い止（と）める` = ngăn chặn (đà xấu): `温暖化（おんだんか）を食（く）い止（と）める`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

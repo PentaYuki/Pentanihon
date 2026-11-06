@@ -42,3 +42,18 @@
 > 💖 *Từ `猛暑` (nắng nóng gay gắt cực đoan) và `寒波` (đợt không khí lạnh buốt) rất hay xuất hiện trong dự báo thời tiết và bài thi nghe N2!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- ⚠️ **Đồng âm khác nghĩa:** `避難（ひなん）` (lánh nạn) vs `非難（ひなん）` (chỉ trích) — Mondai 2 cực hay ra.
+- **警報 vs 注意報:** `警報（けいほう）` = cảnh báo **nghiêm trọng**; `注意報（ちゅういほう）` = lưu ý mức nhẹ hơn.
+- **Paraphrase:** `復旧（ふっきゅう）する` ≈ `元通（もとどお）りになる` ／ `猛暑（もうしょ）` ≈ `厳（きび）しい暑（あつ）さ` ／ `被害（ひがい）` ≈ `損害（そんがい）`.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

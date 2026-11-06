@@ -42,3 +42,19 @@
 > 💖 *Từ `世論` trong đề thi N2 hay đố cách đọc furigana: vừa đọc là `よろん` vừa đọc là `せいろん` (trong đó `よろん` phổ biến hơn). Nhớ kỹ nha cưng!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **報道・宣伝・広告:** `報道（ほうどう）` = đưa tin khách quan; `宣伝（せんでん）` = quảng bá chủ động; `広告（こうこく）` = mẩu quảng cáo trả tiền.
+- **掲載 vs 配信:** `掲載（けいさい）` = đăng trên báo/tạp chí/web; `配信（はいしん）` = phát/truyền qua mạng.
+- **Paraphrase:** `誇張（こちょう）する` ≈ `大（おお）げさに言（い）う` ／ `捏造（ねつぞう）` ≈ `でっちあげ` ／ `匿名（とくめい）` ≈ `名前（なまえ）を隠（かく）して`.
+- `世論` đọc được cả `よろん` và `せろん` — đề có thể ra một trong hai.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

@@ -47,3 +47,25 @@
 ## 2. Ghi Chú & Mẹo Làm Bài Của Chị
 - [ ] Học thuộc lòng các câu ví dụ mẫu kèm Hiragana ở trên.
 - [ ] Tự đặt một câu ví dụ tiếng Nhật áp dụng vào cuộc sống của em nhé!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Sắc thái & bẫy ngữ pháp
+
+- **〜ものなら**: (1) `V khả năng + ものなら` → ước muốn khó thành: `戻（もど）れるものなら戻（もど）りたい`; (2) `V ý chí（〜よう）+ ものなら` → hậu quả xấu: `遅刻（ちこく）しようものなら叱（しか）られる`.
+- **〜ないことには〜ない**: điều kiện bắt buộc, vế sau **phủ định**: `やってみないことには分（わ）からない`.
+- **〜さえ〜ば**: "chỉ cần A là đủ": `N + さえ + 〜ば`, `V-ます + さえすれば`.
+- **〜としたら / 〜とすれば**: giả định "nếu giả sử": `もし宝（たから）くじが当（あ）たったとしたら`.
+
+### 🔎 Tự kiểm tra nhanh (che đáp án rồi làm thử)
+1. 実際（じっさい）に会（あ）ってみ（　　）、どんな人（ひと）か分（わ）からない。（ないことには／としたら）
+   <details><summary>Xem đáp án</summary>ないことには — điều kiện bắt buộc + phủ định.</details>
+2. 時間（じかん）（　　）あれば、旅行（りょこう）したい。（さえ／ものなら）
+   <details><summary>Xem đáp án</summary>さえ — chỉ cần có thời gian.</details>
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

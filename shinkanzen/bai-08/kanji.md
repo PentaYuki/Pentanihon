@@ -19,3 +19,19 @@
 
 ## 2. Lời Nhắn Nhủ Của Chị
 > 💖 *"Nhớ luyện viết mỗi chữ 3 lần để tay quen nét nha bé!"*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **基**: `基（もと）づく` / `基礎（きそ）` / `基準（きじゅん）`. Kun hiếm: `基（もとい）`.
+- **価**: `価格（かかく）` / `評価（ひょうか）`; Kun `価（あたい）` — `値（あたい）する` viết bằng chữ 値.
+- **準**: `準備（じゅんび）` / `基準（きじゅん）` / `水準（すいじゅん）`.
+- **評**: `評判（ひょうばん）` — chú ý `判` đọc `バン` trong từ này.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

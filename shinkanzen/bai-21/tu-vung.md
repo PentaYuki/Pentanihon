@@ -42,3 +42,18 @@
 > 💖 *Từ `懸念` (lo ngại, trăn trở) là từ ngữ ngoại giao kinh điển. Cụm `懸念を表明する` (bày tỏ quan ngại sâu sắc) hay ra thi đọc hiểu xã hội cực kỳ!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **Paraphrase:** `懸念（けねん）` ≈ `心配（しんぱい）` ／ `介入（かいにゅう）する` ≈ `干渉（かんしょう）する` ／ `脱退（だったい）する` ≈ `抜（ぬ）ける`.
+- `懸念（けねん）を表明（ひょうめい）する` = bày tỏ quan ngại — câu kinh điển trong tin tức ngoại giao.
+- `公約（こうやく）` (lời hứa tranh cử) ≠ `条約（じょうやく）` (hiệp ước giữa các nước).
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

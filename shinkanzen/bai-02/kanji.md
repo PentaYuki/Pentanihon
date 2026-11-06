@@ -59,3 +59,21 @@
 
 5. アパートの退去（たいきょ）前（まえ）に、破（やぶ）れた**畳（たたみ）**を**修繕（しゅうぜん）**しなければならない。  
    *(Trước khi trả phòng chung cư, tôi phải tu sửa lại tấm chiếu Tatami bị rách.)*
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
+
+- **献**: `献身（けんしん）` đọc `ケン`, nhưng `献立（こんだて）` đọc `コン`.
+- **省**: `省略（しょうりゃく）` đọc `ショウ`, `反省（はんせい）` đọc `セイ`, Kun `省（はぶ）く`.
+- **除**: `除外（じょがい）` đọc `ジョ`, nhưng `掃除（そうじ）` đọc `ジ`.
+- **畳**: `畳（たたみ）` (chiếu) / `畳（たた）む` (gấp) / `六畳（ろくじょう）` (đếm chiếu).
+- **乾 / 渇**: `乾（かわ）く` (khô đồ) vs `渇（かわ）く` (khát nước) — cùng âm, khác chữ.
+- **繕**: `繕（つくろ）う` = vá, sửa (quần áo); `修繕（しゅうぜん）` = sửa chữa.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->

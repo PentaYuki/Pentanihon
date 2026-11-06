@@ -42,3 +42,18 @@
 > 💖 *Từ `葛藤` (cát đằng = dằn vặt đấu tranh nội tâm) cực kỳ đắt giá khi làm bài đọc hiểu diễn biến nhân vật trong văn học!*
 
 - **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+
+---
+
+<!-- GHI-CHU-CHI:START -->
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+
+- **共感 vs 共鳴:** `共感（きょうかん）` = đồng cảm cảm xúc; `共鳴（きょうめい）` = đồng tình với tư tưởng/lý tưởng.
+- **Paraphrase:** `躊躇（ちゅうちょ）する` ≈ `ためらう` ／ `安堵（あんど）する` ≈ `ほっとする` ／ `執着（しゅうちゃく）する` ≈ `こだわる` ／ `葛藤（かっとう）` ≈ `迷（まよ）い苦（くる）しむこと`.
+- `劣等感（れっとうかん）` ↔ `優越感（ゆうえつかん）` — cặp trái nghĩa.
+
+### ✏️ Ghi chú riêng của em
+> *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
+>
+> - 
+<!-- GHI-CHU-CHI:END -->
