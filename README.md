@@ -36,6 +36,7 @@ Pentanihon/
 ├── shinkanzen/                        # Trọn bộ 25 bài giáo trình Shinkanzen Master N2
 │   ├── README.md                      # Bảng Tracker theo dõi tiến độ học tập 25 bài
 │   ├── bai-01/                        # Bài 01: Thời điểm & Trình tự (時間・時)
+│   │   ├── lesson-note.md             # Sổ tay ghi chú tinh hoa, cạm bẫy thi thật & checklist
 │   │   ├── ngu-phap.md                # Cấu trúc, cách dùng, ví dụ có Hiragana
 │   │   ├── tu-vung.md                 # Từ vựng, collocations, giải thích cặn kẽ
 │   │   ├── kanji.md                   # Chữ Hán Shinkanzen, âm On/Kun, từ ghép
