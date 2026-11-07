@@ -47,6 +47,7 @@ graph TD
 | **07** | [**運命（うんめい）の12月（じゅうにがつ）！ JLPT N2決戦（けっせん）の日（ひ）**<br>*(Tháng 12 Định Mệnh! Ngày Quyết Chiến JLPT N2)*](./series-01_tap-07_ngay_quyet_chien_jlpt.md) | `〜に際して, 〜を契機に, 〜ざるを得ない, 〜抜く` | ✅ Đã phát hành |
 | **08** | [**役員（やくいん）面接（めんせつ）と青空（あおぞら）の誓（ちか）い**<br>*(Phỏng Vấn Ban Giám Đốc & Lời Thề Dưới Bầu Trời Xanh)*](./series-01_tap-08_phong_van_ban_giam_doc.md) | `〜を込めて, 〜に相違ない, 〜のみならず, 〜かねない` | ✅ Đã phát hành |
 | **09** | [**合格（ごうかく）通知（つうち）と涙（なみだ）の内定（ないてい）**<br>*(Giấy Báo Đỗ & Nước Mắt Ngày Nhận Naitei)*](./series-01_tap-09_giay_bao_do_va_naitei.md) | `〜にほかならない, 〜やまない, 〜からには, 〜に違いない` | ✅ Đã phát hành |
+| **10** | [**初（はつ）出社（しゅっしゃ）の緊張（きんちょう）と最初（さいしょ）の壁（かべ）**<br>*(Ngày Đầu Tiên Đi Làm & Bức Tường Thử Thách)*](./series-01_tap-10_ngay_dau_tien_di_lam.md) | `〜にあたって, 〜まい, 〜一方（で）, 〜ざるを得ない` | ✅ Đã phát hành |
 
 ---
 
