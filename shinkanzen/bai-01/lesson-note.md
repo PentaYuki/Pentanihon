@@ -21,11 +21,11 @@
 | **〜か〜ないかのうちに** | `V-る/た + か + V-ない + かのうちに` | Hành động 1 vừa chớm xong (hoặc chưa xong) thì hành động 2 đã ập đến | ベルが鳴（な）るか鳴（な）らないかのうちに、ドアが開（ひら）いた。 |
 
 ### 💎 3-5 Từ Vựng "Át Chủ Bài" Phải Thuộc Nằm Lòng:
-- **気（き）が置（お）けない:** Thân thiết thoải mái, không cần giữ kẽ (KHÔNG PHẢI là không đáng tin!)
-- **打（う）ち明（あ）ける:** Thổ lộ, trút bầu tâm sự bí mật thầm kín
-- **割（わ）り勘（かん）:** Chia đều tiền (Campuchia) khi đi ăn uống cùng bạn bè
-- **もてなす:** Tiếp đãi nồng hậu, chiêu đãi khách quý
-- **こじれる:** Mối quan hệ trở nên phức tạp, lục đục, khó gỡ
+- **親孝行（おやこうこう）:** Hiếu thảo, chăm sóc phụng dưỡng cha mẹ (Trái nghĩa: `親不孝 - おやふこう` bất hiếu)
+- **同（おな）い年（どし）:** Cùng tuổi, bằng tuổi (Cách đọc chuẩn N2 là `おないどし`, KHÔNG ĐỌC là `おなじとし`)
+- **祖先（そせん） ⇄ 子孫（しそん）:** Cặp từ tương phản tổ tiên và con cháu đời sau
+- **親戚（しんせき） / 親類（しんるい）:** Bà con họ hàng gần xa
+- **言葉遣（ことばづか）い:** Lời ăn tiếng nói, cách dùng từ (`丁寧な言葉遣いで話す`)
 
 ---
 
@@ -35,7 +35,8 @@
 
 ⚠️ **Bẫy Ngôi Thứ Với `〜かと思うと`:** Chỉ dùng khi người nói **quan sát sự biến đổi của đối tượng khác**, không dùng cho hành động có chủ đích của bản thân.
 
-⚠️ **Phân biệt `いたわる` và `ねぎらう`:** `いたわる` là chăm sóc người già/người bệnh/trẻ nhỏ; `ねぎらう` là cấp trên ghi nhận, cảm ơn công sức cấp dưới.
+⚠️ **Phân biệt cặp từ quan hệ xã hội:** `上司 - 部下` là quan hệ tổ chức công ty; `目上 - 目下` là vai vế tuổi tác xã hội; `先輩 - 後輩` là người vào trước - vào sau (kể cả nhỏ tuổi hơn vẫn có thể là 先輩 nếu vào công ty trước).
+⚠️ **Bẫy phát âm Kanji:** `同い年` phải đọc là `おないどし` (chọn おなじとし là bị trừ điểm ngay!). Chữ `言葉遣い` phải viết là `づかい` (có dấu Ten-ten).
 
 ---
 

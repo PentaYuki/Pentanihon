@@ -1,92 +1,93 @@
-# 🈸 Bài 01: Chữ Hán (漢字) - Shinkanzen N2
-## Chủ đề: Con Người, Giao Tiếp & Mối Quan Hệ (人間・付き合い・行動)
+# 🈸 Bài 01: Chữ Hán (漢字 - かんじ) - Shinkanzen Master N2
+## Chủ đề: Con Người, Thân Tộc & Giao Tiếp Xã Hội (人間・親類・付き合い)
 
-> 🌸 **Lời dặn của chị gái:**  
-> *"Bé cưng ơi! Chữ Hán N2 chính là 'chìa khóa vàng' giúp em đọc nhanh gấp đôi trong phần Đọc hiểu Dokkai đó! Đừng cố học từng nét vẽ khô khan nha, hãy học theo **Âm Hán Việt + Cụm từ ghép (熟語)**. Chị đã thêm đầy đủ phiên âm Hiragana cho từng chữ, từng câu ví dụ rồi nè. Cùng chị chinh phục 10 chữ Hán siêu hay thi của Bài 1 nhé!"*
+> 🌸 **Lời dặn của chị Yuki:**  
+> *"Bé cưng ơi! Chữ Hán của Bài 1 trong giáo trình chuẩn **Shinkanzen Master Kanji N2** kết hợp chặt chẽ với chủ đề **親類・友人・知人 (Người thân, bạn bè, người quen)**.  
+> Đề thi JLPT N2 (Mondai 1 - Đọc Kanji & Mondai 2 - Cách viết Kanji) cực kỳ thích ra các chữ Hán thuộc bộ thủ con người, gia tộc, thứ bậc xã hội và các từ ghép tạo nên phép tắc ứng xử. Chị đã tổng hợp đầy đủ 14 chữ Hán trọng điểm chuẩn Shinkanzen kèm âm On/Kun, âm Hán Việt, từ ghép N2 và các cặp bẫy dễ gây lú cho em rồi nè!"*
 
 ---
 
-## 1. Bảng 10 Chữ Hán Trọng Tâm Bài 01 (Giáo Trình Shinkanzen Kanji N2)
+## 1. Bảng 14 Chữ Hán Trọng Tâm Bài 01 (Chuẩn Shinkanzen N2)
 
-| STT | Chữ Hán | Âm Hán Việt | Âm On (音読み) | Âm Kun (訓読み) | Từ ghép N2 thông dụng (Kèm Hiragana) | Ý nghĩa tiếng Việt |
+| STT | Chữ Hán | Âm Hán Việt | Âm On (音読み) | Âm Kun (訓読み) | Từ ghép N2 hay gặp (Kèm Hiragana) | Ý nghĩa tiếng Việt |
 | :---: | :---: | :--- | :--- | :--- | :--- | :--- |
-| 1 | **訪** | PHỎNG | ホウ (hō) | おとず・れる<br>たず・ねる | ・**訪問（ほうもん）する**<br>・**訪（たず）ねる**<br>・**訪（おとず）れる** | Thăm hỏi, ghé thăm<br>Đến thăm (nhà bạn)<br>Ghé thăm (mùa xuân đến) |
-| 2 | **伺** | TỨ / THÍ | シ (shi) | うかが・う | ・**伺（うかが）う** | Đến thăm / Hỏi / Nghe (Khiêm nhường ngữ) |
-| 3 | **伴** | BẠN | ハン (han)<br>バン (ban) | ともな・う | ・**同伴（どうはん）する**<br>・**伴（ともな）う** | Đi cùng, dắt theo<br>Kéo theo, đi kèm với |
-| 4 | **招** | CHIÊU | ショウ (shō) | まね・く | ・**招待（しょうたい）する**<br>・**招（まね）く** | Mời, chiêu đãi<br>Mời gọi, vẫy gọi, chuốc lấy |
-| 5 | **礼** | LỄ | レイ (rei)<br>ライ (rai) | ❌ | ・**礼儀（れいぎ）**<br>・**お礼（れい）**<br>・**失礼（しつれい）** | Lễ nghi, phép lịch sự<br>Lời cảm ơn, quà cảm ơn<br>Thất lễ, xin lỗi |
-| 6 | **断** | ĐOẠN | ダン (dan) | ことわ・る<br>た・つ | ・**断（ことわ）る**<br>・**決断（けつだん）**<br>・**横断（おうだん）歩道（ほどう）** | Từ chối<br>Quyết đoán, phán quyết<br>Vạch sang đường |
-| 7 | **互** | HỖ | ゴ (go) | たが・い | ・**お互（たが）いに**<br>・**相互（そうご）** | Lẫn nhau, cùng nhau<br>Tương hỗ, qua lại lẫn nhau |
-| 8 | **恵** | HUỆ | ケイ (kei)<br>エ (e) | めぐ・む | ・**恵（めぐ）まれる**<br>・**恩恵（おんけい）** | Được ban tặng, may mắn có<br>Ân huệ, lợi ích |
-| 9 | **甘** | CAM | カン (kan) | あま・い<br>あま・える<br>あま・やかす | ・**甘（あま）える**<br>・**甘（あま）やかす**<br>・**甘（あま）い** | Nũng nịu, dựa dẫm<br>Chiều chuộng quá mức<br>Ngọt ngào; Non nớt, ngây thơ |
-| 10 | **嫌** | HIỀM | ケン (ken)<br>ゲン (gen) | きら・う<br>いや | ・**機嫌（きげん）**<br>・**嫌（きら）う**<br>・**嫌（いや）がる** | Tâm trạng, sắc mặt<br>Ghét bỏ<br>Tỏ vẻ khó chịu, không thích |
+| 1 | **祖** | TỔ | ソ (so) | ❌ | ・**祖先（そせん）**<br>・**祖父母（そふぼ）**<br>・**先祖（せんぞ）** | Tổ tiên, ông cha đời trước<br>Ông bà (nội, ngoại)<br>Tổ tiên dòng tộc |
+| 2 | **孫** | TÔN | ソン (son) | まご (mago) | ・**孫（まご）**<br>・**子孫（しそん）** | Cháu (của ông bà)<br>Con cháu, hậu duệ mai sau |
+| 3 | **親** | THÂN | シン (shin) | おや (oya)<br>した・しい (shita-shii)<br>した・しむ (shita-shimu) | ・**親類（しんるい）**<br>・**親戚（しんせき）**<br>・**親孝行（おやこうこう）**<br>・**親（した）しい** | Họ hàng, người thân<br>Bà con thân thích<br>Lòng hiếu thảo với cha mẹ<br>Thân mật, gần gũi |
+| 4 | **戚** | THÍCH | セキ (seki) | ❌ | ・**親戚（しんせき）** | Bà con họ hàng gần xa |
+| 5 | **孝** | HIẾU | コウ (kō) | ❌ | ・**親孝行（おやこうこう）**<br>・**孝行（こうこう）**<br>・**不孝（ふこう）** | Hiếu thảo, chăm sóc cha mẹ<br>Lòng hiếu thảo<br>Bất hiếu |
+| 6 | **婦** | PHỤ | フ (fu) | ❌ | ・**夫妻（ふさい）**<br>・**夫婦（ふうふ）**<br>・**夫人（ふじん）**<br>・**主婦（しゅふ）** | Vợ chồng (lịch sự)<br>Vợ chồng (nói chung)<br>Phu nhân, bà<br>Nội trợ trong gia đình |
+| 7 | **妻** | THÊ | サイ (sai) | つま (tsuma) | ・**ご夫妻（ふさい）**<br>・**妻（つま）**<br>・**愛妻（あいさい）** | Vợ chồng (kính xưng người khác)<br>Vợ (của mình)<br>Người vợ dấu yêu |
+| 8 | **双** | SONG | ソウ (sō) | ふた (futa) | ・**双子（ふたご）**<br>・**双方（そうほう）** | Con sinh đôi, cặp song sinh<br>Song phương, hai bên đối tác |
+| 9 | **輩** | BỐI | ハイ (hai) | ❌ | ・**先輩（せんぱい）**<br>・**後輩（こうはい）**<br>・**同輩（どうはい）** | Tiền bối, người đi trước<br>Hậu bối, người vào sau<br>Bạn bè cùng trang lứa |
+| 10 | **仲** | TRỌNG | チュウ (chū) | なか (naka) | ・**仲良（なかよ）し**<br>・**仕事仲間（しごとなかま）**<br>・**仲間（なかま）**<br>・**仲直（なかなお）り** | Thân thiết, bạn thân<br>Bạn đồng nghiệp, cộng sự<br>Nhóm bạn, bè bạn<br>Làm lành, hòa giải sau cãi cọ |
+| 11 | **司** | TY / TƯ | シ (shi) | ❌ | ・**上司（じょうし）**<br>・**司会（しかい）** | Cấp trên, sếp ở công ty<br>Người dẫn chương trình, chủ tọa |
+| 12 | **儀** | NGHI | ギ (gi) | ❌ | ・**お辞儀（じぎ）**<br>・**礼儀（れいぎ）**<br>・**儀式（ぎしき）** | Cúi đầu chào kính cẩn<br>Lễ nghi, phép tắc lịch sự<br>Nghi thức, buổi lễ |
+| 13 | **握** | ÁC | アク (aku) | にぎ・る (nigi-ru) | ・**握手（あくしゅ）**<br>・**握（にぎ）る**<br>・**把握（はあく）する** | Bắt tay làm quen/hợp tác<br>Nắm chặt (tay), nắm (cơm)<br>Nắm bắt (thực trạng, tình hình) |
+| 14 | **遣** | KHIỂN | ケン (ken) | つか・う (tsuka-u) | ・**言葉遣（ことばづか）い**<br>・**気遣（きづか）い**<br>・**派遣（はけん）** | Cách dùng từ, lời ăn tiếng nói<br>Sự chu đáo, để ý quan tâm<br>Phái cử, điều động nhân sự |
 
 ---
 
-## 2. Người Chị Giải Thích Mẹo Nhớ & Cách Dùng Chữ Hán
+## 2. Người Chị Mách Mẹo Nhớ Bộ Thủ & Cấu Trúc Chữ
 
-### 💡 1. Phân biệt `訪ねる（たずねる）` vs `訪れる（おとずれる）`
-- Cùng viết bằng chữ **訪 (PHỎNG)** nhưng cách đọc và đối tượng khác nhau nha cưng:
-  - `訪（たず）ねる`: Chủ ngữ là **con người** đi thăm người hoặc địa điểm:  
-    *Ví dụ:* 友（とも）だちの家（いえ）を**訪（たず）ねる**。 *(Đến thăm nhà bạn).*
-  - `訪（おとず）れる`: Dùng cho **hiện tượng tự nhiên hoặc cơ hội** tự tìm đến:  
-    *Ví dụ:* この町（まち）にも、ようやく春（はる）が**訪（おとず）れた**。 *(Cuối cùng mùa xuân cũng đã ghé thăm thị trấn này).*
+### 💡 1. Cặp bài trùng huyết thống: `祖 (TỔ)` & `孫 (TÔN)`
+- **祖 (TỔ):** Bên trái là bộ **Thị (礻 - bàn thờ, thần linh)**, bên phải là chữ **Thả (且)**. Dòng họ thờ phụng bàn thờ tổ tiên ➔ Chữ **TỔ** trong `祖先（そせん）`.
+- **孫 (TÔN):** Bên trái là chữ **Tử (子 - đứa con)**, bên phải là bộ **Hệ (系 - dòng dõi, huyết thống)**. Đứa con nối tiếp dòng dõi huyết thống chính là **CHÁU** ➔ Chữ **TÔN** trong `子孫（しそん）` và `孫（まご）`.
 
-### 💡 2. Chữ `伴 (BẠN)` - Có bộ Nhân đứng (亻)
-- Bộ `亻` (người) đứng cạnh nửa chữ `半` (bán). Hai người đi cùng nhau một nửa quãng đường ➔ Nghĩa là **ĐI CÙNG, BẠN ĐỒNG HÀNH**.  
-- *Cụm từ N2 cực hay thi:* `危険（きけん）を伴（ともな）う` = Tiềm ẩn/kéo theo nguy hiểm đi kèm.
+### 💡 2. Chữ `孝 (HIẾU)` - Con đỡ lưng người già
+- Phía trên là phần đầu của chữ **Lão (老 - người già)**, phía dưới là chữ **Tử (子 - con cái)**. Người con cõng và đỡ lưng cha mẹ già trên vai ➔ Đó chính là lòng **HIẾU THẢO** (`親孝行 - おやこうこう`).
 
-### 💡 3. Chữ `断 (ĐOẠN)` - Chữ mang 2 sắc thái lớn
-- Đi với âm Kun `ことわる`: Có nghĩa là **từ chối** một lời mời (`誘（さそ）いを断（ことわ）る`).
-- Đi với âm On `ダン`: Mang nghĩa **cắt đứt, quyết liệt** như `決断（けつだん）` (quyết đoán ra quyết định) hay `断水（だんすい）` (cắt nước).
+### 💡 3. Chữ `輩 (BỐI)` - Hàng xe lăn bánh kế tiếp nhau
+- Phía trên là chữ **Phi (非)**, phía dưới là chữ **Xa (車 - xe cộ)**. Nhiều chiếc xe nối đuôi nhau di chuyển thành từng đoàn: xe đi trước là `先輩（せんぱい）`, xe đi sau là `後輩（こうはい）`.
 
-### 💡 4. Chữ `嫌 (HIỀM)` - Phụ nữ (女) kiêm (兼) đủ chuyện
-- Bộ `女` (phụ nữ) đứng cạnh chữ `兼` (kiêm nhiệm). Phụ nữ mà phải kiêm quá nhiều việc thì sẽ sinh ra bực bội, khó chịu ➔ Chữ **HIỀM** (ghét, tâm trạng xấu).  
-- *Từ N2 siêu phổ biến:* `ご機嫌（きげん）いかがですか` *(Hôm nay tâm trạng/sức khỏe bác thế nào ạ?)*. Hoặc `機嫌（きげん）がいい / 悪（わる）い` *(Tâm trạng vui vẻ / bực bội)*.
+### 💡 4. Chữ `握 (ÁC)` - Bàn tay nắm chặt
+- Bên trái có bộ **Thủ (扌 - bàn tay)**, bên phải là chữ **Ốc (屋 - ngôi nhà)**. Bàn tay nắm trọn lấy vật trong lòng ➔ Hành động nắm chặt tay hoặc bắt tay `握手（あくしゅ）`. Trong N2, từ trừu tượng siêu hay thi là `状況を把握（はあく）する` *(Nắm bắt rõ tình hình)*.
 
 ---
 
-## 3. Phân Biệt Các Cặp Chữ Hán Dễ Gây Lú (Bẫy Mondai 2)
+## 3. Phân Biệt Các Cặp Chữ Hán Dễ Gây Lú (Bẫy Mondai 2 Viết Kanji)
 
 | Chữ cần phân biệt | Bộ thủ khác nhau | Nghĩa & Ví dụ phân biệt |
 | :--- | :--- | :--- |
-| **訪** (PHỎNG) | Bộ Ngôn (言) - Lời nói | `訪問（ほうもん）` - Thăm hỏi bằng lời nói. |
-| **誘** (DÙ) | Bộ Ngôn (言) + Tú (秀) | `誘（さそ）う` - Rủ rê, mời mọc đi chơi. |
-| **認** (NHẬN) | Bộ Ngôn (言) + Nhẫn (忍) | `認（みと）める` - Công nhận, thừa nhận. |
+| **戚** (THÍCH) | Bộ Qua (戈 - binh khí) + Cảm xúc huyết tộc | `親戚（しんせき）` - Bà con thân thích họ hàng. |
+| **威** (UY) | Bộ Nữ (女) ở dưới | `威張（いば）る` (kiêu căng hợm hĩnh), `権威（けんい）` (quyền uy). |
+| **滅** (DIỆT) | Bộ Thủy (氵) bên trái | `全滅（ぜんめつ）` (tiêu diệt hoàn toàn), `滅亡（めつぼう）` (diệt vong). |
 | --- | --- | --- |
-| **招** (CHIÊU) | Bộ Thủ (扌) - Tay vẫy | `招待（しょうたい）` - Vẫy tay mời khách đến nhà. |
-| **紹** (THIỆU) | Bộ Mịch (糸) - Sợi tơ kết nối | `紹介（しょうかい）` - Dùng sợi tơ kết nối để giới thiệu bạn bè. |
+| **儀** (NGHI) | Bộ Nhân đứng (亻) - Con người giữ lễ | `礼儀（れいぎ）` (phép lịch sự), `お辞儀（おじぎ）` (cúi chào). |
+| **犠** (HY) | Bộ Ngưu (牛) - Con bò tế lễ thần linh | `犠牲（ぎせい）` (hy sinh tính mạng/lợi ích cá nhân). |
+| --- | --- | --- |
+| **遣** (KHIỂN) | Bộ Xước (辶) - Sai phái đi đường | `言葉遣（ことばづか）い` (cách dùng từ), `派遣（はけん）` (phái cử nhân viên). |
+| **遺** (DI) | Bộ Xước (辶) + Quý (貴) | `遺産（いさん）` (di sản để lại), `遺伝（いでん）` (di truyền). |
 
 ---
 
-## 4. Luyện Đọc Kanji Trong Câu Thực Tế (Có Kèm Hiragana)
+## 4. Luyện Đọc Kanji Trong Câu Thực Tế Chuẩn N2
 
-1. 来週（らいしゅう）の月曜日（げつようび）に、取引先（とりひきさき）の会社（かいしゃ）を**訪問（ほうもん）する**予定（よてい）です。  
-   *(Thứ Hai tuần tới, tôi dự định sẽ đến thăm công ty đối tác.)*
+1. 私（わたし）たちの**祖先（そせん）**が残（のこ）してくれた美（うつく）しい自然（しぜん）を、**子孫（しそん）**に受（う）け継（つ）いでいかなければならない。  
+   *(Chúng ta phải kế thừa và truyền lại cho con cháu mai sau vẻ đẹp thiên nhiên mà tổ tiên đã để lại.)*
 
-2. 明日（あす）の午後（ごご）3時（さんじ）に、社長室（しゃちょうしつ）へ**伺（うかが）います**。  
-   *(3 giờ chiều mai, tôi xin phép được ghé qua văn phòng giám đốc ạ.)*
+2. 初（はじ）めてお給料（きゅうりょう）をもらったので、両親（りょうしん）を温泉（おんせん）旅行（りょこう）に連（つ）れて行（い）って**親孝行（おやこうこう）**をした。  
+   *(Vì nhận được tháng lương đầu tiên nên tôi đã dẫn bố mẹ đi du lịch suối nước nóng để báo hiếu.)*
 
-3. 友（とも）だちの結婚式（けっこんしき）に**招待（しょうたい）された**ので、きれいな服（ふく）を着（き）て行（い）きます。  
-   *(Vì được mời tham dự đám cưới của bạn thân nên tôi sẽ mặc đồ thật đẹp để đi.)*
+3. 田中（たなか）氏（し）**ご夫妻（ふさい）**は、結婚（けっこん）後（ご）も互（たが）いを尊重（そんちょう）し合（あ）い、仲（なか）睦（むつ）まじく暮（く）らしている。  
+   *(Vợ chồng ông Tanaka sau khi kết hôn vẫn luôn tôn trọng lẫn nhau và sống rất hạnh phúc.)*
 
-4. どんなに親（した）しい間柄（あいだがら）であっても、最低限（さいていげん）の**礼儀（れいぎ）**は守（まも）るべきだ。  
-   *(Dẫu cho mối quan hệ có thân thiết đến mấy đi chăng nữa, chúng ta vẫn phải giữ phép lịch sự tối thiểu.)*
+4. 会社（かいしゃ）の**上司（じょうし）**や**先輩（せんぱい）**に対（たい）しては、礼儀（れいぎ）正（ただ）しい**言葉遣（ことばづか）い**で話（はな）すのがマナーだ。  
+   *(Đối với cấp trên và tiền bối trong công ty, nói năng bằng từ ngữ lịch sự, chuẩn mực là phép lịch sự cơ bản.)*
 
-5. 自然（しぜん）の**恩恵（おんけい）**に感謝（かんしゃ）しながら、日々（ひび）の生活（せいかつ）を送（おく）る。  
-   *(Vừa cảm tạ ân huệ của thiên nhiên, vừa tận hưởng cuộc sống mỗi ngày.)*
+5. 商談（しょうだん）が成立（せいりつ）した**際（さい）**に、両社（りょうしゃ）の代表（だいひょう）が笑顔（えがお）でがっちりと**握手（あくしゅ）**を交（か）わした。  
+   *(Khi cuộc đàm phán thương mại thành công, đại diện hai bên đã tươi cười bắt tay nhau thật chặt.)*
 
 ---
 
 <!-- GHI-CHU-CHI:START -->
 ## 📝 Ghi Chú Của Chị — Bẫy cách đọc chữ Hán
 
-- **訪**: `訪（たず）ねる` (đến thăm ai, chủ động) vs `訪（おとず）れる` (ghé thăm / mùa đến: `春（はる）が訪（おとず）れる`).
-- **伴**: âm On có 2 cách: `同伴（どうはん）` nhưng `伴奏（ばんそう）`. Kun: `伴（ともな）う`.
-- **礼**: thường đọc `レイ`, nhưng `礼賛（らいさん）` đọc `ライ`.
-- **恵**: `恩恵（おんけい）` đọc `ケイ`, nhưng `知恵（ちえ）` đọc `エ` — bẫy Mondai 1 kinh điển.
-- **嫌**: `嫌悪（けんお）` đọc `ケン`, nhưng `機嫌（きげん）` đọc `ゲン`. Kun: `嫌（きら）う` / `嫌（いや）`.
-- **断**: `断（ことわ）る` (từ chối) vs `断（た）つ` (cắt đứt: `連絡（れんらく）を断（た）つ`).
+- **孫**: Âm On đọc là `ソン` trong `子孫（しそん）`, nhưng âm Kun đứng một mình đọc là `まご` *(cháu)*. Đừng nhầm với `ひ孫（ひまご）` *(chắt)* nha!
+- **親**: `親孝行（おやこうこう）` dùng âm Kun `おや`, trong khi `親類（しんるい）` và `親戚（しんせき）` dùng âm On `シン`.
+- **妻**: Đứng một mình đọc là `つま` *(vợ mình)*; đi trong từ ghép đọc là `サイ` (`ご夫妻 - ふさい`, `愛妻家 - あいさいか`).
+- **遣**: `言葉遣（ことばづか）い` bị biến âm thành `づかい` (có Ten-ten) — cực kỳ hay bị lừa trong bài trắc nghiệm Hiragana của Mondai 1.
+- **握**: Âm On là `アク` trong `握手（あくしゅ）` và `把握（はあく）`. Âm Kun là `握（にぎ）る` *(nắm chặt)*.
 
 ### ✏️ Ghi chú riêng của em
 > *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*

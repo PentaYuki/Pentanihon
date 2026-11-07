@@ -1,56 +1,115 @@
-# 📖 Bài 01: Từ Vựng & Chữ Hán (語彙・漢字 - ごい・かんじ) - Shinkanzen N2
-## Chủ đề: Mối Quan Hệ Con Người & Xã Giao (人間関係 - にんげんかんけい)
+# 📖 Bài 01: Từ Vựng (語彙 - ごい) - Shinkanzen Master N2
+## Chủ đề: Con Người — Người Thân, Bạn Bè & Người Quen (1章 人間 - 1課 親類・友人・知人)
 
-> 🌸 **Lời dặn của chị gái:**  
-> *"Chào bé cưng! Từ vựng Bài 1 bao gồm 25 từ đắt giá nhất về đối nhân xử thế, kết bạn và giao thiệp xã hội chuẩn Shinkanzen N2:"*
+> 🌸 **Lời dặn của chị Yuki:**  
+> *"Chào bé cưng của chị! Theo đúng chuẩn giáo trình **Shinkanzen Master Từ vựng N2 (新完全マスター語彙 N2 - 1章 1課)**, bài 1 bắt đầu bằng chủ đề cốt lõi nhất: **親類・友人・知人 (Người thân, bạn bè và người quen)**.  
+> Đề thi JLPT N2 rất thích gài bẫy các cặp từ đối lập (tổ tiên - con cháu, hiếu thảo - bất hiếu, tiền bối - hậu bối), cách xưng hô lịch sự với người thân của người khác, và các cụm kết hợp (collocation) đi kèm. Chị đã tổng hợp đầy đủ trọn bộ từ vựng chuẩn Shinkanzen kèm phiên âm Hiragana 100% cho em rồi nè!"*
 
 ---
 
-## 1. Bảng 25 Từ Vựng Trọng Tâm Bài 01 (Giáo Trình Shinkanzen Master N2)
+## 1. Bảng Từ Vựng Trọng Tâm Bài 01 Chuẩn Shinkanzen Master N2
 
-| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ hay đi kèm (Collocation) |
+### 👪 Nhóm 1: Gia Đình & Thân Tộc (家族・親類 - かぞく・しんるい)
+
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ chuẩn Shinkanzen (Collocation) |
 | :---: | :--- | :--- | :--- | :--- |
-| 1 | **付（つ）き合（あ）い** | PHÓ HỢP | Quan hệ giao thiệp, xã giao | 近所（きんじょ）付（つ）き合（あ）い |
-| 2 | **もてなす** | đãi | Tiếp đãi, chiêu đãi nồng hậu | お客様（きゃくさま）を温（あたた）かくもてなす |
-| 3 | **気兼（きが）ねする** | KHÍ KIÊM | Khách khí, gượng gạo, giữ kẽ | 気兼（きが）ねなく話（はな）す |
-| 4 | **打（う）ち明（あ）ける** | ĐẢ MINH | Thổ lộ, trút bầu tâm sự | 本音（ほんね）を打（う）ち明（あ）ける |
-| 5 | **なつく** | thân | Quấn quýt, bám theo, thân thiết | 犬（いぬ）が私（わたし）になつく |
-| 6 | **見（み）かけ** | KIẾN | Vẻ bề ngoài, diện mạo | 人（ひと）を見（み）かけで判断（はんだん）する |
-| 7 | **こじれる** | rối | Mối quan hệ trở nên phức tạp, lục đục | 話（はなし）がこじれる |
-| 8 | **おごる** | khao | Bao ăn, khao tiền | 後輩（こうはい）に昼（ひる）ご飯（はん）をおごる |
-| 9 | **割（わ）り勘（かん）** | CÁT KHÁM | Chia đều tiền (Campuchia) | 今日（きょう）は割（わ）り勘（かん）にしよう |
-| 10 | **気（き）が置（お）けない** | KHÍ TRÍ | Thân thiết thoải mái (không cần giữ kẽ) | 気（き）が置（お）けない仲間（なかま） |
-| 11 | **口実（こうじつ）** | KHẨU THỰC | Cái cớ, viện cớ thoái thác | 忙（いそが）しさを口実（こうじつ）にして断（ことわ）る |
-| 12 | **お互（たが）い様（さま）** | HỖ DẠNG | Ai cũng như nhau cả thôi, huề cả làng | 困（こま）ったときはお互（たが）い様（さま）だ |
-| 13 | **励（はげ）ます** | LỆ | Động viên, khích lệ | 友人（ゆうじん）を励（はげ）ます |
-| 14 | **労（ねぎら）う** | LAO | Tán thưởng, ghi nhận công lao | 部下（ぶか）の労（ろう）をねぎらう |
-| 15 | **引（ひ）き止（と）める** | DẪN CHỈ | Níu giữ lại, ngăn lại | 帰（かえ）ろうとする客（きゃく）を引（ひ）き止（と）める |
-| 16 | **お世辞（せじ）** | THẾ TỪ | Lời khen xã giao, nịnh nọt | お世辞（せじ）を言（い）う |
-| 17 | **恩（おん）に着（き）る** | ÂN TRỨ | Ghi ơn, mang ơn | 親切（しんせつ）を恩（おん）に着（き）る |
-| 18 | **冷（ひ）やかす** | LÃNH | Trêu chọc, chọc ghẹo | 関係（かんけい）を冷（ひ）やかす |
-| 19 | **気（き）を遣（つか）う** | KHÍ KHIỂN | Để ý, bận tâm chăm sóc | 周囲（しゅうい）に気（き）を遣（つか）う |
-| 20 | **気（き）を利（き）かせる** | KHÍ LỢI | Tinh tế, biết ý nhường nhịn | 気（き）を利（き）かせて席（せき）を外（はず）す |
-| 21 | **打（う）ち解（と）ける** | ĐẢ GIẢI | Cởi mở, thân mật | すぐに打（う）ち解（と）ける |
-| 22 | **思（おも）いやる** | TƯ | Cảm thông, thấu hiểu | 相手（あいて）の気持（きも）ちを思（おも）いやる |
-| 23 | **いたわる** | lao | Chăm sóc ân cần, nâng niu | 老人（ろうじん）をいたわる |
-| 24 | **敬（うやま）う** | KÍNH | Kính trọng, tôn kính | 目上（めうえ）の人（ひと）を敬（うやま）う |
-| 25 | **見下（みくだ）す** | KIẾN HẠ | Coi thường, khinh khỉnh | 人（ひと）を見下（みくだ）す |
+| 1 | **祖先（そせん）** | TỔ TIÊN | Tổ tiên, ông cha đời trước | 人類（じんるい）の**祖先（そせん）** *(Tổ tiên của loài người)* |
+| 2 | **子孫（しそん）** | TỬ TÔN | Con cháu, hậu duệ mai sau | **子孫（しそん）**に残（のこ）す *(Để lại cho con cháu)* |
+| 3 | **祖父母（そふぼ）** | TỔ PHỤ MẪU | Ông bà (nội, ngoại) | **祖父母（そふぼ）**から孫（まご）まで *(Từ ông bà đến con cháu)* |
+| 4 | **孫（まご）** | TÔN | Cháu (của ông bà) | おじいちゃんが**孫（まご）**をかわいがる *(Ông cưng chiều cháu)* |
+| 5 | **三世代（さんせだい）** | TAM THẾ ĐẠI | Ba thế hệ (ông bà, bố mẹ, con cái) | **三世代（さんせだい）**で生活（せいかつ）する *(3 thế hệ cùng chung sống)* |
+| 6 | **一家（いっか）** | NHẤT GIA | Cả nhà, toàn thể gia đình | **一家（いっか）**で出（で）かける *(Cả gia đình cùng nhau đi chơi)* |
+| 7 | **親類（しんるい）** | THÂN LOẠI | Họ hàng, người thân thích | **親類（しんるい）**の集（あつ）まりに出（で）る *(Đi dự họp mặt họ hàng)* |
+| 8 | **親戚（しんせき）** | THÂN THÍCH | Bà con họ hàng gần xa | 遠（とお）くの**親戚（しんせき）**を訪（たず）ねる *(Thăm họ hàng ở xa)* |
+| 9 | **親孝行（おやこうこう）** | THÂN HIẾU HÀNH | Hiếu thảo, chăm sóc phụng dưỡng cha mẹ | 両親（りょうしん）に**親孝行（おやこうこう）**をする *(Báo hiếu cha mẹ)* |
+| 10 | **親不孝（おやふこう）** | THÂN BẤT HIẾU | Bất hiếu, làm cha mẹ đau lòng | **親不孝（おやふこう）**なわがまま息子（むすこ） *(Đứa con trai bất hiếu ích kỷ)* |
+| 11 | **実家（じっか）** | THỰC GIA | Nhà bố mẹ đẻ, quê nhà | **実家（じっか）**が懐（なつ）かしい *(Nhớ nhà bố mẹ đẻ)* |
+| 12 | **一人（ひとり）っ子（こ）** | NHẤT NHÂN TỬ | Con một trong gia đình | 兄弟（きょうだい）がいない**一人（ひとり）っ子（こ）** *(Con một không có anh chị em)* |
+| 13 | **双子（ふたご）** | SONG TỬ | Sinh đôi, cặp song sinh | よく似（に）ている**双子（ふたご）** *(Cặp sinh đôi giống nhau như đúc)* |
+| 14 | **末（すえ）っ子（こ）** | MẠT TỬ | Con út trong nhà | 三人（さんにん）姉妹（しまい）の**末（すえ）っ子（こ）** *(Con út trong gia đình ba chị em)* |
 
 ---
 
-## 2. Người Chị Giải Thích Cặn Kẽ & Mẹo Nhớ Siêu Tốc
-> 💖 *Nhớ kỹ từ `気が置けない` là thân thiết thoải mái không cần giữ kẽ, đừng nhầm với không đáng tin nha cưng!*
+### 🤝 Nhóm 2: Bạn Bè, Người Quen & Kính Xưng (友人・知人・呼び方)
 
-- **Bí kíp học của chị:** Hãy đọc to mỗi từ kèm cụm collocation 3 lần mỗi sáng. Đừng bao giờ học từ vựng đơn lẻ cưng nhé! Phải nhớ cả ngữ cảnh xuất hiện thì khi gặp dạng bài Mondai 1 (Đọc Kanji), Mondai 2 (Cách viết Kanji), Mondai 4 (Tìm từ đồng nghĩa) và Mondai 5 (Cách dùng từ trong câu) em mới phản xạ đánh trúng đáp án ngay trong 5 giây!
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ chuẩn Shinkanzen (Collocation) |
+| :---: | :--- | :--- | :--- | :--- |
+| 15 | **友人（ゆうじん）** | HỮU NHÂN | Bạn bè (cách gọi trang trọng hơn 友達) | 親（した）しい**友人（ゆうじん）**を招（まね）く *(Mời người bạn thân đến chơi)* |
+| 16 | **仲良（なかよ）し** | TRỌNG LƯƠNG | Thân thiết, bạn bè thân thiết | **仲良（なかよ）し**グループで旅行（りょこう）する *(Đi du lịch cùng nhóm bạn thân)* |
+| 17 | **仕事（しごと）仲間（なかま）** | SỰ TRỌNG GIAN | Bạn đồng nghiệp, cộng sự công việc | 頼（たよ）りになる**仕事（しごと）仲間（なかま）** *(Đồng nghiệp đáng tin cậy)* |
+| 18 | **知人（ちじん）** | TRI NHÂN | Người quen (biết mặt biết tên) | **知人（ちじん）**・知（し）り合（あ）いが多（おお）い *(Có nhiều người quen biết)* |
+| 19 | **知（し）り合（あ）い** | TRI HỢP | Người quen sơ qua, có quen biết | 近所（きんじょ）の**知（し）り合（あ）い**に会（あ）う *(Gặp người quen hàng xóm)* |
+| 20 | **奥様（おくさま）** | ÁO DẠNG | Vợ (của người khác - kính ngữ) | 田中（たなか）さんの**奥様（おくさま）** *(Vợ của anh Tanaka)* |
+| 21 | **ご主人（しゅじん）** | CHỦ NHÂN | Chồng (của người khác - kính ngữ) | **ご主人（しゅじん）**はお元気（げんき）ですか *(Anh nhà vẫn khỏe chứ ạ?)* |
+| 22 | **お嬢（じょう）ちゃん** | NƯƠNG | Con gái (của người khác - thân mật lịch sự) | かわいい**お嬢（じょう）ちゃん**ですね *(Bé gái nhà anh/chị đáng yêu quá)* |
+| 23 | **お坊（ぼっ）ちゃん** | PHƯỜNG | Con trai (của người khác / công tử nhà giàu) | 社長（しゃちょう）の**お坊（ぼっ）ちゃん** *(Cậu ấm con trai giám đốc)* |
+| 24 | **ご夫妻（ふさい）** | PHU THÊ | Vợ chồng (lịch sự, trang trọng) | 田中（たなか）氏（し）**ご夫妻（ふさい）** *(Vợ chồng ông Tanaka)* |
+| 25 | **夫人（ふじん）** | PHU NHÂN | Phu nhân, bà | 大統領（だいとうりょう）**夫人（ふじん）** *(Đệ nhất phu nhân tổng thống)* |
+
+---
+
+### 🏢 Nhóm 3: Thứ Bậc Công Sở & Xã Hội (上下関係・立場)
+
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ chuẩn Shinkanzen (Collocation) |
+| :---: | :--- | :--- | :--- | :--- |
+| 26 | **上司（じょうし）** | THƯỢNG TI | Cấp trên, sếp trực tiếp | 職場（しょくば）の**上司（じょうし）**に相談（そうだん）する *(Trao đổi xin ý kiến cấp trên)* |
+| 27 | **部下（ぶか）** | BỘ HẠ | Cấp dưới, nhân viên dưới quyền | **部下（ぶか）**の失敗（しっぱい）をフォローする *(Hỗ trợ xử lý sai sót của cấp dưới)* |
+| 28 | **先輩（せんぱい）** | TIỀN BỐI | Tiền bối, người đi trước (khóa trên/vào trước) | 大学（だいがく）の**先輩（せんぱい）**を敬（うやま）う *(Kính trọng tiền bối ở đại học)* |
+| 29 | **後輩（こうはい）** | HẬU BỐI | Hậu bối, người vào sau / khóa dưới | 新入（しんにゅう）社員（しゃいん）の**後輩（こうはい）**を指導（しどう）する *(Hướng dẫn cho hậu bối mới vào)* |
+| 30 | **目上（めうえ）** | MỤC THƯỢNG | Người bề trên (vị thế xã hội hoặc tuổi tác cao hơn) | **目上（めうえ）**の人（ひと）には敬語（けいご）を使（つか）う *(Dùng kính ngữ với người bề trên)* |
+| 31 | **目下（めした）** | MỤC HẠ | Người bề dưới (địa vị hoặc tuổi tác thấp hơn) | **目下（めした）**の者（もの）にも丁寧（ていねい）に接（せっ）する *(Đối xử lịch sự cả với người dưới)* |
+| 32 | **年上（としうえ）** | NIÊN THƯỢNG | Lớn tuổi hơn, hơn tuổi | 私（わたし）より3歳（さんさい）**年上（としうえ）**だ *(Lớn hơn tôi 3 tuổi)* |
+| 33 | **年下（としした）** | NIÊN HẠ | Nhỏ tuổi hơn, kém tuổi | **年下（としした）**の友（とも）だちと遊（あそ）ぶ *(Chơi với người bạn kém tuổi hơn)* |
+| 34 | **同（おな）い年（どし）** | ĐỒNG NIÊN | Cùng tuổi, bằng tuổi | 彼（かれ）とはちょうど**同（おな）い年（どし）**だ *(Tôi với anh ấy cùng tuổi nhau)* |
+
+---
+
+### 🤝 Nhóm 4: Giao Thiệp & Lễ Nghi Ứng Xử (付き合い・マナー)
+
+| STT | Từ vựng (Kanji) | Âm Hán Việt | Nghĩa tiếng Việt | Cụm từ chuẩn Shinkanzen (Collocation) |
+| :---: | :--- | :--- | :--- | :--- |
+| 35 | **付（つ）き合（あ）い** | PHÓ HỢP | Sự giao thiệp, qua lại, quan hệ xã giao | 周囲（しゅうい）の人々（ひとびと）と親（した）しい**付（つ）き合（あ）い**をする *(Giao du thân thiết với mọi người xung quanh)* |
+| 36 | **言葉遣（ことばづか）い** | NGÔN KHIỂN | Cách dùng từ, lời ăn tiếng nói | 丁寧（ていねい）な**言葉遣（ことばづか）い**で話（はな）す *(Nói năng bằng ngôn từ lịch sự, nhã nhặn)* |
+| 37 | **お辞儀（じぎ）** | TỪ NGHI | Cúi đầu chào (phép tắc văn hóa Nhật Bản) | 生徒（せいと）が先生（せんせい）に**お辞儀（じぎ）**する *(Học sinh cúi đầu chào thầy cô giáo)* |
+| 38 | **握手（あくしゅ）** | ÁC THỦ | Bắt tay | 初（はじ）めて会（あ）った人と**握手（あくしゅ）**する *(Bắt tay với người mới gặp lần đầu)* |
+| 39 | **約束（やくそく）を守（まも）る** | ƯỚC THÚC THỦ | Giữ lời hứa, giữ đúng hẹn | 信用（しんよう）を得（え）るため**約束（やくそく）を守（まも）る** *(Giữ đúng lời hứa để tạo dựng lòng tin)* |
+| 40 | **約束（やくそく）を破（やぶ）る** | ƯỚC THÚC PHÁ | Thất hứa, phá vỡ lời hứa / hủy hẹn (`取（と）り消（け）す`) | 時間（じかん）の**約束（やくそく）を破（やぶ）る** *(Không giữ đúng hẹn về giờ giấc)* |
+| 41 | **態度（たいど）** | THÁI ĐỘ | Thái độ, cử chỉ đối đãi | 礼儀（れいぎ）正（ただ）しい**態度（たいど）**で接（せっ）する *(Đối đãi bằng thái độ lịch sự, đúng mực)* |
+
+---
+
+## 2. Người Chị Giải Thích Cặn Kẽ & Bí Kíp Chinh Phục Mondai 4, 5
+
+### 💡 1. Phân biệt `知人（ちじん）` vs `知（し）り合（あ）い（しりあい）` vs `友人（ゆうじん）`
+- `知人（ちじん）`: Từ vựng Hán Nhật, mang sắc thái **trang trọng, văn viết** *(Người mà mình biết thông tin, biết mặt)*.
+- `知（し）り合（あ）い`: Từ thuần Nhật quen thuộc trong **giao tiếp hội thoại hàng ngày**.
+- `友人（ゆうじん）`: Bạn bè (mang tính trang trọng hơn `友（とも）だち`). Trong bài thi N2, khi nói về đối tác kinh doanh hoặc phát biểu trang trọng, người Nhật luôn ưu tiên dùng `友人` và `知人`.
+
+### 💡 2. Cặp bẫy Mondai 1 & Mondai 2: `同（おな）い年（どし）`
+- Chữ **年** bình thường đọc là `とし` hoặc `ねん`.
+- Nhưng khi ghép thành cụm `cùng tuổi` thì đọc là **おないどし** (chứ KHÔNG đọc là `おなじとし` trong dạng câu hỏi chọn âm đọc chuẩn nhé cưng!).
+
+### 💡 3. Phân biệt hệ thống cấp bậc công sở:
+- `上司（じょうし） ⇄ 部下（ぶか）`: Dùng riêng cho **quan hệ tổ chức, công ty** (sếp trên - nhân viên dưới theo sơ đồ cơ cấu).
+- `目上（めうえ） ⇄ 目下（めした）`: Dùng cho **quan hệ tôn ti trật tự xã hội chung** (người có tuổi đời, địa vị xã hội cao hơn hoặc thấp hơn mình).
+- `先輩（せんぱい） ⇄ 後輩（こうはい）`: Dùng cho **thứ tự gia nhập** (vào trường trước, vào công ty trước). Một người nhỏ tuổi hơn vẫn có thể là `先輩` nếu họ vào công ty trước em đó!
 
 ---
 
 <!-- GHI-CHU-CHI:START -->
-## 📝 Ghi Chú Của Chị — Từ dễ nhầm & paraphrase Mondai 4
+## 📝 Ghi Chú Của Chị — Từ dễ nhầm & Paraphrase Mondai 4
 
-- **Paraphrase Mondai 4:** `気（き）が置（お）けない` ≈ `遠慮（えんりょ）しなくていい` ／ `打（う）ち明（あ）ける` ≈ `秘密（ひみつ）を話（はな）す` ／ `見下（みくだ）す` ≈ `ばかにする` ／ `お世辞（せじ）` ≈ `心（こころ）にもないほめ言葉（ことば）`.
-- **いたわる vs ねぎらう:** `いたわる` = chăm sóc người yếu (người già, người bệnh); `ねぎらう` = ghi nhận công sức (thường người trên → người dưới). Đề Mondai 5 rất hay tráo hai từ này.
-- **冷（ひ）やかす** còn nghĩa thứ hai: xem hàng mà không mua → `冷（ひ）やかし客（きゃく）`.
+- **Paraphrase Mondai 4:**  
+  - `祖先（そせん）` ≈ `先祖（せんぞ）`  
+  - `一家（いっか）` ≈ `家族全員（かぞくぜんいん）`  
+  - `仲良（なかよ）し` ≈ `親（した）しい間柄（あいだがら）`  
+  - `同（おな）い年（どし）` ≈ `年齢（ねんれい）が同（おな）じ`  
+  - `親孝行（おやこうこう）をする` ≈ `両親（りょうしん）を大切（たいせつ）にする`
+- **Cặp trái nghĩa kinh điển:**  
+  - `親孝行（おやこうこう）` *(Hiếu thảo)* ⇄ `親不孝（おやふこう）` *(Bất hiếu)*  
+  - `祖先（そせん）` *(Tổ tiên)* ⇄ `子孫（しそん）` *(Con cháu đời sau)*  
+  - `目上（めうえ）` *(Bề trên)* ⇄ `目下（めした）` *(Bề dưới)*  
+  - `約束（やくそく）を守（まも）る` ⇄ `約束（やくそく）を破（やぶ）る / 取（と）り消（け）す`
 
 ### ✏️ Ghi chú riêng của em
 > *(Em ghi lại câu mình hay sai, từ khó nhớ hoặc câu ví dụ tự đặt ở đây nhé)*
