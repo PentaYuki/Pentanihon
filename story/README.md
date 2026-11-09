@@ -49,6 +49,7 @@ graph TD
 | **09** | [**合格（ごうかく）通知（つうち）と涙（なみだ）の内定（ないてい）**<br>*(Giấy Báo Đỗ & Nước Mắt Ngày Nhận Naitei)*](./series-01_tap-09_giay_bao_do_va_naitei.md) | `〜にほかならない, 〜やまない, 〜からには, 〜に違いない` | ✅ Đã phát hành |
 | **10** | [**初（はつ）出社（しゅっしゃ）の緊張（きんちょう）と最初（さいしょ）の壁（かべ）**<br>*(Ngày Đầu Tiên Đi Làm & Bức Tường Thử Thách)*](./series-01_tap-10_ngay_dau_tien_di_lam.md) | `〜にあたって, 〜まい, 〜一方（で）, 〜ざるを得ない` | ✅ Đã phát hành |
 | **11** | [**失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第11話）**<br>*(Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 11))*](./series-01_tap-11_aozora_tokyo.md) | `〜まい, 〜てたまらない, 〜のみならず, 〜を込めて` | ✅ Đã phát hành |
+| **12** | [**神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第12話）**<br>*(Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 12))*](./series-01_tap-12_aozora_tokyo.md) | `〜つつある, 〜にすぎない, 〜ものなら, 〜からには` | ✅ Đã phát hành |
 
 ---
 
