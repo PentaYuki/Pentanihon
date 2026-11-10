@@ -5,6 +5,11 @@
 > *"Chào bé cưng của chị! Theo đúng chuẩn giáo trình **Shinkanzen Master Từ vựng N2 (新完全マスター語彙 N2 - 1章 1課)**, bài 1 bắt đầu bằng chủ đề cốt lõi nhất: **親類・友人・知人 (Người thân, bạn bè và người quen)**.  
 > Đề thi JLPT N2 rất thích gài bẫy các cặp từ đối lập (tổ tiên - con cháu, hiếu thảo - bất hiếu, tiền bối - hậu bối), cách xưng hô lịch sự với người thân của người khác, và các cụm kết hợp (collocation) đi kèm. Chị đã tổng hợp đầy đủ trọn bộ từ vựng chuẩn Shinkanzen kèm phiên âm Hiragana 100% cho em rồi nè!"*
 
+> 🎴 **Bộ Flashcards Trắng Đen Ôn Luyện:**  
+> - 🖥️ [**Học Lật Thẻ Tương Tác & Bản In A4 (flashcards.html)**](./flashcards.html) *(Lật thẻ tương tác, phím tắt, in gập đôi tiết kiệm mực)*  
+> - 📄 [**Sổ Tay Flashcard Đọc Markdown (flashcards.md)**](./flashcards.md)  
+> - 📥 [**File Dữ Liệu Anki/Quizlet (flashcards-anki.tsv)**](./flashcards-anki.tsv)
+
 ---
 
 ## 1. Bảng Từ Vựng Trọng Tâm Bài 01 Chuẩn Shinkanzen Master N2

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards Trắng Đen - Shinkanzen N2 Bài 01 (Từ Vựng)</title>
+  <style>
+    /* =========================================================
+       BLACK & WHITE MINIMALIST THEME (MONOCHROME)
+       Thiết kế tối giản 100% Đen & Trắng - Tối ưu cho học tập & in ấn A4
+       ========================================================= */
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --text-muted: #555555;
+      --border: #000000;
+      --border-light: #cccccc;
+      --card-bg: #ffffff;
+      --tag-bg: #f2f2f2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* NAVIGATION / TABS */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 10px;
+    }
+
+    .tab-btn {
+      background: #ffffff;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .tab-btn.active {
+      background: var(--border);
+      color: #ffffff;
+    }
+
+    /* =========================================================
+       VIEW 1: INTERACTIVE DIGITAL FLASHCARDS
+       ========================================================= */
+    #view-interactive {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 650px;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .filter-select {
+      border: 1.5px solid var(--border);
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      background: #fff;
+      font-weight: 500;
+    }
+
+    .toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* CARD CONTAINER */
+    .flashcard-stage {
+      width: 100%;
+      max-width: 650px;
+      height: 380px;
+      perspective: 1000px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border: 2px solid var(--border);
+      box-shadow: 6px 6px 0px #000000;
+      background: #ffffff;
+    }
+
+    .flashcard-stage.is-flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* CARD CONTENT */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom: 1px dashed var(--border-light);
+      padding-bottom: 8px;
+    }
+
+    .card-badge {
+      background: #000000;
+      color: #ffffff;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      border-radius: 2px;
+    }
+
+    .card-center {
+      margin: auto 0;
+    }
+
+    .furigana-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      min-height: 1.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .furigana-text.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .kanji-text {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #000000;
+    }
+
+    .hanviet-text {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+
+    .card-hint {
+      font-size: 0.8rem;
+      color: #888888;
+      border-top: 1px dashed var(--border-light);
+      padding-top: 8px;
+    }
+
+    /* BACK CONTENT */
+    .back-meaning {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .back-collocation {
+      background: #f8f8f8;
+      border-left: 3px solid #000;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .back-collocation-jp {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .back-note {
+      font-size: 0.85rem;
+      color: #444444;
+      text-align: left;
+      border: 1px solid #e0e0e0;
+      padding: 6px 10px;
+      margin-top: 6px;
+    }
+
+    /* ACTION BUTTONS */
+    .action-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 650px;
+    }
+
+    .btn {
+      background: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #000000;
+      transition: all 0.1s ease;
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .btn-flip {
+      flex: 1;
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .progress-bar {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .keyboard-tips {
+      font-size: 0.75rem;
+      color: #666666;
+      text-align: center;
+    }
+
+    /* =========================================================
+       VIEW 2: PRINT-READY A4 CUT-OUT SHEETS
+       ========================================================= */
+    #view-print {
+      display: none;
+    }
+
+    .print-instructions {
+      background: #f8f8f8;
+      border: 1px solid #000000;
+      padding: 14px 18px;
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+
+    .print-instructions h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .print-instructions ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .print-options-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* PRINT CARDS GRID (A4 FOLDABLE CUTOUT) */
+    /* Mỗi hàng gồm 2 cột: Cột trái là Mặt Trước, Cột phải là Mặt Sau */
+    /* Người học chỉ cần cắt nguyên ô hình chữ nhật, sau đó gập đôi theo trục giữa là thành flashcard hoàn hảo! */
+    .print-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .foldable-card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1.5px dashed #000000;
+      page-break-inside: avoid;
+      background: #ffffff;
+      min-height: 140px;
+      position: relative;
+    }
+
+    /* Biểu tượng kéo cắt ở góc */
+    .foldable-card-row::before {
+      content: "✂";
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: #fff;
+      padding: 0 4px;
+      font-size: 12px;
+    }
+
+    .cut-col-front {
+      border-right: 1.5px dotted #666666;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .cut-col-back {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cut-card-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cut-card-kanji {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .cut-card-furi {
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 2px;
+    }
+
+    .cut-card-hv {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #555;
+    }
+
+    .cut-card-meaning {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+
+    .cut-card-example {
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: #222;
+    }
+
+    .cut-card-colloc {
+      font-weight: 600;
+    }
+
+    .cut-card-subtip {
+      font-size: 0.72rem;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .fold-line-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      font-size: 0.65rem;
+      color: #999;
+      background: #fff;
+      padding: 2px 4px;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       PRINT MEDIA STYLING (A4 OPTIMIZED)
+       ========================================================= */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 10mm 10mm 10mm;
+      }
+
+      body {
+        padding: 0;
+        background: #fff;
+        color: #000;
+      }
+
+      header, .tabs, .print-instructions, .print-options-bar, #view-interactive, .keyboard-tips {
+        display: none !important;
+      }
+
+      #view-print {
+        display: block !important;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .foldable-card-row {
+        border: 1px dashed #000000 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8px;
+        min-height: 135px;
+      }
+
+      .cut-col-front {
+        border-right: 1px dotted #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <h1>Shinkanzen N2 - Bài 01 Flashcards</h1>
+      <div class="subtitle">Chủ đề: 人間関係 (Quan Hệ Con Người) • Bộ 41 từ vựng trọng tâm • Thiết kế Trắng & Đen</div>
+    </div>
+    <div style="font-size: 0.85rem; font-weight: 600; text-align: right;">
+      Pentanihon • JLPT N2
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchView('interactive')">🎴 Học Lật Thẻ Tương Tác</button>
+    <button class="tab-btn" onclick="switchView('print')">🖨️ Bản In A4 Cắt Rời (Gập Đôi)</button>
+  </div>
+
+  <!-- =========================================================
+       VIEW 1: INTERACTIVE
+       ========================================================= -->
+  <div id="view-interactive">
+    <div class="controls-bar">
+      <div>
+        <label for="group-filter" style="font-weight: 600;">Nhóm:</label>
+        <select id="group-filter" class="filter-select" onchange="filterCards()">
+          <option value="all">Tất cả 41 từ vựng</option>
+          <option value="1">Nhóm 1: Gia Đình & Thân Tộc (14 từ)</option>
+          <option value="2">Nhóm 2: Bạn Bè & Kính Xưng (11 từ)</option>
+          <option value="3">Nhóm 3: Cấp Bậc Công Sở & Xã Hội (9 từ)</option>
+          <option value="4">Nhóm 4: Giao Thiệp & Lễ Nghi (7 từ)</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <label class="toggle-group">
+          <input type="checkbox" id="toggle-furigana" onchange="toggleFurigana(this.checked)" checked>
+          <span>Furigana</span>
+        </label>
+        <button class="tab-btn" style="padding: 4px 10px;" onclick="shuffleCards()">🔀 Xáo thẻ</button>
+      </div>
+    </div>
+
+    <!-- FLASHCARD CONTAINER -->
+    <div class="flashcard-stage" id="cardStage" onclick="flipCard()">
+      <div class="flashcard-inner" id="cardInner">
+        
+        <!-- MẶT TRƯỚC (FRONT) -->
+        <div class="card-face card-front">
+          <div class="card-header">
+            <span class="card-badge" id="card-group-badge">Nhóm 1</span>
+            <span id="card-counter-badge">1 / 41</span>
+          </div>
+          
+          <div class="card-center">
+            <div class="furigana-text" id="front-furi">そせん</div>
+            <div class="kanji-text" id="front-kanji">祖先</div>
+            <div class="hanviet-text" id="front-hv">[ TỔ TIÊN ]</div>
+          </div>
+
+          <div class="card-hint">
+            Nhấp thẻ hoặc bấm [Space] để xem nghĩa & ví dụ ➔
+          </div>
+        </div>
+
+        <!-- MẶT SAU (BACK) -->
+        <div class="card-face card-back">
+          <div class="card-header">
+            <span class="card-badge" id="back-group-badge">Nhóm 1</span>
+            <span id="back-kanji-small" style="font-weight: 700; font-size: 1rem;">祖先（そせん）</span>
+          </div>
+
+          <div class="card-center" style="text-align: left;">
+            <div class="back-meaning" id="back-meaning">Tổ tiên, ông cha đời trước</div>
+            
+            <div class="back-collocation">
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: #666; margin-bottom: 2px;">Cụm từ Collocation Shinkanzen:</div>
+              <div class="back-collocation-jp" id="back-colloc-jp">人類（じんるい）の祖先（そせん）</div>
+              <div style="font-size: 0.85rem; color: #333;" id="back-colloc-vi">Tổ tiên của loài người</div>
+            </div>
+
+            <div class="back-note" id="back-note">
+              💡 <strong>Ghi chú:</strong> Đối lập với <strong>子孫（しそん）</strong> (con cháu). Gần nghĩa với <strong>先祖（せんぞ）</strong>.
+            </div>
+          </div>
+
+          <div class="card-hint" style="text-align: center;">
+            Nhấp thẻ để quay lại mặt trước ↺
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="action-row">
+      <button class="btn" onclick="prevCard()" title="Phím Mũi tên Trái [←]">◀ Trước</button>
+      <button class="btn btn-flip" onclick="flipCard()">Lật Thẻ (Space)</button>
+      <button class="btn" onclick="nextCard()" title="Phím Mũi tên Phải [→]">Sau ▶</button>
+    </div>
+
+    <div class="progress-bar" id="progressText">
+      Thẻ 1 / 41
+    </div>
+
+    <div class="keyboard-tips">
+      ⌨️ Phím tắt: <strong>[Space]</strong> Lật mặt thẻ • <strong>[←] / [→]</strong> Thẻ trước / Thẻ sau • <strong>[F]</strong> Ẩn/Hiện Furigana
+    </div>
+  </div>
+
+  <!-- =========================================================
+       VIEW 2: PRINT-READY A4
+       ========================================================= -->
+  <div id="view-print">
+    <div class="print-instructions">
+      <h3>✂️ Hướng Dẫn In Ấn & Cắt Thẻ Trắng Đen (Khổ A4)</h3>
+      <p>Bản in này được thiết kế theo <strong>quy tắc Gập Đôi (Fold-over)</strong> siêu tiện lợi:</p>
+      <ul>
+        <li><strong>Không sợ lệch trang:</strong> Bạn chỉ cần dùng máy in 1 mặt bình thường. Mỗi hàng là 1 thẻ hoàn chỉnh (Nửa trái: Mặt trước, Nửa phải: Mặt sau).</li>
+        <li><strong>Cách làm:</strong> Cắt theo viền chữ nhật nét đứt ngoài cùng ✂️, sau đó <strong>gập đôi theo đường kẻ trục giữa</strong>. Dán nhẹ một chút keo hoặc kẹp lại là bạn đã có 1 tấm flashcard 2 mặt dày dặn, cứng cáp!</li>
+        <li><strong>Tiết kiệm mực:</strong> Thiết kế thuần đen trắng, không mảng màu đậm, nét chữ sắc bén.</li>
+      </ul>
+    </div>
+
+    <div class="print-options-bar">
+      <div>
+        <strong>Tổng số thẻ:</strong> 41 thẻ (khoảng 5-6 trang A4)
+      </div>
+      <div>
+        <button class="btn btn-flip" style="padding: 8px 18px;" onclick="window.print()">🖨️ In Flashcard Ngay (Ctrl/Cmd + P)</button>
+      </div>
+    </div>
+
+    <div class="print-grid" id="printCardsContainer">
+      <!-- Rendered dynamically by JS -->
+    </div>
+  </div>
+</div>
+
+<script>
+// ==========================================
+// DỮ LIỆU TỪ VỰNG CHUẨN SHINKANZEN N2 BÀI 01
+// ==========================================
+const VOCAB_DATA = [
+  // --- NHÓM 1: GIA ĐÌNH & THÂN TỘC ---
+  {
+    id: 1,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "祖先",
+    furi: "そせん",
+    hv: "TỔ TIÊN",
+    mean: "Tổ tiên, ông cha đời trước",
+    collocJp: "人類（じんるい）の祖先（そせん）",
+    collocVi: "Tổ tiên của loài người",
+    note: "Đối lập với 子孫（しそん）(con cháu). Đồng nghĩa: 先祖（せんぞ）."
+  },
+  {
+    id: 2,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "子孫",
+    furi: "しそん",
+    hv: "TỬ TÔN",
+    mean: "Con cháu, hậu duệ mai sau",
+    collocJp: "子孫（しそん）に残（のこ）す",
+    collocVi: "Để lại cho con cháu",
+    note: "Đối lập trực tiếp với 祖先（そせん）."
+  },
+  {
+    id: 3,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "祖父母",
+    furi: "そふぼ",
+    hv: "TỔ PHỤ MẪU",
+    mean: "Ông bà (nội, ngoại)",
+    collocJp: "祖父母（そふぼ）から孫（まご）まで",
+    collocVi: "Từ ông bà đến con cháu",
+    note: "Bao gồm cả ông bà nội và ông bà ngoại."
+  },
+  {
+    id: 4,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "孫",
+    furi: "まご",
+    hv: "TÔN",
+    mean: "Cháu (của ông bà)",
+    collocJp: "おじいちゃんが孫（まご）をかわいがる",
+    collocVi: "Ông cưng chiều cháu",
+    note: "Cháu ruột thế hệ thứ 3 trong gia đình."
+  },
+  {
+    id: 5,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "三世代",
+    furi: "さんせだい",
+    hv: "TAM THẾ ĐẠI",
+    mean: "Ba thế hệ (ông bà, bố mẹ, con cái)",
+    collocJp: "三世代（さんせだい）で生活（せいかつ）する",
+    collocVi: "Ba thế hệ cùng chung sống",
+    note: "Mô hình gia đình truyền thống nhiều thế hệ chung sống."
+  },
+  {
+    id: 6,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "一家",
+    furi: "いっか",
+    hv: "NHẤT GIA",
+    mean: "Cả nhà, toàn thể gia đình",
+    collocJp: "一家（いっか）で出（で）かける",
+    collocVi: "Cả gia đình cùng nhau đi chơi",
+    note: "Paraphrase Mondai 4: 一家 ≈ 家族全員（かぞくぜんいん）."
+  },
+  {
+    id: 7,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "親類",
+    furi: "しんるい",
+    hv: "THÂN LOẠI",
+    mean: "Họ hàng, người thân thích",
+    collocJp: "親類（しんるい）の集（あつ）まりに出（で）る",
+    collocVi: "Đi dự buổi họp mặt họ hàng",
+    note: "Gần nghĩa với 親戚（しんせき）."
+  },
+  {
+    id: 8,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "親戚",
+    furi: "しんせき",
+    hv: "THÂN THÍCH",
+    mean: "Bà con họ hàng gần xa",
+    collocJp: "遠（とお）くの親戚（しんせき）を訪（たず）ねる",
+    collocVi: "Thăm bà con họ hàng ở xa",
+    note: "Từ rất phổ biến chỉ những người có quan hệ huyết thống, họ hàng."
+  },
+  {
+    id: 9,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "親孝行",
+    furi: "おやこうこう",
+    hv: "THÂN HIẾU HÀNH",
+    mean: "Hiếu thảo, chăm sóc phụng dưỡng cha mẹ",
+    collocJp: "両親（りょうしん）に親孝行（おやこうこう）をする",
+    collocVi: "Báo hiếu cha mẹ",
+    note: "Đối lập: 親不孝 (bất hiếu). Paraphrase: 両親を大切にする."
+  },
+  {
+    id: 10,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "親不孝",
+    furi: "おやふこう",
+    hv: "THÂN BẤT HIẾU",
+    mean: "Bất hiếu, làm cha mẹ phiền lòng",
+    collocJp: "親不孝（おやふこう）なわがまま息子（むすこ）",
+    collocVi: "Đứa con trai bất hiếu ích kỷ",
+    note: "Trái nghĩa trực tiếp với 親孝行（おやこうこう）."
+  },
+  {
+    id: 11,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "実家",
+    furi: "じっか",
+    hv: "THỰC GIA",
+    mean: "Nhà bố mẹ đẻ, quê nhà",
+    collocJp: "実家（じっか）が懐（なつ）かしい",
+    collocVi: "Nhớ nhà bố mẹ đẻ",
+    note: "Nhà gốc nơi mình sinh ra và lớn lên."
+  },
+  {
+    id: 12,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "一人っ子",
+    furi: "ひとりっこ",
+    hv: "NHẤT NHÂN TỬ",
+    mean: "Con một trong gia đình",
+    collocJp: "兄弟（きょうだい）がいない一人（ひとり）っ子（こ）",
+    collocVi: "Con một không có anh chị em",
+    note: "Gia đình chỉ sinh duy nhất một người con."
+  },
+  {
+    id: 13,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "双子",
+    furi: "ふたご",
+    hv: "SONG TỬ",
+    mean: "Sinh đôi, cặp song sinh",
+    collocJp: "よく似（に）ている双子（ふたご）",
+    collocVi: "Cặp sinh đôi giống nhau như đúc",
+    note: "Đọc là ふたご, không nhầm với cách đọc khác."
+  },
+  {
+    id: 14,
+    group: 1,
+    groupName: "Gia Đình & Thân Tộc",
+    kanji: "末っ子",
+    furi: "すえっこ",
+    hv: "MẠT TỬ",
+    mean: "Con út trong nhà",
+    collocJp: "三人（さんにん）姉妹（しまい）の末（すえ）っ子（こ）",
+    collocVi: "Con út trong ba chị em gái",
+    note: "Người con sinh ra sau cùng trong các anh chị em."
+  },
+
+  // --- NHÓM 2: BẠN BÈ & KÍNH XƯNG ---
+  {
+    id: 15,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "友人",
+    furi: "ゆうじん",
+    hv: "HỮU NHÂN",
+    mean: "Bạn bè (trang trọng hơn 友達)",
+    collocJp: "親（した）しい友人（ゆうじん）を招（まね）く",
+    collocVi: "Mời người bạn thân đến chơi",
+    note: "Văn phong trang trọng, thường dùng trong bài phát biểu, viết lách N2."
+  },
+  {
+    id: 16,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "仲良し",
+    furi: "なかよし",
+    hv: "TRỌNG LƯƠNG",
+    mean: "Thân thiết, bạn bè thân thiết",
+    collocJp: "仲良（なかよ）しグループで旅行（りょこう）する",
+    collocVi: "Đi du lịch cùng nhóm bạn thân",
+    note: "Paraphrase Mondai 4: 仲良し ≈ 親しい間柄（あいだがら）."
+  },
+  {
+    id: 17,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "仕事仲間",
+    furi: "しごとなかま",
+    hv: "SỰ TRỌNG GIAN",
+    mean: "Bạn đồng nghiệp, cộng sự công việc",
+    collocJp: "頼（たよ）りになる仕事（しごと）仲間（なかま）",
+    collocVi: "Người cộng sự công việc đáng tin cậy",
+    note: "Người làm chung dự án hoặc cùng tổ đội với mình."
+  },
+  {
+    id: 18,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "知人",
+    furi: "ちじん",
+    hv: "TRI NHÂN",
+    mean: "Người quen (biết mặt biết tên)",
+    collocJp: "知人（ちじん）・知（し）り合（あ）いが多（おお）い",
+    collocVi: "Có nhiều người quen biết",
+    note: "Từ Hán Nhật, dùng trang trọng hơn 知り合い."
+  },
+  {
+    id: 19,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "知り合い",
+    furi: "しりあい",
+    hv: "TRI HỢP",
+    mean: "Người quen sơ qua, có quen biết",
+    collocJp: "近所（きんじょ）の知（し）り合（あ）いに会（あ）う",
+    collocVi: "Gặp người quen hàng xóm",
+    note: "Từ thuần Nhật, thường dùng trong giao tiếp hội thoại hàng ngày."
+  },
+  {
+    id: 20,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "奥様",
+    furi: "おくさま",
+    hv: "ÁO DẠNG",
+    mean: "Vợ (của người khác - kính ngữ)",
+    collocJp: "田中（たなか）さんの奥様（おくさま）",
+    collocVi: "Vợ của anh Tanaka",
+    note: "Kính ngữ tôn xưng vợ của đối phương/người khác."
+  },
+  {
+    id: 21,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "ご主人",
+    furi: "ごしゅじん",
+    hv: "CHỦ NHÂN",
+    mean: "Chồng (của người khác - kính ngữ)",
+    collocJp: "ご主人（しゅじん）はお元気（げんき）ですか",
+    collocVi: "Anh nhà vẫn khỏe chứ ạ?",
+    note: "Kính ngữ tôn xưng chồng của đối phương."
+  },
+  {
+    id: 22,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "お嬢ちゃん",
+    furi: "おじょうちゃん",
+    hv: "NƯƠNG",
+    mean: "Bé gái, con gái (của người khác)",
+    collocJp: "かわいいお嬢（じょう）ちゃんですね",
+    collocVi: "Bé gái nhà anh/chị đáng yêu quá",
+    note: "Dùng khen ngợi hoặc gọi con gái nhỏ của người khác."
+  },
+  {
+    id: 23,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "お坊ちゃん",
+    furi: "おぼっちゃん",
+    hv: "PHƯỜNG",
+    mean: "Bé trai (của người khác) / Công tử nhà giàu",
+    collocJp: "社長（しゃちょう）のお坊（ぼっ）ちゃん",
+    collocVi: "Cậu ấm quý tử con giám đốc",
+    note: "Chỉ bé trai của người khác hoặc cậu ấm gia đình khá giả."
+  },
+  {
+    id: 24,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "ご夫妻",
+    furi: "ごふさい",
+    hv: "PHU THÊ",
+    mean: "Vợ chồng (lịch sự, trang trọng)",
+    collocJp: "田中（たなか）氏（し）ご夫妻（ふさい）",
+    collocVi: "Vợ chồng ông Tanaka",
+    note: "Dùng để gọi cả cặp vợ chồng người khác một cách trang trọng."
+  },
+  {
+    id: 25,
+    group: 2,
+    groupName: "Bạn Bè & Kính Xưng",
+    kanji: "夫人",
+    furi: "ふじん",
+    hv: "PHU NHÂN",
+    mean: "Phu nhân, bà",
+    collocJp: "大統領（だいとうりょう）夫人（ふじん）",
+    collocVi: "Đệ nhất phu nhân tổng thống",
+    note: "Thường đi kèm chức vụ hoặc họ tên người có địa vị cao."
+  },
+
+  // --- NHÓM 3: CẤP BẬC CÔNG SỞ & XÃ HỘI ---
+  {
+    id: 26,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "上司",
+    furi: "じょうし",
+    hv: "THƯỢNG TI",
+    mean: "Cấp trên, sếp trực tiếp",
+    collocJp: "職場（しょくば）の上司（じょうし）に相談（そうだん）する",
+    collocVi: "Trao đổi xin ý kiến cấp trên",
+    note: "Quan hệ cơ cấu công ty. Đối lập: 部下（ぶか）."
+  },
+  {
+    id: 27,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "部下",
+    furi: "ぶか",
+    hv: "BỘ HẠ",
+    mean: "Cấp dưới, nhân viên dưới quyền",
+    collocJp: "部下（ぶか）の失敗（しっぱい）をフォローする",
+    collocVi: "Hỗ trợ xử lý sai sót của cấp dưới",
+    note: "Nhân viên dưới quyền trong tổ chức. Đối lập: 上司（じょうし）."
+  },
+  {
+    id: 28,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "先輩",
+    furi: "せんぱい",
+    hv: "TIỀN BỐI",
+    mean: "Tiền bối (người vào trước / khóa trên)",
+    collocJp: "大学（だいがく）の先輩（せんぱい）を敬（うやま）う",
+    collocVi: "Kính trọng tiền bối ở trường đại học",
+    note: "Người vào công ty/trường học trước (kể cả nhỏ tuổi hơn!). Đối lập: 後輩."
+  },
+  {
+    id: 29,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "後輩",
+    furi: "こうはい",
+    hv: "HẬU BỐI",
+    mean: "Hậu bối (người vào sau / khóa dưới)",
+    collocJp: "新入（しんにゅう）社員（しゃいん）の後輩（こうはい）を指導（しどう）する",
+    collocVi: "Hướng dẫn hậu bối nhân viên mới vào",
+    note: "Người vào sau trong tổ chức. Đối lập: 先輩（せんぱい）."
+  },
+  {
+    id: 30,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "目上",
+    furi: "めうえ",
+    hv: "MỤC THƯỢNG",
+    mean: "Người bề trên (địa vị hoặc tuổi tác cao hơn)",
+    collocJp: "目上（めうえ）の人（ひと）には敬語（けいご）を使（つか）う",
+    collocVi: "Dùng kính ngữ với người bề trên",
+    note: "Thứ bậc xã hội nói chung (tuổi tác, thế hệ). Đối lập: 目下（めした）."
+  },
+  {
+    id: 31,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "目下",
+    furi: "めした",
+    hv: "MỤC HẠ",
+    mean: "Người bề dưới (địa vị hoặc tuổi tác thấp hơn)",
+    collocJp: "目下（めした）の者（もの）にも丁寧（ていねい）に接（せっ）する",
+    collocVi: "Đối xử lịch sự cả với người dưới mình",
+    note: "Đối lập với 目上（めうえ）."
+  },
+  {
+    id: 32,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "年上",
+    furi: "としうえ",
+    hv: "NIÊN THƯỢNG",
+    mean: "Lớn tuổi hơn, hơn tuổi",
+    collocJp: "私（わたし）より3歳（さんさい）年上（としうえ）だ",
+    collocVi: "Lớn hơn tôi 3 tuổi",
+    note: "So sánh thuần túy về số tuổi. Đối lập: 年下（としした）."
+  },
+  {
+    id: 33,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "年下",
+    furi: "としした",
+    hv: "NIÊN HẠ",
+    mean: "Nhỏ tuổi hơn, kém tuổi",
+    collocJp: "年下（としした）の友（とも）だちと遊（あそ）ぶ",
+    collocVi: "Chơi với người bạn kém tuổi hơn",
+    note: "Đối lập với 年上（としうえ）."
+  },
+  {
+    id: 34,
+    group: 3,
+    groupName: "Cấp Bậc & Xã Hội",
+    kanji: "同い年",
+    furi: "おないどし",
+    hv: "ĐỒNG NIÊN",
+    mean: "Cùng tuổi, bằng tuổi nhau",
+    collocJp: "彼（かれ）とはちょうど同（おな）い年（どし）だ",
+    collocVi: "Tôi với anh ấy cùng tuổi nhau",
+    note: "⚠️ BẪY THI: Đọc là おないどし (KHÔNG PHẢI おなじとし!). Paraphrase: 年齢が同じ."
+  },
+
+  // --- NHÓM 4: GIAO THIỆP & LỄ NGHI ---
+  {
+    id: 35,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "付き合い",
+    furi: "つきあい",
+    hv: "PHÓ HỢP",
+    mean: "Sự giao thiệp, quan hệ qua lại xã giao",
+    collocJp: "周囲（しゅうい）の人々（ひとびと）と親（した）しい付（つ）き合（あ）いをする",
+    collocVi: "Giao du thân thiết với mọi người xung quanh",
+    note: "Chỉ mối quan hệ qua lại, giao tiếp trong đời sống hàng ngày."
+  },
+  {
+    id: 36,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "言葉遣い",
+    furi: "ことばづかい",
+    hv: "NGÔN KHIỂN",
+    mean: "Cách dùng từ, lời ăn tiếng nói",
+    collocJp: "丁寧（ていねい）な言葉遣（ことばづか）いで話（はな）す",
+    collocVi: "Nói năng bằng ngôn từ lịch sự, nhã nhặn",
+    note: "⚠️ Chú ý: viết là づかい (có biến âm ten-ten)."
+  },
+  {
+    id: 37,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "お辞儀",
+    furi: "おじぎ",
+    hv: "TỪ NGHI",
+    mean: "Cúi đầu chào (lễ nghi truyền thống Nhật)",
+    collocJp: "生徒（せいと）が先生（せんせい）にお辞儀（じぎ）する",
+    collocVi: "Học sinh cúi đầu chào thầy cô giáo",
+    note: "Nét văn hóa chào hỏi căn bản nhất của Nhật Bản."
+  },
+  {
+    id: 38,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "握手",
+    furi: "あくしゅ",
+    hv: "ÁC THỦ",
+    mean: "Bắt tay",
+    collocJp: "初（はじ）めて会（あ）った人と握手（あくしゅ）する",
+    collocVi: "Bắt tay với người mới gặp lần đầu",
+    note: "Hành động bắt tay xã giao."
+  },
+  {
+    id: 39,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "約束を守る",
+    furi: "やくそくをまもる",
+    hv: "ƯỚC THÚC THỦ",
+    mean: "Giữ lời hứa, giữ đúng hẹn",
+    collocJp: "信用（しんよう）を得（え）るため約束（やくそく）を守（まも）る",
+    collocVi: "Giữ đúng lời hứa để tạo dựng lòng tin",
+    note: "Đối lập trực tiếp với 約束を破る（やくそくをやぶる）."
+  },
+  {
+    id: 40,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "約束を破る",
+    furi: "やくそくをやぶる",
+    hv: "ƯỚC THÚC PHÁ",
+    mean: "Thất hứa, phá vỡ lời hứa / hủy hẹn",
+    collocJp: "時間（じかん）の約束（やくそく）を破（やぶ）る",
+    collocVi: "Không giữ đúng hẹn về giờ giấc",
+    note: "Đồng nghĩa tình huống hủy hẹn: 約束を取り消す."
+  },
+  {
+    id: 41,
+    group: 4,
+    groupName: "Giao Thiệp & Lễ Nghi",
+    kanji: "態度",
+    furi: "たいど",
+    hv: "THÁI ĐỘ",
+    mean: "Thái độ, cử chỉ đối đãi",
+    collocJp: "礼儀（れいぎ）正（ただ）しい態度（たいど）で接（せっ）する",
+    collocVi: "Đối đãi bằng thái độ lịch sự, đúng mực",
+    note: "Cử chỉ, tác phong khi giao tiếp với người khác."
+  }
+];
+
+// STATE
+let currentCardList = [...VOCAB_DATA];
+let currentIndex = 0;
+let isFlipped = false;
+let showFuri = true;
+
+// DOM ELEMENTS
+const cardStage = document.getElementById("cardStage");
+const cardInner = document.getElementById("cardInner");
+const frontFuri = document.getElementById("front-furi");
+const frontKanji = document.getElementById("front-kanji");
+const frontHv = document.getElementById("front-hv");
+const cardGroupBadge = document.getElementById("card-group-badge");
+const cardCounterBadge = document.getElementById("card-counter-badge");
+
+const backGroupBadge = document.getElementById("back-group-badge");
+const backKanjiSmall = document.getElementById("back-kanji-small");
+const backMeaning = document.getElementById("back-meaning");
+const backCollocJp = document.getElementById("back-colloc-jp");
+const backCollocVi = document.getElementById("back-colloc-vi");
+const backNote = document.getElementById("back-note");
+const progressText = document.getElementById("progressText");
+
+// INITIALIZE
+function init() {
+  updateCard();
+  renderPrintCards();
+}
+
+function updateCard() {
+  if (currentCardList.length === 0) return;
+  const item = currentCardList[currentIndex];
+
+  // Reset flip
+  cardStage.classList.remove("is-flipped");
+  isFlipped = false;
+
+  // Front
+  frontFuri.textContent = item.furi;
+  frontKanji.textContent = item.kanji;
+  frontHv.textContent = `[ ${item.hv} ]`;
+  cardGroupBadge.textContent = `Nhóm ${item.group}: ${item.groupName}`;
+  cardCounterBadge.textContent = `${currentIndex + 1} / ${currentCardList.length}`;
+
+  // Back
+  backGroupBadge.textContent = `Nhóm ${item.group}: ${item.groupName}`;
+  backKanjiSmall.textContent = `${item.kanji} (${item.furi})`;
+  backMeaning.textContent = item.mean;
+  backCollocJp.textContent = item.collocJp;
+  backCollocVi.textContent = item.collocVi;
+  backNote.innerHTML = `💡 <strong>Ghi chú:</strong> ${item.note}`;
+
+  progressText.textContent = `Thẻ ${currentIndex + 1} / ${currentCardList.length} (Tổng gốc: 41 từ)`;
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  if (isFlipped) {
+    cardStage.classList.add("is-flipped");
+  } else {
+    cardStage.classList.remove("is-flipped");
+  }
+}
+
+function nextCard() {
+  if (currentIndex < currentCardList.length - 1) {
+    currentIndex++;
+    updateCard();
+  } else {
+    currentIndex = 0; // Quay lại đầu
+    updateCard();
+  }
+}
+
+function prevCard() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCard();
+  } else {
+    currentIndex = currentCardList.length - 1; // Về cuối
+    updateCard();
+  }
+}
+
+function toggleFurigana(visible) {
+  showFuri = visible;
+  if (showFuri) {
+    frontFuri.classList.remove("hidden");
+  } else {
+    frontFuri.classList.add("hidden");
+  }
+}
+
+function shuffleCards() {
+  for (let i = currentCardList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentCardList[i], currentCardList[j]] = [currentCardList[j], currentCardList[i]];
+  }
+  currentIndex = 0;
+  updateCard();
+}
+
+function filterCards() {
+  const val = document.getElementById("group-filter").value;
+  if (val === "all") {
+    currentCardList = [...VOCAB_DATA];
+  } else {
+    currentCardList = VOCAB_DATA.filter(item => item.group === parseInt(val));
+  }
+  currentIndex = 0;
+  updateCard();
+}
+
+function switchView(viewName) {
+  const btnInteractive = document.querySelectorAll(".tab-btn")[0];
+  const btnPrint = document.querySelectorAll(".tab-btn")[1];
+  const vInteractive = document.getElementById("view-interactive");
+  const vPrint = document.getElementById("view-print");
+
+  if (viewName === "interactive") {
+    btnInteractive.classList.add("active");
+    btnPrint.classList.remove("active");
+    vInteractive.style.display = "flex";
+    vPrint.style.display = "none";
+  } else {
+    btnPrint.classList.add("active");
+    btnInteractive.classList.remove("active");
+    vInteractive.style.display = "none";
+    vPrint.style.display = "block";
+  }
+}
+
+// RENDER PRINT CARDS (A4 FOLD-OVER LAYOUT)
+function renderPrintCards() {
+  const container = document.getElementById("printCardsContainer");
+  container.innerHTML = "";
+
+  VOCAB_DATA.forEach((item, idx) => {
+    const row = document.createElement("div");
+    row.className = "foldable-card-row";
+    row.innerHTML = `
+      <span class="fold-line-label">ĐƯỜNG GẬP ĐÔI</span>
+      
+      <!-- CỘT TRÁI: MẶT TRƯỚC (FRONT) -->
+      <div class="cut-col-front">
+        <div class="cut-card-num">
+          <span>THẺ #${item.id}</span>
+          <span>N2 • BÀI 1</span>
+        </div>
+        <div style="margin: auto 0;">
+          <div class="cut-card-furi">${item.furi}</div>
+          <div class="cut-card-kanji">${item.kanji}</div>
+          <div class="cut-card-hv">[ ${item.hv} ]</div>
+        </div>
+        <div style="font-size: 0.65rem; color: #888; text-align: center;">
+          Nhóm ${item.group}: ${item.groupName}
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI: MẶT SAU (BACK) -->
+      <div class="cut-col-back">
+        <div>
+          <div class="cut-card-num">
+            <span>Ý NGHĨA & VÍ DỤ</span>
+            <span>${item.kanji}（${item.furi}）</span>
+          </div>
+          <div class="cut-card-meaning">${item.mean}</div>
+          <div class="cut-card-example">
+            <span class="cut-card-colloc">${item.collocJp}</span><br>
+            <span style="color: #444;">↳ ${item.collocVi}</span>
+          </div>
+        </div>
+        <div class="cut-card-subtip">
+          ★ ${item.note}
+        </div>
+      </div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+// KEYBOARD NAVIGATION
+window.addEventListener("keydown", (e) => {
+  // Chỉ nhận phím khi ở tab tương tác
+  const vInteractive = document.getElementById("view-interactive");
+  if (vInteractive.style.display === "none") return;
+
+  if (e.code === "Space") {
+    e.preventDefault();
+    flipCard();
+  } else if (e.code === "ArrowRight") {
+    e.preventDefault();
+    nextCard();
+  } else if (e.code === "ArrowLeft") {
+    e.preventDefault();
+    prevCard();
+  } else if (e.code === "KeyF") {
+    const furiCheckbox = document.getElementById("toggle-furigana");
+    furiCheckbox.checked = !furiCheckbox.checked;
+    toggleFurigana(furiCheckbox.checked);
+  }
+});
+
+// Run on load
+init();
+</script>
+
+</body>
+</html>
