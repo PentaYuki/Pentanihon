@@ -52,6 +52,14 @@ graph TD
 | **12** | [**神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第12話）**<br>*(Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 12))*](./series-01_tap-12_aozora_tokyo.md) | `〜つつある, 〜にすぎない, 〜ものなら, 〜からには` | ✅ Đã phát hành |
 | **13** | [**アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第13話）**<br>*(Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 13))*](./series-01_tap-13_aozora_tokyo.md) | `〜に違いない, 〜に際して, 〜やまない, 〜かねない` | ✅ Đã phát hành |
 | **14** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第14話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 14))*](./series-01_tap-14_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
+| **15** | [**職場（しょくば）の絆（きずな）と果（は）たすべき約束（やくそく）（第15話）**<br>*(Tình Thân Công Sở & Lời Hứa Phải Hoàn Thành — Vận Dụng Từ Vựng Bài 01)*](./series-01_tap-15_quan_he_cong_so_va_loi_hua.md) | `〜に際して, 〜一方（で）, 〜に相違ない, 〜を込めて` | 🌟 MỚI RA MẮT |
+
+---
+
+## 🌟 Chuyên Mục Đặc Biệt: Mỗi Ngày Một Câu Thực Chiến (今日の実践フレーズ)
+
+👉 [**Khám phá Sổ Tay 30 Ngày Mỗi Ngày Một Câu Vận Dụng Từ Vựng Shinkanzen N2**](./daily-vocab-quotes.md)  
+*Mỗi ngày một câu nói tiếng Nhật đắt giá trích xuất từ câu chuyện của Ren, giúp ghi nhớ và vận dụng tự nhiên vào giao tiếp đời thực.*
 
 ---
 

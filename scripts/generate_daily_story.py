@@ -273,6 +273,15 @@ Vượt qua bức tường bỡ ngỡ đầu tiên bằng chính sự dũng cả
         ],
         "sister_message": "Văn hóa Ho-Ren-So (Báo cáo - Liên lạc - Thảo luận) là chìa khóa vàng giúp em thành công ở bất cứ công ty Nhật nào nhé cưng! 🌸",
         "next_preview": "Một lỗi bug nghiêm trọng bất ngờ phát sinh trên hệ thống máy chủ trước giờ bàn giao sản phẩm cho khách hàng lớn. Ren và anh Kenji phải ở lại công ty xuyên đêm giải cứu dự án. Tình đồng đội sẽ được thử thách ra sao? Đón đọc Tập 11 nhé!"
+    },
+    15: {
+        "filename": "series-01_tap-15_quan_he_cong_so_va_loi_hua.md",
+        "title_jp": "職場（しょくば）の絆（きずな）と果（は）たすべき約束（やくそく）",
+        "title_vi": "Tình Thân Công Sở & Lời Hứa Phải Hoàn Thành — Vận Dụng Từ Vựng Bài 01",
+        "summary_prev": "Sau khi chính thức nhận việc tại Tập đoàn Mirai Technology ở Akihabara, Ren đã vượt qua bức tường bỡ ngỡ ban đầu nhờ sự chỉ bảo của đàn anh Kenji. Hôm nay, một thử thách giao tiếp lớn xuất hiện: dự án đầu tiên của cậu phải phối hợp giữa các thế hệ trong công ty và gặp gỡ đối tác quan trọng.",
+        "grammar_points": ["〜に際して", "〜一方（で）", "〜に相違ない", "〜を込めて"],
+        "sister_message": "Trong môi trường công sở Nhật Bản, từ vựng không chỉ để thi JLPT mà là nghệ thuật đối nhân xử thế. Hãy học thuộc câu thực chiến hôm nay cưng nhé! 🌸",
+        "next_preview": "Dự án chính thức bước vào giai đoạn tăng tốc. Liệu Ren và cậu bạn đồng nghiệp bằng tuổi Hayato có phối hợp ăn ý khi đối mặt với sự cố kỹ thuật đầu tiên? Đón đọc Tập 16 nhé!"
     }
 }
 
