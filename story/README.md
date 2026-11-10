@@ -53,6 +53,7 @@ graph TD
 | **13** | [**アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第13話）**<br>*(Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 13))*](./series-01_tap-13_aozora_tokyo.md) | `〜に違いない, 〜に際して, 〜やまない, 〜かねない` | ✅ Đã phát hành |
 | **14** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第14話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 14))*](./series-01_tap-14_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
 | **15** | [**職場（しょくば）の絆（きずな）と果（は）たすべき約束（やくそく）（第15話）**<br>*(Tình Thân Công Sở & Lời Hứa Phải Hoàn Thành — Vận Dụng Từ Vựng Bài 01)*](./series-01_tap-15_quan_he_cong_so_va_loi_hua.md) | `〜に際して, 〜一方（で）, 〜に相違ない, 〜を込めて` | 🌟 MỚI RA MẮT |
+| **16** | [**深夜（しんや）の危機（きき）と問題（もんだい）解決（かいけつ）（第16話）**<br>*(Khủng Hoảng Lúc Nửa Đêm & Bản Lĩnh Xử Lý Sự Cố (Tập 16))*](./series-01_tap-16_aozora_tokyo.md) | `〜ざるを得ない, 〜末に, 〜どころか, 〜一方（で）` | ✅ Đã phát hành |
 
 ---
 
