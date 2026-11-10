@@ -2,8 +2,8 @@ name: Daily NihonGo Study & Story Automation
 
 on:
   schedule:
-    # Tự động chạy mỗi ngày lúc 00:00 UTC (tức 07:00 sáng giờ Việt Nam)
-    - cron: '0 0 * * *'
+    # Tự động chạy mỗi ngày lúc 02:00 UTC (tức đúng 09:00 sáng giờ Việt Nam UTC+7)
+    - cron: '0 2 * * *'
   workflow_dispatch: # Cho phép kích hoạt thủ công bằng 1 nút bấm trên GitHub
 
 permissions:
@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --global user.name "PentaYuki Bot"
           git config --global user.email "bot@pentanihon.local"
-          git add story/
+          git add story/ README.md index.html
           if git diff --staged --quiet; then
             echo "No new story generated today."
           else
