@@ -54,6 +54,7 @@ graph TD
 | **14** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第14話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 14))*](./series-01_tap-14_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
 | **15** | [**職場（しょくば）の絆（きずな）と果（は）たすべき約束（やくそく）（第15話）**<br>*(Tình Thân Công Sở & Lời Hứa Phải Hoàn Thành — Vận Dụng Từ Vựng Bài 01)*](./series-01_tap-15_quan_he_cong_so_va_loi_hua.md) | `〜に際して, 〜一方（で）, 〜に相違ない, 〜を込めて` | 🌟 MỚI RA MẮT |
 | **16** | [**深夜（しんや）の危機（きき）と問題（もんだい）解決（かいけつ）（第16話）**<br>*(Khủng Hoảng Lúc Nửa Đêm & Bản Lĩnh Xử Lý Sự Cố (Tập 16))*](./series-01_tap-16_aozora_tokyo.md) | `〜ざるを得ない, 〜末に, 〜どころか, 〜一方（で）` | ✅ Đã phát hành |
+| **17** | [**顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第17話）**<br>*(Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 17))*](./series-01_tap-17_aozora_tokyo.md) | `〜に応えて, 〜を通じて, 〜にほかならない, 〜限り` | ✅ Đã phát hành |
 
 ---
 
