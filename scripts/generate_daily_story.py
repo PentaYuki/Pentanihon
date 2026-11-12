@@ -456,6 +456,12 @@ def generate_next_series_episode():
             with open(readme_path, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(new_lines))
 
+    try:
+        import build_web_manifest
+        build_web_manifest.build_manifest()
+    except Exception as e:
+        print(f"Warning: Could not build web manifest: {e}")
+
     print(f" Successfully released Episode {next_ep:02d}: {ep_data['filename']}")
     return ep_data['filename']
 

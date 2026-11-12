@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trình Đọc Truyện & Bài Học — Pentanihon JLPT N2</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+  <script src="story/stories-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --paper: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #5c636a;
+      --border: #e5e7eb;
+      --accent: #c92a2a;
+      --quote-bg: #fff8f6;
+      --quote-border: #e8590c;
+      --code-bg: #f1f3f5;
+      --table-head: #f8f9fa;
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --paper: #1e1e1e;
+      --text: #e9ecef;
+      --text-muted: #adb5bd;
+      --border: #343a40;
+      --accent: #ff6b6b;
+      --quote-bg: #2b211f;
+      --quote-border: #fd7e14;
+      --code-bg: #2b3035;
+      --table-head: #25292e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* TOP NAVBAR */
+    .topbar {
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 10px 16px;
+    }
+
+    .topbar-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--paper);
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      border-color: var(--text);
+      background: var(--table-head);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .ep-select {
+      flex: 1;
+      min-width: 200px;
+      max-width: 380px;
+      padding: 7px 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--text);
+    }
+
+    /* READER PAPER */
+    .reader-container {
+      max-width: 840px;
+      margin: 28px auto 60px;
+      padding: 0 16px;
+    }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 40px 44px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    /* MARKDOWN STYLING */
+    .markdown-body h1 {
+      font-size: 1.8rem;
+      font-weight: 850;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .markdown-body h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .markdown-body h3 {
+      font-size: 1.12rem;
+      font-weight: 750;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    .markdown-body p {
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .markdown-body blockquote {
+      background: var(--quote-bg);
+      border-left: 4px solid var(--quote-border);
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .markdown-body blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown-body ul, .markdown-body ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .markdown-body li {
+      margin-bottom: 6px;
+    }
+
+    .markdown-body hr {
+      border: 0;
+      border-top: 1px dashed var(--border);
+      margin: 28px 0;
+    }
+
+    .markdown-body code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    .markdown-body pre {
+      background: var(--code-bg);
+      padding: 14px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 18px;
+    }
+
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.92rem;
+    }
+
+    .markdown-body th, .markdown-body td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    .markdown-body th {
+      background: var(--table-head);
+      font-weight: 750;
+    }
+
+    .markdown-body a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* BOTTOM EPISODE NAVIGATOR */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      gap: 12px;
+    }
+
+    .loading-box {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .paper {
+        padding: 24px 18px;
+      }
+      .markdown-body h1 {
+        font-size: 1.4rem;
+      }
+      .markdown-body table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <a href="index.html" class="btn-nav">🏠 Trang chủ</a>
+        <a href="shinkanzen/bai-01/flashcards.html" class="btn-nav">🎴 Flashcards</a>
+      </div>
+
+      <select id="epSelect" class="ep-select" onchange="onSelectChange(this.value)">
+        <option value="">Đang tải danh sách truyện...</option>
+      </select>
+
+      <div style="display: flex; gap: 6px; align-items: center;">
+        <button id="btnPrev" class="btn-nav" onclick="goEpisode(-1)" disabled>◀ Trước</button>
+        <button id="btnNext" class="btn-nav" onclick="goEpisode(1)" disabled>Sau ▶</button>
+        <button class="btn-nav" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối">🌓</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN READER -->
+  <div class="reader-container">
+    <article class="paper">
+      <div id="content" class="markdown-body">
+        <div class="loading-box">⏳ Đang tải nội dung bài học...</div>
+      </div>
+    </article>
+
+    <div class="bottom-nav">
+      <button id="btnPrevBottom" class="btn-nav" onclick="goEpisode(-1)" disabled>◀ Tập trước</button>
+      <a href="index.html" class="btn-nav">📚 Danh sách tất cả bài</a>
+      <button id="btnNextBottom" class="btn-nav" onclick="goEpisode(1)" disabled>Tập tiếp theo ▶</button>
+    </div>
+  </div>
+
+  <script>
+    const REPO_RAW_BASE = "https://raw.githubusercontent.com/PentaYuki/Pentanihon/main/";
+    let currentFile = "";
+    let episodesList = [];
+
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("pentanihon_theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    // Khởi tạo giao diện sáng/tối
+    if (localStorage.getItem("pentanihon_theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    // Populate dropdown từ manifest
+    function populateSelector() {
+      const select = document.getElementById("epSelect");
+      select.innerHTML = "";
+
+      const manifest = window.PENTANIHON_MANIFEST;
+      if (manifest && manifest.episodes) {
+        episodesList = [...manifest.episodes].sort((a, b) => a.ep - b.ep);
+
+        // Thêm mục đặc biệt
+        const optQuotes = document.createElement("option");
+        optQuotes.value = "story/daily-vocab-quotes.md";
+        optQuotes.textContent = "🌟 Sổ Tay: Mỗi Ngày Một Câu Thực Chiến";
+        select.appendChild(optQuotes);
+
+        // Nhóm các tập Series
+        const grp = document.createElement("optgroup");
+        grp.label = "☕ Series: Tokyo Aozora Monogatari";
+        episodesList.forEach(ep => {
+          const opt = document.createElement("option");
+          opt.value = ep.file;
+          opt.textContent = `Tập ${String(ep.ep).padStart(2, '0')}: ${ep.title_vi || ep.title_jp}`;
+          grp.appendChild(opt);
+        });
+        select.appendChild(grp);
+
+        // Nhóm Oneshots
+        if (manifest.oneshots && manifest.oneshots.length > 0) {
+          const grpOne = document.createElement("optgroup");
+          grpOne.label = "🗄️ Truyện Ngắn Độc Lập (One-shots)";
+          manifest.oneshots.forEach(o => {
+            const opt = document.createElement("option");
+            opt.value = o.file;
+            opt.textContent = o.title;
+            grpOne.appendChild(opt);
+          });
+          select.appendChild(grpOne);
+        }
+      }
+    }
+
+    function updateNavButtons() {
+      const idx = episodesList.findIndex(e => e.file === currentFile);
+      const prevDisabled = idx <= 0;
+      const nextDisabled = idx === -1 || idx >= episodesList.length - 1;
+
+      document.getElementById("btnPrev").disabled = prevDisabled;
+      document.getElementById("btnPrevBottom").disabled = prevDisabled;
+      document.getElementById("btnNext").disabled = nextDisabled;
+      document.getElementById("btnNextBottom").disabled = nextDisabled;
+
+      const select = document.getElementById("epSelect");
+      if (select) {
+        select.value = currentFile;
+      }
+    }
+
+    function goEpisode(delta) {
+      const idx = episodesList.findIndex(e => e.file === currentFile);
+      if (idx === -1) return;
+      const targetIdx = idx + delta;
+      if (targetIdx >= 0 && targetIdx < episodesList.length) {
+        loadMarkdown(episodesList[targetIdx].file);
+      }
+    }
+
+    function onSelectChange(file) {
+      if (file) {
+        loadMarkdown(file);
+      }
+    }
+
+    // Trình phân tích Markdown dự phòng đơn giản nếu CDN lỗi
+    function fallbackMarkdown(md) {
+      return md
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/\n$/gim, '<br>');
+    }
+
+    function resolveRelativePath(baseFile, href) {
+      if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("#")) {
+        return null;
+      }
+      const baseParts = baseFile.split("/");
+      baseParts.pop(); // bỏ tên file
+      const relParts = href.split("/");
+      for (const p of relParts) {
+        if (p === "." || p === "") continue;
+        if (p === "..") {
+          baseParts.pop();
+        } else {
+          baseParts.push(p);
+        }
+      }
+      return baseParts.join("/");
+    }
+
+    async function loadMarkdown(file) {
+      currentFile = file;
+      const url = new URL(window.location);
+      url.searchParams.set("file", file);
+      window.history.pushState({}, "", url);
+
+      updateNavButtons();
+      const contentEl = document.getElementById("content");
+      contentEl.innerHTML = '<div class="loading-box">⏳ Đang tải nội dung...</div>';
+
+      try {
+        let res = await fetch(file);
+        if (!res.ok) {
+          // Dự phòng tải từ GitHub Raw nếu chạy file:// local
+          res = await fetch(REPO_RAW_BASE + file);
+        }
+        if (!res.ok) {
+          throw new Error("Không tìm thấy file: " + file);
+        }
+        const mdText = await res.text();
+        
+        if (typeof marked !== "undefined") {
+          contentEl.innerHTML = marked.parse(mdText);
+        } else {
+          contentEl.innerHTML = fallbackMarkdown(mdText);
+        }
+
+        // Xử lý link nội bộ .md để giữ người dùng đọc ngay trên Vercel Reader
+        const links = contentEl.querySelectorAll("a");
+        links.forEach(a => {
+          const href = a.getAttribute("href");
+          if (href && href.endsWith(".md")) {
+            const targetPath = resolveRelativePath(file, href);
+            if (targetPath) {
+              a.setAttribute("href", `reader.html?file=${encodeURIComponent(targetPath)}`);
+              a.addEventListener("click", (e) => {
+                e.preventDefault();
+                loadMarkdown(targetPath);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              });
+            }
+          } else if (href && href.endsWith(".html")) {
+            const targetPath = resolveRelativePath(file, href);
+            if (targetPath) {
+              a.setAttribute("href", targetPath);
+            }
+          }
+        });
+
+        // Cập nhật Title trình duyệt
+        const h1 = contentEl.querySelector("h1");
+        if (h1) {
+          document.title = h1.textContent + " — Pentanihon";
+        }
+      } catch (err) {
+        contentEl.innerHTML = `
+          <div style="text-align:center; padding:40px;">
+            <h3>⚠️ Không thể tải nội dung trực tiếp</h3>
+            <p style="color:var(--text-muted); margin-top:10px;">${err.message}</p>
+            <a href="index.html" class="btn-nav" style="margin-top:16px;">Quay lại Trang chủ</a>
+          </div>
+        `;
+      }
+    }
+
+    // Khởi chạy trang
+    populateSelector();
+    let initialFile = getQueryParam("file");
+    if (!initialFile) {
+      if (window.PENTANIHON_MANIFEST && window.PENTANIHON_MANIFEST.latest_episode) {
+        initialFile = window.PENTANIHON_MANIFEST.latest_episode.file;
+      } else {
+        initialFile = "story/series-01_tap-19_chuyen_nha_va_cuoc_song_tokyo.md";
+      }
+    }
+    loadMarkdown(initialFile);
+  </script>
+</body>
+</html>
