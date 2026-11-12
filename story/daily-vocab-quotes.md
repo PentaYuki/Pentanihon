@@ -127,6 +127,28 @@
 
 ---
 
+### ☀️ Ngày 11: Tìm Nhà Mới & Tài Chính Độc Lập *(Bài 02)*
+> 📌 **Từ vựng vận dụng:** `徒歩（とほ）` *(Đi bộ)* • `日当（ひあ）たり` *(Ánh nắng)* • `敷金（しききん）` *(Tiền cọc)* • `礼金（れいきん）` *(Tiền lễ)* • `やり繰（く）り` *(Thu vén chi tiêu)*
+
+#### 🌟 Câu nói hôm nay:
+### **「駅（えき）から徒歩（とほ）5分（ごふん）で日当（ひあ）たりの良（よ）い部屋（へや）を見（み）つけたら、敷金（しききん）と礼金（れいきん）を確認（かくにん）してから家計（かけい）をやり繰（く）りしよう。」**
+*(Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi cân đối thu vén chi tiêu gia đình nhé!)*
+
+- 💡 **Mẹo của chị Yuki:** Phân biệt ngay kẻo mất tiền oan: `敷金` là tiền đặt cọc (trừ phí dọn dẹp xong sẽ được hoàn lại phần dư), còn `礼金` là tiền lễ cảm ơn chủ nhà (không bao giờ được lấy lại!).
+
+---
+
+### ☀️ Ngày 12: Bí Quyết Sống Sạch Sẽ Chuẩn Nhật *(Bài 02)*
+> 📌 **Từ vựng vận dụng:** `換気（かんき）する` *(Thông gió)* • `湿気（しっけ）` *(Nồm ẩm)* • `生（なま）ごみ` *(Rác đồ ăn)* • `分別（ぶんべつ）` *(Phân loại rác)*
+
+#### 🌟 Câu nói hôm nay:
+### **「朝（あさ）起（お）きたらすぐ窓（まど）を開（あ）けて部屋（へや）を換気（かんき）し、湿気（しっけ）を防（ふせ）ぎながら生（なま）ごみをしっかり分別（ぶんべつ）して出（だ）そう。」**
+*(Sáng thức dậy hãy mở ngay cửa sổ để thông gió phòng ốc tránh nồm ẩm, đồng thời phân loại thật cẩn thận rác đồ ăn trước khi mang đi đổ nhé!)*
+
+- 💡 **Mẹo của chị Yuki:** `換気する` và `分別する` là hai từ vựng quen thuộc nhất trong bảng nội quy chung cư Nhật Bản và đề đọc hiểu đời sống N2!
+
+---
+
 ## 🎧 Gợi Ý Cách Học Hiệu Quả:
 1. **Sáng thức dậy (2 phút):** Đọc to câu nói của ngày 3 lần, chú ý nhấn rõ từng chữ Hán.
 2. **Giờ nghỉ trưa (1 phút):** Thử tự đặt một câu tương tự áp dụng cho công việc hoặc cuộc sống của mình.
