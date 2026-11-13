@@ -58,6 +58,7 @@ graph TD
 | **18** | [**失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第18話）**<br>*(Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 18))*](./series-01_tap-18_aozora_tokyo.md) | `〜まい, 〜てたまらない, 〜のみならず, 〜を込めて` | ✅ Đã phát hành |
 | **19** | [**新（あたら）しい部屋（へや）探（さが）しと生活（せいかつ）の知恵（ちえ）（第19話）**<br>*(Hành Trình Tìm Nhà Mới & Bí Quyết Sống Tự Lập — Vận Dụng Từ Vựng Bài 02)*](./series-01_tap-19_chuyen_nha_va_cuoc_song_tokyo.md) | `〜一方（で）, 〜抜く, 〜に違いない, 〜てたまらない` | 🌟 MỚI RA MẮT |
 | **20** | [**アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第20話）**<br>*(Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 20))*](./series-01_tap-20_aozora_tokyo.md) | `〜に違いない, 〜に際して, 〜やまない, 〜かねない` | ✅ Đã phát hành |
+| **21** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第21話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 21))*](./series-01_tap-21_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
 
 ---
 

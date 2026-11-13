@@ -1,11 +1,11 @@
 {
-  "total_episodes": 20,
+  "total_episodes": 21,
   "latest_episode": {
-    "ep": 20,
-    "file": "story/series-01_tap-20_aozora_tokyo.md",
-    "filename": "series-01_tap-20_aozora_tokyo.md",
-    "title_jp": "アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第20話）",
-    "title_vi": "Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 20)",
+    "ep": 21,
+    "file": "story/series-01_tap-21_aozora_tokyo.md",
+    "filename": "series-01_tap-21_aozora_tokyo.md",
+    "title_jp": "東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第21話）",
+    "title_vi": "Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 21)",
     "quote_jp": "",
     "quote_vi": ""
   },
@@ -16,6 +16,15 @@
     "quote_vi": "Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi tính toán thu vén chi tiêu gia đình nhé!"
   },
   "episodes": [
+    {
+      "ep": 21,
+      "file": "story/series-01_tap-21_aozora_tokyo.md",
+      "filename": "series-01_tap-21_aozora_tokyo.md",
+      "title_jp": "東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第21話）",
+      "title_vi": "Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 21)",
+      "quote_jp": "",
+      "quote_vi": ""
+    },
     {
       "ep": 20,
       "file": "story/series-01_tap-20_aozora_tokyo.md",
