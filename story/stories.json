@@ -1,11 +1,11 @@
 {
-  "total_episodes": 21,
+  "total_episodes": 22,
   "latest_episode": {
-    "ep": 21,
-    "file": "story/series-01_tap-21_aozora_tokyo.md",
-    "filename": "series-01_tap-21_aozora_tokyo.md",
-    "title_jp": "東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第21話）",
-    "title_vi": "Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 21)",
+    "ep": 22,
+    "file": "story/series-01_tap-22_aozora_tokyo.md",
+    "filename": "series-01_tap-22_aozora_tokyo.md",
+    "title_jp": "チームワークと信頼（しんらい）の絆（きずな）（第22話）",
+    "title_vi": "Tinh Thần Đồng Đội & Sợi Dây Gắn Kết Niềm Tin (Tập 22)",
     "quote_jp": "",
     "quote_vi": ""
   },
@@ -16,6 +16,15 @@
     "quote_vi": "Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi tính toán thu vén chi tiêu gia đình nhé!"
   },
   "episodes": [
+    {
+      "ep": 22,
+      "file": "story/series-01_tap-22_aozora_tokyo.md",
+      "filename": "series-01_tap-22_aozora_tokyo.md",
+      "title_jp": "チームワークと信頼（しんらい）の絆（きずな）（第22話）",
+      "title_vi": "Tinh Thần Đồng Đội & Sợi Dây Gắn Kết Niềm Tin (Tập 22)",
+      "quote_jp": "",
+      "quote_vi": ""
+    },
     {
       "ep": 21,
       "file": "story/series-01_tap-21_aozora_tokyo.md",
