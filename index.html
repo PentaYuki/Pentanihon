@@ -29,11 +29,18 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+      max-width: 100%;
+    }
+
     body {
       font-family: var(--font-family);
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-wrap: anywhere;
     }
 
     header {
@@ -311,7 +318,7 @@
     /* GRID LAYOUTS */
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 20px;
       margin-bottom: 45px;
     }
@@ -433,6 +440,7 @@
       .hero h1 { font-size: 1.75rem; }
       .nav-links { display: none; }
       .flashcard-banner { flex-direction: column; align-items: flex-start; }
+      .lessons-table { display: block; overflow-x: auto; max-width: 100%; }
     }
   </style>
 </head>

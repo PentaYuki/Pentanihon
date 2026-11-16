@@ -291,12 +291,19 @@ def render_novel_html():
 
     * { box-sizing: border-box; }
 
+    html, body {
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+      max-width: 100%;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-vi);
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+      overflow-wrap: anywhere;
     }
 
     .visually-hidden:where(:not(:focus-within, :active)) {
@@ -1097,6 +1104,21 @@ def render_novel_html():
         }
       }
     }
+
+    @media (max-width: 768px) {
+      dialog#vocab-guide,
+      dialog#vocab-guide.is-anchored {
+        position: fixed !important;
+        position-anchor: none !important;
+        position-area: none !important;
+        inset: auto 10px max(10px, env(safe-area-inset-bottom, 0px)) 10px !important;
+        width: auto !important;
+        max-width: none !important;
+        max-height: 58dvh;
+        margin: 0 !important;
+        z-index: 250;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1345,7 +1367,14 @@ def render_novel_html():
           activeTokenEl = targetToken;
           targetToken.style.setProperty("anchor-name", "--active-skz-word");
           if (scrollIntoView) {
-            targetToken.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "center" });
+            const behavior = prefersReducedMotion() ? "auto" : "smooth";
+            if (window.innerWidth <= 768) {
+              const rect = targetToken.getBoundingClientRect();
+              const top = Math.max(0, rect.top + window.scrollY - window.innerHeight * 0.25);
+              window.scrollTo({ top, behavior });
+            } else {
+              targetToken.scrollIntoView({ behavior, block: "center" });
+            }
           }
         }
 
@@ -1724,6 +1753,79 @@ def render_novel_html():
       document.getElementById("vg-next-word").addEventListener("click", () => stepChapterVocab(1));
 
       (function attachVocabGuideSwipe() {
+        // Touch phones: passive:false touchmove guarantees iOS Safari & Android Chrome won't cancel horizontal thumb swipes
+        let tId = null;
+        let tStartX = 0;
+        let tStartY = 0;
+        let tStartTime = 0;
+        let tLastDx = 0;
+        let tAxis = null;
+
+        vocabDialog.addEventListener("touchstart", (e) => {
+          if (e.touches.length !== 1) return;
+          if (e.target.closest("a, button")) return;
+          const t = e.touches[0];
+          tId = t.identifier;
+          tStartX = t.clientX;
+          tStartY = t.clientY;
+          tStartTime = Date.now();
+          tLastDx = 0;
+          tAxis = null;
+        }, { passive: true });
+
+        vocabDialog.addEventListener("touchmove", (e) => {
+          if (tId === null) return;
+          const t = Array.from(e.touches).find(pt => pt.identifier === tId);
+          if (!t) return;
+          const dx = t.clientX - tStartX;
+          const dy = t.clientY - tStartY;
+          const adx = Math.abs(dx);
+          const ady = Math.abs(dy);
+
+          if (tAxis === null) {
+            if (adx < 8 && ady < 8) return;
+            if (adx >= 8 && adx >= ady * 0.85) {
+              tAxis = "x";
+              vocabDialog.classList.add("is-dragging");
+            } else if (ady > 16 && ady > adx * 1.35) {
+              tAxis = "y";
+              return;
+            } else {
+              return;
+            }
+          }
+
+          if (tAxis === "x") {
+            e.preventDefault();
+            tLastDx = dx;
+            const slideX = Math.max(-54, Math.min(54, dx * 0.55));
+            vocabDialog.style.transform = `translate3d(${slideX}px, 0, 0)`;
+            vocabDialog.style.opacity = String(Math.max(0.65, 1 - Math.abs(slideX) / 220));
+          }
+        }, { passive: false });
+
+        function endTouchSwipe() {
+          if (tId === null) return;
+          const wasX = tAxis === "x";
+          const dx = tLastDx;
+          const vel = Math.abs(dx) / Math.max(1, Date.now() - tStartTime);
+          tId = null;
+          tAxis = null;
+          vocabDialog.classList.remove("is-dragging");
+          if (wasX) {
+            if (Math.abs(dx) >= 32 || (Math.abs(dx) >= 18 && vel >= 0.25)) {
+              stepChapterVocab(dx < 0 ? 1 : -1, true);
+            } else {
+              vocabDialog.style.transform = "";
+              vocabDialog.style.opacity = "";
+            }
+          }
+        }
+
+        vocabDialog.addEventListener("touchend", endTouchSwipe);
+        vocabDialog.addEventListener("touchcancel", endTouchSwipe);
+
+        // Desktop mouse & pen pointer drag (touches are handled above by native touch listeners)
         let activeId = null;
         let startX = 0;
         let startY = 0;
@@ -1733,7 +1835,7 @@ def render_novel_html():
         let isVertical = false;
 
         vocabDialog.addEventListener("pointerdown", (e) => {
-          if (!e.isPrimary) return;
+          if (!e.isPrimary || e.pointerType === "touch") return;
           if (e.pointerType === "mouse" && e.button !== 0) return;
           if (e.target.closest("a, button")) return;
           activeId = e.pointerId;
@@ -1746,16 +1848,16 @@ def render_novel_html():
         });
 
         vocabDialog.addEventListener("pointermove", (e) => {
-          if (activeId !== e.pointerId || isVertical) return;
+          if (activeId !== e.pointerId || isVertical || e.pointerType === "touch") return;
           const dx = e.clientX - startX;
           const dy = e.clientY - startY;
           if (!isHorizontal) {
-            if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)) {
+            if (Math.abs(dy) > 12 && Math.abs(dy) >= Math.abs(dx) * 1.2) {
               isVertical = true;
               activeId = null;
               return;
             }
-            if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+            if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
               isHorizontal = true;
               vocabDialog.classList.add("is-dragging");
               try { vocabDialog.setPointerCapture(e.pointerId); } catch (_) {}
@@ -1764,12 +1866,13 @@ def render_novel_html():
             }
           }
           lastDx = dx;
-          vocabDialog.style.transform = `translate3d(${dx * 0.75}px, 0, 0)`;
-          vocabDialog.style.opacity = String(Math.max(0.6, 1 - Math.abs(dx) / 300));
+          const slideX = Math.max(-54, Math.min(54, dx * 0.55));
+          vocabDialog.style.transform = `translate3d(${slideX}px, 0, 0)`;
+          vocabDialog.style.opacity = String(Math.max(0.65, 1 - Math.abs(slideX) / 220));
         });
 
         function endVgSwipe(e) {
-          if (activeId !== e.pointerId) return;
+          if (activeId !== e.pointerId || e.pointerType === "touch") return;
           const wasHorizontal = isHorizontal;
           const dx = lastDx;
           const velocity = Math.abs(dx) / Math.max(1, Date.now() - startTime);
@@ -1778,8 +1881,8 @@ def render_novel_html():
           isVertical = false;
           vocabDialog.classList.remove("is-dragging");
           if (wasHorizontal) {
-            const threshold = Math.min(60, Math.max(36, vocabDialog.clientWidth * 0.16));
-            if (e.type === "pointerup" && (Math.abs(dx) >= threshold || (Math.abs(dx) >= 22 && velocity >= 0.3))) {
+            const threshold = Math.min(56, Math.max(32, vocabDialog.clientWidth * 0.14));
+            if (Math.abs(dx) >= threshold || (Math.abs(dx) >= 20 && velocity >= 0.25)) {
               stepChapterVocab(dx < 0 ? 1 : -1, true);
             } else {
               vocabDialog.style.transform = "";

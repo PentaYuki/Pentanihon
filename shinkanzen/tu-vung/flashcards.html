@@ -27,6 +27,12 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+      max-width: 100%;
+    }
+
     body {
       font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Arial, sans-serif;
       background-color: var(--bg-color);
@@ -170,7 +176,7 @@
       padding: 6px 10px;
       border: 1.5px solid #000;
       background: #fff;
-      font-size: 0.88rem;
+      font-size: max(16px, 0.9rem);
       font-weight: 600;
       min-width: 0;
       max-width: 100%;
@@ -185,52 +191,59 @@
       font-weight: 600;
     }
 
-    .flashcard-stage {
+    .card-track-wrap {
       width: 100%;
       max-width: 680px;
-      height: 360px;
-      perspective: 1000px;
-      cursor: grab;
-      position: relative;
-      touch-action: pan-y;
+      margin: 0 auto;
+      overflow-x: clip;
+    }
+
+    .card-track {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
       overscroll-behavior-x: contain;
-      user-select: none;
-      -webkit-user-select: none;
+      touch-action: pan-x pan-y pinch-zoom;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+    }
+
+    .card-track::-webkit-scrollbar {
+      display: none;
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .flashcard-stage {
-        transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease-out;
-      }
-      .flashcard-stage.is-dragging {
-        transition: none;
+      .card-track {
+        scroll-behavior: smooth;
       }
     }
 
-    .flashcard-stage.is-dragging {
+    .card-track.is-mouse-dragging {
       cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
     }
 
-    .swipe-cue {
-      position: absolute;
-      top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 6;
-      pointer-events: none;
-      background: #000000;
-      color: #ffffff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 999px;
-      opacity: 0;
-      transition: opacity 0.12s ease;
-      white-space: nowrap;
+    .card-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      padding: 4px 8px 10px;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
     }
 
-    .swipe-cue.is-visible {
-      opacity: 0.92;
+    .flashcard-stage {
+      width: 100%;
+      height: 360px;
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .flashcard-inner {
@@ -252,8 +265,11 @@
       position: absolute;
       width: 100%;
       height: 100%;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       overflow-y: auto;
+      overflow-x: hidden;
+      touch-action: pan-x pan-y pinch-zoom;
       padding: 26px 24px;
       display: flex;
       flex-direction: column;
@@ -716,45 +732,8 @@
   </div>
 
   <div id="view-interactive" style="margin-top: 16px;">
-    <div class="flashcard-stage" id="cardStage" role="region" aria-roledescription="flashcard" aria-label="Thẻ từ vựng hiện tại">
-      <div class="swipe-cue" id="swipeCue" aria-hidden="true"></div>
-      <div class="flashcard-inner" id="cardInner">
-        <div class="card-face card-front">
-          <div class="card-header">
-            <span class="card-badge" id="card-group-badge">Bài 1</span>
-            <span id="card-counter-badge">1 / 1</span>
-          </div>
-          <div class="card-center">
-            <div class="furigana-text" id="front-furi">そせん</div>
-            <div class="kanji-text" id="front-kanji">祖先</div>
-            <div class="hanviet-text" id="front-hv">[ TỔ TIÊN ]</div>
-          </div>
-          <div class="card-hint">
-            👆 Vuốt trái / phải để qua từ khác • Chạm thẻ hoặc [Space] để lật ➔
-          </div>
-        </div>
-
-        <div class="card-face card-back">
-          <div class="card-header">
-            <span class="card-badge" id="back-group-badge">Bài 1</span>
-            <span id="back-kanji-small" style="font-weight: 700; font-size: 0.95rem;">祖先（そせん）</span>
-          </div>
-          <div class="card-center" style="text-align: left;">
-            <div class="back-meaning" id="back-meaning">Tổ tiên</div>
-            <div class="back-collocation">
-              <div style="font-size: 0.74rem; text-transform: uppercase; color: #666; margin-bottom: 2px;">Cụm từ Collocation Shinkanzen:</div>
-              <div class="back-collocation-jp" id="back-colloc-jp">人類の祖先</div>
-              <div style="font-size: 0.85rem; color: #333;" id="back-colloc-vi">Tổ tiên loài người</div>
-            </div>
-            <div class="back-note" id="back-note">
-              💡 <strong>Bài học:</strong> Shinkanzen Master N2
-            </div>
-          </div>
-          <div class="card-hint">
-            👆 Vuốt trái / phải để qua từ khác • Chạm thẻ để quay lại mặt trước ↺
-          </div>
-        </div>
-      </div>
+    <div class="card-track-wrap">
+      <div class="card-track" id="cardTrack" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Bộ thẻ từ vựng Shinkanzen N2"></div>
     </div>
 
     <div class="action-row">
@@ -766,7 +745,7 @@
     <div class="progress-bar" id="progressText" role="status" aria-live="polite">Thẻ 1 / 1</div>
 
     <div class="keyboard-tips">
-      👆 Cảm ứng / Trackpad: <strong>Vuốt trái / phải</strong> để đổi từ • ⌨️ Phím: <strong>[Space]</strong> Lật mặt • <strong>[←] / [→]</strong> Trước / Sau • <strong>[F]</strong> Furigana • <strong>[R]</strong> Đảo mặt
+      👆 Cảm ứng / Trackpad: <strong>Lướt ngang trực tiếp trên thẻ</strong> để chuyển từ • ⌨️ Phím: <strong>[Space]</strong> Lật mặt • <strong>[←] / [→]</strong> Trước / Sau • <strong>[F]</strong> Furigana • <strong>[R]</strong> Đảo mặt
     </div>
   </div>
 
@@ -858,148 +837,189 @@ function onLessonChange() {
   onGroupChange();
 }
 
+const cardTrack = document.getElementById("cardTrack");
+const prefersReducedMotion = () => Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+let pendingTargetIdx = null;
+let pendingTargetTimer = null;
+let scrollRaf = null;
+let scrollDebounceTimer = null;
+let suppressClickUntil = 0;
+
 function onGroupChange() {
-  settlePendingTransition();
-  hideSwipeCue();
-  resetCardTransform(false);
   const grp = document.getElementById("group-filter").value;
   deck = grp === "ALL" ? [...baseCards] : baseCards.filter(c => c.group === grp);
   currentIndex = 0;
-  cardStage.classList.remove("is-flipped");
-  renderCard();
+  buildDeckSlides();
   renderPrintCards();
+}
+
+function buildSlideInnerHTML(item, idx) {
+  const furiTop = reverseMode ? `[ ${esc(item.hv)} ]` : esc(item.reading);
+  const furiHidden = !reverseMode && !showFuri ? " hidden" : "";
+  const frontMain = reverseMode ? esc(item.mean) : esc(item.plain);
+  const frontSize = reverseMode ? "1.55rem" : (item.plain.length > 8 ? "2rem" : "2.7rem");
+  const hvText = reverseMode ? esc(item.group) : `[ ${esc(item.hv)} ]`;
+  const backHeaderWord = reverseMode ? esc(item.mean) : esc(item.furi);
+  const backMeaning = reverseMode ? esc(item.furi) : esc(item.mean);
+
+  return `
+    <div class="flashcard-inner">
+      <div class="card-face card-front">
+        <div class="card-header">
+          <span class="card-badge">${esc(item.group)}</span>
+          <span>${idx + 1} / ${deck.length}</span>
+        </div>
+        <div class="card-center">
+          <div class="furigana-text${furiHidden}">${furiTop}</div>
+          <div class="kanji-text" style="font-size: ${frontSize};">${frontMain}</div>
+          <div class="hanviet-text">${hvText}</div>
+        </div>
+        <div class="card-hint">
+          👆 Lướt ngang để chuyển từ • Chạm thẻ để lật ➔
+        </div>
+      </div>
+
+      <div class="card-face card-back">
+        <div class="card-header">
+          <span class="card-badge">${esc(item.lessonLabel)}</span>
+          <span style="font-weight: 700; font-size: 0.95rem;">${backHeaderWord}</span>
+        </div>
+        <div class="card-center" style="text-align: left;">
+          <div class="back-meaning">${backMeaning}</div>
+          <div class="back-collocation">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: #666; margin-bottom: 2px;">Cụm từ Collocation Shinkanzen:</div>
+            <div class="back-collocation-jp">${esc(item.collocJp)}</div>
+            <div style="font-size: 0.85rem; color: #333;">${esc(item.collocVi)}</div>
+          </div>
+          <div class="back-note">
+            💡 <strong>Chủ điểm:</strong> ${esc(item.lessonLabel)} — <em>${esc(item.group)}</em>
+          </div>
+        </div>
+        <div class="card-hint">
+          👆 Lướt ngang để chuyển từ • Chạm thẻ để quay lại mặt trước ↺
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function hydrateWindow(centerIdx, forceRefresh = false) {
+  const slides = cardTrack.children;
+  for (let i = 0; i < slides.length; i++) {
+    const stage = slides[i].firstElementChild;
+    const dist = Math.abs(i - centerIdx);
+    const wrapNear = (centerIdx <= 1 && i >= slides.length - 2) || (centerIdx >= slides.length - 2 && i <= 1);
+    if (dist <= 2 || wrapNear) {
+      if (forceRefresh || stage.dataset.hydrated !== "1") {
+        stage.innerHTML = buildSlideInnerHTML(deck[i], i);
+        stage.dataset.hydrated = "1";
+      }
+    } else if (dist > 4 && stage.dataset.hydrated === "1") {
+      stage.classList.remove("is-flipped");
+      stage.innerHTML = "";
+      delete stage.dataset.hydrated;
+    }
+  }
+}
+
+function updateProgressUI() {
+  if (!deck.length) {
+    document.getElementById("progressText").textContent = "Thẻ 0 / 0";
+    return;
+  }
+  document.getElementById("progressText").textContent = `Thẻ ${currentIndex + 1} / ${deck.length}`;
+}
+
+function buildDeckSlides() {
+  pendingTargetIdx = null;
+  if (pendingTargetTimer) { clearTimeout(pendingTargetTimer); pendingTargetTimer = null; }
+  cardTrack.innerHTML = "";
+  if (!deck.length) {
+    updateProgressUI();
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  deck.forEach((_, idx) => {
+    const slide = document.createElement("div");
+    slide.className = "card-slide";
+    slide.setAttribute("role", "group");
+    slide.setAttribute("aria-roledescription", "slide");
+    slide.setAttribute("aria-label", `Thẻ ${idx + 1} / ${deck.length}`);
+
+    const stage = document.createElement("div");
+    stage.className = "flashcard-stage";
+    stage.dataset.index = String(idx);
+    slide.appendChild(stage);
+    frag.appendChild(slide);
+  });
+  cardTrack.appendChild(frag);
+  hydrateWindow(currentIndex, true);
+  updateProgressUI();
+  syncTrackToIndex(currentIndex, false);
 }
 
 function renderCard() {
   if (!deck.length) return;
-  const item = deck[currentIndex];
-  const furiEl = document.getElementById("front-furi");
-  const kanjiEl = document.getElementById("front-kanji");
-  const hvEl = document.getElementById("front-hv");
-
-  document.getElementById("card-group-badge").textContent = item.group;
-  document.getElementById("back-group-badge").textContent = item.lessonLabel;
-  document.getElementById("card-counter-badge").textContent = `${currentIndex + 1} / ${deck.length}`;
-  document.getElementById("progressText").textContent = `Thẻ ${currentIndex + 1} / ${deck.length}`;
-
-  if (!reverseMode) {
-    furiEl.textContent = item.reading;
-    furiEl.classList.toggle("hidden", !showFuri);
-    kanjiEl.textContent = item.plain;
-    kanjiEl.style.fontSize = item.plain.length > 8 ? "2rem" : "2.7rem";
-    hvEl.textContent = `[ ${item.hv} ]`;
-
-    document.getElementById("back-kanji-small").textContent = item.furi;
-    document.getElementById("back-meaning").textContent = item.mean;
-  } else {
-    furiEl.textContent = `[ ${item.hv} ]`;
-    furiEl.classList.remove("hidden");
-    kanjiEl.textContent = item.mean;
-    kanjiEl.style.fontSize = "1.55rem";
-    hvEl.textContent = item.group;
-
-    document.getElementById("back-kanji-small").textContent = item.mean;
-    document.getElementById("back-meaning").textContent = item.furi;
-  }
-
-  document.getElementById("back-colloc-jp").textContent = item.collocJp;
-  document.getElementById("back-colloc-vi").textContent = item.collocVi;
-  document.getElementById("back-note").innerHTML = `💡 <strong>Chủ điểm:</strong> ${esc(item.lessonLabel)} — <em>${esc(item.group)}</em>`;
+  hydrateWindow(currentIndex, true);
+  updateProgressUI();
 }
 
-const cardStage = document.getElementById("cardStage");
-const swipeCue = document.getElementById("swipeCue");
-const prefersReducedMotion = () => Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-let cardExitTimer = null;
-let cardEnterRaf = null;
-let pendingCommit = null;
-let suppressClickUntil = 0;
-
-function hideSwipeCue() {
-  swipeCue.classList.remove("is-visible");
-  swipeCue.textContent = "";
+function getActiveStage() {
+  const slide = cardTrack.children[currentIndex];
+  return slide ? slide.firstElementChild : null;
 }
 
-function resetCardTransform(withTransition = true) {
-  if (!withTransition) cardStage.classList.add("is-dragging");
-  cardStage.style.transform = "";
-  cardStage.style.opacity = "";
-  if (!withTransition) {
-    void cardStage.offsetWidth;
-    cardStage.classList.remove("is-dragging");
-  }
-}
-
-function settlePendingTransition() {
-  if (cardExitTimer) {
-    clearTimeout(cardExitTimer);
-    cardExitTimer = null;
-  }
-  if (cardEnterRaf) {
-    cancelAnimationFrame(cardEnterRaf);
-    cardEnterRaf = null;
-  }
-  if (pendingCommit) {
-    const fn = pendingCommit;
-    pendingCommit = null;
-    fn();
+function clearInactiveFlips(activeIdx) {
+  const slides = cardTrack.children;
+  for (let i = 0; i < slides.length; i++) {
+    if (i !== activeIdx && slides[i].firstElementChild) {
+      slides[i].firstElementChild.classList.remove("is-flipped");
+    }
   }
 }
 
 function flipCard() {
-  cardStage.classList.toggle("is-flipped");
+  const active = getActiveStage();
+  if (active) active.classList.toggle("is-flipped");
+}
+
+function syncTrackToIndex(idx, smooth = true) {
+  const w = cardTrack.clientWidth;
+  if (!w) return;
+  const targetLeft = idx * w;
+  if (!smooth || prefersReducedMotion()) {
+    const prevBehavior = cardTrack.style.scrollBehavior;
+    cardTrack.style.scrollBehavior = "auto";
+    cardTrack.scrollLeft = targetLeft;
+    cardTrack.style.scrollBehavior = prevBehavior;
+  } else {
+    cardTrack.scrollTo({ left: targetLeft, behavior: "smooth" });
+  }
 }
 
 function goCard(step) {
-  if (!deck.length) return;
-  hideSwipeCue();
-  settlePendingTransition();
-  if (deck.length === 1) {
-    resetCardTransform(true);
-    cardStage.classList.remove("is-flipped");
-    renderCard();
-    return;
+  if (deck.length <= 1) return;
+  const prevIdx = currentIndex;
+  const nextIdx = (currentIndex + step + deck.length) % deck.length;
+  const isWrap = Math.abs(nextIdx - prevIdx) > 1;
+  currentIndex = nextIdx;
+  clearInactiveFlips(nextIdx);
+  hydrateWindow(nextIdx, false);
+  updateProgressUI();
+
+  if (pendingTargetTimer) clearTimeout(pendingTargetTimer);
+  if (isWrap || prefersReducedMotion()) {
+    pendingTargetIdx = null;
+    pendingTargetTimer = null;
+    syncTrackToIndex(nextIdx, false);
+  } else {
+    pendingTargetIdx = nextIdx;
+    pendingTargetTimer = setTimeout(() => {
+      pendingTargetIdx = null;
+      pendingTargetTimer = null;
+    }, 500);
+    syncTrackToIndex(nextIdx, true);
   }
-
-  cardStage.classList.remove("is-flipped");
-  const commit = () => {
-    currentIndex = (currentIndex + step + deck.length) % deck.length;
-    renderCard();
-  };
-
-  if (prefersReducedMotion()) {
-    commit();
-    resetCardTransform(false);
-    return;
-  }
-
-  pendingCommit = commit;
-  cardStage.classList.remove("is-dragging");
-  const exitX = step > 0 ? -105 : 105;
-  const exitRot = step > 0 ? -4 : 4;
-  cardStage.style.transform = `translate3d(${exitX}px, 0, 0) rotate(${exitRot}deg)`;
-  cardStage.style.opacity = "0";
-
-  cardExitTimer = setTimeout(() => {
-    cardExitTimer = null;
-    if (pendingCommit) {
-      const fn = pendingCommit;
-      pendingCommit = null;
-      fn();
-    }
-    cardStage.classList.add("is-dragging");
-    const enterX = step > 0 ? 70 : -70;
-    cardStage.style.transform = `translate3d(${enterX}px, 0, 0) rotate(${-exitRot * 0.5}deg)`;
-    cardStage.style.opacity = "0";
-    void cardStage.offsetWidth;
-
-    cardEnterRaf = requestAnimationFrame(() => {
-      cardEnterRaf = null;
-      cardStage.classList.remove("is-dragging");
-      cardStage.style.transform = "";
-      cardStage.style.opacity = "";
-    });
-  }, 125);
 }
 
 function nextCard() {
@@ -1010,107 +1030,133 @@ function prevCard() {
   goCard(-1);
 }
 
-(function attachCardSwipe() {
-  cardStage.addEventListener("click", (e) => {
+function settleFromScroll() {
+  const w = cardTrack.clientWidth;
+  if (!w || !deck.length) return;
+  if (pendingTargetIdx !== null) {
+    const settledTarget = pendingTargetIdx;
+    pendingTargetIdx = null;
+    if (pendingTargetTimer) { clearTimeout(pendingTargetTimer); pendingTargetTimer = null; }
+    currentIndex = settledTarget;
+    clearInactiveFlips(settledTarget);
+    hydrateWindow(settledTarget, false);
+    updateProgressUI();
+    return;
+  }
+  const idx = Math.max(0, Math.min(deck.length - 1, Math.round(cardTrack.scrollLeft / w)));
+  if (idx !== currentIndex) {
+    currentIndex = idx;
+    clearInactiveFlips(idx);
+    hydrateWindow(idx, false);
+    updateProgressUI();
+  }
+}
+
+(function attachCarouselListeners() {
+  cardTrack.addEventListener("click", (e) => {
     if (Date.now() < suppressClickUntil) {
       e.preventDefault();
       return;
     }
-    flipCard();
-  });
-
-  let activeId = null;
-  let startX = 0;
-  let startY = 0;
-  let startTime = 0;
-  let lastDx = 0;
-  let isHorizontal = false;
-  let isVertical = false;
-
-  cardStage.addEventListener("pointerdown", (e) => {
-    if (!e.isPrimary) return;
-    if (e.pointerType === "mouse" && e.button !== 0) return;
-    settlePendingTransition();
-    activeId = e.pointerId;
-    startX = e.clientX;
-    startY = e.clientY;
-    startTime = Date.now();
-    lastDx = 0;
-    isHorizontal = false;
-    isVertical = false;
-  });
-
-  cardStage.addEventListener("pointermove", (e) => {
-    if (activeId !== e.pointerId || isVertical) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    if (!isHorizontal) {
-      if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)) {
-        isVertical = true;
-        activeId = null;
-        return;
-      }
-      if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.15) {
-        isHorizontal = true;
-        cardStage.classList.add("is-dragging");
-        try { cardStage.setPointerCapture(e.pointerId); } catch (_) {}
-      } else {
-        return;
-      }
-    }
-
-    lastDx = dx;
-    const previewX = deck.length > 1 ? dx : dx * 0.25;
-    const rot = Math.max(-5, Math.min(5, previewX * 0.025));
-    cardStage.style.transform = `translate3d(${previewX}px, 0, 0) rotate(${rot}deg)`;
-    cardStage.style.opacity = String(Math.max(0.55, 1 - Math.abs(previewX) / 360));
-
-    if (deck.length > 1 && Math.abs(dx) > 18) {
-      swipeCue.textContent = dx < 0 ? "Thẻ sau ➔" : "⬅ Thẻ trước";
-      swipeCue.classList.add("is-visible");
-    } else {
-      hideSwipeCue();
+    const stage = e.target.closest(".flashcard-stage");
+    if (!stage) return;
+    const idx = parseInt(stage.dataset.index || "-1", 10);
+    if (idx === currentIndex) {
+      stage.classList.toggle("is-flipped");
+    } else if (idx >= 0) {
+      currentIndex = idx;
+      syncTrackToIndex(idx, true);
     }
   });
 
-  function endSwipe(e) {
-    if (activeId !== e.pointerId) return;
-    const wasHorizontal = isHorizontal;
-    const dx = lastDx;
-    const dt = Math.max(1, Date.now() - startTime);
-    const velocity = Math.abs(dx) / dt;
-    activeId = null;
-    isHorizontal = false;
-    isVertical = false;
-    cardStage.classList.remove("is-dragging");
-    hideSwipeCue();
-
-    if (wasHorizontal) {
-      suppressClickUntil = Date.now() + 360;
-      const distThreshold = Math.min(72, Math.max(38, cardStage.clientWidth * 0.16));
-      if (e.type === "pointerup" && deck.length > 1 && (Math.abs(dx) >= distThreshold || (Math.abs(dx) >= 24 && velocity >= 0.32))) {
-        goCard(dx < 0 ? 1 : -1);
-      } else {
-        resetCardTransform(true);
+  cardTrack.addEventListener("scroll", () => {
+    if (scrollDebounceTimer) clearTimeout(scrollDebounceTimer);
+    if (!("onscrollend" in window)) {
+      scrollDebounceTimer = setTimeout(settleFromScroll, 120);
+    }
+    if (pendingTargetIdx !== null || scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = null;
+      const w = cardTrack.clientWidth;
+      if (!w || !deck.length) return;
+      const idx = Math.max(0, Math.min(deck.length - 1, Math.round(cardTrack.scrollLeft / w)));
+      if (idx !== currentIndex) {
+        currentIndex = idx;
+        hydrateWindow(idx, false);
+        updateProgressUI();
       }
+    });
+  }, { passive: true });
+
+  if ("onscrollend" in window) {
+    cardTrack.addEventListener("scrollend", settleFromScroll);
+  }
+
+  window.addEventListener("resize", () => {
+    syncTrackToIndex(currentIndex, false);
+  });
+
+  // Desktop mouse drag support only; touchscreens and trackpads scroll #cardTrack natively
+  let mouseDragging = false;
+  let mouseMoved = false;
+  let mouseStartX = 0;
+  let mouseStartScroll = 0;
+  let mouseStartTime = 0;
+  let mouseBaseIdx = 0;
+
+  cardTrack.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0 || deck.length <= 1) return;
+    mouseDragging = true;
+    mouseMoved = false;
+    mouseStartX = e.clientX;
+    mouseStartScroll = cardTrack.scrollLeft;
+    mouseStartTime = Date.now();
+    mouseBaseIdx = currentIndex;
+    pendingTargetIdx = null;
+  });
+
+  window.addEventListener("pointermove", (e) => {
+    if (!mouseDragging) return;
+    const dx = e.clientX - mouseStartX;
+    if (!mouseMoved && Math.abs(dx) > 8) {
+      mouseMoved = true;
+      cardTrack.classList.add("is-mouse-dragging");
+    }
+    if (mouseMoved) {
+      cardTrack.scrollLeft = mouseStartScroll - dx;
+    }
+  });
+
+  function endMouseDrag(e) {
+    if (!mouseDragging) return;
+    const dx = e.clientX - mouseStartX;
+    const dt = Math.max(1, Date.now() - mouseStartTime);
+    const vel = Math.abs(dx) / dt;
+    const didDrag = mouseMoved;
+    mouseDragging = false;
+    mouseMoved = false;
+    cardTrack.classList.remove("is-mouse-dragging");
+
+    if (didDrag) {
+      suppressClickUntil = Date.now() + 300;
+      const w = cardTrack.clientWidth || 1;
+      let targetIdx = mouseBaseIdx;
+      const distThreshold = Math.min(72, Math.max(38, w * 0.14));
+      if (Math.abs(dx) >= distThreshold || (Math.abs(dx) >= 24 && vel >= 0.3)) {
+        targetIdx = dx < 0
+          ? Math.min(deck.length - 1, mouseBaseIdx + 1)
+          : Math.max(0, mouseBaseIdx - 1);
+      }
+      currentIndex = targetIdx;
+      clearInactiveFlips(targetIdx);
+      hydrateWindow(targetIdx, false);
+      updateProgressUI();
+      syncTrackToIndex(targetIdx, true);
     }
   }
 
-  cardStage.addEventListener("pointerup", endSwipe);
-  cardStage.addEventListener("pointercancel", endSwipe);
-
-  let wheelLockUntil = 0;
-  cardStage.addEventListener("wheel", (e) => {
-    if (e.ctrlKey) return;
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.45 && Math.abs(e.deltaX) >= 24) {
-      e.preventDefault();
-      const now = Date.now();
-      if (now < wheelLockUntil) return;
-      wheelLockUntil = now + 520;
-      goCard(e.deltaX > 0 ? 1 : -1);
-    }
-  }, { passive: false });
+  window.addEventListener("pointerup", endMouseDrag);
+  window.addEventListener("pointercancel", endMouseDrag);
 })();
 
 function shuffleCards() {
@@ -1119,8 +1165,7 @@ function shuffleCards() {
     [deck[i], deck[j]] = [deck[j], deck[i]];
   }
   currentIndex = 0;
-  document.getElementById("cardStage").classList.remove("is-flipped");
-  renderCard();
+  buildDeckSlides();
   renderPrintCards();
 }
 
@@ -1135,7 +1180,7 @@ function toggleFurigana(val) {
 
 function toggleReverse(val) {
   reverseMode = val;
-  document.getElementById("cardStage").classList.remove("is-flipped");
+  clearInactiveFlips(-1);
   renderCard();
 }
 
@@ -1148,6 +1193,7 @@ function switchView(viewName) {
     btns[1].classList.remove("active");
     vInteractive.style.display = "flex";
     vPrint.style.display = "none";
+    syncTrackToIndex(currentIndex, false);
   } else {
     btns[1].classList.add("active");
     btns[0].classList.remove("active");
