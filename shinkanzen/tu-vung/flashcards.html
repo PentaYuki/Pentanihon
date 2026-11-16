@@ -12,6 +12,13 @@
       --border-color: #000000;
       --border-light: #cccccc;
       --accent-bg: #f5f5f5;
+      --target-size: 24px;
+    }
+
+    @media (pointer: coarse) {
+      :root {
+        --target-size: 44px;
+      }
     }
 
     * {
@@ -26,6 +33,17 @@
       color: var(--text-main);
       line-height: 1.5;
       padding: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    :where(a, button, select, input, [tabindex]):focus-visible {
+      outline: 2px solid CanvasText;
+      outline-offset: 3px;
+    }
+
+    :where(.btn, .tab-btn, .nav-pill, select) {
+      min-block-size: var(--target-size);
+      touch-action: manipulation;
     }
 
     .container {
@@ -130,13 +148,33 @@
       gap: 10px;
     }
 
+    .controls-row > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .filter-field {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .filter-field-lesson {
+      flex: 1 1 260px;
+    }
+
     .filter-select {
       padding: 6px 10px;
       border: 1.5px solid #000;
       background: #fff;
       font-size: 0.88rem;
       font-weight: 600;
+      min-width: 0;
       max-width: 100%;
+      flex: 1 1 180px;
     }
 
     .toggle-group {
@@ -152,7 +190,47 @@
       max-width: 680px;
       height: 360px;
       perspective: 1000px;
-      cursor: pointer;
+      cursor: grab;
+      position: relative;
+      touch-action: pan-y;
+      overscroll-behavior-x: contain;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .flashcard-stage {
+        transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease-out;
+      }
+      .flashcard-stage.is-dragging {
+        transition: none;
+      }
+    }
+
+    .flashcard-stage.is-dragging {
+      cursor: grabbing;
+    }
+
+    .swipe-cue {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      pointer-events: none;
+      background: #000000;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .swipe-cue.is-visible {
+      opacity: 0.92;
     }
 
     .flashcard-inner {
@@ -329,6 +407,39 @@
       font-size: 0.78rem;
       color: #555555;
       text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+      .controls-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .filter-field {
+        flex: 1 1 auto;
+      }
+      .filter-select {
+        width: 100%;
+        flex: 1 1 100%;
+      }
+      .flashcard-stage {
+        height: 340px;
+      }
+      .card-face {
+        padding: 18px 16px;
+      }
+      .kanji-text {
+        font-size: 2.2rem;
+      }
+      .action-row {
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .action-row .btn {
+        flex: 1 1 auto;
+      }
     }
 
     #view-print {
@@ -535,9 +646,9 @@
 
   <div class="controls-bar" id="sharedControls">
     <div class="controls-row">
-      <div style="flex: 1; min-width: 260px;">
+      <div class="filter-field filter-field-lesson">
         <label for="lesson-select" style="font-weight: 700;">📚 Bài học:</label>
-        <select id="lesson-select" class="filter-select" onchange="onLessonChange()" style="width: calc(100% - 85px);">
+        <select id="lesson-select" class="filter-select" onchange="onLessonChange()">
           <option value="ALL_P1">📘 Toàn bộ Phần 1 (21 bài - Theo chủ đề)</option>
           <option value="ALL_P2">📗 Toàn bộ Phần 2 (16 bài - Theo tính chất)</option>
           <option value="p1_c01_b01">[P1] 1章 人間 • 1課 親類・友人・知人: Người Thân, Bạn Bè &amp; Người Quen (41 từ)</option>
@@ -579,7 +690,7 @@
           <option value="p2_c07_b04">[P2] 第2部 7章 語形成 • 4課 形容詞から作る動詞と名詞: Cấu Tạo Từ — 4. Danh Từ &amp; Động Từ Sinh Ra Từ Tính Từ (12 từ)</option>
         </select>
       </div>
-      <div>
+      <div class="filter-field">
         <label for="group-filter" style="font-weight: 700;">🏷️ Nhóm:</label>
         <select id="group-filter" class="filter-select" onchange="onGroupChange()">
           <option value="ALL">Tất cả nhóm</option>
@@ -605,7 +716,8 @@
   </div>
 
   <div id="view-interactive" style="margin-top: 16px;">
-    <div class="flashcard-stage" id="cardStage" onclick="flipCard()">
+    <div class="flashcard-stage" id="cardStage" role="region" aria-roledescription="flashcard" aria-label="Thẻ từ vựng hiện tại">
+      <div class="swipe-cue" id="swipeCue" aria-hidden="true"></div>
       <div class="flashcard-inner" id="cardInner">
         <div class="card-face card-front">
           <div class="card-header">
@@ -618,7 +730,7 @@
             <div class="hanviet-text" id="front-hv">[ TỔ TIÊN ]</div>
           </div>
           <div class="card-hint">
-            Nhấp thẻ hoặc bấm [Space] để xem mặt sau ➔
+            👆 Vuốt trái / phải để qua từ khác • Chạm thẻ hoặc [Space] để lật ➔
           </div>
         </div>
 
@@ -639,22 +751,22 @@
             </div>
           </div>
           <div class="card-hint">
-            Nhấp thẻ để quay lại mặt trước ↺
+            👆 Vuốt trái / phải để qua từ khác • Chạm thẻ để quay lại mặt trước ↺
           </div>
         </div>
       </div>
     </div>
 
     <div class="action-row">
-      <button type="button" class="btn" onclick="prevCard()" title="Mũi tên Trái [←]">◀ Trước</button>
+      <button type="button" class="btn" onclick="prevCard()" title="Vuốt sang phải hoặc mũi tên Trái [←]">◀ Trước</button>
       <button type="button" class="btn btn-flip" onclick="flipCard()">Lật Thẻ (Space)</button>
-      <button type="button" class="btn" onclick="nextCard()" title="Mũi tên Phải [→]">Sau ▶</button>
+      <button type="button" class="btn" onclick="nextCard()" title="Vuốt sang trái hoặc mũi tên Phải [→]">Sau ▶</button>
     </div>
 
-    <div class="progress-bar" id="progressText">Thẻ 1 / 1</div>
+    <div class="progress-bar" id="progressText" role="status" aria-live="polite">Thẻ 1 / 1</div>
 
     <div class="keyboard-tips">
-      ⌨️ Phím tắt: <strong>[Space]</strong> Lật mặt thẻ • <strong>[←] / [→]</strong> Thẻ trước / sau • <strong>[F]</strong> Ẩn/Hiện Furigana • <strong>[R]</strong> Đảo mặt
+      👆 Cảm ứng / Trackpad: <strong>Vuốt trái / phải</strong> để đổi từ • ⌨️ Phím: <strong>[Space]</strong> Lật mặt • <strong>[←] / [→]</strong> Trước / Sau • <strong>[F]</strong> Furigana • <strong>[R]</strong> Đảo mặt
     </div>
   </div>
 
@@ -747,10 +859,13 @@ function onLessonChange() {
 }
 
 function onGroupChange() {
+  settlePendingTransition();
+  hideSwipeCue();
+  resetCardTransform(false);
   const grp = document.getElementById("group-filter").value;
   deck = grp === "ALL" ? [...baseCards] : baseCards.filter(c => c.group === grp);
   currentIndex = 0;
-  document.getElementById("cardStage").classList.remove("is-flipped");
+  cardStage.classList.remove("is-flipped");
   renderCard();
   renderPrintCards();
 }
@@ -792,27 +907,211 @@ function renderCard() {
   document.getElementById("back-note").innerHTML = `💡 <strong>Chủ điểm:</strong> ${esc(item.lessonLabel)} — <em>${esc(item.group)}</em>`;
 }
 
+const cardStage = document.getElementById("cardStage");
+const swipeCue = document.getElementById("swipeCue");
+const prefersReducedMotion = () => Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+let cardExitTimer = null;
+let cardEnterRaf = null;
+let pendingCommit = null;
+let suppressClickUntil = 0;
+
+function hideSwipeCue() {
+  swipeCue.classList.remove("is-visible");
+  swipeCue.textContent = "";
+}
+
+function resetCardTransform(withTransition = true) {
+  if (!withTransition) cardStage.classList.add("is-dragging");
+  cardStage.style.transform = "";
+  cardStage.style.opacity = "";
+  if (!withTransition) {
+    void cardStage.offsetWidth;
+    cardStage.classList.remove("is-dragging");
+  }
+}
+
+function settlePendingTransition() {
+  if (cardExitTimer) {
+    clearTimeout(cardExitTimer);
+    cardExitTimer = null;
+  }
+  if (cardEnterRaf) {
+    cancelAnimationFrame(cardEnterRaf);
+    cardEnterRaf = null;
+  }
+  if (pendingCommit) {
+    const fn = pendingCommit;
+    pendingCommit = null;
+    fn();
+  }
+}
+
 function flipCard() {
-  document.getElementById("cardStage").classList.toggle("is-flipped");
+  cardStage.classList.toggle("is-flipped");
+}
+
+function goCard(step) {
+  if (!deck.length) return;
+  hideSwipeCue();
+  settlePendingTransition();
+  if (deck.length === 1) {
+    resetCardTransform(true);
+    cardStage.classList.remove("is-flipped");
+    renderCard();
+    return;
+  }
+
+  cardStage.classList.remove("is-flipped");
+  const commit = () => {
+    currentIndex = (currentIndex + step + deck.length) % deck.length;
+    renderCard();
+  };
+
+  if (prefersReducedMotion()) {
+    commit();
+    resetCardTransform(false);
+    return;
+  }
+
+  pendingCommit = commit;
+  cardStage.classList.remove("is-dragging");
+  const exitX = step > 0 ? -105 : 105;
+  const exitRot = step > 0 ? -4 : 4;
+  cardStage.style.transform = `translate3d(${exitX}px, 0, 0) rotate(${exitRot}deg)`;
+  cardStage.style.opacity = "0";
+
+  cardExitTimer = setTimeout(() => {
+    cardExitTimer = null;
+    if (pendingCommit) {
+      const fn = pendingCommit;
+      pendingCommit = null;
+      fn();
+    }
+    cardStage.classList.add("is-dragging");
+    const enterX = step > 0 ? 70 : -70;
+    cardStage.style.transform = `translate3d(${enterX}px, 0, 0) rotate(${-exitRot * 0.5}deg)`;
+    cardStage.style.opacity = "0";
+    void cardStage.offsetWidth;
+
+    cardEnterRaf = requestAnimationFrame(() => {
+      cardEnterRaf = null;
+      cardStage.classList.remove("is-dragging");
+      cardStage.style.transform = "";
+      cardStage.style.opacity = "";
+    });
+  }, 125);
 }
 
 function nextCard() {
-  if (!deck.length) return;
-  document.getElementById("cardStage").classList.remove("is-flipped");
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % deck.length;
-    renderCard();
-  }, 120);
+  goCard(1);
 }
 
 function prevCard() {
-  if (!deck.length) return;
-  document.getElementById("cardStage").classList.remove("is-flipped");
-  setTimeout(() => {
-    currentIndex = (currentIndex - 1 + deck.length) % deck.length;
-    renderCard();
-  }, 120);
+  goCard(-1);
 }
+
+(function attachCardSwipe() {
+  cardStage.addEventListener("click", (e) => {
+    if (Date.now() < suppressClickUntil) {
+      e.preventDefault();
+      return;
+    }
+    flipCard();
+  });
+
+  let activeId = null;
+  let startX = 0;
+  let startY = 0;
+  let startTime = 0;
+  let lastDx = 0;
+  let isHorizontal = false;
+  let isVertical = false;
+
+  cardStage.addEventListener("pointerdown", (e) => {
+    if (!e.isPrimary) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    settlePendingTransition();
+    activeId = e.pointerId;
+    startX = e.clientX;
+    startY = e.clientY;
+    startTime = Date.now();
+    lastDx = 0;
+    isHorizontal = false;
+    isVertical = false;
+  });
+
+  cardStage.addEventListener("pointermove", (e) => {
+    if (activeId !== e.pointerId || isVertical) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    if (!isHorizontal) {
+      if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)) {
+        isVertical = true;
+        activeId = null;
+        return;
+      }
+      if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+        isHorizontal = true;
+        cardStage.classList.add("is-dragging");
+        try { cardStage.setPointerCapture(e.pointerId); } catch (_) {}
+      } else {
+        return;
+      }
+    }
+
+    lastDx = dx;
+    const previewX = deck.length > 1 ? dx : dx * 0.25;
+    const rot = Math.max(-5, Math.min(5, previewX * 0.025));
+    cardStage.style.transform = `translate3d(${previewX}px, 0, 0) rotate(${rot}deg)`;
+    cardStage.style.opacity = String(Math.max(0.55, 1 - Math.abs(previewX) / 360));
+
+    if (deck.length > 1 && Math.abs(dx) > 18) {
+      swipeCue.textContent = dx < 0 ? "Thẻ sau ➔" : "⬅ Thẻ trước";
+      swipeCue.classList.add("is-visible");
+    } else {
+      hideSwipeCue();
+    }
+  });
+
+  function endSwipe(e) {
+    if (activeId !== e.pointerId) return;
+    const wasHorizontal = isHorizontal;
+    const dx = lastDx;
+    const dt = Math.max(1, Date.now() - startTime);
+    const velocity = Math.abs(dx) / dt;
+    activeId = null;
+    isHorizontal = false;
+    isVertical = false;
+    cardStage.classList.remove("is-dragging");
+    hideSwipeCue();
+
+    if (wasHorizontal) {
+      suppressClickUntil = Date.now() + 360;
+      const distThreshold = Math.min(72, Math.max(38, cardStage.clientWidth * 0.16));
+      if (e.type === "pointerup" && deck.length > 1 && (Math.abs(dx) >= distThreshold || (Math.abs(dx) >= 24 && velocity >= 0.32))) {
+        goCard(dx < 0 ? 1 : -1);
+      } else {
+        resetCardTransform(true);
+      }
+    }
+  }
+
+  cardStage.addEventListener("pointerup", endSwipe);
+  cardStage.addEventListener("pointercancel", endSwipe);
+
+  let wheelLockUntil = 0;
+  cardStage.addEventListener("wheel", (e) => {
+    if (e.ctrlKey) return;
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.45 && Math.abs(e.deltaX) >= 24) {
+      e.preventDefault();
+      const now = Date.now();
+      if (now < wheelLockUntil) return;
+      wheelLockUntil = now + 520;
+      goCard(e.deltaX > 0 ? 1 : -1);
+    }
+  }, { passive: false });
+})();
 
 function shuffleCards() {
   for (let i = deck.length - 1; i > 0; i--) {

@@ -848,6 +848,22 @@ def render_novel_html():
       color: var(--text);
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
       z-index: 200;
+      touch-action: pan-y;
+      overscroll-behavior-x: contain;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      dialog#vocab-guide {
+        transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.18s ease-out;
+      }
+      dialog#vocab-guide.is-dragging {
+        transition: none;
+      }
+    }
+
+    dialog#vocab-guide.is-dragging {
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     dialog#vocab-guide:is(:popover-open, .\\:popover-open) {
@@ -1008,6 +1024,55 @@ def render_novel_html():
       color: #fff;
     }
 
+    .vg-swipe-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .vg-nav-btn {
+      min-block-size: 32px;
+      padding: 4px 10px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .vg-nav-btn:hover:not(:disabled) {
+      background: #f1f3f5;
+      border-color: #495057;
+    }
+
+    .vg-nav-btn:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+
+    .vg-counter {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    @media (pointer: coarse) {
+      .vg-close-btn,
+      .vg-nav-btn,
+      .vg-action-link,
+      .vg-action-btn {
+        min-block-size: 44px;
+      }
+    }
+
     footer {
       text-align: center;
       padding: 24px 18px;
@@ -1137,6 +1202,11 @@ def render_novel_html():
         <a id="vg-open-flash" href="#" class="vg-action-link" hidden>🎴 Luyện Flashcard</a>
         <button type="button" id="vg-mark-mastered" class="vg-action-btn" aria-pressed="false">✓ Đánh dấu đã thuộc</button>
       </div>
+      <div class="vg-swipe-bar">
+        <button type="button" id="vg-prev-word" class="vg-nav-btn" aria-label="Từ Shinkanzen trước trong chương">◀ Từ trước</button>
+        <span class="vg-counter" id="vg-counter">1 / 1 • Vuốt ⇄</span>
+        <button type="button" id="vg-next-word" class="vg-nav-btn" aria-label="Từ Shinkanzen tiếp theo trong chương">Từ sau ▶</button>
+      </div>
     </div>
   </dialog>
 
@@ -1233,7 +1303,20 @@ def render_novel_html():
         }
       }
 
+      const prefersReducedMotion = () => Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+      let vgAnimTimer = null;
+      let vgEnterRaf = null;
+
+      function clearVgAnim() {
+        if (vgAnimTimer) { clearTimeout(vgAnimTimer); vgAnimTimer = null; }
+        if (vgEnterRaf) { cancelAnimationFrame(vgEnterRaf); vgEnterRaf = null; }
+        vocabDialog.classList.remove("is-dragging");
+        vocabDialog.style.transform = "";
+        vocabDialog.style.opacity = "";
+      }
+
       function hideVocabGuide() {
+        clearVgAnim();
         if (typeof vocabDialog.hidePopover === "function") {
           try { vocabDialog.hidePopover(); } catch (_) {}
         }
@@ -1245,6 +1328,7 @@ def render_novel_html():
         const entry = DATA.glossary[key];
         if (!entry) return;
 
+        clearVgAnim();
         clearWordHighlights();
         activeKey = key;
 
@@ -1261,7 +1345,7 @@ def render_novel_html():
           activeTokenEl = targetToken;
           targetToken.style.setProperty("anchor-name", "--active-skz-word");
           if (scrollIntoView) {
-            targetToken.scrollIntoView({ behavior: "smooth", block: "center" });
+            targetToken.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "center" });
           }
         }
 
@@ -1291,6 +1375,14 @@ def render_novel_html():
         const isMastered = masteredSet.has(key);
         masterBtn.setAttribute("aria-pressed", String(isMastered));
         masterBtn.textContent = isMastered ? "✓ Đã thuộc từ này" : "✓ Đánh dấu đã thuộc";
+
+        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
+        const chapKeys = ch && Array.isArray(ch.vocab_keys) ? ch.vocab_keys : [];
+        const wordPos = Math.max(0, chapKeys.indexOf(key));
+        const totalWords = Math.max(1, chapKeys.length);
+        document.getElementById("vg-counter").textContent = `${wordPos + 1} / ${totalWords} • Vuốt ⇄`;
+        document.getElementById("vg-prev-word").disabled = chapKeys.length <= 1;
+        document.getElementById("vg-next-word").disabled = chapKeys.length <= 1;
 
         // Mở Popover không chặn thao tác cuộn/click khác (Dialog Rule 2)
         if (typeof vocabDialog.showPopover === "function") {
@@ -1591,6 +1683,127 @@ def render_novel_html():
 
       document.getElementById("vg-close").addEventListener("click", hideVocabGuide);
 
+      function stepChapterVocab(step, animate = true) {
+        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
+        const chapKeys = ch && Array.isArray(ch.vocab_keys) ? ch.vocab_keys : [];
+        if (chapKeys.length <= 1) return;
+        const idx = chapKeys.indexOf(activeKey);
+        const nextIdx = idx >= 0 ? (idx + step + chapKeys.length) % chapKeys.length : 0;
+        const nextKey = chapKeys[nextIdx];
+
+        if (vgAnimTimer) { clearTimeout(vgAnimTimer); vgAnimTimer = null; }
+        if (vgEnterRaf) { cancelAnimationFrame(vgEnterRaf); vgEnterRaf = null; }
+
+        if (!animate || prefersReducedMotion()) {
+          vocabDialog.style.transform = "";
+          vocabDialog.style.opacity = "";
+          selectShinkanzenWord(nextKey, null, true);
+          return;
+        }
+
+        vocabDialog.classList.remove("is-dragging");
+        vocabDialog.style.transform = `translate3d(${step > 0 ? -48 : 48}px, 0, 0)`;
+        vocabDialog.style.opacity = "0";
+        vgAnimTimer = setTimeout(() => {
+          vgAnimTimer = null;
+          selectShinkanzenWord(nextKey, null, true);
+          vocabDialog.classList.add("is-dragging");
+          vocabDialog.style.transform = `translate3d(${step > 0 ? 36 : -36}px, 0, 0)`;
+          vocabDialog.style.opacity = "0";
+          void vocabDialog.offsetWidth;
+          vgEnterRaf = requestAnimationFrame(() => {
+            vgEnterRaf = null;
+            vocabDialog.classList.remove("is-dragging");
+            vocabDialog.style.transform = "";
+            vocabDialog.style.opacity = "";
+          });
+        }, 95);
+      }
+
+      document.getElementById("vg-prev-word").addEventListener("click", () => stepChapterVocab(-1));
+      document.getElementById("vg-next-word").addEventListener("click", () => stepChapterVocab(1));
+
+      (function attachVocabGuideSwipe() {
+        let activeId = null;
+        let startX = 0;
+        let startY = 0;
+        let startTime = 0;
+        let lastDx = 0;
+        let isHorizontal = false;
+        let isVertical = false;
+
+        vocabDialog.addEventListener("pointerdown", (e) => {
+          if (!e.isPrimary) return;
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          if (e.target.closest("a, button")) return;
+          activeId = e.pointerId;
+          startX = e.clientX;
+          startY = e.clientY;
+          startTime = Date.now();
+          lastDx = 0;
+          isHorizontal = false;
+          isVertical = false;
+        });
+
+        vocabDialog.addEventListener("pointermove", (e) => {
+          if (activeId !== e.pointerId || isVertical) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          if (!isHorizontal) {
+            if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)) {
+              isVertical = true;
+              activeId = null;
+              return;
+            }
+            if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+              isHorizontal = true;
+              vocabDialog.classList.add("is-dragging");
+              try { vocabDialog.setPointerCapture(e.pointerId); } catch (_) {}
+            } else {
+              return;
+            }
+          }
+          lastDx = dx;
+          vocabDialog.style.transform = `translate3d(${dx * 0.75}px, 0, 0)`;
+          vocabDialog.style.opacity = String(Math.max(0.6, 1 - Math.abs(dx) / 300));
+        });
+
+        function endVgSwipe(e) {
+          if (activeId !== e.pointerId) return;
+          const wasHorizontal = isHorizontal;
+          const dx = lastDx;
+          const velocity = Math.abs(dx) / Math.max(1, Date.now() - startTime);
+          activeId = null;
+          isHorizontal = false;
+          isVertical = false;
+          vocabDialog.classList.remove("is-dragging");
+          if (wasHorizontal) {
+            const threshold = Math.min(60, Math.max(36, vocabDialog.clientWidth * 0.16));
+            if (e.type === "pointerup" && (Math.abs(dx) >= threshold || (Math.abs(dx) >= 22 && velocity >= 0.3))) {
+              stepChapterVocab(dx < 0 ? 1 : -1, true);
+            } else {
+              vocabDialog.style.transform = "";
+              vocabDialog.style.opacity = "";
+            }
+          }
+        }
+
+        vocabDialog.addEventListener("pointerup", endVgSwipe);
+        vocabDialog.addEventListener("pointercancel", endVgSwipe);
+
+        let vgWheelLock = 0;
+        vocabDialog.addEventListener("wheel", (e) => {
+          if (e.ctrlKey) return;
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.45 && Math.abs(e.deltaX) >= 24) {
+            e.preventDefault();
+            const now = Date.now();
+            if (now < vgWheelLock) return;
+            vgWheelLock = now + 520;
+            stepChapterVocab(e.deltaX > 0 ? 1 : -1, true);
+          }
+        }, { passive: false });
+      })();
+
       document.addEventListener("pointerdown", (e) => {
         const isOpen = vocabDialog.classList.contains("is-fallback-open") ||
           (typeof vocabDialog.matches === "function" && vocabDialog.matches(":popover-open"));
@@ -1600,7 +1813,19 @@ def render_novel_html():
       });
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") hideVocabGuide();
+        const isOpen = vocabDialog.classList.contains("is-fallback-open") ||
+          (typeof vocabDialog.matches === "function" && vocabDialog.matches(":popover-open"));
+        if (e.key === "Escape") {
+          hideVocabGuide();
+        } else if (isOpen && vocabDialog.contains(document.activeElement)) {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            stepChapterVocab(-1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            stepChapterVocab(1);
+          }
+        }
       });
 
       // Init từ URL param
