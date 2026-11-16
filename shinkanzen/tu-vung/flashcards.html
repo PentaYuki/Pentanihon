@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinkanzen Master N2 Từ Vựng — Flashcards Trắng Đen (37 Bài)</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-main: #000000;
+      --text-muted: #555555;
+      --border-color: #000000;
+      --border-light: #cccccc;
+      --accent-bg: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-pill {
+      color: #000;
+      text-decoration: none;
+      border: 1.5px solid #000;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .nav-pill:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #ffffff;
+      color: #000000;
+      border: 1.5px solid #000000;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      background: var(--accent-bg);
+    }
+
+    .tab-btn.active {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    #view-interactive {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .controls-bar {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--accent-bg);
+      padding: 12px 15px;
+      border: 1.5px solid #000;
+      font-size: 0.88rem;
+    }
+
+    .controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-select {
+      padding: 6px 10px;
+      border: 1.5px solid #000;
+      background: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      max-width: 100%;
+    }
+
+    .toggle-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .flashcard-stage {
+      width: 100%;
+      max-width: 680px;
+      height: 360px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flashcard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.2, 0.85, 0.4, 1);
+      transform-style: preserve-3d;
+      border: 2px solid #000000;
+      box-shadow: 6px 6px 0px #000000;
+      background: #ffffff;
+    }
+
+    .flashcard-stage.is-flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      overflow-y: auto;
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+
+    .flashcard-stage.is-flipped .card-front {
+      pointer-events: none;
+    }
+
+    .flashcard-stage:not(.is-flipped) .card-back {
+      pointer-events: none;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom: 1px dashed var(--border-light);
+      padding-bottom: 8px;
+      gap: 8px;
+    }
+
+    .card-badge {
+      background: #000000;
+      color: #ffffff;
+      padding: 2px 8px;
+      font-size: 0.74rem;
+      border-radius: 2px;
+    }
+
+    .card-center {
+      margin: auto 0;
+      text-align: center;
+    }
+
+    .furigana-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      min-height: 1.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .furigana-text.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .kanji-text {
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #000000;
+      line-height: 1.25;
+    }
+
+    .hanviet-text {
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+
+    .card-hint {
+      font-size: 0.8rem;
+      color: #777777;
+      border-top: 1px dashed var(--border-light);
+      padding-top: 8px;
+      text-align: center;
+    }
+
+    .back-meaning {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .back-collocation {
+      background: #f8f8f8;
+      border-left: 3px solid #000;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .back-collocation-jp {
+      font-weight: 600;
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .back-note {
+      font-size: 0.84rem;
+      color: #333333;
+      text-align: left;
+      border: 1px solid #d9d9d9;
+      padding: 7px 10px;
+      margin-top: 6px;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .btn {
+      background: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #000000;
+      transition: all 0.1s ease;
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .btn-flip {
+      flex: 1;
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .progress-bar {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .keyboard-tips {
+      font-size: 0.78rem;
+      color: #555555;
+      text-align: center;
+    }
+
+    #view-print {
+      display: none;
+    }
+
+    .print-instructions {
+      background: #f8f8f8;
+      border: 1.5px solid #000000;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .print-instructions h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .print-instructions ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .print-options-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .print-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .foldable-card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1.5px dashed #000000;
+      page-break-inside: avoid;
+      background: #ffffff;
+      min-height: 142px;
+      position: relative;
+    }
+
+    .foldable-card-row::before {
+      content: "✂";
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: #fff;
+      padding: 0 4px;
+      font-size: 12px;
+    }
+
+    .cut-col-front {
+      border-right: 1.5px dotted #666666;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .cut-col-back {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cut-card-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .cut-card-kanji {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .cut-card-furi {
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 2px;
+    }
+
+    .cut-card-hv {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #555;
+    }
+
+    .cut-card-meaning {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+
+    .cut-card-example {
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: #222;
+    }
+
+    .cut-card-colloc {
+      font-weight: 600;
+    }
+
+    .cut-card-subtip {
+      font-size: 0.72rem;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .fold-line-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      font-size: 0.62rem;
+      color: #999;
+      background: #fff;
+      padding: 2px 4px;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+
+      body {
+        padding: 0;
+        background: #fff;
+        color: #000;
+      }
+
+      header, .tabs, .controls-bar, .print-instructions, .print-options-bar, #view-interactive, .keyboard-tips {
+        display: none !important;
+      }
+
+      #view-print {
+        display: block !important;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .foldable-card-row {
+        border: 1px dashed #000000 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8px;
+        min-height: 135px;
+      }
+
+      .cut-col-front {
+        border-right: 1px dotted #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <h1>Shinkanzen Master N2 Từ Vựng — Flashcards (37 Bài)</h1>
+      <div class="subtitle" id="deckSubtitle">Chuẩn sách 新完全マスター語彙 N2 (第1部 21 bài + 第2部 16 bài) • Trắng & Đen tiết kiệm mực</div>
+    </div>
+    <div class="header-links">
+      <a href="../../index.html" class="nav-pill">🏠 Trang chủ</a>
+      <a href="../../novel/index.html" class="nav-pill">📓 Tiểu thuyết N2</a>
+      <a id="openLessonMdBtn" href="../../reader.html?file=shinkanzen/tu-vung/README.md" class="nav-pill">📖 Đọc bài học</a>
+      <a href="./flashcards-anki.tsv" download class="nav-pill">📥 Tải Anki TSV</a>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button type="button" class="tab-btn active" onclick="switchView('interactive')">🎴 Học Lật Thẻ Tương Tác</button>
+    <button type="button" class="tab-btn" onclick="switchView('print')">🖨️ Bản In A4 Cắt Rời (Gập Đôi)</button>
+  </div>
+
+  <div class="controls-bar" id="sharedControls">
+    <div class="controls-row">
+      <div style="flex: 1; min-width: 260px;">
+        <label for="lesson-select" style="font-weight: 700;">📚 Bài học:</label>
+        <select id="lesson-select" class="filter-select" onchange="onLessonChange()" style="width: calc(100% - 85px);">
+          <option value="ALL_P1">📘 Toàn bộ Phần 1 (21 bài - Theo chủ đề)</option>
+          <option value="ALL_P2">📗 Toàn bộ Phần 2 (16 bài - Theo tính chất)</option>
+          <option value="p1_c01_b01">[P1] 1章 人間 • 1課 親類・友人・知人: Người Thân, Bạn Bè &amp; Người Quen (41 từ)</option>
+          <option value="p1_c01_b02">[P1] 1章 人間 • 2課 人の性格・特徴: Tính Cách &amp; Đặc Điểm Con Người (30 từ)</option>
+          <option value="p1_c01_b03">[P1] 1章 人間 • 3課 人に対する感情・行動: Cảm Xúc &amp; Hành Động Đối Với Người Khác (32 từ)</option>
+          <option value="p1_c02_b01">[P1] 2章 生活 • 1課 食生活: Ẩm Thực &amp; Chế Biến Món Ăn (27 từ)</option>
+          <option value="p1_c02_b02">[P1] 2章 生活 • 2課 家事: Việc Nhà, Dọn Dẹp &amp; Sinh Hoạt Gia Đình (24 từ)</option>
+          <option value="p1_c02_b03">[P1] 2章 生活 • 3課 健康: Sức Khỏe, Bệnh Tật &amp; Y Tế (27 từ)</option>
+          <option value="p1_c03_b01">[P1] 3章 趣味・娯楽 • 3章 趣味・娯楽: Sở Thích, Nghệ Thuật, Thể Thao &amp; Giải Trí (22 từ)</option>
+          <option value="p1_c04_b01">[P1] 4章 旅行 • 1課 旅行・交通: Du Lịch, Lưu Trú &amp; Giao Thông (26 từ)</option>
+          <option value="p1_c04_b02">[P1] 4章 旅行 • 2課 自然: Cảnh Quan Thiên Nhiên &amp; Khí Hậu Khi Du Lịch (22 từ)</option>
+          <option value="p1_c05_b01">[P1] 5章 教育と仕事 • 1課 学校: Trường Học, Học Tập &amp; Thi Cử (25 từ)</option>
+          <option value="p1_c05_b02">[P1] 5章 教育と仕事 • 2課 仕事: Công Việc, Tuyển Dụng &amp; Môi Trường Công Sở (25 từ)</option>
+          <option value="p1_c06_b01">[P1] 6章 メディア • 1課 報道・広告: Truyền Thông, Báo Chí &amp; Quảng Cáo (24 từ)</option>
+          <option value="p1_c06_b02">[P1] 6章 メディア • 2課 コンピューター: Máy Tính, Internet &amp; Thao Tác Số (24 từ)</option>
+          <option value="p1_c07_b01">[P1] 7章 社会 • 1課 行事: Sự Kiện Văn Hóa, Lễ Tết &amp; Hôn Nhân (24 từ)</option>
+          <option value="p1_c07_b02">[P1] 7章 社会 • 2課 事件・事故・災害: Sự Kiện Hình Sự, Tai Nạn &amp; Thiên Tai (24 từ)</option>
+          <option value="p1_c07_b03">[P1] 7章 社会 • 3課 経済・産業: Kinh Tế, Kinh Doanh &amp; Công Nghiệp (25 từ)</option>
+          <option value="p1_c07_b04">[P1] 7章 社会 • 4課 政治・法律・歴史: Chính Trị, Pháp Luật &amp; Lịch Sử (25 từ)</option>
+          <option value="p1_c08_b01">[P1] 8章 科学 • 1課 自然: Môi Trường Tự Nhiên, Sinh Thái &amp; Khí Hậu (22 từ)</option>
+          <option value="p1_c08_b02">[P1] 8章 科学 • 2課 科学・技術: Khoa Học, Nghiên Cứu &amp; Công Nghệ Cao (22 từ)</option>
+          <option value="p1_c09_b01">[P1] 9章 抽象概念 • 1課 数量を表す言葉: Từ Vựng Biểu Thị Số Lượng, Tỷ Lệ &amp; Mức Độ (20 từ)</option>
+          <option value="p1_c09_b02">[P1] 9章 抽象概念 • 2課 時間・空間の言葉: Từ Vựng Biểu Thị Thời Gian, Không Gian &amp; Phạm Vi (21 từ)</option>
+          <option value="p2_c01_b01">[P2] 第2部 1章 意味がたくさんある言葉 • 1課 動詞①: Từ Đa Nghĩa — Động Từ (Phần 1) (16 từ)</option>
+          <option value="p2_c01_b02">[P2] 第2部 1章 意味がたくさんある言葉 • 2課 動詞②: Từ Đa Nghĩa — Động Từ (Phần 2) (15 từ)</option>
+          <option value="p2_c01_b03">[P2] 第2部 1章 意味がたくさんある言葉 • 3課 形容詞・名詞: Từ Đa Nghĩa — Tính Từ &amp; Danh Từ (14 từ)</option>
+          <option value="p2_c02_b01">[P2] 第2部 2章 意味が似ている言葉 • 1課 副詞・形容詞: Từ Gần Nghĩa Dễ Nhầm — Phó Từ &amp; Tính Từ (16 từ)</option>
+          <option value="p2_c02_b02">[P2] 第2部 2章 意味が似ている言葉 • 2課 名詞・動詞: Từ Gần Nghĩa Dễ Nhầm — Danh Từ &amp; Động Từ (16 từ)</option>
+          <option value="p2_c03_b01">[P2] 第2部 3章 形が似ている言葉 • 3章 形が似ている言葉: Từ Có Hình Thức / Âm Đọc Dễ Nhầm Lẫn (14 từ)</option>
+          <option value="p2_c04_b01">[P2] 第2部 4章 副詞 • 1課 程度・時間・頻度の副詞: Phó Từ — Mức Độ, Thời Gian &amp; Tần Suất (18 từ)</option>
+          <option value="p2_c04_b02">[P2] 第2部 4章 副詞 • 2課 後ろに決まった表現が来る副詞: Phó Từ Hô Ứng (Đi Với Mẫu Cố Định Phía Sau) (15 từ)</option>
+          <option value="p2_c04_b03">[P2] 第2部 4章 副詞 • 3課 まとめて覚えたい副詞・その他の副詞: Phó Từ Quan Trọng Khác (Cảm Xúc, Dự Đoán &amp; Phương Thức) (16 từ)</option>
+          <option value="p2_c05_b01">[P2] 第2部 5章 オノマトペ • 5章 オノマトペ: Từ Tượng Thanh &amp; Tượng Hình (オノマトペ) (20 từ)</option>
+          <option value="p2_c06_b01">[P2] 第2部 6章 慣用表現 • 1課 体の言葉を使った慣用表現①: Quán Dụng Ngữ Bộ Phận Cơ Thể (Phần 1: Đầu, Mặt, Mắt, Tai, Miệng) (16 từ)</option>
+          <option value="p2_c06_b02">[P2] 第2部 6章 慣用表現 • 2課 体の言葉を使った慣用表現②・その他: Quán Dụng Ngữ Cơ Thể (Phần 2: Tay, Chân, Bụng, Lòng) &amp; Khác (16 từ)</option>
+          <option value="p2_c07_b01">[P2] 第2部 7章 語形成 • 1課 二つの言葉をプラス: Cấu Tạo Từ — 1. Ghép Hai Từ Thành Từ Ghép (複合語) (16 từ)</option>
+          <option value="p2_c07_b02">[P2] 第2部 7章 語形成 • 2課 単語の前に漢字をプラス: Cấu Tạo Từ — 2. Tiền Tố Đứng Trước (接頭語) (14 từ)</option>
+          <option value="p2_c07_b03">[P2] 第2部 7章 語形成 • 3課 単語の後ろに漢字をプラス: Cấu Tạo Từ — 3. Hậu Tố Đứng Sau (接尾語) (14 từ)</option>
+          <option value="p2_c07_b04">[P2] 第2部 7章 語形成 • 4課 形容詞から作る動詞と名詞: Cấu Tạo Từ — 4. Danh Từ &amp; Động Từ Sinh Ra Từ Tính Từ (12 từ)</option>
+        </select>
+      </div>
+      <div>
+        <label for="group-filter" style="font-weight: 700;">🏷️ Nhóm:</label>
+        <select id="group-filter" class="filter-select" onchange="onGroupChange()">
+          <option value="ALL">Tất cả nhóm</option>
+        </select>
+      </div>
+    </div>
+    <div class="controls-row">
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <label class="toggle-group">
+          <input type="checkbox" id="toggle-furigana" onchange="toggleFurigana(this.checked)" checked>
+          <span>Hiện Furigana</span>
+        </label>
+        <label class="toggle-group">
+          <input type="checkbox" id="toggle-reverse" onchange="toggleReverse(this.checked)">
+          <span>Đảo mặt (Nghĩa Việt ➔ Kanji)</span>
+        </label>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button type="button" class="tab-btn" style="padding: 5px 12px;" onclick="shuffleCards()">🔀 Xáo thẻ</button>
+        <button type="button" class="tab-btn" style="padding: 5px 12px;" onclick="resetOrder()">↺ Thứ tự sách</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-interactive" style="margin-top: 16px;">
+    <div class="flashcard-stage" id="cardStage" onclick="flipCard()">
+      <div class="flashcard-inner" id="cardInner">
+        <div class="card-face card-front">
+          <div class="card-header">
+            <span class="card-badge" id="card-group-badge">Bài 1</span>
+            <span id="card-counter-badge">1 / 1</span>
+          </div>
+          <div class="card-center">
+            <div class="furigana-text" id="front-furi">そせん</div>
+            <div class="kanji-text" id="front-kanji">祖先</div>
+            <div class="hanviet-text" id="front-hv">[ TỔ TIÊN ]</div>
+          </div>
+          <div class="card-hint">
+            Nhấp thẻ hoặc bấm [Space] để xem mặt sau ➔
+          </div>
+        </div>
+
+        <div class="card-face card-back">
+          <div class="card-header">
+            <span class="card-badge" id="back-group-badge">Bài 1</span>
+            <span id="back-kanji-small" style="font-weight: 700; font-size: 0.95rem;">祖先（そせん）</span>
+          </div>
+          <div class="card-center" style="text-align: left;">
+            <div class="back-meaning" id="back-meaning">Tổ tiên</div>
+            <div class="back-collocation">
+              <div style="font-size: 0.74rem; text-transform: uppercase; color: #666; margin-bottom: 2px;">Cụm từ Collocation Shinkanzen:</div>
+              <div class="back-collocation-jp" id="back-colloc-jp">人類の祖先</div>
+              <div style="font-size: 0.85rem; color: #333;" id="back-colloc-vi">Tổ tiên loài người</div>
+            </div>
+            <div class="back-note" id="back-note">
+              💡 <strong>Bài học:</strong> Shinkanzen Master N2
+            </div>
+          </div>
+          <div class="card-hint">
+            Nhấp thẻ để quay lại mặt trước ↺
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn" onclick="prevCard()" title="Mũi tên Trái [←]">◀ Trước</button>
+      <button type="button" class="btn btn-flip" onclick="flipCard()">Lật Thẻ (Space)</button>
+      <button type="button" class="btn" onclick="nextCard()" title="Mũi tên Phải [→]">Sau ▶</button>
+    </div>
+
+    <div class="progress-bar" id="progressText">Thẻ 1 / 1</div>
+
+    <div class="keyboard-tips">
+      ⌨️ Phím tắt: <strong>[Space]</strong> Lật mặt thẻ • <strong>[←] / [→]</strong> Thẻ trước / sau • <strong>[F]</strong> Ẩn/Hiện Furigana • <strong>[R]</strong> Đảo mặt
+    </div>
+  </div>
+
+  <div id="view-print" style="margin-top: 16px;">
+    <div class="print-instructions">
+      <h3>✂️ Hướng Dẫn In Ấn & Cắt Thẻ Trắng Đen (Khổ A4)</h3>
+      <ul>
+        <li>Chọn bài học hoặc nhóm từ ở thanh công cụ phía trên trước khi nhấn nút In.</li>
+        <li>Mỗi hàng là 1 thẻ hoàn chỉnh (Nửa trái: Mặt trước, Nửa phải: Mặt sau). Cắt theo nét đứt ✂️ rồi <strong>gập đôi ở trục giữa</strong> — không bao giờ bị lệch trang khi in 1 mặt.</li>
+      </ul>
+    </div>
+
+    <div class="print-options-bar">
+      <div id="printCountLabel"><strong>Số thẻ sẽ in:</strong> 0 thẻ</div>
+      <div>
+        <button type="button" class="btn btn-flip" style="padding: 8px 18px;" onclick="window.print()">🖨️ In Bộ Thẻ Đang Chọn (Ctrl/Cmd + P)</button>
+      </div>
+    </div>
+
+    <div class="print-grid" id="printCardsContainer"></div>
+  </div>
+</div>
+
+<script src="./flashcards-data.js"></script>
+<script>
+const LESSONS = window.SHINKANZEN_GOI_LESSONS || [];
+let baseCards = [];
+let deck = [];
+let currentIndex = 0;
+let showFuri = true;
+let reverseMode = false;
+
+function esc(s) {
+  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function getLessonCards(selectionId) {
+  if (selectionId === "ALL_P1") {
+    return LESSONS.filter(l => l.part === 1).flatMap(l => l.words.map(w => ({ ...w, lessonLabel: `${l.chapter} • ${l.lesson}`, mdPath: l.mdPath })));
+  }
+  if (selectionId === "ALL_P2") {
+    return LESSONS.filter(l => l.part === 2).flatMap(l => l.words.map(w => ({ ...w, lessonLabel: `${l.chapter} • ${l.lesson}`, mdPath: l.mdPath })));
+  }
+  const found = LESSONS.find(l => l.id === selectionId) || LESSONS[0];
+  if (!found) return [];
+  return found.words.map(w => ({ ...w, lessonLabel: `${found.chapter} • ${found.lesson}`, mdPath: found.mdPath }));
+}
+
+function populateGroupFilter(cards) {
+  const select = document.getElementById("group-filter");
+  const groups = Array.from(new Set(cards.map(c => c.group)));
+  select.innerHTML = `<option value="ALL">Tất cả (${cards.length} từ)</option>`;
+  groups.forEach(g => {
+    const count = cards.filter(c => c.group === g).length;
+    const opt = document.createElement("option");
+    opt.value = g;
+    opt.textContent = `${g} (${count})`;
+    select.appendChild(opt);
+  });
+}
+
+function updateHeaderLinks(selectionId) {
+  const found = LESSONS.find(l => l.id === selectionId);
+  const btn = document.getElementById("openLessonMdBtn");
+  const sub = document.getElementById("deckSubtitle");
+  if (found) {
+    btn.href = `../../reader.html?file=shinkanzen/tu-vung/${found.mdPath}`;
+    btn.textContent = `📖 Đọc bài: ${found.lesson}`;
+    sub.textContent = `Phần ${found.part} • ${found.chapter} — ${found.lesson}: ${found.title_vi} (${found.words.length} từ)`;
+  } else {
+    btn.href = "../../reader.html?file=shinkanzen/tu-vung/README.md";
+    btn.textContent = "📋 Mục lục Từ vựng";
+    sub.textContent = selectionId === "ALL_P1"
+      ? "Toàn bộ Phần 1 (21 bài theo chủ đề • 新完全マスター語彙 N2)"
+      : "Toàn bộ Phần 2 (16 bài theo tính chất • 新完全マスター語彙 N2)";
+  }
+}
+
+function onLessonChange() {
+  const selectionId = document.getElementById("lesson-select").value;
+  baseCards = getLessonCards(selectionId);
+  populateGroupFilter(baseCards);
+  updateHeaderLinks(selectionId);
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lesson", selectionId);
+    window.history.replaceState({}, "", url.toString());
+  } catch (_) {}
+  onGroupChange();
+}
+
+function onGroupChange() {
+  const grp = document.getElementById("group-filter").value;
+  deck = grp === "ALL" ? [...baseCards] : baseCards.filter(c => c.group === grp);
+  currentIndex = 0;
+  document.getElementById("cardStage").classList.remove("is-flipped");
+  renderCard();
+  renderPrintCards();
+}
+
+function renderCard() {
+  if (!deck.length) return;
+  const item = deck[currentIndex];
+  const furiEl = document.getElementById("front-furi");
+  const kanjiEl = document.getElementById("front-kanji");
+  const hvEl = document.getElementById("front-hv");
+
+  document.getElementById("card-group-badge").textContent = item.group;
+  document.getElementById("back-group-badge").textContent = item.lessonLabel;
+  document.getElementById("card-counter-badge").textContent = `${currentIndex + 1} / ${deck.length}`;
+  document.getElementById("progressText").textContent = `Thẻ ${currentIndex + 1} / ${deck.length}`;
+
+  if (!reverseMode) {
+    furiEl.textContent = item.reading;
+    furiEl.classList.toggle("hidden", !showFuri);
+    kanjiEl.textContent = item.plain;
+    kanjiEl.style.fontSize = item.plain.length > 8 ? "2rem" : "2.7rem";
+    hvEl.textContent = `[ ${item.hv} ]`;
+
+    document.getElementById("back-kanji-small").textContent = item.furi;
+    document.getElementById("back-meaning").textContent = item.mean;
+  } else {
+    furiEl.textContent = `[ ${item.hv} ]`;
+    furiEl.classList.remove("hidden");
+    kanjiEl.textContent = item.mean;
+    kanjiEl.style.fontSize = "1.55rem";
+    hvEl.textContent = item.group;
+
+    document.getElementById("back-kanji-small").textContent = item.mean;
+    document.getElementById("back-meaning").textContent = item.furi;
+  }
+
+  document.getElementById("back-colloc-jp").textContent = item.collocJp;
+  document.getElementById("back-colloc-vi").textContent = item.collocVi;
+  document.getElementById("back-note").innerHTML = `💡 <strong>Chủ điểm:</strong> ${esc(item.lessonLabel)} — <em>${esc(item.group)}</em>`;
+}
+
+function flipCard() {
+  document.getElementById("cardStage").classList.toggle("is-flipped");
+}
+
+function nextCard() {
+  if (!deck.length) return;
+  document.getElementById("cardStage").classList.remove("is-flipped");
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % deck.length;
+    renderCard();
+  }, 120);
+}
+
+function prevCard() {
+  if (!deck.length) return;
+  document.getElementById("cardStage").classList.remove("is-flipped");
+  setTimeout(() => {
+    currentIndex = (currentIndex - 1 + deck.length) % deck.length;
+    renderCard();
+  }, 120);
+}
+
+function shuffleCards() {
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+  currentIndex = 0;
+  document.getElementById("cardStage").classList.remove("is-flipped");
+  renderCard();
+  renderPrintCards();
+}
+
+function resetOrder() {
+  onGroupChange();
+}
+
+function toggleFurigana(val) {
+  showFuri = val;
+  renderCard();
+}
+
+function toggleReverse(val) {
+  reverseMode = val;
+  document.getElementById("cardStage").classList.remove("is-flipped");
+  renderCard();
+}
+
+function switchView(viewName) {
+  const btns = document.querySelectorAll(".tabs .tab-btn");
+  const vInteractive = document.getElementById("view-interactive");
+  const vPrint = document.getElementById("view-print");
+  if (viewName === "interactive") {
+    btns[0].classList.add("active");
+    btns[1].classList.remove("active");
+    vInteractive.style.display = "flex";
+    vPrint.style.display = "none";
+  } else {
+    btns[1].classList.add("active");
+    btns[0].classList.remove("active");
+    vInteractive.style.display = "none";
+    vPrint.style.display = "block";
+    renderPrintCards();
+  }
+}
+
+function renderPrintCards() {
+  const container = document.getElementById("printCardsContainer");
+  const countLabel = document.getElementById("printCountLabel");
+  container.innerHTML = "";
+  countLabel.innerHTML = `<strong>Số thẻ sẽ in:</strong> ${deck.length} thẻ (~${Math.max(1, Math.ceil(deck.length / 7))} trang A4)`;
+
+  deck.forEach((item, idx) => {
+    const row = document.createElement("div");
+    row.className = "foldable-card-row";
+    row.innerHTML = `
+      <span class="fold-line-label">ĐƯỜNG GẬP ĐÔI</span>
+      <div class="cut-col-front">
+        <div class="cut-card-num">
+          <span>THẺ #${idx + 1}</span>
+          <span>N2 • ${esc(item.lessonId.toUpperCase())}</span>
+        </div>
+        <div style="margin: auto 0;">
+          <div class="cut-card-furi">${esc(item.reading)}</div>
+          <div class="cut-card-kanji">${esc(item.plain)}</div>
+          <div class="cut-card-hv">[ ${esc(item.hv)} ]</div>
+        </div>
+        <div style="font-size: 0.65rem; color: #666; text-align: center;">${esc(item.group)}</div>
+      </div>
+      <div class="cut-col-back">
+        <div>
+          <div class="cut-card-num">
+            <span>Ý NGHĨA & CỤM TỪ</span>
+            <span>${esc(item.plain)}（${esc(item.reading)}）</span>
+          </div>
+          <div class="cut-card-meaning">${esc(item.mean)}</div>
+          <div class="cut-card-example">
+            <span class="cut-card-colloc">${esc(item.collocJp)}</span><br>
+            <span style="color: #444;">↳ ${esc(item.collocVi)}</span>
+          </div>
+        </div>
+        <div class="cut-card-subtip">${esc(item.lessonLabel)}</div>
+      </div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+window.addEventListener("keydown", (e) => {
+  const vInteractive = document.getElementById("view-interactive");
+  if (vInteractive.style.display === "none") return;
+  if (["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+
+  if (e.code === "Space") {
+    e.preventDefault();
+    flipCard();
+  } else if (e.code === "ArrowRight") {
+    e.preventDefault();
+    nextCard();
+  } else if (e.code === "ArrowLeft") {
+    e.preventDefault();
+    prevCard();
+  } else if (e.code === "KeyF") {
+    const cb = document.getElementById("toggle-furigana");
+    cb.checked = !cb.checked;
+    toggleFurigana(cb.checked);
+  } else if (e.code === "KeyR") {
+    const cb = document.getElementById("toggle-reverse");
+    cb.checked = !cb.checked;
+    toggleReverse(cb.checked);
+  }
+});
+
+(function init() {
+  const params = new URLSearchParams(window.location.search);
+  const reqLesson = params.get("lesson");
+  const select = document.getElementById("lesson-select");
+  if (reqLesson && Array.from(select.options).some(o => o.value === reqLesson)) {
+    select.value = reqLesson;
+  } else if (LESSONS.length > 0) {
+    select.value = LESSONS[0].id;
+  }
+  onLessonChange();
+})();
+</script>
+</body>
+</html>

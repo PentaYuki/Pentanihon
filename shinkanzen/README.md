@@ -1,49 +1,35 @@
-# 🎌 Shinkanzen Master N2 - Nhật Ký Luyện Thi Từng Bài
+# 📚 Trọn Bộ Giáo Trình Shinkanzen Master N2 (新完全マスター N2 — Chuẩn 5 Cuốn)
 
-Hệ thống thư mục được chia theo 25 bài học toàn diện theo trọn bộ giáo trình Shinkanzen Master N2. Mỗi bài bao gồm đầy đủ các kỹ năng với **phiên âm Hiragana chi tiết**:
-- **Ghi chú bài học** (`lesson-note.md`) - Bản đúc kết tinh hoa, cạm bẫy thi thật, bí quyết làm bài & sổ tay cá nhân của Chị Yuki.
-- **Ngữ pháp** (`ngu-phap.md`) - Mẫu câu, cấu trúc, ví dụ có Hiragana, phân biệt bẫy.
-- **Từ vựng** (`tu-vung.md`) - Trọn bộ 25 từ/bài, collocations, ví dụ có Hiragana, giải thích cách dùng.
-- **Chữ Hán** (`kanji.md`) - Giáo trình Shinkanzen Kanji N2, âm On/Kun, Hán Việt, từ ghép, mẹo nhớ bộ thủ.
-- **Nghe hiểu** (`nghe.md`) - Transcripts chi tiết có Hiragana, gắn tag Speaker sẵn sàng cho Tool audio.
-- **Đọc hiểu** (`doc-hieu.md`) - Bài đọc chuẩn có Hiragana, phân tích câu và kỹ thuật loại trừ đáp án.
-- **Luyện tập** (`luyen-tap.md`) - Trắc nghiệm, bài tập dấu sao (★), đáp án & lời giải chi tiết.
+> 🌸 **Lời nhắn của chị Yuki:**  
+> *"Bộ giáo trình này được tái cấu trúc chuẩn 100% theo **5 cuốn sách gốc 新完全マスター N2** của nhà xuất bản 3A Corporation (スリーエーネットワーク). Em không còn phải học gộp lệch bài nữa — mỗi kỹ năng đều đi đúng thứ tự chương, bài, chủ điểm, bẫy đề thi JLPT thực chiến và đầy đủ Furigana!"*
 
 ---
 
-## 📊 Bảng Theo Dõi Tiến Độ Học Tập (Tracker 25/25 Bài Đã Sẵn Sàng!)
+## 🗺️ Bản Đồ 5 Cuốn Sách Shinkanzen Master N2
 
-| Bài | Thư mục | Sổ tay ghi chú | Ngữ pháp | Từ vựng | Chữ Hán | Nghe hiểu | Đọc hiểu | Luyện tập |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 01 | [Bài 01](./bai-01/) | [📝 Note](./bai-01/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 02 | [Bài 02](./bai-02/) | [📝 Note](./bai-02/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 03 | [Bài 03](./bai-03/) | [📝 Note](./bai-03/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 04 | [Bài 04](./bai-04/) | [📝 Note](./bai-04/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 05 | [Bài 05](./bai-05/) | [📝 Note](./bai-05/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 06 | [Bài 06](./bai-06/) | [📝 Note](./bai-06/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 07 | [Bài 07](./bai-07/) | [📝 Note](./bai-07/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 08 | [Bài 08](./bai-08/) | [📝 Note](./bai-08/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 09 | [Bài 09](./bai-09/) | [📝 Note](./bai-09/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 10 | [Bài 10](./bai-10/) | [📝 Note](./bai-10/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 11 | [Bài 11](./bai-11/) | [📝 Note](./bai-11/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 12 | [Bài 12](./bai-12/) | [📝 Note](./bai-12/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 13 | [Bài 13](./bai-13/) | [📝 Note](./bai-13/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 14 | [Bài 14](./bai-14/) | [📝 Note](./bai-14/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 15 | [Bài 15](./bai-15/) | [📝 Note](./bai-15/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 16 | [Bài 16](./bai-16/) | [📝 Note](./bai-16/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 17 | [Bài 17](./bai-17/) | [📝 Note](./bai-17/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 18 | [Bài 18](./bai-18/) | [📝 Note](./bai-18/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 19 | [Bài 19](./bai-19/) | [📝 Note](./bai-19/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 20 | [Bài 20](./bai-20/) | [📝 Note](./bai-20/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 21 | [Bài 21](./bai-21/) | [📝 Note](./bai-21/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 22 | [Bài 22](./bai-22/) | [📝 Note](./bai-22/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 23 | [Bài 23](./bai-23/) | [📝 Note](./bai-23/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 24 | [Bài 24](./bai-24/) | [📝 Note](./bai-24/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
-| 25 | [Bài 25](./bai-25/) | [📝 Note](./bai-25/lesson-note.md) | [x] | [x] | [x] | [x] | [x] | [x] |
+| Cuốn sách (日本語) | Thư mục & Mục lục | Quy mô chuẩn sách gốc | Công cụ đặc biệt đi kèm |
+| :--- | :--- | :--- | :--- |
+| **1. 文法 (Ngữ pháp)** | [**`ngu-phap/README.md`**](./ngu-phap/README.md) | **Phần 1** (`26 bài`) + **Phần 2 ★** (`3 bài`) + **Phần 3** (`12 bài`) + **Kính ngữ** (`42 bài`) | Bảng đối chiếu mẫu dễ nhầm, bẫy thi & quiz Mondai 7–9 |
+| **2. 語彙 (Từ vựng)** | [**`tu-vung/README.md`**](./tu-vung/README.md) | **Phần 1 (Chủ đề):** `9 chương, 21 bài` + **Phần 2 (Tính chất):** `7 chương, 16 bài` (`37 bài`, `780 từ`) | [**🎴 Web Flashcards Trắng Đen + In A4 + Anki TSV**](./tu-vung/flashcards.html) |
+| **3. 漢字 (Chữ Hán)** | [**`kanji/README.md`**](./kanji/README.md) | **Step 1** (`14 bài`) + **Step 2** (`16 bài`) + **Step 3** (`23 bài`) = **53 bài (`1.046 chữ`)** | **2 Cột Challenge & Phụ lục 別冊1** (Âm đọc đặc biệt) |
+| **4. 読解 (Đọc hiểu)** | [**`doc-hieu/README.md`**](./doc-hieu/README.md) | **Phần 1 & 2 (Kỹ năng):** `4 bài` + **Phần 3 (Thực chiến):** `4 dạng Mondai` (`8 bài`) | Bài đọc 100% Furigana + bẫy loại trừ `言い過ぎ・逆転・※` |
+| **5. 聴解 (Nghe hiểu)** | [**`nghe-hieu/README.md`**](./nghe-hieu/README.md) | **Chương I – VI:** Đặc trưng âm, Phản xạ nhanh, Mondai 1–5 (`6 chương`) | Kịch bản chuẩn TTS (`track_id` / `speakers`) + luyện Shadowing |
 
 ---
 
-### 💡 Lộ trình học đề xuất (Study Roadmap):
-- **Giai đoạn 1 (Bài 01 - 08):** Nền tảng thời gian, phạm vi, liên quan, đối chiếu và so sánh.
-- **Giai đoạn 2 (Bài 09 - 16):** Nguyên nhân sâu xa, mục đích, nhượng bộ, điều kiện giả định và biểu cảm.
-- **Giai đoạn 3 (Bài 17 - 25):** Phán đoán chắc chắn, bắt buộc/đương nhiên, kính ngữ thương mại và tổng duyệt đề thi.
+## 🚀 Lộ Trình Đề Xuất Dành Cho Em
+
+1. **Mỗi ngày 1 cặp Từ vựng + Chữ Hán (30 phút):**
+   - Mở 1 bài trong [**Từ vựng (37 bài)**](./tu-vung/README.md) và lật luôn bộ [**Flashcards 37 bài**](./tu-vung/flashcards.html) (hoặc in A4 gập đôi mang theo bên người).
+   - Đi kèm 1 bài trong [**Chữ Hán (53 bài — 1.046 chữ)**](./kanji/README.md), mỗi bài chỉ ~18–20 chữ kèm 2 từ ghép sát đề thi.
+2. **Cách ngày 1 bài Ngữ pháp (30 phút):**
+   - Hoàn thành trọn [**Phần 1: 26 bài Văn pháp 1**](./ngu-phap/phan-1/bai-01.md) để nắm 100% mẫu câu N2.
+   - Chuyển sang [**Phần 2: Sắp xếp dấu sao ★**](./ngu-phap/phan-2/bai-01.md) và [**Phần 3: Ngữ pháp đoạn văn (12 bài)**](./ngu-phap/phan-3/bai-01.md).
+3. **Cuối tuần luyện Đọc hiểu & Nghe hiểu (45 phút):**
+   - Học kỹ 4 bài kỹ năng trước rồi bấm giờ giải 4 dạng Mondai trong [**Đọc hiểu**](./doc-hieu/README.md).
+   - Đọc Shadowing toàn bộ kịch bản văn nói rút gọn trong [**Nghe hiểu Chương I–VI**](./nghe-hieu/README.md).
+4. **Đọc thư giãn & ôn phản xạ thực chiến với Tiểu thuyết tương tác ([`novel/index.html`](../novel/index.html)):**
+   - Đọc trọn bộ tiểu thuyết ngắn 6 chương **「東京（とうきょう）の小さな書斎（しょさい）」** đầy đủ Hiragana kế bên; bấm vào bất kỳ từ Shinkanzen nào trong truyện để bật sáng và mở ngay Bảng Hướng Dẫn chi tiết kèm câu hỏi từng chương!
+
+---
+[🏠 Quay lại Trang chủ PentaNihonGo](../README.md)

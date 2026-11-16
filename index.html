@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pentanihon (ペンタ日本) — Cẩm Nang Ôn Luyện JLPT N2 & Kể Chuyện Mỗi Ngày</title>
-  <meta name="description" content="Nền tảng học JLPT N2 toàn diện kết hợp Shinkanzen Master 25 bài và Series truyện kể Tokyo Aozora cùng Chị Yuki.">
+  <meta name="description" content="Nền tảng học JLPT N2 toàn diện kết hợp trọn bộ 5 cuốn Shinkanzen Master N2 chuẩn sách gốc và Series truyện kể Tokyo Aozora cùng Chị Yuki.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎌</text></svg>">
   <script src="story/stories-data.js"></script>
   <style>
@@ -446,11 +446,11 @@
         <span class="brand-badge">JLPT N2</span>
       </a>
       <ul class="nav-links">
+        <li><a href="#novel">Tiểu Thuyết N2</a></li>
         <li><a href="#story">Truyện Tokyo Aozora</a></li>
         <li><a href="#flashcards">Flashcards</a></li>
-        <li><a href="#shinkanzen">Shinkanzen 25 Bài</a></li>
+        <li><a href="#shinkanzen">Shinkanzen 5 Cuốn</a></li>
         <li><a href="#docs">Cẩm Nang N2</a></li>
-        <li><a href="reader.html?file=story/daily-vocab-quotes.md">Mỗi Ngày 1 Câu</a></li>
       </ul>
     </div>
   </header>
@@ -460,14 +460,17 @@
     <div class="hero-container">
       <div class="hero-tag">🌸 Đồng hành cùng "Chị Yuki Dễ Thương"</div>
       <h1>Cẩm Nang Ôn Luyện JLPT N2 & Kể Chuyện Mỗi Ngày</h1>
-      <p>Đọc trực tiếp toàn bộ series truyện <strong>Tokyo Aozora</strong>, học <strong>Flashcards Trắng Đen</strong> và ôn trọn bộ 25 bài <strong>Shinkanzen Master N2</strong> ngay trên web.</p>
+      <p>Đọc trực tiếp toàn bộ series truyện <strong>Tokyo Aozora</strong>, học <strong>Flashcards Trắng Đen (37 bài)</strong> và ôn trọn bộ 5 cuốn <strong>Shinkanzen Master N2</strong> chuẩn sách gốc ngay trên web.</p>
       
       <div class="hero-actions">
-        <a id="heroReadLatestBtn" href="reader.html" class="btn btn-primary">
-          📖 Đọc Tập Mới Nhất Ngay
+        <a href="novel/index.html" class="btn btn-primary">
+          📖 Đọc Tiểu Thuyết Tương Tác N2 (6 Chương)
         </a>
-        <a href="shinkanzen/bai-01/flashcards.html" class="btn btn-secondary">
-          🎴 Mở Flashcards Trắng Đen (Bài 01)
+        <a id="heroReadLatestBtn" href="reader.html" class="btn btn-secondary">
+          ☕ Đọc Tập Mới Nhất
+        </a>
+        <a href="shinkanzen/tu-vung/flashcards.html" class="btn btn-secondary">
+          🎴 Flashcards (37 Bài)
         </a>
       </div>
     </div>
@@ -475,6 +478,35 @@
 
   <!-- MAIN CONTENT -->
   <main class="main-container">
+
+    <!-- INTERACTIVE SHINKANZEN NOVEL SECTION -->
+    <section id="novel" class="flashcard-banner" style="background: #fff9f2; border-color: #b92b27;">
+      <div class="flashcard-banner-text">
+        <div class="flashcard-banner-badges">
+          <span class="badge" style="background:#b92b27;">MỚI • TƯƠNG TÁC</span>
+          <span class="badge">HIRAGANA KẾ BÊN</span>
+          <span class="badge">CLICK TỪ PHÁT SÁNG</span>
+          <span class="badge">113 MỤC SHINKANZEN</span>
+        </div>
+        <h3>📖 Tiểu Thuyết Ngắn Shinkanzen N2: 「東京（とうきょう）の小さな書斎（しょさい）」</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 650px;">
+          Sách ngắn 6 chương kể hành trình biên tập viên tập sự ở Tokyo, vận dụng trực tiếp <strong>Từ vựng &amp; Ngữ pháp Shinkanzen N2</strong> có Hiragana kế bên. <strong>Bấm vào từ Shinkanzen trong truyện sẽ sáng rực và mở Bảng Hướng Dẫn chi tiết</strong>, đi kèm bộ câu hỏi đọc hiểu ngay kế bên mỗi chương!
+        </p>
+        <div class="lesson-links" style="margin-top: 10px;">
+          <a href="novel/index.html?chapter=1" class="lesson-pill">Chương 01</a>
+          <a href="novel/index.html?chapter=2" class="lesson-pill">Chương 02</a>
+          <a href="novel/index.html?chapter=3" class="lesson-pill">Chương 03</a>
+          <a href="novel/index.html?chapter=4" class="lesson-pill">Chương 04</a>
+          <a href="novel/index.html?chapter=5" class="lesson-pill">Chương 05</a>
+          <a href="novel/index.html?chapter=6" class="lesson-pill">Chương 06</a>
+        </div>
+      </div>
+      <div>
+        <a href="novel/index.html" class="btn btn-primary" style="background:#b92b27; font-size: 1rem; padding: 14px 26px;">
+          Đọc Tiểu Thuyết Ngay ➔
+        </a>
+      </div>
+    </section>
 
     <!-- STORY SECTION (DYNAMICALLY POPULATED FROM MANIFEST) -->
     <section id="story">
@@ -519,76 +551,100 @@
           <span class="badge">IN A4 GẬP ĐÔI</span>
           <span class="badge">ANKI READY</span>
         </div>
-        <h3>🎴 Bộ Flashcards Trọng Tâm: Shinkanzen N2 — Bài 01</h3>
+        <h3>🎴 Bộ Flashcards Từ Vựng Shinkanzen N2 — Trọn Bộ 37 Bài (780 Từ)</h3>
         <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
-          Chủ đề <strong>親類・友人・知人 (Người thân, bạn bè & người quen)</strong>. Gồm 41 từ vựng cốt lõi, âm Hán Việt, cụm từ Collocation và mẹo giải bẫy Mondai 4 & 5. Hỗ trợ lật thẻ tương tác và in ra giấy A4 tiết kiệm mực!
+          Bao phủ 100% mục lục sách <strong>新完全マスター語彙 N2 (第1部 21 bài + 第2部 16 bài)</strong>. Tích hợp lọc theo từng bài/nhóm từ, đảo mặt Việt ➔ Nhật, ẩn/hiện Furigana, file Anki TSV và bản in A4 gập đôi tiết kiệm mực!
         </p>
       </div>
       <div>
-        <a href="shinkanzen/bai-01/flashcards.html" class="btn btn-primary" style="font-size: 1rem; padding: 14px 26px;">
-          Bắt Đầu Học Thẻ ➔
+        <a href="shinkanzen/tu-vung/flashcards.html" class="btn btn-primary" style="font-size: 1rem; padding: 14px 26px;">
+          Mở Flashcards (37 Bài) ➔
         </a>
       </div>
     </section>
 
     <!-- SHINKANZEN TRACKER SECTION -->
     <section id="shinkanzen">
-      <h2 class="section-title">📚 Giáo Trình Shinkanzen Master N2 (25 Bài)</h2>
-      <p class="section-desc">Bấm vào từng mục để đọc trực tiếp bài giảng ngay trên trình đọc web Vercel.</p>
+      <h2 class="section-title">📚 Trọn Bộ 5 Cuốn Giáo Trình Shinkanzen Master N2</h2>
+      <p class="section-desc">Phân chia chuẩn xác 100% theo 5 cuốn sách gốc (文法・語彙・漢字・読解・聴解). Bấm vào từng mục để mở trực tiếp bài học trên trình đọc web.</p>
 
       <table class="lessons-table">
         <thead>
           <tr>
-            <th style="width: 90px;">Bài</th>
-            <th>Chủ đề bài học</th>
-            <th>Tài liệu học trực tiếp trên Web</th>
+            <th style="width: 140px;">Giáo trình</th>
+            <th>Cấu trúc chuẩn theo sách gốc (新完全マスター N2)</th>
+            <th>Mở nhanh trên Web</th>
           </tr>
         </thead>
         <tbody id="shinkanzenTableBody">
           <tr>
-            <td><span class="lesson-badge">Bài 01</span></td>
-            <td><strong>Thời điểm & Mối quan hệ con người (時間・人間関係)</strong></td>
+            <td><span class="lesson-badge">1. 文法</span></td>
+            <td><strong>Ngữ Pháp (42 bài)</strong> — Phần 1 (26 bài), Phần 2 ★ (3 bài), Phần 3 (12 bài) &amp; Kính ngữ</td>
             <td>
               <div class="lesson-links">
-                <a href="shinkanzen/bai-01/flashcards.html" class="lesson-pill" style="background:#000;color:#fff;">🎴 Flashcards</a>
-                <a href="reader.html?file=shinkanzen/bai-01/tu-vung.md" class="lesson-pill">Từ vựng</a>
-                <a href="reader.html?file=shinkanzen/bai-01/ngu-phap.md" class="lesson-pill">Ngữ pháp</a>
-                <a href="reader.html?file=shinkanzen/bai-01/kanji.md" class="lesson-pill">Kanji</a>
-                <a href="reader.html?file=shinkanzen/bai-01/lesson-note.md" class="lesson-pill">Lesson Note</a>
-                <a href="reader.html?file=shinkanzen/bai-01/luyen-tap.md" class="lesson-pill">Luyện tập</a>
+                <a href="reader.html?file=shinkanzen/ngu-phap/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục 42 bài</a>
+                <a href="reader.html?file=shinkanzen/ngu-phap/phan-1/bai-01.md" class="lesson-pill">Phần 1 Bài 01</a>
+                <a href="reader.html?file=shinkanzen/ngu-phap/phan-2/bai-01.md" class="lesson-pill">Phần 2 (★)</a>
+                <a href="reader.html?file=shinkanzen/ngu-phap/phan-3/bai-01.md" class="lesson-pill">Phần 3 Đoạn văn</a>
+                <a href="reader.html?file=shinkanzen/ngu-phap/phu-luc_kinh-ngu.md" class="lesson-pill">Kính ngữ</a>
               </div>
             </td>
           </tr>
           <tr>
-            <td><span class="lesson-badge">Bài 02</span></td>
-            <td><strong>Phạm vi & Đời sống nhà cửa (範囲・日常生活)</strong></td>
+            <td><span class="lesson-badge">2. 語彙</span></td>
+            <td><strong>Từ Vựng (37 bài • 780 từ)</strong> — 第1部 Theo chủ đề (21 bài) &amp; 第2部 Theo tính chất (16 bài)</td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/bai-02/tu-vung.md" class="lesson-pill">Từ vựng</a>
-                <a href="reader.html?file=shinkanzen/bai-02/ngu-phap.md" class="lesson-pill">Ngữ pháp</a>
-                <a href="reader.html?file=shinkanzen/bai-02/kanji.md" class="lesson-pill">Kanji</a>
-                <a href="reader.html?file=shinkanzen/bai-02/lesson-note.md" class="lesson-pill">Lesson Note</a>
-                <a href="reader.html?file=shinkanzen/bai-02/luyen-tap.md" class="lesson-pill">Luyện tập</a>
+                <a href="shinkanzen/tu-vung/flashcards.html" class="lesson-pill" style="background:#000;color:#fff;">🎴 Flashcards 37 bài</a>
+                <a href="reader.html?file=shinkanzen/tu-vung/README.md" class="lesson-pill">📋 Mục lục 37 bài</a>
+                <a href="reader.html?file=shinkanzen/tu-vung/phan-1/c01-b01_than-toc-ban-be.md" class="lesson-pill">Phần 1 Bài 01</a>
+                <a href="reader.html?file=shinkanzen/tu-vung/phan-2/p2-c01-b01_da-nghia-dong-tu-1.md" class="lesson-pill">Phần 2 Đa nghĩa</a>
               </div>
             </td>
           </tr>
           <tr>
-            <td><span class="lesson-badge">Bài 03</span></td>
-            <td><strong>Liên quan & Quan hệ (関連・関係)</strong></td>
+            <td><span class="lesson-badge">3. 漢字</span></td>
+            <td><strong>Chữ Hán (53 bài • 1.046 chữ)</strong> — Step 1–3 không trùng lặp, Challenge &amp; 別冊1</td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/bai-03/tu-vung.md" class="lesson-pill">Từ vựng</a>
-                <a href="reader.html?file=shinkanzen/bai-03/ngu-phap.md" class="lesson-pill">Ngữ pháp</a>
-                <a href="reader.html?file=shinkanzen/bai-03/lesson-note.md" class="lesson-pill">Lesson Note</a>
+                <a href="reader.html?file=shinkanzen/kanji/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục 53 bài</a>
+                <a href="reader.html?file=shinkanzen/kanji/step-1/bai-01.md" class="lesson-pill">Step 1 Bài 01</a>
+                <a href="reader.html?file=shinkanzen/kanji/step-2/bai-15.md" class="lesson-pill">Step 2 Bài 15</a>
+                <a href="reader.html?file=shinkanzen/kanji/step-3/bai-31.md" class="lesson-pill">Step 3 Bài 31</a>
+                <a href="reader.html?file=shinkanzen/kanji/phu-luc_dac-biet.md" class="lesson-pill">別冊1 Đọc đặc biệt</a>
               </div>
             </td>
           </tr>
           <tr>
-            <td><span class="lesson-badge">Bài 04 - 25</span></td>
-            <td><strong>Lộ trình đầy đủ 25 bài Shinkanzen Master N2</strong></td>
+            <td><span class="lesson-badge">4. 読解</span></td>
+            <td><strong>Đọc Hiểu (8 chuyên đề)</strong> — 第1–2部 Kỹ năng cấu trúc/tờ rơi &amp; 第3部 4 dạng Mondai thi thật</td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/README.md" class="lesson-pill" style="background:#ffe3e3; color:#c92a2a;">📋 Xem Mục Lục Toàn Bộ 25 Bài ➔</a>
+                <a href="reader.html?file=shinkanzen/doc-hieu/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục Đọc hiểu</a>
+                <a href="reader.html?file=shinkanzen/doc-hieu/phan-1_luyen-ky-nang/01_cau-truc-bai-van.md" class="lesson-pill">5 Cấu trúc văn</a>
+                <a href="reader.html?file=shinkanzen/doc-hieu/phan-2_thuc-chien/01_naiyou-rikai-chubun.md" class="lesson-pill">Trung văn</a>
+                <a href="reader.html?file=shinkanzen/doc-hieu/phan-2_thuc-chien/04_jouhou-kensaku.md" class="lesson-pill">Tìm thông tin</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lesson-badge">5. 聴解</span></td>
+            <td><strong>Nghe Hiểu (Chương I–VI)</strong> — Đặc trưng âm thanh, Phản xạ nhanh &amp; Mondai 1–5 (TTS-ready)</td>
+            <td>
+              <div class="lesson-links">
+                <a href="reader.html?file=shinkanzen/nghe-hieu/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục Nghe hiểu</a>
+                <a href="reader.html?file=shinkanzen/nghe-hieu/01_am-thanh-dac-trung.md" class="lesson-pill">I. Âm văn nói</a>
+                <a href="reader.html?file=shinkanzen/nghe-hieu/02_sokujitou-outou.md" class="lesson-pill">II. Phản xạ nhanh</a>
+                <a href="reader.html?file=shinkanzen/nghe-hieu/06_tougou-rikai.md" class="lesson-pill">VI. Tổng hợp Mondai 5</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lesson-badge">Tổng quan</span></td>
+            <td><strong>Bản đồ lộ trình ôn thi trọn bộ 5 cuốn Shinkanzen Master N2 (146 bài học)</strong></td>
+            <td>
+              <div class="lesson-links">
+                <a href="reader.html?file=shinkanzen/README.md" class="lesson-pill" style="background:#ffe3e3; color:#c92a2a;">🗺️ Xem Bản Đồ Toàn Bộ 5 Cuốn ➔</a>
               </div>
             </td>
           </tr>

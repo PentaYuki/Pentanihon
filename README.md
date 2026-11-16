@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/JLPT-N2%20Master-red?style=for-the-badge&logo=japan" alt="JLPT N2" />
-  <img src="https://img.shields.io/badge/Shinkanzen-25%20Lessons%20Complete-green?style=for-the-badge" alt="Shinkanzen 25 Lessons" />
+  <img src="https://img.shields.io/badge/Shinkanzen-5%20Books%20Complete-green?style=for-the-badge" alt="Shinkanzen 5 Books" />
   <img src="https://img.shields.io/badge/Daily-Stories%20Included-orange?style=for-the-badge" alt="Daily Stories" />
   <img src="https://img.shields.io/badge/Hiragana-100%25%20Annotated-blue?style=for-the-badge" alt="Hiragana Annotated" />
   <img src="https://img.shields.io/badge/Audio--Ready-TTS%20Metadata-purple?style=for-the-badge" alt="Audio Ready" />
@@ -17,7 +17,8 @@ Chào mừng bạn đến với **Pentanihon** – dự án học tiếng Nhật
 - 🌸 **Đồng hành cùng Chị Gái Dễ Thương:** Giọng văn chỉ bảo ân cần, hóm hỉnh, phân tích sắc thái tâm lý người Nhật, mẹo nhớ đời và chỉ điểm các cạm bẫy trắc nghiệm hay gặp.
 - 🔤 **Phiên âm Hiragana 100%:** Mọi chữ Hán trong câu ví dụ, hội thoại nghe, bài đọc hiểu và đề thi trắc nghiệm đều được chú thích Hiragana `漢字（かんじ）` để người học đọc mượt mà, không bị khựng lại.
 - 🎧 **Dữ liệu Nghe sẵn sàng cho Tool Audio (TTS-Ready):** Toàn bộ file kịch bản nghe đều có cấu trúc trường rõ ràng (`track_id`, `speakers: ["Narrator", "Man", "Woman"]`) giúp dễ dàng lập trình bot đọc audio hoặc tích hợp ứng dụng di động.
-- 📖 **Series Dài Tập Nhật Ngữ (`story/`):** Bộ truyện dài tập chính thức **「東京（とうきょう）あおぞら物語（ものがたり）」** (*Câu Chuyện Bầu Trời Xanh Tokyo - Quyển Sổ Ước Mơ Của Ren Và Chị Yuki*). Cốt truyện liên hoàn nhiều tập, lồng ghép khéo léo ngữ pháp N2, từ vựng đắt giá và câu hỏi đọc hiểu Dokkai kịch tính.
+- 📖 **Tiểu Thuyết Ngắn Tương Tác N2 ([`novel/index.html`](./novel/index.html)):** Cuốn sách ngắn 6 chương **「東京（とうきょう）の小さな書斎（しょさい）」** (*Căn Phòng Đọc Nhỏ Giữa Lòng Tokyo*) vận dụng trực tiếp từ vựng & ngữ pháp Shinkanzen với Hiragana đứng kế bên; **click vào từ có trong Shinkanzen sẽ tự phát sáng + mở Bảng Hướng Dẫn chi tiết**, đi kèm câu hỏi trắc nghiệm ngay bên cạnh mỗi chương.
+- ☕ **Series Dài Tập Nhật Ngữ (`story/`):** Bộ truyện dài tập chính thức **「東京（とうきょう）あおぞら物語（ものがたり）」** (*Câu Chuyện Bầu Trời Xanh Tokyo - Quyển Sổ Ước Mơ Của Ren Và Chị Yuki*). Cốt truyện liên hoàn nhiều tập, lồng ghép khéo léo ngữ pháp N2, từ vựng đắt giá và câu hỏi đọc hiểu Dokkai kịch tính.
 - ⏰ **Tự Động Hóa & Đặt Lịch:** Tích hợp script [**`daily_study_scheduler.py`**](./scripts/daily_study_scheduler.py) và **GitHub Actions Workflow** tự động chạy lịch học mỗi ngày.
 
 ---
@@ -33,18 +34,19 @@ Pentanihon/
 │   ├── 01_Tu_Vung_Kanji_N2.md         # Tổng hợp phó từ, tiền tố, hậu tố, từ đồng nghĩa
 │   ├── 02_Ngu_Phap_N2_Trong_Tam.md    # 120+ mẫu ngữ pháp phân loại theo cụm ý nghĩa
 │   └── 03_Chien_Thuat_Doc_Hieu_N2.md  # Kỹ thuật bẻ khóa bài đọc và 4 loại bẫy kinh điển
-├── shinkanzen/                        # Trọn bộ 25 bài giáo trình Shinkanzen Master N2
-│   ├── README.md                      # Bảng Tracker theo dõi tiến độ học tập 25 bài
-│   ├── bai-01/                        # Bài 01: Thời điểm & Trình tự (時間・時)
-│   │   ├── lesson-note.md             # Sổ tay ghi chú tinh hoa, cạm bẫy thi thật & checklist
-│   │   ├── ngu-phap.md                # Cấu trúc, cách dùng, ví dụ có Hiragana
-│   │   ├── tu-vung.md                 # Từ vựng, collocations, giải thích cặn kẽ
-│   │   ├── kanji.md                   # Chữ Hán Shinkanzen, âm On/Kun, từ ghép
-│   │   ├── nghe.md                    # Script đối thoại nghe hiểu (TTS-ready)
-│   │   ├── doc-hieu.md                # Bài đọc ngắn, phân tích câu & loại suy đáp án
-│   │   └── luyen-tap.md               # Trắc nghiệm, bài tập dấu sao (★), đáp án
-│   ├── bai-02/                        # Bài 02: Phạm vi & Giới hạn (範囲・起点)
-│   └── ... (đến bai-25/)              # Đầy đủ trọn bộ từ Bài 01 đến Bài 25!
+├── shinkanzen/                        # Trọn bộ 5 cuốn Shinkanzen Master N2 chuẩn sách gốc
+│   ├── README.md                      # Bản đồ tổng hợp lộ trình học cả 5 cuốn N2
+│   ├── ngu-phap/                      # ⛩️ Văn pháp (Phần 1: 26 bài, Phần 2 ★: 3 bài, Phần 3: 12 bài, Kính ngữ)
+│   ├── tu-vung/                       # 📚 Từ vựng (Phần 1: 21 bài chủ đề, Phần 2: 16 bài tính chất + Flashcards)
+│   │   ├── flashcards.html            # Web Flashcards Trắng Đen & Bản in A4 gập đôi cả 37 bài
+│   │   └── flashcards-anki.tsv        # Deck 780 từ vựng N2 import trực tiếp vào Anki
+│   ├── kanji/                         # 🈷️ Chữ Hán (Step 1-3: 53 bài đủ 1.046 chữ + Challenge + 別冊1)
+│   ├── doc-hieu/                      # 📖 Đọc hiểu (4 chuyên đề kỹ năng + 4 dạng thực chiến Mondai N2)
+│   └── nghe-hieu/                     # 🎧 Nghe hiểu (Chương I-VI chuẩn TTS + Furigana Shadowing)
+├── novel/                             # 📖 Tiểu thuyết ngắn 6 chương vận dụng từ Shinkanzen (tương tác)
+│   ├── index.html                     # Trình đọc sách: click từ Shinkanzen phát sáng + Popover hướng dẫn + Quiz
+│   ├── README.md                      # Mục lục bản Markdown 6 chương
+│   └── chuong-01..06.md               # Nội dung đầy đủ Hiragana, bảng từ Shinkanzen & câu hỏi mỗi chương
 ├── story/                             # Series Dài Tập: Tokyo Aozora Monogatari
 │   ├── README.md                      # Mục lục, sơ đồ nhân vật & hướng dẫn học
 │   ├── series-01_tap-01_chiec_vali_ga_tokyo.md  # Tập 01: Chiếc Vali Ở Ga Tokyo
@@ -55,21 +57,24 @@ Pentanihon/
 │   ├── series-01_tap-06_dem_dong_jimbocho.md    # Tập 06: Đêm Đông Jimbocho & Ký Ức Chị Yuki
 │   └── oneshots/                      # Lưu trữ các truyện ngắn độc lập trước đây
 └── scripts/
+    ├── build_shinkanzen_all.py        # Orchestrator sinh trọn bộ 5 cuốn Shinkanzen chuẩn sách gốc
     ├── daily_study_scheduler.py       # Script quản lý tiến độ và lịch học hàng ngày
     └── generate_daily_story.py        # Engine tự động xuất bản tập tiếp theo của Series
 ```
 
 ---
 
-## 🗺️ Lộ Trình Ôn Luyện Shinkanzen N2 Chuẩn 25 Bài
+## 🗺️ Lộ Trình Ôn Luyện Shinkanzen Master N2 Chuẩn 5 Cuốn Sách Gốc
 
-| Chặng | Danh sách bài | Trọng tâm kiến thức |
+| Giáo trình | Mục lục chính | Trọng tâm kiến thức |
 | :--- | :--- | :--- |
-| **Chặng 1: Nền tảng** | Bài 01 - 08 | Thời điểm, trình tự, phạm vi, liên quan, đối chiếu và tiêu chuẩn đánh giá |
-| **Chặng 2: Nâng cao** | Bài 09 - 16 | Nguyên nhân sâu xa, mục đích, nhượng bộ, điều kiện giả định và biểu cảm |
-| **Chặng 3: Thực chiến** | Bài 17 - 25 | Phán đoán khẳng định, bắt buộc, kính ngữ thương mại và tổng duyệt đề thi |
+| **1. 文法 (Ngữ pháp)** | [**`shinkanzen/ngu-phap/README.md`**](./shinkanzen/ngu-phap/README.md) | 26 bài Văn pháp câu 1, 3 bài sắp xếp dấu sao ★, 12 bài Văn pháp đoạn văn & Kính ngữ |
+| **2. 語彙 (Từ vựng)** | [**`shinkanzen/tu-vung/README.md`**](./shinkanzen/tu-vung/README.md) | 21 bài theo chủ đề + 16 bài theo tính chất (đa nghĩa, phó từ, láy âm, cấu tạo từ) + Flashcards |
+| **3. 漢字 (Chữ Hán)** | [**`shinkanzen/kanji/README.md`**](./shinkanzen/kanji/README.md) | 53 bài phủ đúng 1.046 chữ (Step 1–3) + Challenge + Phụ lục âm đọc đặc biệt 別冊1 |
+| **4. 読解 (Đọc hiểu)** | [**`shinkanzen/doc-hieu/README.md`**](./shinkanzen/doc-hieu/README.md) | 5 cấu trúc bài văn, 5 kỹ thuật giải câu hỏi, đọc tờ rơi/bảng biểu & 4 dạng Mondai thực chiến |
+| **5. 聴解 (Nghe hiểu)** | [**`shinkanzen/nghe-hieu/README.md`**](./shinkanzen/nghe-hieu/README.md) | Rút gọn âm văn nói, Phản xạ nhanh (Mondai 4) & toàn bộ kỹ năng Mondai 1–5 (TTS-ready) |
 
-👉 Chi tiết từng bài và bảng checklist học tập có thể xem tại: [**`shinkanzen/README.md`**](./shinkanzen/README.md)
+👉 Bản đồ chi tiết và hướng dẫn kết hợp 5 cuốn xem tại: [**`shinkanzen/README.md`**](./shinkanzen/README.md)
 
 ---
 

@@ -6,6 +6,7 @@
   <title>Trình Đọc Truyện & Bài Học — Pentanihon JLPT N2</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
   <script src="story/stories-data.js"></script>
+  <script src="shinkanzen/nav-manifest.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -224,6 +225,20 @@
       text-decoration: underline;
     }
 
+    .markdown-body details {
+      background: var(--table-head);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0;
+    }
+
+    .markdown-body summary {
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+    }
+
     /* BOTTOM EPISODE NAVIGATOR */
     .bottom-nav {
       display: flex;
@@ -259,19 +274,21 @@
   <!-- TOP NAVIGATION BAR -->
   <nav class="topbar">
     <div class="topbar-inner">
-      <div style="display: flex; gap: 8px; align-items: center;">
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
         <a href="index.html" class="btn-nav">🏠 Trang chủ</a>
-        <a href="shinkanzen/bai-01/flashcards.html" class="btn-nav">🎴 Flashcards</a>
+        <a href="reader.html?file=shinkanzen/README.md" class="btn-nav">📚 Shinkanzen</a>
+        <a href="novel/index.html" class="btn-nav">📖 Tiểu thuyết N2</a>
+        <a href="shinkanzen/tu-vung/flashcards.html" class="btn-nav">🎴 Flashcards</a>
       </div>
 
-      <select id="epSelect" class="ep-select" onchange="onSelectChange(this.value)">
-        <option value="">Đang tải danh sách truyện...</option>
+      <select id="epSelect" class="ep-select" aria-label="Chọn bài học hoặc tập truyện">
+        <option value="">Đang tải danh sách bài học...</option>
       </select>
 
       <div style="display: flex; gap: 6px; align-items: center;">
-        <button id="btnPrev" class="btn-nav" onclick="goEpisode(-1)" disabled>◀ Trước</button>
-        <button id="btnNext" class="btn-nav" onclick="goEpisode(1)" disabled>Sau ▶</button>
-        <button class="btn-nav" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối">🌓</button>
+        <button type="button" id="btnPrev" class="btn-nav" disabled>◀ Trước</button>
+        <button type="button" id="btnNext" class="btn-nav" disabled>Sau ▶</button>
+        <button type="button" id="btnTheme" class="btn-nav" aria-label="Đổi giao diện Sáng / Tối">🌓</button>
       </div>
     </div>
   </nav>
@@ -285,16 +302,16 @@
     </article>
 
     <div class="bottom-nav">
-      <button id="btnPrevBottom" class="btn-nav" onclick="goEpisode(-1)" disabled>◀ Tập trước</button>
-      <a href="index.html" class="btn-nav">📚 Danh sách tất cả bài</a>
-      <button id="btnNextBottom" class="btn-nav" onclick="goEpisode(1)" disabled>Tập tiếp theo ▶</button>
+      <button type="button" id="btnPrevBottom" class="btn-nav" disabled>◀ Bài trước</button>
+      <a href="index.html" class="btn-nav">📚 Trang chủ</a>
+      <button type="button" id="btnNextBottom" class="btn-nav" disabled>Bài tiếp theo ▶</button>
     </div>
   </div>
 
   <script>
     const REPO_RAW_BASE = "https://raw.githubusercontent.com/PentaYuki/Pentanihon/main/";
     let currentFile = "";
-    let episodesList = [];
+    let navGroups = [];
 
     function getQueryParam(name) {
       const urlParams = new URLSearchParams(window.location.search);
@@ -306,42 +323,59 @@
       localStorage.setItem("pentanihon_theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    // Khởi tạo giao diện sáng/tối
     if (localStorage.getItem("pentanihon_theme") === "dark") {
       document.body.classList.add("dark-mode");
     }
 
-    // Populate dropdown từ manifest
+    // Populate dropdown & navGroups từ BOTH PENTANIHON_NAV_CATALOG (Shinkanzen + Novel + Docs) và PENTANIHON_MANIFEST (Story)
     function populateSelector() {
       const select = document.getElementById("epSelect");
       select.innerHTML = "";
+      navGroups = [];
+
+      const shinkanzenCatalog = window.PENTANIHON_NAV_CATALOG || [];
+      shinkanzenCatalog.forEach(group => {
+        if (!group.items || !group.items.length) return;
+        navGroups.push(group.items);
+        const og = document.createElement("optgroup");
+        og.label = group.label;
+        group.items.forEach(item => {
+          const opt = document.createElement("option");
+          opt.value = item.file;
+          opt.textContent = item.title;
+          og.appendChild(opt);
+        });
+        select.appendChild(og);
+      });
 
       const manifest = window.PENTANIHON_MANIFEST;
       if (manifest && manifest.episodes) {
-        episodesList = [...manifest.episodes].sort((a, b) => a.ep - b.ep);
+        const sortedEps = [...manifest.episodes].sort((a, b) => a.ep - b.ep);
+        const storyItems = [
+          { file: "story/daily-vocab-quotes.md", title: "🌟 Sổ Tay: Mỗi Ngày Một Câu Thực Chiến" },
+          ...sortedEps.map(ep => ({
+            file: ep.file,
+            title: `Tập ${String(ep.ep).padStart(2, '0')}: ${ep.title_vi || ep.title_jp}`
+          }))
+        ];
+        navGroups.push(storyItems);
 
-        // Thêm mục đặc biệt
-        const optQuotes = document.createElement("option");
-        optQuotes.value = "story/daily-vocab-quotes.md";
-        optQuotes.textContent = "🌟 Sổ Tay: Mỗi Ngày Một Câu Thực Chiến";
-        select.appendChild(optQuotes);
-
-        // Nhóm các tập Series
         const grp = document.createElement("optgroup");
         grp.label = "☕ Series: Tokyo Aozora Monogatari";
-        episodesList.forEach(ep => {
+        storyItems.forEach(item => {
           const opt = document.createElement("option");
-          opt.value = ep.file;
-          opt.textContent = `Tập ${String(ep.ep).padStart(2, '0')}: ${ep.title_vi || ep.title_jp}`;
+          opt.value = item.file;
+          opt.textContent = item.title;
           grp.appendChild(opt);
         });
         select.appendChild(grp);
 
-        // Nhóm Oneshots
         if (manifest.oneshots && manifest.oneshots.length > 0) {
+          const oneItems = manifest.oneshots.map(o => ({ file: o.file, title: o.title }));
+          navGroups.push(oneItems);
           const grpOne = document.createElement("optgroup");
           grpOne.label = "🗄️ Truyện Ngắn Độc Lập (One-shots)";
-          manifest.oneshots.forEach(o => {
+          oneItems.forEach(o => {
             const opt = document.createElement("option");
             opt.value = o.file;
             opt.textContent = o.title;
@@ -352,55 +386,69 @@
       }
     }
 
+    function getActiveTrack() {
+      const cleanFile = currentFile.split("#")[0];
+      for (const grp of navGroups) {
+        const idx = grp.findIndex(item => item.file === cleanFile);
+        if (idx !== -1) return { list: grp, idx };
+      }
+      return { list: [], idx: -1 };
+    }
+
     function updateNavButtons() {
-      const idx = episodesList.findIndex(e => e.file === currentFile);
+      const { list, idx } = getActiveTrack();
       const prevDisabled = idx <= 0;
-      const nextDisabled = idx === -1 || idx >= episodesList.length - 1;
+      const nextDisabled = idx === -1 || idx >= list.length - 1;
 
       document.getElementById("btnPrev").disabled = prevDisabled;
       document.getElementById("btnPrevBottom").disabled = prevDisabled;
       document.getElementById("btnNext").disabled = nextDisabled;
       document.getElementById("btnNextBottom").disabled = nextDisabled;
 
+      const isStory = currentFile.startsWith("story/");
+      document.getElementById("btnPrevBottom").textContent = isStory ? "◀ Tập trước" : "◀ Bài trước";
+      document.getElementById("btnNextBottom").textContent = isStory ? "Tập tiếp theo ▶" : "Bài tiếp theo ▶";
+
       const select = document.getElementById("epSelect");
       if (select) {
-        select.value = currentFile;
+        select.value = currentFile.split("#")[0];
       }
     }
 
     function goEpisode(delta) {
-      const idx = episodesList.findIndex(e => e.file === currentFile);
+      const { list, idx } = getActiveTrack();
       if (idx === -1) return;
       const targetIdx = idx + delta;
-      if (targetIdx >= 0 && targetIdx < episodesList.length) {
-        loadMarkdown(episodesList[targetIdx].file);
+      if (targetIdx >= 0 && targetIdx < list.length) {
+        loadMarkdown(list[targetIdx].file);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
 
     function onSelectChange(file) {
       if (file) {
         loadMarkdown(file);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
 
-    // Trình phân tích Markdown dự phòng đơn giản nếu CDN lỗi
     function fallbackMarkdown(md) {
       return md
-        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-        .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
-        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-        .replace(/\n$/gim, '<br>');
+        .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+        .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+        .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+        .replace(/^> (.*$)/gim, "<blockquote>$1</blockquote>")
+        .replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>")
+        .replace(/\*(.*?)\*/gim, "<em>$1</em>")
+        .replace(/\n/gim, "<br>");
     }
 
     function resolveRelativePath(baseFile, href) {
-      if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("#")) {
+      if (!href || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("#")) {
         return null;
       }
       const baseParts = baseFile.split("/");
-      baseParts.pop(); // bỏ tên file
+      baseParts.pop();
       const relParts = href.split("/");
       for (const p of relParts) {
         if (p === "." || p === "") continue;
@@ -413,56 +461,69 @@
       return baseParts.join("/");
     }
 
+    function splitHrefParts(href) {
+      const hashIdx = href.indexOf("#");
+      const beforeHash = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+      const hashPart = hashIdx >= 0 ? href.slice(hashIdx) : "";
+      const qIdx = beforeHash.indexOf("?");
+      const pathPart = qIdx >= 0 ? beforeHash.slice(0, qIdx) : beforeHash;
+      const queryPart = qIdx >= 0 ? beforeHash.slice(qIdx) : "";
+      return { pathPart, queryPart, hashPart };
+    }
+
     async function loadMarkdown(file) {
-      currentFile = file;
-      const url = new URL(window.location);
-      url.searchParams.set("file", file);
-      window.history.pushState({}, "", url);
+      currentFile = file.split("#")[0];
+      try {
+        const url = new URL(window.location);
+        url.searchParams.set("file", currentFile);
+        window.history.pushState({}, "", url);
+      } catch (_) {}
 
       updateNavButtons();
       const contentEl = document.getElementById("content");
       contentEl.innerHTML = '<div class="loading-box">⏳ Đang tải nội dung...</div>';
 
       try {
-        let res = await fetch(file);
+        let res = await fetch(currentFile);
         if (!res.ok) {
-          // Dự phòng tải từ GitHub Raw nếu chạy file:// local
-          res = await fetch(REPO_RAW_BASE + file);
+          res = await fetch(REPO_RAW_BASE + currentFile);
         }
         if (!res.ok) {
-          throw new Error("Không tìm thấy file: " + file);
+          throw new Error("Không tìm thấy file: " + currentFile);
         }
         const mdText = await res.text();
-        
+
         if (typeof marked !== "undefined") {
           contentEl.innerHTML = marked.parse(mdText);
         } else {
           contentEl.innerHTML = fallbackMarkdown(mdText);
         }
 
-        // Xử lý link nội bộ .md để giữ người dùng đọc ngay trên Vercel Reader
+        // Chuẩn hóa toàn bộ link tương đối (.md, .html?..., .tsv, v.v.)
         const links = contentEl.querySelectorAll("a");
         links.forEach(a => {
           const href = a.getAttribute("href");
-          if (href && href.endsWith(".md")) {
-            const targetPath = resolveRelativePath(file, href);
-            if (targetPath) {
-              a.setAttribute("href", `reader.html?file=${encodeURIComponent(targetPath)}`);
-              a.addEventListener("click", (e) => {
-                e.preventDefault();
-                loadMarkdown(targetPath);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              });
-            }
-          } else if (href && href.endsWith(".html")) {
-            const targetPath = resolveRelativePath(file, href);
-            if (targetPath) {
-              a.setAttribute("href", targetPath);
-            }
+          if (!href || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("#") || href.startsWith("mailto:")) {
+            return;
+          }
+          const { pathPart, queryPart, hashPart } = splitHrefParts(href);
+          if (!pathPart) return;
+          const targetPath = resolveRelativePath(currentFile, pathPart);
+          if (!targetPath) return;
+
+          if (pathPart.endsWith(".md")) {
+            a.setAttribute("href", `reader.html?file=${encodeURIComponent(targetPath)}${hashPart}`);
+            a.addEventListener("click", (e) => {
+              e.preventDefault();
+              loadMarkdown(targetPath);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+          } else {
+            // Giữ nguyên query/hash cho .html?lesson=..., .html?chapter=... và file tải .tsv
+            a.setAttribute("href", targetPath + queryPart + hashPart);
           }
         });
 
-        // Cập nhật Title trình duyệt
         const h1 = contentEl.querySelector("h1");
         if (h1) {
           document.title = h1.textContent + " — Pentanihon";
@@ -478,7 +539,18 @@
       }
     }
 
-    // Khởi chạy trang
+    document.getElementById("epSelect").addEventListener("change", (e) => onSelectChange(e.target.value));
+    document.getElementById("btnPrev").addEventListener("click", () => goEpisode(-1));
+    document.getElementById("btnNext").addEventListener("click", () => goEpisode(1));
+    document.getElementById("btnPrevBottom").addEventListener("click", () => goEpisode(-1));
+    document.getElementById("btnNextBottom").addEventListener("click", () => goEpisode(1));
+    document.getElementById("btnTheme").addEventListener("click", toggleTheme);
+
+    window.addEventListener("popstate", () => {
+      const f = getQueryParam("file");
+      if (f && f !== currentFile) loadMarkdown(f);
+    });
+
     populateSelector();
     let initialFile = getQueryParam("file");
     if (!initialFile) {
