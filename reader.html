@@ -7,6 +7,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
   <script src="story/stories-data.js"></script>
   <script src="shinkanzen/nav-manifest.js"></script>
+  <script src="shinkanzen/audio-manifest.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -263,6 +264,106 @@
       font-weight: 600;
     }
 
+    /* AUDIO PLAYER FOR READING & LISTENING */
+    .reader-audio-box,
+    .track-audio-card {
+      background: var(--table-head);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 0 0 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .track-audio-card {
+      margin: 12px 0 16px;
+    }
+
+    .audio-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .audio-caption {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .audio-speed-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .audio-speed-select {
+      padding: 4px 8px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--text);
+      font-size: max(16px, 0.86rem);
+      font-weight: 600;
+    }
+
+    .reader-audio-el {
+      width: 100%;
+      max-width: 100%;
+      block-size: 40px;
+    }
+
+    .jp-line-speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      padding: 2px 8px;
+      min-block-size: 28px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--text);
+      font-size: 0.82rem;
+      cursor: pointer;
+      vertical-align: middle;
+      touch-action: manipulation;
+    }
+
+    .jp-line-speak-btn:hover,
+    .jp-line-speak-btn.is-playing {
+      border-color: var(--accent);
+      background: var(--quote-bg);
+    }
+
+    .is-reading-active {
+      background: var(--quote-bg);
+      border-radius: 6px;
+      padding: 4px 8px;
+      box-shadow: inset 3px 0 0 var(--accent);
+    }
+
+    :where(a, button, select, summary):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    @media (pointer: coarse) {
+      .btn-nav,
+      .jp-line-speak-btn {
+        min-block-size: 44px;
+        min-inline-size: 44px;
+      }
+    }
+
     @media (max-width: 640px) {
       .paper {
         padding: 24px 18px;
@@ -304,6 +405,7 @@
   <!-- MAIN READER -->
   <div class="reader-container">
     <article class="paper">
+      <div id="readerAudioContainer"></div>
       <div id="content" class="markdown-body">
         <div class="loading-box">⏳ Đang tải nội dung bài học...</div>
       </div>
@@ -536,7 +638,11 @@
         if (h1) {
           document.title = h1.textContent + " — Pentanihon";
         }
+
+        setupArticleAudio(currentFile, contentEl);
       } catch (err) {
+        stopReaderAudio();
+        document.getElementById("readerAudioContainer").innerHTML = "";
         contentEl.innerHTML = `
           <div style="text-align:center; padding:40px;">
             <h3>⚠️ Không thể tải nội dung trực tiếp</h3>
@@ -544,6 +650,307 @@
             <a href="index.html" class="btn-nav" style="margin-top:16px;">Quay lại Trang chủ</a>
           </div>
         `;
+      }
+    }
+
+    let readerTtsActive = false;
+    let readerTtsSession = 0;
+    let readerSpeed = 1.0;
+    let lazyAudioObserver = null;
+
+    function stripFuriForSpeech(text) {
+      return String(text || "")
+        .replace(/([\u4e00-\u9faf\u3005々ヶぁ-んァ-ヶー])（[\u3040-\u30ffー]+）/g, "$1")
+        .replace(/[*_`🔊]/g, "")
+        .trim();
+    }
+
+    function isMainlyJapaneseText(text) {
+      const s = String(text || "");
+      const jp = (s.match(/[\u3040-\u30ff\u4e00-\u9faf]/g) || []).length;
+      const lat = (s.match(/[A-Za-zÀ-ỹà-ỹ]/g) || []).length;
+      return jp >= 10 && jp >= lat * 1.4;
+    }
+
+    function stopReaderAudio() {
+      readerTtsSession++;
+      readerTtsActive = false;
+      if (lazyAudioObserver) {
+        lazyAudioObserver.disconnect();
+        lazyAudioObserver = null;
+      }
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      document.querySelectorAll(".reader-audio-el").forEach(a => {
+        try { a.pause(); } catch (_) {}
+      });
+      document.querySelectorAll(".is-reading-active").forEach(el => el.classList.remove("is-reading-active"));
+      document.querySelectorAll(".jp-line-speak-btn.is-playing").forEach(b => b.classList.remove("is-playing"));
+      const fallbackBtn = document.getElementById("readerFallbackPlayBtn");
+      if (fallbackBtn) fallbackBtn.textContent = "🔊 Nghe đọc tiếng Nhật";
+    }
+
+    function applyPlaybackRate(rate) {
+      const parsed = parseFloat(rate);
+      readerSpeed = Number.isFinite(parsed) ? parsed : 1.0;
+      document.querySelectorAll(".reader-audio-el").forEach(a => { a.playbackRate = readerSpeed; });
+      document.querySelectorAll(".audio-speed-select").forEach(s => { s.value = String(readerSpeed); });
+    }
+
+    function wireExclusiveAudio(audioEl) {
+      audioEl.addEventListener("play", () => {
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+        readerTtsActive = false;
+        readerTtsSession++;
+        audioEl.playbackRate = readerSpeed;
+        document.querySelectorAll(".reader-audio-el").forEach(other => {
+          if (other !== audioEl) {
+            try { other.pause(); } catch (_) {}
+          }
+        });
+      });
+    }
+
+    function setupLazyAudioFallback(rootEl) {
+      if (Object.hasOwn(HTMLMediaElement.prototype, "loading")) return;
+      const lazyAudios = rootEl.querySelectorAll('audio[loading="lazy"][controls]');
+      if (!lazyAudios.length || !("IntersectionObserver" in window)) return;
+      lazyAudioObserver = new IntersectionObserver((entries, observer) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const media = entry.target;
+          if (media.dataset.preload) {
+            media.preload = media.dataset.preload;
+            delete media.dataset.preload;
+          }
+          if (media.dataset.src) {
+            media.src = media.dataset.src;
+            delete media.dataset.src;
+          }
+          media.load();
+          observer.unobserve(media);
+        }
+      }, { rootMargin: "200px 0px" });
+
+      for (const media of lazyAudios) {
+        if (media.getAttribute("src")) {
+          media.dataset.src = media.getAttribute("src");
+          media.removeAttribute("src");
+        }
+        if (media.getAttribute("preload") && media.getAttribute("preload") !== "none") {
+          media.dataset.preload = media.getAttribute("preload");
+        }
+        media.preload = "none";
+        lazyAudioObserver.observe(media);
+      }
+    }
+
+    function buildAudioCard({ id, caption, src, lazy = false, detailsId = "" }) {
+      const fig = document.createElement("figure");
+      fig.className = lazy ? "track-audio-card" : "reader-audio-box";
+
+      const head = document.createElement("div");
+      head.className = "audio-head-row";
+
+      const cap = document.createElement("figcaption");
+      cap.className = "audio-caption";
+      cap.id = id;
+      cap.textContent = caption;
+
+      const speedWrap = document.createElement("label");
+      speedWrap.className = "audio-speed-wrap";
+      const spTxt = document.createElement("span");
+      spTxt.textContent = "Tốc độ:";
+      const sel = document.createElement("select");
+      sel.className = "audio-speed-select";
+      sel.setAttribute("aria-label", "Tốc độ phát âm thanh");
+      [["0.85", "0.85x"], ["1", "1.0x"], ["1.15", "1.15x"]].forEach(([v, lbl]) => {
+        const o = document.createElement("option");
+        o.value = v;
+        o.textContent = lbl;
+        if (parseFloat(v) === readerSpeed) o.selected = true;
+        sel.appendChild(o);
+      });
+      sel.addEventListener("change", (e) => applyPlaybackRate(e.target.value));
+      speedWrap.appendChild(spTxt);
+      speedWrap.appendChild(sel);
+
+      head.appendChild(cap);
+      head.appendChild(speedWrap);
+
+      const audio = document.createElement("audio");
+      audio.className = "reader-audio-el";
+      audio.controls = true;
+      audio.preload = "metadata";
+      if (lazy) audio.setAttribute("loading", "lazy");
+      audio.setAttribute("aria-labelledby", id);
+      if (detailsId) audio.setAttribute("aria-details", detailsId);
+      audio.src = src;
+      wireExclusiveAudio(audio);
+
+      fig.appendChild(head);
+      fig.appendChild(audio);
+      return fig;
+    }
+
+    function speakSingleText(text, triggerEl, ownerEl) {
+      if (!("speechSynthesis" in window)) return;
+      stopReaderAudio();
+      const mySession = readerTtsSession;
+      if (ownerEl) ownerEl.classList.add("is-reading-active");
+      if (triggerEl) triggerEl.classList.add("is-playing");
+      const utter = new SpeechSynthesisUtterance(stripFuriForSpeech(text));
+      utter.lang = "ja-JP";
+      utter.rate = readerSpeed;
+      const clean = () => {
+        if (readerTtsSession !== mySession) return;
+        if (ownerEl) ownerEl.classList.remove("is-reading-active");
+        if (triggerEl) triggerEl.classList.remove("is-playing");
+      };
+      utter.onend = clean;
+      utter.onerror = clean;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function setupArticleAudio(file, contentEl) {
+      stopReaderAudio();
+      const container = document.getElementById("readerAudioContainer");
+      container.innerHTML = "";
+
+      const cleanFile = String(file || "").split("#")[0];
+      const manifest = window.PENTANIHON_AUDIO_MANIFEST || {};
+      const tracks = manifest[cleanFile] || [];
+
+      if (tracks.length === 1) {
+        // Above-the-fold player omits loading="lazy" per modern-web-guidance
+        const card = buildAudioCard({
+          id: "reader-main-audio-cap",
+          caption: tracks[0].title || "🎧 Nghe bài đọc tiếng Nhật (Giọng bản xứ)",
+          src: tracks[0].src,
+          lazy: false,
+        });
+        container.appendChild(card);
+      } else if (tracks.length > 1) {
+        // Multi-track listening lessons: embed accessible inline <audio> players per Track heading
+        const headings = Array.from(contentEl.querySelectorAll("h3"));
+        tracks.forEach((tr, idx) => {
+          const matchHeading = headings.find(h => h.textContent.includes(tr.id)) || headings[idx];
+          let detailsId = "";
+          if (matchHeading) {
+            let probe = matchHeading.nextElementSibling;
+            while (probe && probe.tagName !== "H3") {
+              if (probe.tagName === "DETAILS") {
+                detailsId = `transcript-${tr.id}`;
+                probe.id = detailsId;
+                break;
+              }
+              probe = probe.nextElementSibling;
+            }
+            const inlineCard = buildAudioCard({
+              id: `cap-${tr.id}`,
+              caption: `🎧 ${tr.title}`,
+              src: tr.src,
+              lazy: idx > 0,
+              detailsId,
+            });
+            matchHeading.insertAdjacentElement("afterend", inlineCard);
+          } else {
+            container.appendChild(buildAudioCard({
+              id: `cap-${tr.id}`,
+              caption: `🎧 ${tr.title}`,
+              src: tr.src,
+              lazy: idx > 0,
+            }));
+          }
+        });
+        setupLazyAudioFallback(contentEl);
+      }
+
+      // Collect pure Japanese blocks outside spoilers/code for click-to-listen & fallback sequence
+      const candidates = Array.from(contentEl.querySelectorAll("p, blockquote"))
+        .filter(el => !el.closest("details, pre, .reader-audio-box, .track-audio-card"))
+        .map(el => ({ el, txt: stripFuriForSpeech(el.textContent) }))
+        .filter(item => isMainlyJapaneseText(item.txt));
+
+      candidates.forEach(item => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "jp-line-speak-btn";
+        btn.setAttribute("aria-label", "Nghe đọc đoạn tiếng Nhật này");
+        btn.textContent = "🔊";
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (btn.classList.contains("is-playing")) {
+            stopReaderAudio();
+            return;
+          }
+          speakSingleText(item.txt, btn, item.el);
+        });
+        item.el.appendChild(btn);
+      });
+
+      // Fallback full-article audio bar when no pre-generated MP3 exists (e.g., future episodes or Bunpou/Kanji)
+      if (!tracks.length && candidates.length > 0 && ("speechSynthesis" in window)) {
+        const box = document.createElement("div");
+        box.className = "reader-audio-box";
+        const row = document.createElement("div");
+        row.className = "audio-head-row";
+
+        const playBtn = document.createElement("button");
+        playBtn.type = "button";
+        playBtn.id = "readerFallbackPlayBtn";
+        playBtn.className = "btn-nav";
+        playBtn.textContent = `🔊 Nghe đọc tiếng Nhật (${candidates.length} đoạn)`;
+
+        const speedWrap = document.createElement("label");
+        speedWrap.className = "audio-speed-wrap";
+        const spLbl = document.createElement("span");
+        spLbl.textContent = "Tốc độ:";
+        const sel = document.createElement("select");
+        sel.className = "audio-speed-select";
+        sel.setAttribute("aria-label", "Tốc độ đọc văn bản");
+        [["0.85", "0.85x"], ["1", "1.0x"], ["1.15", "1.15x"]].forEach(([v, lbl]) => {
+          const o = document.createElement("option");
+          o.value = v;
+          o.textContent = lbl;
+          if (parseFloat(v) === readerSpeed) o.selected = true;
+          sel.appendChild(o);
+        });
+        sel.addEventListener("change", (e) => applyPlaybackRate(e.target.value));
+        speedWrap.appendChild(spLbl);
+        speedWrap.appendChild(sel);
+
+        playBtn.addEventListener("click", () => {
+          if (readerTtsActive) {
+            stopReaderAudio();
+            return;
+          }
+          stopReaderAudio();
+          readerTtsActive = true;
+          const mySession = readerTtsSession;
+          const speakIdx = (idx) => {
+            if (!readerTtsActive || readerTtsSession !== mySession) return;
+            if (idx >= candidates.length) {
+              stopReaderAudio();
+              return;
+            }
+            document.querySelectorAll(".is-reading-active").forEach(x => x.classList.remove("is-reading-active"));
+            const { el, txt } = candidates[idx];
+            el.classList.add("is-reading-active");
+            playBtn.textContent = `⏹ Dừng đọc (${idx + 1}/${candidates.length})`;
+            const u = new SpeechSynthesisUtterance(txt);
+            u.lang = "ja-JP";
+            u.rate = readerSpeed;
+            u.onend = () => speakIdx(idx + 1);
+            u.onerror = () => speakIdx(idx + 1);
+            window.speechSynthesis.speak(u);
+          };
+          speakIdx(0);
+        });
+
+        row.appendChild(playBtn);
+        row.appendChild(speedWrap);
+        box.appendChild(row);
+        container.appendChild(box);
       }
     }
 

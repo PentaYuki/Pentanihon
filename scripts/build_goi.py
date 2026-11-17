@@ -517,6 +517,43 @@ def build_flashcards_html(lessons_meta):
       color: #ffffff;
     }}
 
+    .btn-audio {{
+      background: #ffffff;
+      color: #000000;
+    }}
+
+    .card-audio-btn {{
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 10px;
+      padding: 5px 12px;
+      min-block-size: var(--target-size);
+      border: 1.5px solid #000000;
+      background: #ffffff;
+      color: #000000;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      touch-action: manipulation;
+    }}
+
+    .card-audio-btn:hover,
+    .card-audio-btn.is-playing {{
+      background: #000000;
+      color: #ffffff;
+    }}
+
+    .speed-select {{
+      padding: 4px 8px;
+      border: 1.5px solid #000;
+      background: #fff;
+      font-size: max(16px, 0.86rem);
+      font-weight: 600;
+      min-block-size: var(--target-size);
+    }}
+
     .progress-bar {{
       font-size: 0.9rem;
       font-weight: 600;
@@ -788,6 +825,18 @@ def build_flashcards_html(lessons_meta):
           <input type="checkbox" id="toggle-reverse" onchange="toggleReverse(this.checked)">
           <span>Đảo mặt (Nghĩa Việt ➔ Kanji)</span>
         </label>
+        <label class="toggle-group">
+          <input type="checkbox" id="toggle-autospeak" onchange="toggleAutoSpeak(this.checked)">
+          <span>🔊 Tự đọc khi qua thẻ</span>
+        </label>
+        <label class="toggle-group">
+          <span>Tốc độ:</span>
+          <select id="audio-speed" class="speed-select" onchange="setAudioRate(this.value)" aria-label="Tốc độ phát âm thanh">
+            <option value="0.85">0.85x</option>
+            <option value="1" selected>1.0x</option>
+            <option value="1.15">1.15x</option>
+          </select>
+        </label>
       </div>
       <div style="display: flex; gap: 8px; flex-wrap: wrap;">
         <button type="button" class="tab-btn" style="padding: 5px 12px;" onclick="shuffleCards()">🔀 Xáo thẻ</button>
@@ -797,12 +846,14 @@ def build_flashcards_html(lessons_meta):
   </div>
 
   <div id="view-interactive" style="margin-top: 16px;">
+    <audio id="vocabAudio" preload="none"></audio>
     <div class="card-track-wrap">
       <div class="card-track" id="cardTrack" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Bộ thẻ từ vựng Shinkanzen N2"></div>
     </div>
 
     <div class="action-row">
       <button type="button" class="btn" onclick="prevCard()" title="Vuốt sang phải hoặc mũi tên Trái [←]">◀ Trước</button>
+      <button type="button" class="btn btn-audio" id="btnPlayCardAudio" onclick="playCurrentCardAudio()" title="Nghe phát âm thẻ hiện tại [A]">🔊 Nghe [A]</button>
       <button type="button" class="btn btn-flip" onclick="flipCard()">Lật Thẻ (Space)</button>
       <button type="button" class="btn" onclick="nextCard()" title="Vuốt sang trái hoặc mũi tên Phải [→]">Sau ▶</button>
     </div>
@@ -810,7 +861,7 @@ def build_flashcards_html(lessons_meta):
     <div class="progress-bar" id="progressText" role="status" aria-live="polite">Thẻ 1 / 1</div>
 
     <div class="keyboard-tips">
-      👆 Cảm ứng / Trackpad: <strong>Lướt ngang trực tiếp trên thẻ</strong> để chuyển từ • ⌨️ Phím: <strong>[Space]</strong> Lật mặt • <strong>[←] / [→]</strong> Trước / Sau • <strong>[F]</strong> Furigana • <strong>[R]</strong> Đảo mặt
+      👆 Cảm ứng / Trackpad: <strong>Lướt ngang trực tiếp trên thẻ</strong> để chuyển từ • ⌨️ Phím: <strong>[Space]</strong> Lật mặt • <strong>[A]</strong> Nghe từ • <strong>[S]</strong> Nghe ví dụ • <strong>[←] / [→]</strong> Trước / Sau • <strong>[F]</strong> Furigana • <strong>[R]</strong> Đảo mặt
     </div>
   </div>
 
@@ -842,6 +893,86 @@ let deck = [];
 let currentIndex = 0;
 let showFuri = true;
 let reverseMode = false;
+let autoSpeak = false;
+let audioRate = 1.0;
+
+const vocabAudio = document.getElementById("vocabAudio");
+try {{
+  autoSpeak = localStorage.getItem("penta_flash_autospeak") === "1";
+  const savedRate = parseFloat(localStorage.getItem("penta_flash_rate") || "1");
+  if ([0.85, 1, 1.15].includes(savedRate)) audioRate = savedRate;
+}} catch (_) {{}}
+
+function stripFuri(raw) {{
+  return String(raw || "").replace(/（[^）]*）/g, "");
+}}
+
+function speakWithBrowser(text) {{
+  if (!("speechSynthesis" in window) || !text) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(stripFuri(text));
+  u.lang = "ja-JP";
+  u.rate = audioRate;
+  window.speechSynthesis.speak(u);
+}}
+
+function stopAudioPlayback() {{
+  if (vocabAudio) {{
+    vocabAudio.pause();
+    vocabAudio.removeAttribute("src");
+  }}
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  document.querySelectorAll(".card-audio-btn.is-playing").forEach(b => b.classList.remove("is-playing"));
+}}
+
+function playCardAudio(item, kind = "word", btnEl = null) {{
+  if (!item) return;
+  stopAudioPlayback();
+  const src = kind === "colloc"
+    ? `./audio/collocs/${{item.lessonId}}_${{item.id}}.mp3`
+    : `./audio/words/${{item.lessonId}}_${{item.id}}.mp3`;
+  const fallbackTxt = kind === "colloc"
+    ? stripFuri(item.collocJp)
+    : (item.reading || stripFuri(item.plain));
+
+  if (btnEl) btnEl.classList.add("is-playing");
+  vocabAudio.playbackRate = audioRate;
+  vocabAudio.onended = () => {{
+    document.querySelectorAll(".card-audio-btn.is-playing").forEach(b => b.classList.remove("is-playing"));
+  }};
+  vocabAudio.onerror = () => {{
+    document.querySelectorAll(".card-audio-btn.is-playing").forEach(b => b.classList.remove("is-playing"));
+    speakWithBrowser(fallbackTxt);
+  }};
+  vocabAudio.src = src;
+  vocabAudio.play().catch(() => {{
+    document.querySelectorAll(".card-audio-btn.is-playing").forEach(b => b.classList.remove("is-playing"));
+    speakWithBrowser(fallbackTxt);
+  }});
+}}
+
+function playCurrentCardAudio(kind) {{
+  const item = deck[currentIndex];
+  if (!item) return;
+  const active = getActiveStage();
+  const targetKind = kind || (active && active.classList.contains("is-flipped") ? "colloc" : "word");
+  playCardAudio(item, targetKind);
+}}
+
+function toggleAutoSpeak(val) {{
+  autoSpeak = Boolean(val);
+  try {{ localStorage.setItem("penta_flash_autospeak", autoSpeak ? "1" : "0"); }} catch (_) {{}}
+  if (autoSpeak && deck[currentIndex]) {{
+    playCardAudio(deck[currentIndex], "word");
+  }}
+}}
+
+function setAudioRate(val) {{
+  const parsed = parseFloat(val);
+  audioRate = Number.isFinite(parsed) ? parsed : 1.0;
+  try {{ localStorage.setItem("penta_flash_rate", String(audioRate)); }} catch (_) {{}}
+  if (vocabAudio) vocabAudio.playbackRate = audioRate;
+}}
 
 function esc(s) {{
   return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -911,6 +1042,7 @@ let scrollDebounceTimer = null;
 let suppressClickUntil = 0;
 
 function onGroupChange() {{
+  stopAudioPlayback();
   const grp = document.getElementById("group-filter").value;
   deck = grp === "ALL" ? [...baseCards] : baseCards.filter(c => c.group === grp);
   currentIndex = 0;
@@ -938,6 +1070,7 @@ function buildSlideInnerHTML(item, idx) {{
           <div class="furigana-text${{furiHidden}}">${{furiTop}}</div>
           <div class="kanji-text" style="font-size: ${{frontSize}};">${{frontMain}}</div>
           <div class="hanviet-text">${{hvText}}</div>
+          <button type="button" class="card-audio-btn" data-kind="word" data-idx="${{idx}}" aria-label="Nghe phát âm từ ${{esc(item.plain)}}">🔊 Nghe từ</button>
         </div>
         <div class="card-hint">
           👆 Lướt ngang để chuyển từ • Chạm thẻ để lật ➔
@@ -955,6 +1088,7 @@ function buildSlideInnerHTML(item, idx) {{
             <div style="font-size: 0.74rem; text-transform: uppercase; color: #666; margin-bottom: 2px;">Cụm từ Collocation Shinkanzen:</div>
             <div class="back-collocation-jp">${{esc(item.collocJp)}}</div>
             <div style="font-size: 0.85rem; color: #333;">${{esc(item.collocVi)}}</div>
+            <button type="button" class="card-audio-btn" data-kind="colloc" data-idx="${{idx}}" aria-label="Nghe câu ví dụ tiếng Nhật">🔊 Nghe câu ví dụ</button>
           </div>
           <div class="back-note">
             💡 <strong>Chủ điểm:</strong> ${{esc(item.lessonLabel)}} — <em>${{esc(item.group)}}</em>
@@ -1085,6 +1219,7 @@ function goCard(step) {{
     }}, 500);
     syncTrackToIndex(nextIdx, true);
   }}
+  if (autoSpeak && deck[nextIdx]) playCardAudio(deck[nextIdx], "word");
 }}
 
 function nextCard() {{
@@ -1114,11 +1249,20 @@ function settleFromScroll() {{
     clearInactiveFlips(idx);
     hydrateWindow(idx, false);
     updateProgressUI();
+    if (autoSpeak && deck[idx]) playCardAudio(deck[idx], "word");
   }}
 }}
 
 (function attachCarouselListeners() {{
   cardTrack.addEventListener("click", (e) => {{
+    const audioBtn = e.target.closest(".card-audio-btn");
+    if (audioBtn) {{
+      e.stopPropagation();
+      const aIdx = parseInt(audioBtn.dataset.idx || "-1", 10);
+      const aKind = audioBtn.dataset.kind || "word";
+      if (deck[aIdx]) playCardAudio(deck[aIdx], aKind, audioBtn);
+      return;
+    }}
     if (Date.now() < suppressClickUntil) {{
       e.preventDefault();
       return;
@@ -1217,6 +1361,9 @@ function settleFromScroll() {{
       hydrateWindow(targetIdx, false);
       updateProgressUI();
       syncTrackToIndex(targetIdx, true);
+      if (autoSpeak && targetIdx !== mouseBaseIdx && deck[targetIdx]) {{
+        playCardAudio(deck[targetIdx], "word");
+      }}
     }}
   }}
 
@@ -1225,6 +1372,7 @@ function settleFromScroll() {{
 }})();
 
 function shuffleCards() {{
+  stopAudioPlayback();
   for (let i = deck.length - 1; i > 0; i--) {{
     const j = Math.floor(Math.random() * (i + 1));
     [deck[i], deck[j]] = [deck[j], deck[i]];
@@ -1318,6 +1466,12 @@ window.addEventListener("keydown", (e) => {{
   if (e.code === "Space") {{
     e.preventDefault();
     flipCard();
+  }} else if (e.code === "KeyA") {{
+    e.preventDefault();
+    playCurrentCardAudio();
+  }} else if (e.code === "KeyS") {{
+    e.preventDefault();
+    playCurrentCardAudio("colloc");
   }} else if (e.code === "ArrowRight") {{
     e.preventDefault();
     nextCard();
@@ -1336,6 +1490,10 @@ window.addEventListener("keydown", (e) => {{
 }});
 
 (function init() {{
+  const autoCb = document.getElementById("toggle-autospeak");
+  if (autoCb) autoCb.checked = autoSpeak;
+  const rateSel = document.getElementById("audio-speed");
+  if (rateSel) rateSel.value = String(audioRate);
   const params = new URLSearchParams(window.location.search);
   const reqLesson = params.get("lesson");
   const select = document.getElementById("lesson-select");

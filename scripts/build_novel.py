@@ -541,8 +541,15 @@ def render_novel_html():
 
     .para-block {
       margin-bottom: 18px;
-      padding-bottom: 12px;
+      padding: 6px 8px 12px;
+      border-radius: 8px;
       border-bottom: 1px dashed #ece5da;
+      transition: background-color 0.18s ease;
+    }
+
+    .para-block.is-speaking {
+      background: #fffbeb;
+      box-shadow: inset 3px 0 0 #d97706;
     }
 
     .para-block:last-child {
@@ -572,8 +579,32 @@ def render_novel_html():
       margin-top: 6px;
     }
 
-    .para-speak-btn:hover {
-      background: #f0ebe3;
+    .para-speak-btn:hover,
+    .para-speak-btn.is-playing {
+      background: #1f1c19;
+      color: #fff;
+      border-color: #1f1c19;
+    }
+
+    .audio-speed-select {
+      min-block-size: 36px;
+      padding: 4px 8px;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: max(16px, 0.85rem);
+      font-weight: 600;
+    }
+
+    .vg-speak-btn {
+      background: #1f1c19;
+      color: #fff;
+      border: 1px solid #1f1c19;
+    }
+
+    .vg-speak-btn:hover {
+      background: #3d3832;
     }
 
     .para-vi {
@@ -1133,6 +1164,11 @@ def render_novel_html():
       </div>
       <div class="nav-group">
         <button type="button" id="btn-speak-chapter" class="nav-btn">🔊 Nghe đọc chương</button>
+        <select id="novel-speed" class="audio-speed-select" aria-label="Tốc độ đọc truyện">
+          <option value="0.85">0.85x</option>
+          <option value="1" selected>1.0x</option>
+          <option value="1.15">1.15x</option>
+        </select>
       </div>
     </div>
   </header>
@@ -1220,6 +1256,7 @@ def render_novel_html():
         <div class="vg-colloc-vi" id="vg-colloc-vi"></div>
       </div>
       <div class="vg-actions">
+        <button type="button" id="vg-speak-word" class="vg-action-btn vg-speak-btn">🔊 Nghe phát âm</button>
         <a id="vg-open-lesson" href="#" class="vg-action-link">📖 Xem bài Shinkanzen</a>
         <a id="vg-open-flash" href="#" class="vg-action-link" hidden>🎴 Luyện Flashcard</a>
         <button type="button" id="vg-mark-mastered" class="vg-action-btn" aria-pressed="false">✓ Đánh dấu đã thuộc</button>
@@ -1234,11 +1271,14 @@ def render_novel_html():
 
   <div id="live-announcer" class="visually-hidden" aria-live="polite"></div>
 
+  <audio id="novelAudio" preload="none"></audio>
+
   <footer>
     🌸 <strong>PentaNihonGo Novel</strong> — Tiểu thuyết thực chiến tích hợp kho dữ liệu 5 cuốn <strong>Shinkanzen Master N2</strong>.
   </footer>
 
   <script src="./novel-data.js"></script>
+  <script src="./audio-map.js"></script>
   <script type="module">
     if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
       import("https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js").catch(() => {});
@@ -1247,7 +1287,15 @@ def render_novel_html():
   <script>
     (function () {
       const DATA = window.SHINKANZEN_NOVEL_DATA;
+      const VOCAB_AUDIO = window.SHINKANZEN_NOVEL_AUDIO || {};
       if (!DATA || !DATA.chapters) return;
+
+      const novelAudio = document.getElementById("novelAudio");
+      const speedSelect = document.getElementById("novel-speed");
+      let audioRate = 1.0;
+      let chapterPlaying = false;
+      let currentPlayingTag = null;
+      let playSessionId = 0;
 
       const STORAGE_MASTERED = "penta_novel_mastered_v1";
       const STORAGE_QUIZ = "penta_novel_quiz_v1";
@@ -1537,7 +1585,28 @@ def render_novel_html():
         });
       }
 
-      function speakJapanese(text, onFinished) {
+      function clearSpeakingHighlight() {
+        document.querySelectorAll(".para-block.is-speaking").forEach(el => el.classList.remove("is-speaking"));
+        document.querySelectorAll(".para-speak-btn.is-playing").forEach(el => el.classList.remove("is-playing"));
+      }
+
+      function stopAllAudio() {
+        playSessionId++;
+        chapterPlaying = false;
+        currentPlayingTag = null;
+        if (novelAudio) {
+          novelAudio.onended = null;
+          novelAudio.onerror = null;
+          novelAudio.pause();
+          novelAudio.removeAttribute("src");
+        }
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+        clearSpeakingHighlight();
+        const chBtn = document.getElementById("btn-speak-chapter");
+        if (chBtn) chBtn.textContent = "🔊 Nghe đọc chương";
+      }
+
+      function speakWithBrowser(text, onFinished) {
         if (!("speechSynthesis" in window)) {
           announce("Trình duyệt hiện tại không hỗ trợ đọc giọng nói TTS.");
           if (onFinished) onFinished();
@@ -1546,7 +1615,7 @@ def render_novel_html():
         window.speechSynthesis.cancel();
         const utter = new SpeechSynthesisUtterance(stripFuri(text));
         utter.lang = "ja-JP";
-        utter.rate = 0.92;
+        utter.rate = Math.max(0.7, Math.min(1.5, audioRate * 0.94));
         if (onFinished) {
           utter.onend = onFinished;
           utter.onerror = onFinished;
@@ -1554,9 +1623,38 @@ def render_novel_html():
         window.speechSynthesis.speak(utter);
       }
 
+      function playMp3Track(src, fallbackText, tag, onDone) {
+        const mySession = playSessionId;
+        clearSpeakingHighlight();
+        currentPlayingTag = tag;
+        if (!novelAudio || !src) {
+          speakWithBrowser(fallbackText, () => {
+            if (playSessionId === mySession && onDone) onDone();
+          });
+          return;
+        }
+        novelAudio.playbackRate = audioRate;
+        novelAudio.onended = () => {
+          if (playSessionId !== mySession) return;
+          if (onDone) onDone();
+        };
+        novelAudio.onerror = () => {
+          if (playSessionId !== mySession) return;
+          speakWithBrowser(fallbackText, () => {
+            if (playSessionId === mySession && onDone) onDone();
+          });
+        };
+        novelAudio.src = src;
+        novelAudio.play().catch(() => {
+          if (playSessionId !== mySession) return;
+          speakWithBrowser(fallbackText, () => {
+            if (playSessionId === mySession && onDone) onDone();
+          });
+        });
+      }
+
       function loadChapter(num) {
-        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-        document.getElementById("btn-speak-chapter").textContent = "🔊 Nghe đọc chương";
+        stopAllAudio();
         hideVocabGuide();
 
         const ch = DATA.chapters.find(c => c.num === num) || DATA.chapters[0];
@@ -1571,9 +1669,14 @@ def render_novel_html():
         document.getElementById("chapter-vocab-counter").textContent = `Chương ${ch.num}/6 • ${ch.vocab_keys.length} từ & mẫu Shinkanzen tương tác`;
 
         storyBody.innerHTML = "";
-        ch.paragraphs.forEach(p => {
+        ch.paragraphs.forEach((p, idx) => {
+          const pNum = idx + 1;
+          const pTag = `c${String(ch.num).padStart(2, "0")}_p${String(pNum).padStart(2, "0")}`;
+          const mp3Src = `./audio/p/${pTag}.mp3`;
+
           const block = document.createElement("div");
           block.className = "para-block";
+          block.dataset.ptag = pTag;
 
           const jpRow = document.createElement("div");
           jpRow.className = "para-jp-row";
@@ -1586,11 +1689,19 @@ def render_novel_html():
           const spBtn = document.createElement("button");
           spBtn.type = "button";
           spBtn.className = "para-speak-btn";
-          spBtn.setAttribute("aria-label", "Nghe đọc đoạn văn này bằng tiếng Nhật");
+          spBtn.setAttribute("aria-label", `Nghe đọc đoạn ${pNum} bằng tiếng Nhật`);
           spBtn.textContent = "🔊";
           spBtn.addEventListener("click", () => {
-            document.getElementById("btn-speak-chapter").textContent = "🔊 Nghe đọc chương";
-            speakJapanese(p.plain_text);
+            if (currentPlayingTag === pTag && !chapterPlaying) {
+              stopAllAudio();
+              return;
+            }
+            stopAllAudio();
+            block.classList.add("is-speaking");
+            spBtn.classList.add("is-playing");
+            playMp3Track(mp3Src, p.plain_text, pTag, () => {
+              stopAllAudio();
+            });
           });
 
           jpRow.appendChild(jpP);
@@ -1616,10 +1727,16 @@ def render_novel_html():
         const url = new URL(window.location.href);
         url.searchParams.set("chapter", String(ch.num));
         window.history.replaceState({}, "", url.toString());
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
       }
 
       // EVENT LISTENERS (Không dùng inline onclick theo Modern Web Guidance)
+      speedSelect.addEventListener("change", function () {
+        const val = parseFloat(this.value);
+        audioRate = Number.isFinite(val) ? val : 1.0;
+        if (novelAudio) novelAudio.playbackRate = audioRate;
+      });
+
       document.getElementById("btn-toggle-highlight").addEventListener("click", function () {
         const pressed = this.getAttribute("aria-pressed") === "true";
         const next = !pressed;
@@ -1645,21 +1762,53 @@ def render_novel_html():
       });
 
       document.getElementById("btn-speak-chapter").addEventListener("click", function () {
-        if (!("speechSynthesis" in window)) {
-          this.textContent = "⚠️ Không hỗ trợ TTS";
-          return;
-        }
-        if (window.speechSynthesis.speaking) {
-          window.speechSynthesis.cancel();
-          this.textContent = "🔊 Nghe đọc chương";
+        if (chapterPlaying) {
+          stopAllAudio();
           return;
         }
         const ch = DATA.chapters.find(c => c.num === currentChapterNum);
-        if (!ch) return;
-        const fullTxt = ch.paragraphs.map(p => p.plain_text).join("。");
-        this.textContent = "⏹ Dừng đọc";
-        speakJapanese(fullTxt, () => {
-          this.textContent = "🔊 Nghe đọc chương";
+        if (!ch || !ch.paragraphs.length) return;
+
+        stopAllAudio();
+        chapterPlaying = true;
+        const mySession = playSessionId;
+        const blocks = Array.from(storyBody.querySelectorAll(".para-block"));
+
+        const playNext = (idx) => {
+          if (!chapterPlaying || playSessionId !== mySession) return;
+          if (idx >= ch.paragraphs.length) {
+            stopAllAudio();
+            return;
+          }
+          const p = ch.paragraphs[idx];
+          const pTag = `c${String(ch.num).padStart(2, "0")}_p${String(idx + 1).padStart(2, "0")}`;
+          const mp3Src = `./audio/p/${pTag}.mp3`;
+          this.textContent = `⏹ Dừng (${idx + 1}/${ch.paragraphs.length})`;
+
+          playMp3Track(mp3Src, p.plain_text, pTag, () => playNext(idx + 1));
+          const blk = blocks[idx];
+          if (blk) {
+            blk.classList.add("is-speaking");
+            const sb = blk.querySelector(".para-speak-btn");
+            if (sb) sb.classList.add("is-playing");
+          }
+        };
+
+        playNext(0);
+      });
+
+      document.getElementById("vg-speak-word").addEventListener("click", () => {
+        if (!activeKey) return;
+        const entry = DATA.glossary[activeKey];
+        if (!entry) return;
+        stopAllAudio();
+        const audioFile = VOCAB_AUDIO[activeKey];
+        const mp3Src = audioFile ? `./audio/v/${audioFile}` : null;
+        const fallback = (entry.reading && entry.kind !== "grammar")
+          ? entry.reading
+          : stripFuri(entry.plain || entry.furi || activeKey).replace(/〜/g, "");
+        playMp3Track(mp3Src, fallback, `v_${activeKey}`, () => {
+          currentPlayingTag = null;
         });
       });
 
