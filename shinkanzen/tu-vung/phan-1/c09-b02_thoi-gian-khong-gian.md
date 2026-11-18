@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 9 của **Shinkanzen Master Từ vựng N2 (9章 2課: 時間・空間の言葉)** — bài cuối Phần 1 — tổng hợp các từ vựng trừu tượng chỉ **quá trình thời gian, khoảng cách, phương hướng, vị trí và phạm vi**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c09_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 07 (Chương 07: Ngay Trước Giờ Quyết Chiến! Bên Trong & Bên Ngoài Không Gian Kết Giới)**](../../../novel/index.html?novel=isekai&chapter=7) ([Bản MD](../../../novel/isekai/chuong-07.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c09_b02)
 
 ---
 

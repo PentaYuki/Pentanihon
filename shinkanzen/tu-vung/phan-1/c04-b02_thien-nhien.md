@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 4 của **Shinkanzen Master Từ vựng N2 (4章 2課: 自然)** mô tả **phong cảnh núi sông biển đảo, ánh nắng, độ cao và sự biến đổi thiên nhiên** khi đi du lịch dã ngoại."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c04_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 01 (Chương 01: Vùng Đất Được Ban Tặng & Tầm Nhìn Từ Đỉnh Núi Biên Ải)**](../../../novel/index.html?novel=isekai&chapter=1) ([Bản MD](../../../novel/isekai/chuong-01.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c04_b02)
 
 ---
 

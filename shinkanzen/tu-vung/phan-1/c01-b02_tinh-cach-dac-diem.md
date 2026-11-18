@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 1 của **Shinkanzen Master Từ vựng N2 (1章 2課: 人の性格・特徴)** chuyên về các tính từ, danh từ miêu tả tính cách đối lập (tích cực ⇄ tiêu cực), khí chất và ấn tượng bề ngoài."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c01_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 02 (Chương 02: Cô Nàng Tỉ Mỉ & Chàng Trai Hấp Tấp)**](../../../novel/index.html?novel=romcom&chapter=2) ([Bản MD](../../../novel/romcom/chuong-02.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c01_b02)
 
 ---
 

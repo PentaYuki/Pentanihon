@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 4 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 4章 2課: 後ろに決まった表現が来る副詞)** là bài học ăn điểm chắc chắn ở cả Từ vựng lẫn Ngữ pháp (Mondai 7, 8, 9): **hễ thấy phó từ ở đầu câu là đoán trúng ngay đuôi câu phía sau**!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c04_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 10 (Chương 10: Lời Thề Tuyệt Đối Không Buông Tay & Chiếc Lồng Đẹp Như Mơ)**](../../../novel/index.html?novel=yandere&chapter=10) ([Bản MD](../../../novel/yandere/chuong-10.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c04_b02)
 
 ---
 

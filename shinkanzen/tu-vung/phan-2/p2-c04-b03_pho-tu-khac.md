@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 3 Chương 4 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 4章 3課)** tổng hợp những phó từ tinh tế hay gây bất ngờ nhất trong đề đọc hiểu và từ vựng N2 (`案の定`, `かえって`, `思い切って`, `わざわざ`, `あいにく`, `せっかく`)."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c04_b03)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 11 (Chương 11: Thực Ra Thì... Y Như Dự Đoán, Anh Cũng Đã Phải Lòng Em Rồi)**](../../../novel/index.html?novel=yandere&chapter=11) ([Bản MD](../../../novel/yandere/chuong-11.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c04_b03)
 
 ---
 

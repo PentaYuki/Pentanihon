@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 7 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 7章 2課: 単語の前に漢字をプラス)** chuyên trị **Mondai 3**: phân biệt chuẩn xác các tiền tố phủ định (`無・不・非・未`) và tiền tố bổ nghĩa (`再・総・各・諸・最・好・悪`)."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c07_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 10 (Chương 10: Triển Lãm Vương Đô — Thắng Lợi Rực Rỡ Của Công Nghệ Mới & Tái Phát Triển)**](../../../novel/index.html?novel=isekai&chapter=10) ([Bản MD](../../../novel/isekai/chuong-10.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c07_b02)
 
 ---
 

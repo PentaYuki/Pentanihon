@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Mở đầu Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 1章 1課: 動詞①)** là những động từ quen thuộc nhưng mang nhiều nghĩa mở rộng trừu tượng — dạng bài 'sát thủ' của Mondai 5 (cách dùng từ trong câu)!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c01_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 05 (Chương 05: Căn Phòng Bị Khóa Trái & Tiếng Thở Dài Run Rẩy)**](../../../novel/index.html?novel=yandere&chapter=5) ([Bản MD](../../../novel/yandere/chuong-05.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c01_b01)
 
 ---
 

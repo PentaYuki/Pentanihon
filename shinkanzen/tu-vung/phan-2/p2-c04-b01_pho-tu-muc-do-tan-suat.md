@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 4 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 4章 1課: 程度・時間・頻度の副詞)** tập hợp nhóm phó từ đo lường mức độ, mốc thời gian và tần suất lặp lại cực hay thi ở Mondai 3/4/5."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c04_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 09 (Chương 09: Sự Bình Yên Cuối Cùng Cũng Tới & Cái Bóng Luôn Dõi Theo Không Ngớt)**](../../../novel/index.html?novel=yandere&chapter=9) ([Bản MD](../../../novel/yandere/chuong-09.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c04_b01)
 
 ---
 

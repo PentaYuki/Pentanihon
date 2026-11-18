@@ -14,8 +14,23 @@ from collections import OrderedDict
 
 from shinkanzen_goi_data_p1 import GOI_PART1
 from shinkanzen_goi_data_p2 import GOI_PART2
+from novel_data_romcom import ROMCOM_NOVEL
+from novel_data_yandere import YANDERE_NOVEL
+from novel_data_isekai import ISEKAI_NOVEL
 
 BASE_OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../shinkanzen/tu-vung"))
+
+LESSON_TO_NOVEL = {}
+for _nov in (ROMCOM_NOVEL, YANDERE_NOVEL, ISEKAI_NOVEL):
+    for _ch in _nov["chapters"]:
+        LESSON_TO_NOVEL[_ch["lesson_id"]] = {
+            "novel_id": _nov["id"],
+            "novel_slug": _nov["slug"],
+            "genre_short": {"romcom": "Bộ 1 Romcom", "yandere": "Bộ 2 Yandere", "isekai": "Bộ 3 Isekai"}[_nov["id"]],
+            "ch_num": _ch["num"],
+            "ch_slug": _ch["slug"],
+            "ch_title": _ch["title_vi"],
+        }
 
 
 def escape_md_cell(text):
@@ -23,6 +38,14 @@ def escape_md_cell(text):
 
 
 def render_goi_lesson(lesson, idx, total, part_num, prev_rel, next_rel):
+    nov_ref = LESSON_TO_NOVEL.get(lesson["id"])
+    nov_banner = ""
+    if nov_ref:
+        nov_banner = (
+            f"📖 [**Học bài này qua Tiểu thuyết: {nov_ref['genre_short']} — Chương {nov_ref['ch_num']:02d} ({nov_ref['ch_title']})**]"
+            f"(../../../novel/index.html?novel={nov_ref['novel_id']}&chapter={nov_ref['ch_num']}) "
+            f"([Bản MD](../../../novel/{nov_ref['novel_slug']}/{nov_ref['ch_slug']}.md)) | "
+        )
     lines = [
         f"# 🌸 {lesson['chapter']} — {lesson['lesson']}: {lesson['title_vi']}",
         f"## Giáo trình: 新完全マスター語彙 N2 — 第{part_num}部（{lesson['chapter']}）",
@@ -30,7 +53,7 @@ def render_goi_lesson(lesson, idx, total, part_num, prev_rel, next_rel):
         "> 🌸 **Lời dặn của chị Yuki:**  ",
         f"> *\"{lesson['intro']}\"*",
         "",
-        f"🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson={lesson['id']})",
+        f"{nov_banner}🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson={lesson['id']})",
         "",
         "---",
         "",

@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 6 của **Shinkanzen Master Từ vựng N2 (6章 2課: コンピューター)** bao gồm toàn bộ thao tác văn phòng trên máy tính, gửi nhận email và kết nối mạng Internet."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c06_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 03 (Chương 03: Lịch Sử Bị Xóa Sạch & Đôi Mắt Sau Màn Hình Máy Tính)**](../../../novel/index.html?novel=yandere&chapter=3) ([Bản MD](../../../novel/yandere/chuong-03.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c06_b02)
 
 ---
 

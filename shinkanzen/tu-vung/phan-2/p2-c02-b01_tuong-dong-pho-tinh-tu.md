@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 2 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 2章 1課: 副詞・形容詞)** giải mã ranh giới tinh tế giữa các phó từ và tính từ có nghĩa gần giống nhau (`たぶん vs おそらく`, `かなり vs ずいぶん`, `うるさい vs やかましい`)."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c02_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 12 (Chương 12: Buổi Họp Lớp Đầy Nghi Ngờ & Hiểu Lầm Đáng Tiếc)**](../../../novel/index.html?novel=romcom&chapter=12) ([Bản MD](../../../novel/romcom/chuong-12.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c02_b01)
 
 ---
 

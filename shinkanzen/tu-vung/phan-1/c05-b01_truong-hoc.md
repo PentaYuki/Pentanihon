@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 5 của **Shinkanzen Master Từ vựng N2 (5章 1課: 学校)** tập trung vào **hệ thống giáo dục, học tín chỉ đại học, thi cử, nghiên cứu và năng lực học tập**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c05_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 07 (Chương 07: Chiếc Ghế Kế Bên Ở Thư Viện & Kết Quả Kỳ Thi Thử)**](../../../novel/index.html?novel=romcom&chapter=7) ([Bản MD](../../../novel/romcom/chuong-07.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c05_b01)
 
 ---
 

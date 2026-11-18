@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 7 của **Shinkanzen Master Từ vựng N2 (7章 1課: 行事)** xoay quanh các **lễ hội truyền thống hàng năm (年中行事), nghi lễ cầu nguyện, gặp gỡ – đính hôn – kết hôn – ly hôn (冠婚葬祭)**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c07_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 10 (Chương 10: Lời Đính Ước Dưới Tán Anh Đào & Ngày Cử Hành Hôn Lễ)**](../../../novel/index.html?novel=romcom&chapter=10) ([Bản MD](../../../novel/romcom/chuong-10.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c07_b01)
 
 ---
 

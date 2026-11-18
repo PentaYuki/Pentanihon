@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 3 Chương 1 của **Shinkanzen Master Từ vựng N2 (1章 3課: 人に対する感情・行動)** tập hợp các động từ và tính từ mô tả tình cảm yêu – ghét, ngưỡng mộ – đố kỵ, quan tâm – lừa dối giữa người với người."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c01_b03)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 01 (Chương 01: Phía Sau Nụ Cười Ngưỡng Mộ & Hơi Thở Của Sự Ghen Tuông)**](../../../novel/index.html?novel=yandere&chapter=1) ([Bản MD](../../../novel/yandere/chuong-01.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c01_b03)
 
 ---
 

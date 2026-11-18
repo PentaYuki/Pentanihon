@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 1 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 1章 2課: 動詞②)** tiếp tục hệ thống các động từ đa nghĩa tần suất cao: `おちる`, `かえる`, `すぎる`, `すすむ`, `つづく`, `とおる`, `なおす`, `のこる`, `はらう`, `ひく`."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c01_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 06 (Chương 06: Lời Nói Đọng Lại Trong Tim & Cái Bẫy Không Thể Rút Lui)**](../../../novel/index.html?novel=yandere&chapter=6) ([Bản MD](../../../novel/yandere/chuong-06.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c01_b02)
 
 ---
 

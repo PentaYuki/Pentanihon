@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 9 của **Shinkanzen Master Từ vựng N2 (9章 1課: 数量を表す言葉)** tổng hợp các khái niệm **số lượng, tỷ lệ phần trăm, tăng giảm, ước chừng và mức độ** hay gặp trong bài đọc biểu đồ và số liệu."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c09_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 06 (Chương 06: Ma Vương Quân Tập Kích! Dữ Liệu Khổng Lồ & Chiến Lược Số Học)**](../../../novel/index.html?novel=isekai&chapter=6) ([Bản MD](../../../novel/isekai/chuong-06.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c09_b01)
 
 ---
 

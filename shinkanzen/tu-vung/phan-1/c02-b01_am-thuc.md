@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 2 của **Shinkanzen Master Từ vựng N2 (2章 1課: 食生活)** chuyên về **nguyên liệu, gia vị, các động tác nấu nướng, mùi vị và bảo quản thực phẩm**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c02_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 03 (Chương 03: Món Cơm Cuộn Trứng Cháy & Gia Vị Tình Yêu Thơm Lừng)**](../../../novel/index.html?novel=romcom&chapter=3) ([Bản MD](../../../novel/romcom/chuong-03.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c02_b01)
 
 ---
 

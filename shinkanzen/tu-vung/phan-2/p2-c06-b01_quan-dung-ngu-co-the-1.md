@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 6 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 6章 1課: 体の言葉を使った慣用表現①)** gồm các thành ngữ cơ thể phần trên (`頭・顔・目・耳・鼻・口`) — siêu hay ra thi Mondai 4 & 5!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c06_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 13 (Chương 13: Đồng Thanh Chúc Mừng! Đêm Cuối Rạng Rỡ Nụ Cười Trên Gương Mặt)**](../../../novel/index.html?novel=romcom&chapter=13) ([Bản MD](../../../novel/romcom/chuong-13.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c06_b01)
 
 ---
 

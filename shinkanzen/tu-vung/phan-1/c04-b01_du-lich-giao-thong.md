@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 4 của **Shinkanzen Master Từ vựng N2 (4章 1課: 旅行・交通)** cung cấp hệ thống từ vựng thực chiến khi **đặt vé, ở khách sạn, di chuyển bằng tàu xe và xử lý sự cố giao thông**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c04_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 06 (Chương 06: Tấm Vé Khứ Hồi & Một Đêm Ở Lữ Quán Suối Nước Nóng)**](../../../novel/index.html?novel=romcom&chapter=6) ([Bản MD](../../../novel/romcom/chuong-06.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c04_b01)
 
 ---
 

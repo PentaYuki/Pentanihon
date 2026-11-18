@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 8 của **Shinkanzen Master Từ vựng N2 (8章 2課: 科学・技術)** trang bị các động từ và danh từ học thuật về **thí nghiệm, chứng minh giả thuyết, phát minh, bằng sáng chế và đổi mới công nghệ**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c08_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 05 (Chương 05: Nghiên Cứu Cùng Luna & Cuộc Cách Mạng Công Nghệ Mang Tính Đột Phá)**](../../../novel/index.html?novel=isekai&chapter=5) ([Bản MD](../../../novel/isekai/chuong-05.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c08_b02)
 
 ---
 

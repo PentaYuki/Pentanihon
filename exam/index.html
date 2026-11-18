@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đề Thi Thử Chuẩn JLPT N2 — Tự Chấm Điểm &amp; Giải Thích Đúng/Sai | PentaNihonGo</title>
+  <meta name="description" content="Hệ thống 6 đề thi thử chuẩn JLPT N2 (222 câu: 3 Đề Full Mondai 1-9 &amp; 3 Đề Ôn Tập Romcom/Yandere/Isekai). Tự động chấm điểm, giải thích cả khi chọn Đúng và Sai, kèm lời nhắc dễ thương của chị Yuki.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --surface-soft: #eef1f7;
+      --text: #1b2232;
+      --text-muted: #525c72;
+      --border: #d5dce8;
+      --border-strong: #adb9ce;
+      --accent: #364fc7;
+      --accent-soft: #edf2ff;
+      --ok: #1b6e2f;
+      --ok-bg: #ebfbee;
+      --ok-border: #2f9e44;
+      --err: #b81d1d;
+      --err-bg: #fff5f5;
+      --err-border: #e03131;
+      --flag: #b45309;
+      --flag-bg: #fff8db;
+      --yuki-bg: #fff5f8;
+      --yuki-border: #f3b8ca;
+      --radius: 12px;
+      --font-vi: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-jp: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #11141d;
+        --panel: #1a1f2c;
+        --surface-soft: #232a3b;
+        --text: #edf1fa;
+        --text-muted: #adb8d0;
+        --border: #2e374d;
+        --border-strong: #4a5675;
+        --accent: #748ffc;
+        --accent-soft: #1f2747;
+        --ok: #69db7c;
+        --ok-bg: #122819;
+        --ok-border: #40c057;
+        --err: #ff8787;
+        --err-bg: #321616;
+        --err-border: #fa5252;
+        --flag: #fbbf24;
+        --flag-bg: #2e2514;
+        --yuki-bg: #2a1922;
+        --yuki-border: #873a5c;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #11141d;
+      --panel: #1a1f2c;
+      --surface-soft: #232a3b;
+      --text: #edf1fa;
+      --text-muted: #adb8d0;
+      --border: #2e374d;
+      --border-strong: #4a5675;
+      --accent: #748ffc;
+      --accent-soft: #1f2747;
+      --ok: #69db7c;
+      --ok-bg: #122819;
+      --ok-border: #40c057;
+      --err: #ff8787;
+      --err-bg: #321616;
+      --err-border: #fa5252;
+      --flag: #fbbf24;
+      --flag-bg: #2e2514;
+      --yuki-bg: #2a1922;
+      --yuki-border: #873a5c;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; overflow-x: clip; max-width: 100%; }
+    body {
+      font-family: var(--font-vi);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+    :where(a, button, summary, input, [tabindex="0"]):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* Header */
+    .topbar {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 40;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-pill.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .container {
+      max-width: 1360px;
+      margin: 16px auto 48px;
+      padding: 0 16px;
+      display: grid;
+      gap: 16px;
+    }
+
+    /* Exam selector */
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .exam-card-btn {
+      text-align: start;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      gap: 5px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .exam-card-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .exam-card-btn[aria-current="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .ec-code { font-size: 0.75rem; font-weight: 800; color: var(--accent); }
+    .ec-title { font-size: 0.96rem; font-weight: 800; }
+    .ec-meta { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Mode + Timer Toolbar */
+    .runner-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(290px, 0.95fr);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 1000px) {
+      .runner-layout { grid-template-columns: 1fr; }
+    }
+
+    .panel-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .sticky-side {
+      position: sticky;
+      inset-block-start: 68px;
+    }
+    @media (max-width: 1000px) {
+      .sticky-side { position: static; }
+    }
+
+    .yuki-banner {
+      background: var(--yuki-bg);
+      border: 1px solid var(--yuki-border);
+      border-inline-start: 4px solid #d6336c;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .mode-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .mode-btn {
+      padding: 7px 13px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+    .mode-btn[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Question Cards */
+    .mondai-header {
+      margin: 22px 0 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      border-inline-start: 4px solid var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .passage-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 10px 0 14px;
+      font-family: var(--font-jp);
+      font-size: 0.98rem;
+      line-height: 1.9;
+    }
+
+    .q-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      background: var(--panel);
+    }
+    .q-card.is-flagged {
+      border-color: var(--flag);
+      box-shadow: inset 3px 0 0 var(--flag);
+    }
+    .q-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .q-num { font-weight: 800; color: var(--accent); font-size: 0.9rem; }
+    .flag-btn {
+      padding: 3px 9px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-soft);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .flag-btn[aria-pressed="true"] {
+      background: var(--flag-bg);
+      border-color: var(--flag);
+      color: var(--flag);
+    }
+    .q-prompt {
+      font-family: var(--font-jp);
+      font-size: 1.03rem;
+      line-height: 1.85;
+      margin-bottom: 10px;
+      white-space: pre-line;
+    }
+    .q-prompt u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      font-weight: 700;
+    }
+    .q-opts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+    }
+    .q-opt-btn {
+      text-align: start;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-family: var(--font-jp);
+      font-size: 0.94rem;
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .q-opt-btn:hover:not(:disabled) { border-color: var(--accent); }
+    .q-opt-btn.selected {
+      background: var(--accent-soft);
+      border: 2px solid var(--accent);
+      font-weight: 700;
+    }
+    .q-opt-btn.right {
+      background: var(--ok-bg);
+      border: 2px solid var(--ok-border);
+      color: var(--ok);
+      font-weight: 800;
+    }
+    .q-opt-btn.wrong {
+      background: var(--err-bg);
+      border: 2px solid var(--err-border);
+      color: var(--err);
+      font-weight: 800;
+    }
+
+    .exp-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .exp-box.right {
+      background: var(--ok-bg);
+      border-color: var(--ok-border);
+    }
+    .exp-box.wrong {
+      background: var(--err-bg);
+      border-color: var(--err-border);
+    }
+    .exp-cute {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .exp-src {
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+
+    /* Navigator Grid & Timer */
+    .timer-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background: var(--surface-soft);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .nav-q-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+      gap: 5px;
+      margin: 10px 0 14px;
+    }
+    .nav-q-dot {
+      padding: 5px 0;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .nav-q-dot.answered { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .nav-q-dot.flagged { outline: 2px solid var(--flag); }
+    .nav-q-dot.res-right { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok); }
+    .nav-q-dot.res-wrong { background: var(--err-bg); border-color: var(--err-border); color: var(--err); }
+
+    /* Score Summary + Responsive Mondai Table */
+    .score-summary-card {
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      border: 2px solid var(--accent);
+      background: var(--accent-soft);
+      margin-bottom: 16px;
+    }
+    .table-wrap {
+      overflow: auto;
+      max-inline-size: 100%;
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      margin-top: 12px;
+    }
+    table.mondai-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.86rem;
+    }
+    table.mondai-table caption {
+      text-align: start;
+      padding: 8px 12px;
+      font-weight: 800;
+      background: var(--surface-soft);
+    }
+    table.mondai-table th, table.mondai-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: start;
+    }
+    table.mondai-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      background: var(--surface-soft);
+      z-index: 1;
+    }
+
+    /* Filter Tabs (accessible) */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+
+    /* Native Modal Dialogs (modern-web-guidance dialog Rule 1) */
+    dialog {
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 20px 22px;
+      max-width: min(440px, calc(100vw - 24px));
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+    dialog:modal {
+      overscroll-behavior: contain;
+    }
+    dialog::backdrop {
+      background: rgba(15, 23, 42, 0.55);
+      overflow: hidden;
+      overscroll-behavior: contain;
+    }
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    @media (pointer: coarse) {
+      .nav-pill, .mode-btn, .q-opt-btn, .flag-btn, .nav-q-dot {
+        min-block-size: 44px;
+      }
+    }
+    @media (forced-colors: active) {
+      .q-opt-btn.right, .q-opt-btn.wrong { border: 2px solid CanvasText; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Chuyển tới khu vực làm bài</a>
+  <div id="live-status" class="visually-hidden" aria-live="polite"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <a href="../index.html" class="nav-pill">🏠 PentaNihonGo</a>
+        <strong style="font-size:1rem;color:var(--accent);">🎯 Trung Tâm Đề Thi Chuẩn JLPT N2</strong>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <button type="button" id="btn-theme" class="nav-pill">🌙 Giao diện</button>
+        <a href="../novel/index.html" class="nav-pill">📖 3 Bộ Tiểu Thuyết N2</a>
+        <a href="../shinkanzen/tu-vung/flashcards.html" class="nav-pill">🎴 Flashcards</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <section aria-label="Chọn bộ đề thi">
+      <h1 style="margin:0 0 10px;font-size:clamp(1.25rem,2.4vw,1.65rem);">📝 Bộ 6 Đề Thi Thử Chuẩn JLPT N2 (222 Câu Hỏi • Tự Chấm &amp; Giải Thích Đúng/Sai)</h1>
+      <nav id="exam-grid" class="exam-grid" aria-label="Danh sách 6 đề thi"></nav>
+    </section>
+
+    <div class="runner-layout">
+      <section class="panel-box" aria-labelledby="active-exam-title">
+        <div id="yuki-exam-note" class="yuki-banner"></div>
+
+        <h2 id="active-exam-title" style="margin:0 0 4px;font-size:1.25rem;"></h2>
+        <div id="active-exam-jp" lang="ja" style="font-family:var(--font-jp);color:var(--text-muted);font-weight:700;margin-bottom:12px;"></div>
+
+        <div class="mode-switch" role="group" aria-label="Chế độ làm bài">
+          <button type="button" id="btn-mode-exam" class="mode-btn" aria-pressed="true">⏱️ Thi thật (Chấm sau khi nộp)</button>
+          <button type="button" id="btn-mode-practice" class="mode-btn" aria-pressed="false">🌸 Luyện tập (Giải thích Đúng/Sai tức thì)</button>
+        </div>
+
+        <div id="result-summary-slot" hidden></div>
+        <div id="filter-row" class="filter-row" hidden>
+          <button type="button" class="mode-btn" data-filter="all" aria-pressed="true">Tất cả câu</button>
+          <button type="button" class="mode-btn" data-filter="wrong" aria-pressed="false">❌ Chỉ xem câu SAI</button>
+          <button type="button" class="mode-btn" data-filter="right" aria-pressed="false">✅ Chỉ xem câu ĐÚNG</button>
+          <button type="button" class="mode-btn" data-filter="flagged" aria-pressed="false">🚩 Đã gắn cờ</button>
+        </div>
+
+        <div id="questions-container"></div>
+      </section>
+
+      <aside class="panel-box sticky-side" aria-label="Bảng điều hướng câu hỏi và chấm điểm">
+        <div class="timer-box">
+          <span id="timer-display">⏳ 55:00</span>
+          <button type="button" id="btn-timer-toggle" class="flag-btn">⏸ Tạm dừng</button>
+        </div>
+
+        <div id="side-progress-txt" style="font-size:0.86rem;font-weight:700;">Đã chọn: 0 / 54 câu</div>
+        <div id="nav-q-grid" class="nav-q-grid" aria-label="Điều hướng nhanh các câu hỏi"></div>
+
+        <div style="display:grid;gap:8px;">
+          <button type="button" id="btn-submit-exam" class="nav-pill primary" style="justify-content:center;padding:10px;">📊 Nộp bài &amp; Tự Chấm Điểm</button>
+          <button type="button" id="btn-reset-exam" class="nav-pill" style="justify-content:center;padding:8px;">🔄 Làm lại đề này</button>
+        </div>
+
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">
+          <strong style="font-size:0.88rem;">🏆 Lịch sử làm bài gần đây:</strong>
+          <ul id="history-list" style="margin:6px 0 0;padding-left:18px;font-size:0.8rem;color:var(--text-muted);"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Native Modal Confirmation Dialogs (modern-web-guidance dialog Rule 1: NO role="dialog" / aria-modal) -->
+  <dialog id="submit-dialog" aria-labelledby="submit-dialog-title">
+    <h2 id="submit-dialog-title" style="margin:0 0 8px;font-size:1.12rem;">🌸 Xác nhận nộp bài JLPT N2?</h2>
+    <p id="submit-dialog-msg" style="margin:0;font-size:0.92rem;"></p>
+    <form method="dialog" class="dialog-actions">
+      <button value="cancel" class="mode-btn" autofocus>⬅️ Quay lại kiểm tra</button>
+      <button value="confirm" class="nav-pill primary">✅ Nộp bài ngay</button>
+    </form>
+  </dialog>
+
+  <dialog id="reset-dialog" aria-labelledby="reset-dialog-title">
+    <h2 id="reset-dialog-title" style="margin:0 0 8px;font-size:1.12rem;">🔄 Làm lại từ đầu?</h2>
+    <p style="margin:0;font-size:0.92rem;">Tất cả đáp án đang chọn cho đề này sẽ được xóa để em làm lại mới tinh nha~</p>
+    <form method="dialog" class="dialog-actions">
+      <button value="cancel" class="mode-btn" autofocus>Hủy</button>
+      <button value="confirm" class="nav-pill primary">Làm lại</button>
+    </form>
+  </dialog>
+
+  <script src="./exam-data.js"></script>
+  <script>
+    (function () {
+      const DATA = window.JLPT_EXAM_DATA;
+      if (!DATA) return;
+      const EXAMS = DATA.exams;
+
+      const LS_THEME = "penta_exam_theme";
+      const LS_HIST = "penta_exam_history_v2";
+      const LS_DRAFT = "penta_exam_drafts_v2";
+
+      const rootEl = document.documentElement;
+      const savedTheme = localStorage.getItem(LS_THEME);
+      if (savedTheme === "dark" || savedTheme === "light") rootEl.setAttribute("data-theme", savedTheme);
+
+      const $ = (id) => document.getElementById(id);
+      const live = $("live-status");
+      function announce(msg) {
+        live.textContent = "";
+        requestAnimationFrame(() => { live.textContent = msg; });
+      }
+
+      $("btn-theme").addEventListener("click", () => {
+        const cur = rootEl.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const next = cur === "dark" ? "light" : "dark";
+        rootEl.setAttribute("data-theme", next);
+        localStorage.setItem(LS_THEME, next);
+      });
+
+      let curExamIdx = 0;
+      let mode = "exam"; // "exam" | "practice"
+      let submitted = false;
+      let curFilter = "all";
+      let answers = {}; // { qNum: 1..4 }
+      let flags = {};   // { qNum: true }
+      let timeLeft = 0;
+      let timerPaused = false;
+      let timerHandle = null;
+
+      function loadDrafts() {
+        try { return JSON.parse(localStorage.getItem(LS_DRAFT) || "{}"); } catch (_) { return {}; }
+      }
+      function saveDraft() {
+        const ex = EXAMS[curExamIdx];
+        const all = loadDrafts();
+        all[ex.id] = { answers, flags, submitted, mode };
+        localStorage.setItem(LS_DRAFT, JSON.stringify(all));
+      }
+
+      function loadHistory() {
+        try { return JSON.parse(localStorage.getItem(LS_HIST) || "[]"); } catch (_) { return []; }
+      }
+      function pushHistory(entry) {
+        const hist = loadHistory();
+        hist.unshift(entry);
+        localStorage.setItem(LS_HIST, JSON.stringify(hist.slice(0, 12)));
+        renderHistory();
+      }
+      function renderHistory() {
+        const hist = loadHistory();
+        const ul = $("history-list");
+        if (!hist.length) {
+          ul.innerHTML = "<li>Chưa có lượt nộp bài nào. Em hãy làm thử một đề nha 🌸</li>";
+          return;
+        }
+        ul.innerHTML = hist.map(h => `<li><strong>${h.code}</strong>: ${h.raw}/${h.total} câu (Thang: <strong>${h.scaled}/${h.maxScaled}</strong>) — ${h.time}</li>`).join("");
+      }
+
+      function parseUrl() {
+        const p = new URLSearchParams(location.search);
+        const eid = p.get("exam");
+        if (eid) {
+          const i = EXAMS.findIndex(e => e.id === eid);
+          if (i >= 0) curExamIdx = i;
+        }
+      }
+
+      function startTimer() {
+        if (timerHandle) clearInterval(timerHandle);
+        timerHandle = setInterval(() => {
+          if (timerPaused || submitted || mode === "practice") return;
+          if (timeLeft > 0) timeLeft--;
+          updateTimerLabel();
+        }, 1000);
+      }
+      function updateTimerLabel() {
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        $("timer-display").textContent = (mode === "practice" ? "🌸 Luyện tập tự do" : `⏳ ${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`);
+      }
+
+      function renderExamSelector() {
+        const grid = $("exam-grid");
+        grid.innerHTML = "";
+        EXAMS.forEach((ex, idx) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "exam-card-btn";
+          b.setAttribute("aria-current", idx === curExamIdx ? "true" : "false");
+          const tag = ex.category === "full" ? "🏆 ĐỀ FULL JLPT N2" : "📖 ĐỀ ÔN TẬP TIỂU THUYẾT";
+          b.innerHTML = `<span class="ec-code">${tag} • ${ex.code}</span><span class="ec-title">${ex.title_vi}</span><span class="ec-meta">${ex.questions.length} câu • ${ex.duration_min} phút • ${ex.description.slice(0, 72)}...</span>`;
+          b.addEventListener("click", () => {
+            curExamIdx = idx;
+            initExamState();
+          });
+          grid.appendChild(b);
+        });
+      }
+
+      function initExamState() {
+        const ex = EXAMS[curExamIdx];
+        const url = new URL(location.href);
+        url.searchParams.set("exam", ex.id);
+        history.replaceState(null, "", url.toString());
+
+        const drafts = loadDrafts()[ex.id] || {};
+        answers = drafts.answers || {};
+        flags = drafts.flags || {};
+        submitted = Boolean(drafts.submitted);
+        mode = drafts.mode || "exam";
+        curFilter = "all";
+        timeLeft = ex.duration_min * 60;
+        timerPaused = false;
+        $("btn-timer-toggle").textContent = "⏸ Tạm dừng";
+
+        renderExamSelector();
+        updateModeButtons();
+        updateTimerLabel();
+        startTimer();
+        renderActiveExam();
+      }
+
+      function updateModeButtons() {
+        $("btn-mode-exam").setAttribute("aria-pressed", String(mode === "exam"));
+        $("btn-mode-practice").setAttribute("aria-pressed", String(mode === "practice"));
+      }
+
+      function buildExplanationHtml(q, chosen) {
+        const isRight = chosen === q.ans;
+        const boxCls = isRight ? "exp-box right" : "exp-box wrong";
+        const rightOptText = `${q.ans}. ${q.options[q.ans - 1]}`;
+        let html = `<div class="${boxCls}">`;
+        if (isRight) {
+          html += `<div class="exp-cute">✅ ĐÁP ÁN ĐÚNG! ${q.cute_right_msg}</div>`;
+          html += `<div>💡 <strong>Giải thích vì sao chọn đúng (${rightOptText}):</strong> ${q.right_exp}</div>`;
+        } else if (chosen != null) {
+          const chosenText = `${chosen}. ${q.options[chosen - 1]}`;
+          html += `<div class="exp-cute">❌ CHƯA ĐÚNG RỒI! ${q.cute_wrong_msg}</div>`;
+          html += `<div>⚠️ <strong>Vì sao bạn chọn ${chosenText} bị SAI:</strong> ${q.wrong_exps[chosen - 1]}</div>`;
+          html += `<div style="margin-top:4px;">✅ <strong>Đáp án đúng là ${rightOptText}:</strong> ${q.right_exp}</div>`;
+        } else {
+          html += `<div class="exp-cute">⏳ EM CHƯA CHỌN ĐÁP ÁN CÂU NÀY!</div>`;
+          html += `<div>✅ <strong>Đáp án đúng là ${rightOptText}:</strong> ${q.right_exp}</div>`;
+        }
+        html += `<div style="margin-top:6px;color:var(--text-muted);">🇻🇳 <em>Dịch nghĩa câu:</em> ${q.prompt_vi}</div>`;
+        html += `<details style="margin-top:6px;"><summary style="cursor:pointer;font-weight:700;">🔎 Xem chi tiết cả 4 phương án A/B/C/D</summary><ul style="margin:6px 0 0;padding-left:18px;">` +
+          q.options.map((o, idx) => `<li><strong>${idx + 1}. ${o}</strong> (${idx + 1 === q.ans ? "✅ Đúng" : "❌ Sai"}): ${q.wrong_exps[idx]}</li>`).join("") +
+          `</ul></details>`;
+
+        if (q.source_ref && q.source_ref.novel) {
+          const sr = q.source_ref;
+          html += `<div class="exp-src">📖 Nguồn ôn tập: <a href="../novel/index.html?novel=${sr.novel}&chapter=${sr.chapter}" style="font-weight:700;color:var(--accent);">${sr.label} (Mở đọc lại ngay)</a></div>`;
+        }
+        html += `</div>`;
+        return html;
+      }
+
+      function renderActiveExam() {
+        const ex = EXAMS[curExamIdx];
+        $("active-exam-title").textContent = ex.title_vi;
+        $("active-exam-jp").textContent = ex.title_jp;
+        $("yuki-exam-note").innerHTML = `<strong>🌸 Nhắc nhẹ từ chị Yuki:</strong> ${ex.yuki_note_start}`;
+
+        const cont = $("questions-container");
+        cont.innerHTML = "";
+        let lastMondai = "";
+        let lastPassage = "";
+
+        ex.questions.forEach((q) => {
+          const chosen = answers[q.num];
+          const isRight = chosen === q.ans;
+          const isFlagged = Boolean(flags[q.num]);
+
+          if (submitted && curFilter !== "all") {
+            if (curFilter === "right" && !isRight) return;
+            if (curFilter === "wrong" && isRight) return;
+            if (curFilter === "flagged" && !isFlagged) return;
+          }
+
+          if (q.mondai !== lastMondai) {
+            lastMondai = q.mondai;
+            const mh = document.createElement("div");
+            mh.className = "mondai-header";
+            mh.textContent = `${q.mondai} (${q.mondai_vi})`;
+            cont.appendChild(mh);
+          }
+
+          if (q.passage && q.passage !== lastPassage) {
+            lastPassage = q.passage;
+            const pb = document.createElement("div");
+            pb.className = "passage-box";
+            pb.lang = "ja";
+            pb.innerHTML = `<div style="font-weight:800;font-family:var(--font-vi);margin-bottom:6px;color:var(--accent);">📄 Đoạn văn bài đọc Ngữ pháp (Mondai 9):</div><div>${q.passage.replace(/\n/g, "<br>")}</div>` +
+              ((submitted || mode === "practice") && q.passage_vi ? `<details style="margin-top:8px;font-family:var(--font-vi);font-size:0.88rem;"><summary style="cursor:pointer;font-weight:700;">🇻🇳 Xem bản dịch đoạn văn</summary><p style="margin:6px 0 0;">${q.passage_vi.replace(/\n/g, "<br>")}</p></details>` : "");
+            cont.appendChild(pb);
+          }
+
+          const card = document.createElement("div");
+          card.className = "q-card" + (isFlagged ? " is-flagged" : "");
+          card.id = "q-card-" + q.num;
+
+          const head = document.createElement("div");
+          head.className = "q-head";
+          head.innerHTML = `<span class="q-num">Câu ${q.num} • ${q.mondai}</span>`;
+          const fb = document.createElement("button");
+          fb.type = "button";
+          fb.className = "flag-btn";
+          fb.setAttribute("aria-pressed", String(isFlagged));
+          fb.textContent = isFlagged ? "🚩 Đã gắn cờ" : "🏳️ Gắn cờ xem lại";
+          fb.addEventListener("click", () => {
+            flags[q.num] = !flags[q.num];
+            saveDraft();
+            renderActiveExam();
+          });
+          head.appendChild(fb);
+          card.appendChild(head);
+
+          const pr = document.createElement("div");
+          pr.className = "q-prompt";
+          pr.lang = "ja";
+          pr.innerHTML = q.prompt;
+          card.appendChild(pr);
+
+          const optsDiv = document.createElement("div");
+          optsDiv.className = "q-opts";
+          const reveal = submitted || (mode === "practice" && chosen != null);
+
+          q.options.forEach((optTxt, i) => {
+            const oNum = i + 1;
+            const ob = document.createElement("button");
+            ob.type = "button";
+            ob.className = "q-opt-btn";
+            if (reveal) {
+              if (oNum === q.ans) ob.classList.add("right");
+              else if (oNum === chosen) ob.classList.add("wrong");
+            } else if (oNum === chosen) {
+              ob.classList.add("selected");
+            }
+            ob.innerHTML = `<span><strong>${oNum}.</strong></span><span>${optTxt}</span>`;
+            ob.addEventListener("click", () => {
+              if (submitted) return;
+              answers[q.num] = oNum;
+              saveDraft();
+              renderActiveExam();
+              if (mode === "practice") {
+                announce(oNum === q.ans ? `Câu ${q.num} đúng rồi!` : `Câu ${q.num} chưa đúng, đáp án đúng là ${q.ans}`);
+              }
+            });
+            optsDiv.appendChild(ob);
+          });
+          card.appendChild(optsDiv);
+
+          if (reveal) {
+            const expWrap = document.createElement("div");
+            expWrap.innerHTML = buildExplanationHtml(q, chosen);
+            card.appendChild(expWrap);
+          }
+
+          cont.appendChild(card);
+        });
+
+        renderNavigator(ex);
+        renderSummary(ex);
+      }
+
+      function renderNavigator(ex) {
+        const ansCount = ex.questions.filter(q => answers[q.num] != null).length;
+        $("side-progress-txt").textContent = `Đã chọn: ${ansCount} / ${ex.questions.length} câu`;
+        const grid = $("nav-q-grid");
+        grid.innerHTML = "";
+        ex.questions.forEach((q) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "nav-q-dot";
+          const chosen = answers[q.num];
+          if (submitted) {
+            btn.classList.add(chosen === q.ans ? "res-right" : "res-wrong");
+          } else if (chosen != null) {
+            btn.classList.add("answered");
+          }
+          if (flags[q.num]) btn.classList.add("flagged");
+          btn.textContent = String(q.num);
+          btn.title = `Tới câu ${q.num}`;
+          btn.addEventListener("click", () => {
+            const target = $("q-card-" + q.num);
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+          grid.appendChild(btn);
+        });
+      }
+
+      function renderSummary(ex) {
+        const slot = $("result-summary-slot");
+        const filterRow = $("filter-row");
+        if (!submitted) {
+          slot.hidden = true;
+          filterRow.hidden = true;
+          return;
+        }
+        slot.hidden = false;
+        filterRow.hidden = false;
+
+        let rawRight = 0;
+        const mondaiStats = {};
+        ex.questions.forEach((q) => {
+          const m = q.mondai;
+          mondaiStats[m] = mondaiStats[m] || { label: `${m} (${q.mondai_vi})`, right: 0, total: 0 };
+          mondaiStats[m].total++;
+          if (answers[q.num] === q.ans) {
+            rawRight++;
+            mondaiStats[m].right++;
+          }
+        });
+
+        const total = ex.questions.length;
+        const scaled = Math.round((rawRight / total) * ex.max_score);
+        const passed = scaled >= ex.pass_score;
+        const yukiMsg = passed ? ex.yuki_note_finish_pass : ex.yuki_note_finish_try;
+        const statusBadge = passed
+          ? `✅ ĐẠT NGƯỠNG AN TOÀN (${scaled}/${ex.max_score} điểm — mốc qua liệt ${ex.pass_score}/${ex.max_score})`
+          : `⚠️ CẦN ÔN THÊM (${scaled}/${ex.max_score} điểm — mục tiêu >= ${ex.pass_score}/${ex.max_score})`;
+
+        let rowsHtml = Object.values(mondaiStats).map(st => {
+          const pct = Math.round((st.right / st.total) * 100);
+          return `<tr><th scope="row">${st.label}</th><td><strong>${st.right}/${st.total}</strong></td><td>${pct}% ${pct >= 70 ? "✅ Tốt" : "📌 Cần ôn lại"}</td></tr>`;
+        }).join("");
+
+        slot.innerHTML = `
+          <div class="score-summary-card">
+            <h3 style="margin:0 0 6px;font-size:1.12rem;">${statusBadge}</h3>
+            <p style="margin:0 0 8px;font-weight:700;">Số câu đúng: ${rawRight} / ${total} câu (${Math.round((rawRight / total) * 100)}%)</p>
+            <div class="yuki-banner" style="margin-bottom:10px;"><strong>🌸 Lời nhắn chấm bài của chị Yuki:</strong> ${yukiMsg}</div>
+            <div tabindex="0" role="region" aria-label="Bảng phân tích kết quả theo Mondai" class="table-wrap">
+              <table class="mondai-table">
+                <caption>Phân tích chi tiết điểm số theo từng dạng bài (Mondai)</caption>
+                <thead><tr><th scope="col">Dạng bài (Mondai)</th><th scope="col">Số câu đúng</th><th scope="col">Đánh giá</th></tr></thead>
+                <tbody>${rowsHtml}</tbody>
+              </table>
+            </div>
+          </div>`;
+      }
+
+      $("btn-mode-exam").addEventListener("click", () => { mode = "exam"; updateModeButtons(); updateTimerLabel(); saveDraft(); renderActiveExam(); });
+      $("btn-mode-practice").addEventListener("click", () => { mode = "practice"; updateModeButtons(); updateTimerLabel(); saveDraft(); renderActiveExam(); });
+
+      $("btn-timer-toggle").addEventListener("click", function () {
+        timerPaused = !timerPaused;
+        this.textContent = timerPaused ? "▶️ Tiếp tục" : "⏸ Tạm dừng";
+      });
+
+      document.querySelectorAll("#filter-row button").forEach((b) => {
+        b.addEventListener("click", () => {
+          curFilter = b.dataset.filter;
+          document.querySelectorAll("#filter-row button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+          renderActiveExam();
+        });
+      });
+
+      // Native Dialog handling (modern-web-guidance dialog Rule 1)
+      const submitDlg = $("submit-dialog");
+      $("btn-submit-exam").addEventListener("click", () => {
+        const ex = EXAMS[curExamIdx];
+        const done = ex.questions.filter(q => answers[q.num] != null).length;
+        const left = ex.questions.length - done;
+        $("submit-dialog-msg").textContent = left > 0
+          ? `Ủa em mới chọn ${done}/${ex.questions.length} câu, còn ${left} câu chưa chọn đó nha~ Em muốn nộp bài tự chấm luôn hay quay lại tô tiếp nè? 🌸`
+          : `Em đã hoàn thành đủ ${ex.questions.length}/${ex.questions.length} câu rồi nè! Sẵn sàng xem điểm và giải thích Đúng/Sai từ chị Yuki chưa? 🎉`;
+        submitDlg.showModal();
+      });
+      submitDlg.addEventListener("close", () => {
+        const val = submitDlg.returnValue;
+        submitDlg.returnValue = "";
+        if (val === "confirm") {
+          submitted = true;
+          saveDraft();
+          const ex = EXAMS[curExamIdx];
+          const raw = ex.questions.filter(q => answers[q.num] === q.ans).length;
+          const scaled = Math.round((raw / ex.questions.length) * ex.max_score);
+          const now = new Date();
+          const tStr = `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")} ${now.getDate()}/${now.getMonth()+1}`;
+          pushHistory({ code: ex.code, raw, total: ex.questions.length, scaled, maxScaled: ex.max_score, time: tStr });
+          renderActiveExam();
+          window.scrollTo({ top: 200, behavior: "smooth" });
+          announce(`Đã nộp bài! Điểm quy đổi ${scaled} trên ${ex.max_score}`);
+        }
+      });
+
+      const resetDlg = $("reset-dialog");
+      $("btn-reset-exam").addEventListener("click", () => resetDlg.showModal());
+      resetDlg.addEventListener("close", () => {
+        const val = resetDlg.returnValue;
+        resetDlg.returnValue = "";
+        if (val === "confirm") {
+          answers = {};
+          flags = {};
+          submitted = false;
+          curFilter = "all";
+          timeLeft = EXAMS[curExamIdx].duration_min * 60;
+          saveDraft();
+          renderActiveExam();
+        }
+      });
+
+      parseUrl();
+      renderHistory();
+      initExamState();
+    })();
+  </script>
+</body>
+</html>

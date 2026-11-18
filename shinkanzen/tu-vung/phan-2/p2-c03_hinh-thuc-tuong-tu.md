@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Chương 3 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 3章: 形が似ている言葉)** là cẩm nang chống bẫy Mondai 1 & Mondai 2: các từ **cùng âm đọc nhưng khác Kanji**, hoặc **cùng Kanji/chữ giống nhau nhưng khác nghĩa hoàn toàn**!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c03_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 08 (Chương 08: Ý Chí Không Thể Kìm Nén & Sự Thật Được Chiếu Rọi)**](../../../novel/index.html?novel=yandere&chapter=8) ([Bản MD](../../../novel/yandere/chuong-08.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c03_b01)
 
 ---
 

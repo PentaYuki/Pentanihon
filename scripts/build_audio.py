@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Sinh âm thanh MP3 chuẩn giọng Nhật (Microsoft Edge Neural TTS qua `edge-tts`)
-cho toàn bộ kho học liệu Pentanihon:
+cho kho học liệu Pentanihon còn lại:
 1. 780 từ vựng + 780 câu collocation Flashcards (shinkanzen/tu-vung/audio/)
-2. 6 chương tiểu thuyết (41 đoạn văn) + 113 từ vựng glossary (novel/audio/ + novel/audio-map.js)
-3. 8 bài Đọc hiểu Shinkanzen N2 (shinkanzen/doc-hieu/audio/)
-4. 10 track Nghe hiểu Shinkanzen N2 đa giọng Nam/Nữ (shinkanzen/nghe-hieu/audio/)
-5. 28 tập truyện & oneshots hiện có (story/audio/)
-6. Xuất manifest shinkanzen/audio-manifest.js cho reader.html
+2. Các tập truyện & oneshots trong story/ (story/audio/)
+3. Xuất manifest shinkanzen/audio-manifest.js cho reader.html
 """
 
 import asyncio
@@ -21,9 +18,10 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 sys.path.insert(0, SCRIPT_DIR)
 
-import edge_tts
-import shinkanzen_choukai_data as ck
-import shinkanzen_dokkai_data as dk
+try:
+    import edge_tts
+except ImportError:
+    edge_tts = None
 
 VOICE_FEMALE = "ja-JP-NanamiNeural"
 VOICE_MALE = "ja-JP-KeitaNeural"
@@ -156,99 +154,7 @@ def collect_jobs():
             if colloc_text:
                 jobs.append((f"shinkanzen/tu-vung/audio/collocs/{lid}_{wid}.mp3", [(colloc_text, VOICE_FEMALE, "-4%")]))
 
-    # 2. Tiểu thuyết tương tác N2 (41 đoạn văn + 113 từ glossary)
-    novel_js = os.path.join(ROOT_DIR, "novel/novel-data.js")
-    novel_data = json.loads(open(novel_js, "r", encoding="utf-8").read().split("=", 1)[1].rstrip(";\n "))
-    for ch in novel_data["chapters"]:
-        cnum = ch["num"]
-        slug = ch["slug"]
-        ch_tracks = []
-        para_texts = []
-        for p_idx, p in enumerate(ch["paragraphs"], 1):
-            p_text = clean_jp_for_tts(p.get("plain_text", ""))
-            if not p_text:
-                continue
-            rel = f"novel/audio/p/c{cnum:02d}_p{p_idx:02d}.mp3"
-            jobs.append((rel, [(p_text, VOICE_FEMALE, "-6%")]))
-            para_texts.append((p_text, VOICE_FEMALE, "-6%"))
-        # Cũng tạo bản gộp 1 file cho reader.html đọc bản Markdown chương truyện
-        full_rel = f"novel/audio/{slug}.mp3"
-        if para_texts:
-            jobs.append((full_rel, para_texts))
-            ch_tracks.append({
-                "id": slug,
-                "title": f"Nghe đọc Chương {cnum}: {ch['title_vi']}",
-                "src": full_rel,
-            })
-            reader_manifest[f"novel/{slug}.md"] = ch_tracks
-
-    for g_idx, (key, entry) in enumerate(sorted(novel_data["glossary"].items()), 1):
-        audio_name = f"g{g_idx:03d}.mp3"
-        novel_vocab_map[key] = audio_name
-        # Nếu là từ đơn có trường reading, đọc theo kana chuẩn; mẫu ngữ pháp giữ plain sạch furigana
-        text_to_speak = (entry.get("reading") or "").strip() if entry.get("kind") != "grammar" else ""
-        if not text_to_speak or "〜" in text_to_speak:
-            text_to_speak = clean_jp_for_tts(entry.get("plain") or entry.get("furi") or key)
-            text_to_speak = text_to_speak.replace("〜", "").replace("・", " ").strip()
-        if text_to_speak:
-            jobs.append((f"novel/audio/v/{audio_name}", [(text_to_speak, VOICE_FEMALE, "-6%")]))
-
-    # 3. Đọc hiểu Shinkanzen (8 bài)
-    for item in dk.DOKKAI_PART1_2:
-        md_rel = f"shinkanzen/doc-hieu/phan-1_luyen-ky-nang/{item['filename']}"
-        slug = item["filename"].replace(".md", "")
-        tracks = []
-        for idx, p in enumerate(item.get("passages", []), 1):
-            jp_clean = clean_jp_for_tts(p.get("jp", ""))
-            if not jp_clean:
-                continue
-            out_rel = f"shinkanzen/doc-hieu/audio/p1_{slug}_{idx}.mp3"
-            jobs.append((out_rel, [(jp_clean, VOICE_FEMALE, "-6%")]))
-            tracks.append({
-                "id": f"p1-{slug}-{idx}",
-                "title": p.get("title", "Bài đọc mẫu tiếng Nhật"),
-                "src": out_rel,
-            })
-        if tracks:
-            reader_manifest[md_rel] = tracks
-
-    for item in dk.DOKKAI_PART3:
-        md_rel = f"shinkanzen/doc-hieu/phan-2_thuc-chien/{item['filename']}"
-        slug = item["filename"].replace(".md", "")
-        jp_clean = clean_jp_for_tts(item.get("passage_jp", ""))
-        if jp_clean:
-            out_rel = f"shinkanzen/doc-hieu/audio/p2_{slug}.mp3"
-            jobs.append((out_rel, [(jp_clean, VOICE_FEMALE, "-6%")]))
-            reader_manifest[md_rel] = [{
-                "id": f"p2-{slug}",
-                "title": item.get("text_title", "Đoạn văn thực chiến N2"),
-                "src": out_rel,
-            }]
-
-    # 4. Nghe hiểu Shinkanzen (6 chương, 10 track đa giọng Nam/Nữ)
-    for ch in ck.CHOUKAI_LESSONS:
-        md_rel = f"shinkanzen/nghe-hieu/{ch['filename']}"
-        tracks = []
-        for tr in ch.get("tracks", []):
-            tid = tr["track_id"]
-            segments = []
-            for speaker, line in tr.get("script_lines", []):
-                voice = VOICE_FEMALE if speaker == "女" else VOICE_MALE
-                spoken = clean_jp_for_tts(line)
-                if spoken:
-                    segments.append((spoken, voice, "-4%"))
-            if segments:
-                out_rel = f"shinkanzen/nghe-hieu/audio/{tid}.mp3"
-                jobs.append((out_rel, segments))
-                tracks.append({
-                    "id": tid,
-                    "title": f"{tid} • {tr.get('speakers', '')}",
-                    "src": out_rel,
-                })
-        if tracks:
-            reader_manifest[md_rel] = tracks
-
-    # 5. Truyện ngắn hàng ngày & One-shots hiện có trong story/
+    # 2. Truyện ngắn hàng ngày & One-shots hiện có trong story/
     story_files = sorted(glob.glob(os.path.join(ROOT_DIR, "story", "**", "*.md"), recursive=True))
     for abs_p in story_files:
         rel_p = os.path.relpath(abs_p, ROOT_DIR).replace("\\", "/")
@@ -271,8 +177,23 @@ def collect_jobs():
     return jobs, reader_manifest, novel_vocab_map
 
 
+def write_audio_manifest_only():
+    _, reader_manifest, _ = collect_jobs()
+    manifest_path = os.path.join(ROOT_DIR, "shinkanzen", "audio-manifest.js")
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        f.write("// Auto-generated by scripts/build_audio.py — Do not edit manually\n")
+        f.write("window.PENTANIHON_AUDIO_MANIFEST = ")
+        json.dump(reader_manifest, f, ensure_ascii=False, indent=2)
+        f.write(";\n")
+    print(f"✅ Updated shinkanzen/audio-manifest.js ({len(reader_manifest)} story tracks)")
+
+
 async def run_all():
-    jobs, reader_manifest, novel_vocab_map = collect_jobs()
+    if "--manifest-only" in sys.argv or edge_tts is None:
+        write_audio_manifest_only()
+        return
+
+    jobs, reader_manifest, _ = collect_jobs()
     stats = {"total": len(jobs), "created": 0, "skipped": 0}
     print(f"🎙️ Preparing {len(jobs)} audio files via edge-tts ({VOICE_FEMALE} & {VOICE_MALE})...", flush=True)
 
@@ -280,23 +201,8 @@ async def run_all():
     tasks = [synth_to_file(sem, rel_path, segs, stats) for rel_path, segs in jobs]
     await asyncio.gather(*tasks)
 
-    # Ghi novel/audio-map.js
-    map_path = os.path.join(ROOT_DIR, "novel", "audio-map.js")
-    with open(map_path, "w", encoding="utf-8") as f:
-        f.write("// Auto-generated by scripts/build_audio.py — Do not edit manually\n")
-        f.write("window.SHINKANZEN_NOVEL_AUDIO = ")
-        json.dump(novel_vocab_map, f, ensure_ascii=False, indent=2)
-        f.write(";\n")
+    write_audio_manifest_only()
 
-    # Ghi shinkanzen/audio-manifest.js
-    manifest_path = os.path.join(ROOT_DIR, "shinkanzen", "audio-manifest.js")
-    with open(manifest_path, "w", encoding="utf-8") as f:
-        f.write("// Auto-generated by scripts/build_audio.py — Do not edit manually\n")
-        f.write("window.PENTANIHON_AUDIO_MANIFEST = ")
-        json.dump(reader_manifest, f, ensure_ascii=False, indent=2)
-        f.write(";\n")
-
-    # Thống kê dung lượng thực tế
     total_bytes = 0
     for rel_path, _ in jobs:
         ap = os.path.join(ROOT_DIR, rel_path)

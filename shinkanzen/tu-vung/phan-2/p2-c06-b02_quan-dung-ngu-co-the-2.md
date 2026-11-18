@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 6 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 6章 2課)** tổng hợp các quán dụng ngữ dùng **Tay (`手`), Chân (`足`), Lòng/Khí (`気`), Bụng (`腹`)** và các thành ngữ kinh điển khác."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c06_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 12 (Chương 12: Trải Lòng Thẳng Thắn & Ngày Trút Bỏ Mọi Gánh Nặng)**](../../../novel/index.html?novel=yandere&chapter=12) ([Bản MD](../../../novel/yandere/chuong-12.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c06_b02)
 
 ---
 

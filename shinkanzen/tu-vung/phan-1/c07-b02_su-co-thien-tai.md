@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 7 của **Shinkanzen Master Từ vựng N2 (7章 2課: 事件・事故・災害)** tổng hợp từ vựng bản tin thời sự: **tội phạm – điều tra, tai nạn – thương tích và động đất – bão lũ – sơ tán**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c07_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 04 (Chương 04: Đêm Mất Điện Vì Thiên Tai & Sự Cảnh Giác Trong Căn Phòng Kín)**](../../../novel/index.html?novel=yandere&chapter=4) ([Bản MD](../../../novel/yandere/chuong-04.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c07_b02)
 
 ---
 

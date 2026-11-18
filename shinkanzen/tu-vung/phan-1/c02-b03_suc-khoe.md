@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 3 Chương 2 của **Shinkanzen Master Từ vựng N2 (2章 3課: 健康)** bao gồm các từ vựng về **tình trạng cơ thể, triệu chứng bệnh, khám chữa bệnh tại bệnh viện, tư thế cử động và giữ gìn sức khỏe**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c02_b03)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 02 (Chương 02: Đêm Sốt Cao & Sự Chăm Sóc Ngọt Ngào Đến Nghẹt Thở)**](../../../novel/index.html?novel=yandere&chapter=2) ([Bản MD](../../../novel/yandere/chuong-02.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c02_b03)
 
 ---
 

@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 8 của **Shinkanzen Master Từ vựng N2 (8章 1課: 自然)** tập trung vào từ vựng **khoa học tự nhiên, vũ trụ, khí hậu, hệ sinh thái và bảo vệ môi trường** — mảng từ vựng chiếm tỷ trọng lớn trong Đọc hiểu N2!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c08_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 04 (Chương 04: Cảnh Báo Từ Cổ Đại — Khủng Hoảng Hệ Sinh Thái & Ánh Sáng Tái Sinh)**](../../../novel/index.html?novel=isekai&chapter=4) ([Bản MD](../../../novel/isekai/chuong-04.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c08_b01)
 
 ---
 

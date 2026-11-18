@@ -26,10 +26,11 @@ def get_study_status():
     bunpou = count_md_files(['ngu-phap/phan-1', 'ngu-phap/phan-2', 'ngu-phap/phan-3', 'ngu-phap'])
     goi = count_md_files(['tu-vung/phan-1', 'tu-vung/phan-2'])
     kanji = count_md_files(['kanji/step-1', 'kanji/step-2', 'kanji/step-3'])
-    dokkai = count_md_files(['doc-hieu/phan-1_luyen-ky-nang', 'doc-hieu/phan-2_thuc-chien'])
-    choukai = count_md_files(['nghe-hieu'])
-    novel_dir = os.path.join(WORKSPACE_DIR, 'novel')
-    novel_chaps = len([f for f in os.listdir(novel_dir) if f.startswith('chuong-') and f.endswith('.md')]) if os.path.isdir(novel_dir) else 0
+    novel_chaps = 0
+    for genre in ('romcom', 'yandere', 'isekai'):
+        gdir = os.path.join(WORKSPACE_DIR, 'novel', genre)
+        if os.path.isdir(gdir):
+            novel_chaps += len([f for f in os.listdir(gdir) if f.startswith('chuong-') and f.endswith('.md')])
 
     stories = sorted([
         f for f in os.listdir(STORY_DIR)
@@ -40,9 +41,8 @@ def get_study_status():
         'ngu-phap': bunpou,
         'tu-vung': goi,
         'kanji': kanji,
-        'doc-hieu': dokkai,
-        'nghe-hieu': choukai,
         'novel': novel_chaps,
+        'exam': 6,
     }
     return counts, stories
 
@@ -50,18 +50,18 @@ def get_study_status():
 def display_daily_dashboard():
     now = datetime.datetime.now()
     counts, stories = get_study_status()
-    total_lessons = sum(v for k, v in counts.items() if k != 'novel')
+    total_shinkanzen = counts['ngu-phap'] + counts['tu-vung'] + counts['kanji']
     print("=" * 64)
     print(f"🌸 PENTANIHONGO - LỊCH HỌC NHẬT NGỮ HÔM NAY ({now.strftime('%d/%m/%Y')}) 🌸")
     print("=" * 64)
-    print(f"⛩️ Ngữ pháp (文法): {counts['ngu-phap']} bài (Phần 1-3 + Kính ngữ)")
-    print(f"📚 Từ vựng (語彙):  {counts['tu-vung']}/37 bài + Flashcards Trắng Đen")
-    print(f"🈷️ Chữ Hán (漢字):  {counts['kanji']}/53 bài (1.046 chữ chuẩn sách)")
-    print(f"📖 Đọc hiểu (読解): {counts['doc-hieu']}/8 chuyên đề kỹ năng & thực chiến")
-    print(f"🎧 Nghe hiểu (聴解): {counts['nghe-hieu']}/6 chương (TTS-ready + Furigana)")
-    print(f"✨ Tổng tài liệu Shinkanzen 5 cuốn: {total_lessons} bài")
-    print(f"📓 Tiểu thuyết tương tác N2 (novel/): {counts['novel']}/6 chương")
-    print(f"📕 Tổng số tập Series Bầu Trời Xanh Tokyo: {len(stories)} tập")
+    print(f"⛩️ Ngữ pháp (文法):   {counts['ngu-phap']} bài (Phần 1-3 + Kính ngữ)")
+    print(f"📚 Từ vựng (語彙):    {counts['tu-vung']}/37 bài + Flashcards 780 từ")
+    print(f"🈷️ Chữ Hán (漢字):    {counts['kanji']}/53 bài (1.046 chữ chuẩn sách)")
+    print(f"📖 3 Bộ Tiểu thuyết:  {counts['novel']}/37 chương (Romcom • Yandere • Isekai)")
+    print(f"🎯 Đề thi JLPT N2:    {counts['exam']} đề chuẩn (222 câu tự chấm & giải thích)")
+    print(f"✨ Tổng Shinkanzen:   {total_shinkanzen} bài nền tảng")
+    print(f"📕 Series Aozora:     {len(stories)} tập")
+    print("💌 Chị Yuki nhắc nhẹ: Hôm nay đọc 1 chương tiểu thuyết + 5 câu trắc nghiệm nha em~ 🌸")
     print("=" * 64)
 
 

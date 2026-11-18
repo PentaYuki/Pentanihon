@@ -4,24 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pentanihon (ペンタ日本) — Cẩm Nang Ôn Luyện JLPT N2 & Kể Chuyện Mỗi Ngày</title>
-  <meta name="description" content="Nền tảng học JLPT N2 toàn diện kết hợp trọn bộ 5 cuốn Shinkanzen Master N2 chuẩn sách gốc và Series truyện kể Tokyo Aozora cùng Chị Yuki.">
+  <meta name="description" content="Hệ thống học JLPT N2 toàn diện: 3 Bộ Tiểu Thuyết Romcom, Yandere & Isekai chứa 100% 37 bài / 780 từ vựng Shinkanzen N2, kèm Trung Tâm Đề Thi Chuẩn JLPT tự chấm và giải thích chi tiết Đúng/Sai.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎌</text></svg>">
   <script src="story/stories-data.js"></script>
   <style>
     :root {
-      --primary: #c92a2a;
-      --primary-hover: #b02525;
+      --primary: #b92b27;
+      --primary-hover: #961e1b;
       --primary-light: #fff5f5;
-      --text: #212529;
-      --text-muted: #6c757d;
+      --text: #1c2127;
+      --text-muted: #505862;
       --bg: #fafafa;
       --card-bg: #ffffff;
-      --border: #e9ecef;
-      --border-dark: #ced4da;
-      --radius: 8px;
+      --border: #dfe3e8;
+      --border-dark: #aeb6bf;
+      --radius: 10px;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
     }
+    :where(a, button):focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
 
     * {
       box-sizing: border-box;
@@ -454,11 +455,12 @@
         <span class="brand-badge">JLPT N2</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#novel">Tiểu Thuyết N2</a></li>
-        <li><a href="#story">Truyện Tokyo Aozora</a></li>
+        <li><a href="#novel">3 Tiểu Thuyết N2</a></li>
+        <li><a href="#exam">Đề Thi JLPT N2</a></li>
+        <li><a href="#story">Tokyo Aozora</a></li>
         <li><a href="#flashcards">Flashcards</a></li>
-        <li><a href="#shinkanzen">Shinkanzen 5 Cuốn</a></li>
-        <li><a href="#docs">Cẩm Nang N2</a></li>
+        <li><a href="#shinkanzen">Shinkanzen N2</a></li>
+        <li><a href="#docs">Cẩm Nang</a></li>
       </ul>
     </div>
   </header>
@@ -466,13 +468,16 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-container">
-      <div class="hero-tag">🌸 Đồng hành cùng "Chị Yuki Dễ Thương"</div>
-      <h1>Cẩm Nang Ôn Luyện JLPT N2 & Kể Chuyện Mỗi Ngày</h1>
-      <p>Đọc trực tiếp toàn bộ series truyện <strong>Tokyo Aozora</strong>, học <strong>Flashcards Trắng Đen (37 bài)</strong> và ôn trọn bộ 5 cuốn <strong>Shinkanzen Master N2</strong> chuẩn sách gốc ngay trên web.</p>
+      <div class="hero-tag">🌸 Đồng hành nhẹ nhàng cùng "Chị Yuki Dễ Thương"</div>
+      <h1>Hệ Thống Tiểu Thuyết Tương Tác N2 &amp; Luyện Đề Chuẩn JLPT</h1>
+      <p>Học trọn <strong>100% 37 bài / 780 từ vựng Shinkanzen Từ Vựng N2</strong> qua <strong>3 Bộ Tiểu Thuyết (Romcom • Yandere Tâm Lý • Isekai)</strong> có dịch từng chương, bảng nghĩa bên dưới và <strong>6 Đề Thi Chuẩn JLPT N2 tự chấm &amp; giải thích cả Đúng lẫn Sai</strong>!</p>
       
       <div class="hero-actions">
         <a href="novel/index.html" class="btn btn-primary">
-          📖 Đọc Tiểu Thuyết Tương Tác N2 (6 Chương)
+          📖 Đọc 3 Bộ Tiểu Thuyết N2 (37 Bài)
+        </a>
+        <a href="exam/index.html" class="btn btn-primary" style="background:#364fc7;border-color:#364fc7;">
+          🎯 Thi Thử Chuẩn JLPT N2 (222 Câu)
         </a>
         <a id="heroReadLatestBtn" href="reader.html" class="btn btn-secondary">
           ☕ Đọc Tập Mới Nhất
@@ -487,31 +492,94 @@
   <!-- MAIN CONTENT -->
   <main class="main-container">
 
-    <!-- INTERACTIVE SHINKANZEN NOVEL SECTION -->
-    <section id="novel" class="flashcard-banner" style="background: #fff9f2; border-color: #b92b27;">
+    <!-- CUTE YUKI COMPANION REMINDER -->
+    <aside aria-label="Lời nhắc nhẹ nhàng từ chị Yuki" style="background:#fff5f8;border:2px solid #f0b3c7;border-left:6px solid #c2255c;border-radius:10px;padding:18px 22px;margin-bottom:34px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <div style="max-width:740px;">
+        <div style="font-size:0.8rem;font-weight:800;color:#a61e4d;margin-bottom:4px;">💌 GHI CHÚ NHẮC NHẸ DỄ THƯƠNG TỪ CHỊ YUKI</div>
+        <p id="yukiReminderText" aria-live="polite" style="font-size:0.98rem;font-weight:600;color:#2b1e23;margin:0;">
+          "Em yêu ơi~ Hôm nay mình thử nhâm nhi 1 chương tiểu thuyết (Romcom, Yandere hay Isekai cũng được nha), bấm nghe vài từ vàng phát sáng rồi làm nhẹ 5 câu trắc nghiệm là xong mục tiêu N2 hôm nay rồi đó! Cố lên nè 🌸✨"
+        </p>
+      </div>
+      <button type="button" id="btnNextYukiNote" class="btn btn-secondary" style="padding:8px 14px;font-size:0.85rem;">🌸 Xem lời nhắc khác</button>
+    </aside>
+
+    <!-- 3 INTERACTIVE SHINKANZEN NOVELS SECTION -->
+    <section id="novel" style="margin-bottom:45px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+        <div>
+          <h2 class="section-title" style="margin-bottom:4px;">📖 3 Bộ Tiểu Thuyết Shinkanzen N2 — Phủ 100% 37 Bài (780 Từ Vựng)</h2>
+          <p class="section-desc" style="margin-bottom:0;">Mỗi chương đều ghi rõ bài học Shinkanzen tương ứng, có dịch tiếng Việt từng đoạn &amp; cả chương, bảng giải nghĩa chi tiết ngay ở dưới, lời nhắc dễ thương của Yuki và 5 câu trắc nghiệm kèm giải thích Đúng/Sai.</p>
+        </div>
+        <a href="novel/index.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.9rem;">✨ Mở Trình Đọc 3 Bộ ➔</a>
+      </div>
+
+      <div class="grid-3" style="margin-bottom:0;">
+        <div class="card" style="border-top:4px solid #b92b27;">
+          <div>
+            <div class="card-icon">💕🌸</div>
+            <div style="font-size:0.75rem;font-weight:800;color:#b92b27;margin-bottom:4px;">BỘ 1 • ROMCOM HÀI LÃNG MẠN</div>
+            <h4>Tình Yêu Ngoài Dự Tính Ở Nhà Trọ Chung Sakurazaka</h4>
+            <p><strong>13 Chương • 13 Bài Shinkanzen • 314 Từ • 65 Câu Quiz:</strong> Gia đình, Tính cách, Ẩm thực, Việc nhà, Sở thích, Du lịch, Trường học, Công việc, Truyền thông, Lễ hội, Đa nghĩa tính/danh &amp; Quán dụng 1.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:12px;">
+            <a href="novel/index.html?novel=romcom&chapter=1" class="lesson-pill" style="background:#b92b27;color:#fff;">📖 Đọc Romcom</a>
+            <a href="exam/index.html?exam=review-romcom" class="lesson-pill">🧪 Đề Ôn Bộ 1 (20 câu)</a>
+          </div>
+        </div>
+
+        <div class="card" style="border-top:4px solid #86194f;">
+          <div>
+            <div class="card-icon">🖤🌹</div>
+            <div style="font-size:0.75rem;font-weight:800;color:#86194f;margin-bottom:4px;">BỘ 2 • YANDERE TÌNH CẢM TÂM LÝ</div>
+            <h4>Lời Hứa Đỏ Thắm Trong Chiếc Lồng Chỉ Dành Riêng Cho Anh</h4>
+            <p><strong>12 Chương • 12 Bài Shinkanzen • 233 Từ • 60 Câu Quiz:</strong> Cảm xúc độc chiếm, Sức khỏe, Máy tính, Hình sự, Động từ đa nghĩa 1–2, Từ gần nghĩa/đồng âm, Toàn bộ Phó từ &amp; Quán dụng 2.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:12px;">
+            <a href="novel/index.html?novel=yandere&chapter=1" class="lesson-pill" style="background:#86194f;color:#fff;">📖 Đọc Yandere</a>
+            <a href="exam/index.html?exam=review-yandere" class="lesson-pill">🧪 Đề Ôn Bộ 2 (20 câu)</a>
+          </div>
+        </div>
+
+        <div class="card" style="border-top:4px solid #4338ca;">
+          <div>
+            <div class="card-icon">⚔️✨</div>
+            <div style="font-size:0.75rem;font-weight:800;color:#4338ca;margin-bottom:4px;">BỘ 3 • ISEKAI CHUYỂN SINH KIẾN QUỐC</div>
+            <h4>Lãnh Chúa Phế Vật Ở Dị Giới Dùng Tri Thức Hiện Đại Lập Quốc</h4>
+            <p><strong>12 Chương • 12 Bài Shinkanzen • 233 Từ • 60 Câu Quiz:</strong> Thiên nhiên, Kinh tế, Chính trị-Luật, Sinh thái, Khoa học AI, Số lượng, Không-Thời gian, Onomatopoeia &amp; Cấu tạo từ (語形成).</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:12px;">
+            <a href="novel/index.html?novel=isekai&chapter=1" class="lesson-pill" style="background:#4338ca;color:#fff;">📖 Đọc Isekai</a>
+            <a href="exam/index.html?exam=review-isekai" class="lesson-pill">🧪 Đề Ôn Bộ 3 (20 câu)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JLPT MOCK EXAM CENTER SECTION -->
+    <section id="exam" class="flashcard-banner" style="background:#f4f6ff;border-color:#364fc7;">
       <div class="flashcard-banner-text">
         <div class="flashcard-banner-badges">
-          <span class="badge" style="background:#b92b27;">MỚI • TƯƠNG TÁC</span>
-          <span class="badge">HIRAGANA KẾ BÊN</span>
-          <span class="badge">CLICK TỪ PHÁT SÁNG</span>
-          <span class="badge">113 MỤC SHINKANZEN</span>
+          <span class="badge" style="background:#364fc7;color:#fff;">CHUẨN JLPT N2 MONDAI 1–9</span>
+          <span class="badge">TỰ CHẤM ĐIỂM THANG 60</span>
+          <span class="badge">GIẢI THÍCH CẢ ĐÚNG &amp; SAI</span>
+          <span class="badge">6 ĐỀ • 222 CÂU</span>
         </div>
-        <h3>📖 Tiểu Thuyết Ngắn Shinkanzen N2: 「東京（とうきょう）の小さな書斎（しょさい）」</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 650px;">
-          Sách ngắn 6 chương kể hành trình biên tập viên tập sự ở Tokyo, vận dụng trực tiếp <strong>Từ vựng &amp; Ngữ pháp Shinkanzen N2</strong> có Hiragana kế bên. <strong>Bấm vào từ Shinkanzen trong truyện sẽ sáng rực và mở Bảng Hướng Dẫn chi tiết</strong>, đi kèm bộ câu hỏi đọc hiểu ngay kế bên mỗi chương!
+        <h3>🎯 Trung Tâm Đề Thi Thử Chuẩn JLPT N2 — Chế Độ Tự Chấm &amp; Giải Thích Từng Lựa Chọn</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 680px;">
+          Gồm <strong>3 Đề Full JLPT N2 言語知識 (54 câu/55 phút)</strong> và <strong>3 Đề Ôn Tập Nhanh Theo Bộ Tiểu Thuyết (20 câu/bộ)</strong>. Hỗ trợ cả bấm giờ Thi Thật lẫn Luyện Tập Tức Thì — phân tích điểm theo Mondai 1–9 và <strong>giải thích chi tiết dù em chọn Đúng hay Sai</strong> kèm link quay lại đúng chương truyện để ôn!
         </p>
         <div class="lesson-links" style="margin-top: 10px;">
-          <a href="novel/index.html?chapter=1" class="lesson-pill">Chương 01</a>
-          <a href="novel/index.html?chapter=2" class="lesson-pill">Chương 02</a>
-          <a href="novel/index.html?chapter=3" class="lesson-pill">Chương 03</a>
-          <a href="novel/index.html?chapter=4" class="lesson-pill">Chương 04</a>
-          <a href="novel/index.html?chapter=5" class="lesson-pill">Chương 05</a>
-          <a href="novel/index.html?chapter=6" class="lesson-pill">Chương 06</a>
+          <a href="exam/index.html?exam=jlpt-n2-de-01" class="lesson-pill" style="background:#364fc7;color:#fff;">Đề Full Số 01</a>
+          <a href="exam/index.html?exam=jlpt-n2-de-02" class="lesson-pill">Đề Full Số 02</a>
+          <a href="exam/index.html?exam=jlpt-n2-de-03" class="lesson-pill">Đề Full Số 03</a>
+          <a href="exam/index.html?exam=review-romcom" class="lesson-pill">Ôn Bộ 1 Romcom</a>
+          <a href="exam/index.html?exam=review-yandere" class="lesson-pill">Ôn Bộ 2 Yandere</a>
+          <a href="exam/index.html?exam=review-isekai" class="lesson-pill">Ôn Bộ 3 Isekai</a>
         </div>
       </div>
       <div>
-        <a href="novel/index.html" class="btn btn-primary" style="background:#b92b27; font-size: 1rem; padding: 14px 26px;">
-          Đọc Tiểu Thuyết Ngay ➔
+        <a href="exam/index.html" class="btn btn-primary" style="background:#364fc7;font-size: 1rem; padding: 14px 26px;">
+          Vào Thi Thử Ngay ➔
         </a>
       </div>
     </section>
@@ -573,14 +641,14 @@
 
     <!-- SHINKANZEN TRACKER SECTION -->
     <section id="shinkanzen">
-      <h2 class="section-title">📚 Trọn Bộ 5 Cuốn Giáo Trình Shinkanzen Master N2</h2>
-      <p class="section-desc">Phân chia chuẩn xác 100% theo 5 cuốn sách gốc (文法・語彙・漢字・読解・聴解). Bấm vào từng mục để mở trực tiếp bài học trên trình đọc web.</p>
+      <h2 class="section-title">📚 Hệ Thống Giáo Trình Shinkanzen N2 × Tiểu Thuyết &amp; Thi Thử</h2>
+      <p class="section-desc">Giữ trọn 3 mảng nền tảng Shinkanzen N2 (文法・語彙・漢字) kết hợp hệ thống 3 Bộ Tiểu thuyết 780 từ và 6 Đề Thi Chuẩn JLPT N2.</p>
 
       <table class="lessons-table">
         <thead>
           <tr>
-            <th style="width: 140px;">Giáo trình</th>
-            <th>Cấu trúc chuẩn theo sách gốc (新完全マスター N2)</th>
+            <th style="width: 140px;">Phân hệ</th>
+            <th>Cấu trúc học liệu chuẩn Shinkanzen &amp; Tiểu thuyết</th>
             <th>Mở nhanh trên Web</th>
           </tr>
         </thead>
@@ -600,7 +668,7 @@
           </tr>
           <tr>
             <td><span class="lesson-badge">2. 語彙</span></td>
-            <td><strong>Từ Vựng (37 bài • 780 từ)</strong> — 第1部 Theo chủ đề (21 bài) &amp; 第2部 Theo tính chất (16 bài)</td>
+            <td><strong>Từ Vựng (37 bài • 780 từ)</strong> — 第1部 Chủ đề (21 bài) &amp; 第2部 Tính chất (16 bài) liên kết thẳng với 3 Tiểu thuyết</td>
             <td>
               <div class="lesson-links">
                 <a href="shinkanzen/tu-vung/flashcards.html" class="lesson-pill" style="background:#000;color:#fff;">🎴 Flashcards 37 bài</a>
@@ -624,35 +692,35 @@
             </td>
           </tr>
           <tr>
-            <td><span class="lesson-badge">4. 読解</span></td>
-            <td><strong>Đọc Hiểu (8 chuyên đề)</strong> — 第1–2部 Kỹ năng cấu trúc/tờ rơi &amp; 第3部 4 dạng Mondai thi thật</td>
+            <td><span class="lesson-badge">4. 📖 Truyện</span></td>
+            <td><strong>3 Bộ Tiểu Thuyết N2 (37 chương • 780 từ • 185 Quiz)</strong> — Romcom (13b), Yandere (12b), Isekai (12b)</td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/doc-hieu/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục Đọc hiểu</a>
-                <a href="reader.html?file=shinkanzen/doc-hieu/phan-1_luyen-ky-nang/01_cau-truc-bai-van.md" class="lesson-pill">5 Cấu trúc văn</a>
-                <a href="reader.html?file=shinkanzen/doc-hieu/phan-2_thuc-chien/01_naiyou-rikai-chubun.md" class="lesson-pill">Trung văn</a>
-                <a href="reader.html?file=shinkanzen/doc-hieu/phan-2_thuc-chien/04_jouhou-kensaku.md" class="lesson-pill">Tìm thông tin</a>
+                <a href="novel/index.html" class="lesson-pill" style="background:#b92b27;color:#fff;">✨ Trình Đọc 3 Bộ</a>
+                <a href="novel/index.html?novel=romcom&chapter=1" class="lesson-pill">💕 Romcom</a>
+                <a href="novel/index.html?novel=yandere&chapter=1" class="lesson-pill">🖤 Yandere</a>
+                <a href="novel/index.html?novel=isekai&chapter=1" class="lesson-pill">⚔️ Isekai</a>
               </div>
             </td>
           </tr>
           <tr>
-            <td><span class="lesson-badge">5. 聴解</span></td>
-            <td><strong>Nghe Hiểu (Chương I–VI)</strong> — Đặc trưng âm thanh, Phản xạ nhanh &amp; Mondai 1–5 (TTS-ready)</td>
+            <td><span class="lesson-badge">5. 🎯 Thi Thử</span></td>
+            <td><strong>Đề Kiểm Tra Chuẩn JLPT N2 (6 đề • 222 câu)</strong> — Chế độ tự chấm &amp; giải thích cả ĐÚNG lẫn SAI</td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/nghe-hieu/README.md" class="lesson-pill" style="background:#000;color:#fff;">📋 Mục lục Nghe hiểu</a>
-                <a href="reader.html?file=shinkanzen/nghe-hieu/01_am-thanh-dac-trung.md" class="lesson-pill">I. Âm văn nói</a>
-                <a href="reader.html?file=shinkanzen/nghe-hieu/02_sokujitou-outou.md" class="lesson-pill">II. Phản xạ nhanh</a>
-                <a href="reader.html?file=shinkanzen/nghe-hieu/06_tougou-rikai.md" class="lesson-pill">VI. Tổng hợp Mondai 5</a>
+                <a href="exam/index.html" class="lesson-pill" style="background:#364fc7;color:#fff;">🎯 Trung tâm Thi JLPT</a>
+                <a href="exam/index.html?exam=jlpt-n2-de-01" class="lesson-pill">Đề 01</a>
+                <a href="exam/index.html?exam=jlpt-n2-de-02" class="lesson-pill">Đề 02</a>
+                <a href="exam/index.html?exam=jlpt-n2-de-03" class="lesson-pill">Đề 03</a>
               </div>
             </td>
           </tr>
           <tr>
             <td><span class="lesson-badge">Tổng quan</span></td>
-            <td><strong>Bản đồ lộ trình ôn thi trọn bộ 5 cuốn Shinkanzen Master N2 (146 bài học)</strong></td>
+            <td><strong>Bản đồ hệ thống học liệu Shinkanzen N2 × 3 Bộ Tiểu thuyết &amp; JLPT Exam</strong></td>
             <td>
               <div class="lesson-links">
-                <a href="reader.html?file=shinkanzen/README.md" class="lesson-pill" style="background:#ffe3e3; color:#c92a2a;">🗺️ Xem Bản Đồ Toàn Bộ 5 Cuốn ➔</a>
+                <a href="reader.html?file=shinkanzen/README.md" class="lesson-pill" style="background:#ffe3e3; color:#a61e4d;">🗺️ Xem Bản Đồ Tổng Quan ➔</a>
               </div>
             </td>
           </tr>
@@ -662,7 +730,7 @@
 
     <!-- DOCS SECTION -->
     <section id="docs">
-      <h2 class="section-title">📑 Cẩm Nang & Tài Liệu N2 Trọng Tâm</h2>
+      <h2 class="section-title">📑 Cẩm Nang &amp; Tài Liệu N2 Trọng Tâm</h2>
       <p class="section-desc">Bấm vào từng thẻ để đọc trực tiếp tài liệu tóm lược tinh gọn.</p>
 
       <div class="grid-3" style="margin-bottom: 0;">
@@ -684,11 +752,11 @@
           <div class="card-footer">Đọc ngay trên Web ➔</div>
         </a>
 
-        <a href="reader.html?file=docs/03_Chien_Thuat_Doc_Hieu_N2.md" class="card">
+        <a href="reader.html?file=docs/03_Bi_Kip_Luyen_De_JLPT_N2.md" class="card">
           <div>
             <div class="card-icon">🎯</div>
-            <h4>Chiến Thuật Bẻ Khóa Đọc Hiểu</h4>
-            <p>Phương pháp định vị từ khóa, nhận diện luận điểm tác giả và giải mã 4 bẫy Mondai 7, 8.</p>
+            <h4>Bí Kíp Luyện Đề Chuẩn JLPT N2</h4>
+            <p>Phân bổ thời gian 55 phút vàng Mondai 1–9, mẹo giải câu dấu ★ và tránh bẫy cặp song sinh.</p>
           </div>
           <div class="card-footer">Đọc ngay trên Web ➔</div>
         </a>
@@ -760,6 +828,26 @@
         if (data) renderManifest(data);
       })
       .catch(() => {});
+
+    // Gentle Yuki Reminder Widget
+    (function () {
+      const notes = [
+        '"Em yêu ơi~ Hôm nay mình thử nhâm nhi 1 chương tiểu thuyết (Romcom, Yandere hay Isekai cũng được nha), bấm nghe vài từ vàng phát sáng rồi làm nhẹ 5 câu trắc nghiệm là xong mục tiêu N2 hôm nay rồi đó! Cố lên nè 🌸✨"',
+        '"Nếu thấy nhiều từ mới quá đừng ép mình nhớ hết trong 1 phút nhé~ Hãy đọc hết đoạn dịch tiếng Việt dưới mỗi chương tiểu thuyết rồi làm quiz chậm rãi cùng chị Yuki ha 💕☕"',
+        '"Mỗi lần chọn sai trong Đề Thi Chuẩn JLPT đừng buồn nha em! Chị Yuki đã viết sẵn giải thích rõ từng lựa chọn Đúng và Sai để em biến lỗi sai hôm nay thành 10 điểm ngày thi thật luôn đó 🌟💪"',
+        '"Học mà giải trí một chút với chuyện tình gà bông của Kenji, màn đấu trí tâm lý của Sayuri hay xây dựng vương quốc cùng Yūma sẽ giúp não nhớ sâu gấp 3 lần học vẹt luôn đó em ơi~ 🥰📖"',
+        '"Uống một ngụm nước mát, thả lỏng hai vai một chút nào em~ Mỗi ngày chỉ cần tiến thêm 1 chương hoặc 10 câu đề thi thử thôi là đích JLPT N2 sẽ tới gần ngay trước mắt nha 🌸🎉"'
+      ];
+      let ni = 0;
+      const btn = document.getElementById("btnNextYukiNote");
+      const txt = document.getElementById("yukiReminderText");
+      if (btn && txt) {
+        btn.addEventListener("click", () => {
+          ni = (ni + 1) % notes.length;
+          txt.textContent = notes[ni];
+        });
+      }
+    })();
   </script>
 
 </body>

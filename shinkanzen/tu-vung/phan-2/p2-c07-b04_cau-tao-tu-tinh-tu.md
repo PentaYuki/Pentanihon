@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 4 Chương 7 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 7章 4課: 形容詞から作る動詞と名詞)** — bài chốt hạ sách Goi N2 — hướng dẫn cách biến đổi Tính từ thành Danh từ (`〜さ` vs `〜み`) và thành Động từ Tự/Tha (`〜まる` vs `〜める` / `〜がる`)."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c07_b04)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 12 (Chương 12: Chiều Tà Thắt Chặt Thấu Hiểu & Ngày Mai Đầy Hân Hoan Của Đôi Ta)**](../../../novel/index.html?novel=isekai&chapter=12) ([Bản MD](../../../novel/isekai/chuong-12.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c07_b04)
 
 ---
 

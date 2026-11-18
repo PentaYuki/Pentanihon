@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Theo đúng chuẩn giáo trình **Shinkanzen Master Từ vựng N2 (1章 1課: 親類・友人・知人)**, bài đầu tiên tập trung vào từ vựng gia tộc, bạn bè, kính xưng người nhà người khác, thứ bậc công sở và lễ nghi ứng xử."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c01_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 01 (Chương 01: Cúi Chào Ở Dốc Hoa Anh Đào & Buổi Sáng Tái Ngộ)**](../../../novel/index.html?novel=romcom&chapter=1) ([Bản MD](../../../novel/romcom/chuong-01.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c01_b01)
 
 ---
 

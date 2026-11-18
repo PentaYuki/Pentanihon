@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 6 của **Shinkanzen Master Từ vựng N2 (6章 1課: 報道・広告)** cung cấp vốn từ báo chí, phát thanh truyền hình, phỏng vấn, dư luận và quảng bá truyền thông."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c06_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 09 (Chương 09: Tin Đồn Lan Truyền & Màn Tỏ Tình Trên Sóng Trực Tiếp?)**](../../../novel/index.html?novel=romcom&chapter=9) ([Bản MD](../../../novel/romcom/chuong-09.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c06_b01)
 
 ---
 

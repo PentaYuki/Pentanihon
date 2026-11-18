@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 5 của **Shinkanzen Master Từ vựng N2 (5章 2課: 仕事)** là nhóm từ vựng xương sống cho dân đi làm tại Nhật: **tuyển dụng, thăng tiến, lương thưởng, bàn giao công việc, họp hành và các hình thức lao động**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c05_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 08 (Chương 08: Lần Đầu Đi Làm Chính Thức & Bất Ngờ Đêm Tăng Ca)**](../../../novel/index.html?novel=romcom&chapter=8) ([Bản MD](../../../novel/romcom/chuong-08.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c05_b02)
 
 ---
 

@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 4 Chương 7 của **Shinkanzen Master Từ vựng N2 (7章 4課: 政治・法律・歴史)** tập trung vào từ vựng **chế độ chính trị, bầu cử, luật pháp – tòa án và dấu mốc lịch sử**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c07_b04)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 03 (Chương 03: Nghị Viện Vương Đô, Hiệp Ước Hòa Bình & Bí Mật Di Tích Cổ)**](../../../novel/index.html?novel=isekai&chapter=3) ([Bản MD](../../../novel/isekai/chuong-03.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c07_b04)
 
 ---
 

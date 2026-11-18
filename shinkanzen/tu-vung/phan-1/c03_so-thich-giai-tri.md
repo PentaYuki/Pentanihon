@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Chương 3 của **Shinkanzen Master Từ vựng N2 (3章: 趣味・娯楽)** gom các từ vựng về **âm nhạc, hội họa, sân khấu điện ảnh, thi đấu thể thao và thú vui tiêu khiển**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c03_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 05 (Chương 05: Sân Khấu Lễ Hội Trường & Tràng Pháo Tay Không Dứt)**](../../../novel/index.html?novel=romcom&chapter=5) ([Bản MD](../../../novel/romcom/chuong-05.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c03_b01)
 
 ---
 

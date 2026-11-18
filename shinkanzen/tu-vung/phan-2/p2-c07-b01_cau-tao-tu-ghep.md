@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 1 Chương 7 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 7章 1課: 二つの言葉をプラス)** dạy quy tắc ghép 2 động từ/danh từ để tạo nên động từ kép và danh từ ghép — dạng bài trọng tâm của **Mondai 3 (Cấu tạo từ)**!"*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c07_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 09 (Chương 09: Tự Hào Kế Thừa & Những Người Đồng Đội Luôn Giúp Đỡ Lẫn Nhau)**](../../../novel/index.html?novel=isekai&chapter=9) ([Bản MD](../../../novel/isekai/chuong-09.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c07_b01)
 
 ---
 

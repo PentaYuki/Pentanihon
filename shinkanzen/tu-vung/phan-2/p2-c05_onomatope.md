@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Chương 5 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 5章: オノマトペ)** phân nhóm từ láy miêu tả **âm thanh, trạng thái tâm lý, cơ thể, cách làm việc và vật chất** hay ra thi nhất trong JLPT N2."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c05_b01)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 08 (Chương 08: Buổi Sáng Mưa Rào Xối Xả & Nhịp Sống Bình Yên Kiên Trì Từng Bước)**](../../../novel/index.html?novel=isekai&chapter=8) ([Bản MD](../../../novel/isekai/chuong-08.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c05_b01)
 
 ---
 

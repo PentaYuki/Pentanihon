@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Builder tạo Cuốn Tiểu Thuyết Tương Tác JLPT N2:
-『東京（とうきょう）の小さな書斎（しょさい）』— Căn Phòng Đọc Nhỏ Giữa Lòng Tokyo
+Builder tạo Hệ Thống 3 Tiểu Thuyết Tương Tác JLPT N2 (100% 37 Bài / 780 Từ Shinkanzen Từ Vựng N2):
+1. 🌸 Romcom (13 Chương — 13 Bài — 314 Từ — 65 Câu trắc nghiệm)
+2. 🖤 Yandere Romance (12 Chương — 12 Bài — 233 Từ — 60 Câu trắc nghiệm)
+3. ⚔️ Isekai Fantasy (12 Chương — 12 Bài — 233 Từ — 60 Câu trắc nghiệm)
+
 Xuất ra tại thư mục novel/:
-- novel/index.html      : Trình đọc tiểu thuyết tương tác (Highlight/Click từ Shinkanzen + Popover bảng hướng dẫn + Câu hỏi trắc nghiệm kế bên + Nghe đọc TTS + Bật/tắt Hiragana kế bên)
-- novel/novel-data.js   : Dữ liệu 6 chương + từ điển khớp tự động với Shinkanzen N2 (Từ vựng, Ngữ pháp, Chữ Hán)
-- novel/README.md       : Mục lục bản Markdown đọc trên reader.html
-- novel/chuong-01..06.md: 6 chương bản Markdown đầy đủ Hiragana, giải nghĩa từ Shinkanzen và câu hỏi
+- novel/index.html                : Trình đọc 3 tiểu thuyết tương tác (Romcom / Yandere / Isekai), highlight từ Shinkanzen + Popover hướng dẫn + MP3 phát âm + Dịch từng đoạn & trọn chương + Bảng từ vựng đầy đủ dưới mỗi chương + Quiz giải thích Đúng/Sai + Ghi chú nhắc nhẹ dễ thương của Yuki
+- novel/novel-data.js             : Dữ liệu JSON nhúng toàn bộ 3 tiểu thuyết, 37 chương, 780 từ vựng và 185 câu trắc nghiệm
+- novel/README.md                 : Mục lục tổng hợp 3 tiểu thuyết 37 chương
+- novel/{romcom,yandere,isekai}/chuong-XX.md : 37 tệp Markdown đầy đủ tương thích reader.html
 """
 import json
 import os
@@ -14,296 +17,486 @@ import re
 
 from shinkanzen_goi_data_p1 import GOI_PART1
 from shinkanzen_goi_data_p2 import GOI_PART2
-from shinkanzen_novel_data import NOVEL_META, NOVEL_CHAPTERS, EXTRA_SHINKANZEN_ENTRIES
+from novel_data_romcom import ROMCOM_NOVEL
+from novel_data_yandere import YANDERE_NOVEL
+from novel_data_isekai import ISEKAI_NOVEL
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 NOVEL_DIR = os.path.join(ROOT_DIR, "novel")
-
-
-def build_unified_shinkanzen_index():
-    """Hợp nhất toàn bộ 780 từ vựng Shinkanzen + mục mở rộng ngữ pháp/kanji."""
-    idx = {}
-    lesson_md_map = {}
-
-    for part_num, arr in ((1, GOI_PART1), (2, GOI_PART2)):
-        for l in arr:
-            rel_md = f"../shinkanzen/tu-vung/phan-{part_num}/{l['filename']}"
-            lesson_md_map[l["id"]] = rel_md
-            for furi, plain, reading, hv, mean, col_jp, col_vi, group in l["words"]:
-                entry = {
-                    "id": f"goi_{l['id']}_{plain}",
-                    "kind": "vocab",
-                    "plain": plain,
-                    "furi": furi,
-                    "reading": reading,
-                    "hv": hv,
-                    "mean": mean,
-                    "collocJp": col_jp,
-                    "collocVi": col_vi,
-                    "group": group,
-                    "bookLabel": f"Từ vựng N2 — 第{part_num}部 {l['chapter']}・{l['lesson']}",
-                    "mdLink": rel_md,
-                    "flashLink": f"../shinkanzen/tu-vung/flashcards.html?lesson={l['id']}",
-                }
-                if plain not in idx:
-                    idx[plain] = entry
-
-    for key, data in EXTRA_SHINKANZEN_ENTRIES.items():
-        flash = data.get("flashLink", "")
-        resolved_md = data["mdLink"]
-        if "?lesson=" in flash:
-            lid = flash.split("?lesson=", 1)[1]
-            if lid in lesson_md_map:
-                resolved_md = lesson_md_map[lid]
-        assert os.path.isfile(os.path.join(ROOT_DIR, resolved_md.replace("../", ""))), f"Missing target MD file for {key}: {resolved_md}"
-        idx[key] = {
-            "id": f"extra_{data['plain']}",
-            "kind": data["kind"],
-            "plain": data["plain"],
-            "furi": data["furi"],
-            "reading": data["reading"],
-            "hv": data["hv"],
-            "mean": data["mean"],
-            "collocJp": data["collocJp"],
-            "collocVi": data["collocVi"],
-            "group": data.get("group", ""),
-            "bookLabel": data["bookLabel"],
-            "mdLink": resolved_md,
-            "flashLink": flash,
-        }
-    return idx
-
-
-def compile_auto_goi_regex(vocab_index):
-    """Tạo regex khớp tự động thêm các từ Shinkanzen (dạng Kanji >= 2 chữ) xuất hiện tự nhiên ngoài thẻ [[...]]."""
-    kanji_only = re.compile(r"^[一-龯々]{2,}$")
-    # Chỉ nhận từ toàn chữ Hán >= 2 chữ để tránh tách nhầm động từ chia thể hoặc từ quá ngắn
-    candidates = [
-        k for k, v in vocab_index.items()
-        if v["kind"] == "vocab" and kanji_only.match(k) and len(k) >= 2
-    ]
-    candidates.sort(key=len, reverse=True)
-    if not candidates:
-        return None, {}
-
-    pat_map = {}
-    parts = []
-    for k in candidates:
-        # Mỗi chữ Kanji cho phép theo sau bởi （ひらがな）
-        piece = "".join(re.escape(ch) + r"(?:（[^）]+）)?" for ch in k)
-        parts.append(piece)
-        pat_map[k] = piece
-
-    # Không bắt đầu hoặc kết thúc ngay giữa cụm từ Kanji liền kề khác
-    regex_str = r"(?<![一-龯々])(?:" + "|".join(parts) + r")(?![一-龯々（])"
-    return re.compile(regex_str), vocab_index
 
 
 def strip_furi(text):
     return re.sub(r"（[^）]*）", "", text)
 
 
-def parse_text_segments(raw_text, vocab_index, auto_regex):
-    """Chuyển văn bản có [[...]] + từ Shinkanzen tự động thành mảng segments [{type:'text'|'token', ...}]."""
-    explicit_pat = re.compile(r"\[\[([^\]]+)\]\]")
+def build_unified_shinkanzen_index():
+    """Tạo từ điển hợp nhất toàn bộ 780 từ vựng Shinkanzen Goi N2 bằng khóa duy nhất '{lesson_id}__{w_idx}'."""
+    glossary = {}
+    lessons_meta = {}
+    all_lessons = [(1, l) for l in GOI_PART1] + [(2, l) for l in GOI_PART2]
+
+    for global_num, (part_num, l) in enumerate(all_lessons, 1):
+        lid = l["id"]
+        rel_md = f"../shinkanzen/tu-vung/phan-{part_num}/{l['filename']}"
+        flash_link = f"../shinkanzen/tu-vung/flashcards.html?lesson={lid}"
+        word_keys = []
+
+        for w_idx, (furi, plain, reading, hv, mean, col_jp, col_vi, group) in enumerate(l["words"], 1):
+            key = f"{lid}__{w_idx}"
+            word_audio = f"../shinkanzen/tu-vung/audio/words/{lid}_{w_idx}.mp3"
+            colloc_audio = f"../shinkanzen/tu-vung/audio/collocs/{lid}_{w_idx}.mp3"
+            assert os.path.isfile(os.path.join(ROOT_DIR, word_audio.replace("../", ""))), f"Missing word audio: {word_audio}"
+            assert os.path.isfile(os.path.join(ROOT_DIR, colloc_audio.replace("../", ""))), f"Missing colloc audio: {colloc_audio}"
+
+            glossary[key] = {
+                "key": key,
+                "wIdx": w_idx,
+                "lessonId": lid,
+                "lessonNum": global_num,
+                "partNum": part_num,
+                "plain": plain,
+                "furi": furi,
+                "reading": reading,
+                "hv": hv,
+                "mean": mean,
+                "collocJp": col_jp,
+                "collocVi": col_vi,
+                "group": group,
+                "bookLabel": f"Bài {global_num:02d}/37 • 第{part_num}部 {l['chapter']} ({l['lesson']})",
+                "lessonTitleVi": l["title_vi"],
+                "mdLink": rel_md,
+                "flashLink": flash_link,
+                "wordAudio": word_audio,
+                "collocAudio": colloc_audio,
+            }
+            word_keys.append(key)
+
+        lessons_meta[lid] = {
+            "id": lid,
+            "num": global_num,
+            "partNum": part_num,
+            "chapter": l["chapter"],
+            "lesson": l["lesson"],
+            "title_vi": l["title_vi"],
+            "wordCount": len(l["words"]),
+            "wordKeys": word_keys,
+            "mdLink": rel_md,
+            "flashLink": flash_link,
+        }
+
+    return glossary, lessons_meta
+
+
+def parse_tokens(raw_text, default_lesson_id, glossary):
+    """Chuyển chuỗi có token [[display|ref]] thành mảng segments [{t:'text'|'tok', v, k}]."""
+    pat = re.compile(r"\[\[([^|\]]+)\|([^\]]+)\]\]")
     segments = []
-    pos = 0
     found_keys = []
+    pos = 0
 
-    def emit_plain_chunk(chunk):
-        if not chunk:
-            return
-        if not auto_regex:
-            segments.append({"t": "text", "v": chunk})
-            return
-        sub_pos = 0
-        for am in auto_regex.finditer(chunk):
-            if am.start() > sub_pos:
-                segments.append({"t": "text", "v": chunk[sub_pos:am.start()]})
-            matched_disp = am.group(0)
-            matched_key = strip_furi(matched_disp)
-            if matched_key in vocab_index:
-                segments.append({"t": "tok", "v": matched_disp, "k": matched_key})
-                found_keys.append(matched_key)
-            else:
-                segments.append({"t": "text", "v": matched_disp})
-            sub_pos = am.end()
-        if sub_pos < len(chunk):
-            segments.append({"t": "text", "v": chunk[sub_pos:]})
-
-    for m in explicit_pat.finditer(raw_text):
+    for m in pat.finditer(raw_text):
         if m.start() > pos:
-            emit_plain_chunk(raw_text[pos:m.start()])
-        inner = m.group(1)
-        if "|" in inner:
-            disp, key = inner.split("|", 1)
+            segments.append({"t": "text", "v": raw_text[pos:m.start()]})
+        disp = m.group(1)
+        ref = m.group(2)
+        if ":" in ref:
+            target_lid, idx_str = ref.split(":", 1)
+            key = f"{target_lid}__{int(idx_str)}"
         else:
-            disp = inner
-            key = strip_furi(inner)
-        assert key in vocab_index, f"Key '{key}' (từ '{disp}') không tồn tại trong kho Shinkanzen!"
+            key = f"{default_lesson_id}__{int(ref)}"
+        assert key in glossary, f"Token '{disp}|{ref}' -> key '{key}' không tồn tại trong glossary!"
         segments.append({"t": "tok", "v": disp, "k": key})
         found_keys.append(key)
         pos = m.end()
 
     if pos < len(raw_text):
-        emit_plain_chunk(raw_text[pos:])
+        segments.append({"t": "text", "v": raw_text[pos:]})
 
     return segments, found_keys
 
 
-def build_novel_markdown(chapters_built, glossary):
-    """Sinh thêm bản Markdown cho novel/README.md và 6 chương để tương thích reader.html."""
-    for ch in chapters_built:
-        lines = [
-            f"# 📖 {NOVEL_META['title_jp']} — {ch['title_vi']}",
-            f"## {ch['title_jp']}",
-            "",
-            f"> 🌸 **Lời nhắn của chị Yuki:** *\"{ch['yuki_tip']}\"*",
-            "",
-            "✨ [**Mở Trình Đọc Tương Tác (Click từ Shinkanzen tự phát sáng + Bảng hướng dẫn + Quiz kế bên)**](./index.html?chapter=" + str(ch["num"]) + ")",
-            "",
-            "---",
-            "",
-            "## 1. Nội Dung Chương Truyện (Có Hiragana Kế Bên)",
-            "",
-        ]
-        for p in ch["paragraphs"]:
-            # Làm nổi bật in đậm từ Shinkanzen trong Markdown
-            md_p = "".join(
-                f"**{seg['v']}**" if seg["t"] == "tok" else seg["v"]
-                for seg in p["segments"]
-            )
-            lines.append(md_p)
-            lines.append("")
+def build_novels_data(glossary, lessons_meta):
+    """Xử lý 3 bộ tiểu thuyết và kiểm tra nghiêm ngặt độ phủ 37/37 bài & 780/780 từ."""
+    raw_novels = [ROMCOM_NOVEL, YANDERE_NOVEL, ISEKAI_NOVEL]
+    novels_built = []
+    covered_lessons = set()
+    covered_words = set()
+    lesson_to_novel_map = {}
 
-        lines.extend([
-            "<details><summary>👉 Xem bản dịch tiếng Việt trọn chương</summary>\n",
-        ])
-        for p in ch["paragraphs"]:
-            lines.append(p["vi"])
-            lines.append("")
-        lines.append("</details>\n")
+    for novel in raw_novels:
+        chapters_built = []
+        novel_word_total = 0
 
-        lines.extend([
-            "---",
-            "",
-            f"## 📚 2. Kho Từ Vựng & Ngữ Pháp Shinkanzen Trong Chương {ch['num']:02d} ({len(ch['vocab_keys'])} mục)",
-            "",
-            "| Từ / Mẫu | Cách đọc | Hán Việt | Nghĩa & Ví dụ Shinkanzen | Nguồn Sách |",
-            "| :--- | :--- | :--- | :--- | :--- |",
-        ])
-        for k in ch["vocab_keys"]:
-            item = glossary[k]
-            md_link_rel = item["mdLink"]
-            lines.append(
-                f"| **{item['furi']}** | `{item['reading']}` | {item['hv']} | {item['mean']} *(VD: {item['collocJp']})* | [Xem bài]({md_link_rel}) |"
-            )
+        for ch in novel["chapters"]:
+            lid = ch["lesson_id"]
+            assert lid in lessons_meta, f"Unknown lesson_id: {lid}"
+            assert lid not in covered_lessons, f"Duplicate lesson_id across novels: {lid}"
+            covered_lessons.add(lid)
+            lmeta = lessons_meta[lid]
+            novel_word_total += lmeta["wordCount"]
 
-        lines.extend([
-            "",
-            "---",
-            "",
-            f"## ✍️ 3. Câu Hỏi Đọc Hiểu & Vận Dụng Chương {ch['num']:02d}",
-            "",
-        ])
-        for q_idx, q in enumerate(ch["quiz"], 1):
-            q_txt = "".join(seg["v"] for seg in q["prompt_segments"])
-            lines.append(f"### Câu {q_idx}: {q_txt}")
-            for o_idx, opt in enumerate(q["options"], 1):
-                lines.append(f"{o_idx}. {opt}  ")
-            lines.append("<details><summary>👉 Xem đáp án & giải thích</summary>\n")
-            lines.append(f"**Đáp án đúng:** {q['ans']} (`{q['options'][q['ans'] - 1]}`)  ")
-            lines.append(f"**Giải thích:** {q['exp']}")
-            lines.append("</details>\n")
+            lesson_to_novel_map[lid] = {
+                "novelId": novel["id"],
+                "novelSlug": novel["slug"],
+                "novelTitle": novel["title_vi"],
+                "chapterNum": ch["num"],
+                "chapterSlug": ch["slug"],
+                "chapterTitle": ch["title_vi"],
+            }
 
-        nav = []
-        if ch["num"] > 1:
-            nav.append(f"[⬅️ Chương {ch['num'] - 1:02d}](./chuong-{ch['num'] - 1:02d}.md)")
-        nav.append("[📋 Mục lục Tiểu thuyết](./README.md)")
-        nav.append("[✨ Đọc bản Tương tác](./index.html?chapter=" + str(ch["num"]) + ")")
-        if ch["num"] < len(chapters_built):
-            nav.append(f"[Chương {ch['num'] + 1:02d} ➡️](./chuong-{ch['num'] + 1:02d}.md)")
-        lines.append("---")
-        lines.append(" | ".join(nav) + "\n")
+            title_segs, title_keys = parse_tokens(ch["title_jp"], lid, glossary)
+            para_built = []
+            occ_keys = list(title_keys)
+            for jp_raw, vi_text in ch["paragraphs"]:
+                segs, p_keys = parse_tokens(jp_raw, lid, glossary)
+                para_built.append({"segments": segs, "vi": vi_text})
+                occ_keys.extend(p_keys)
 
-        with open(os.path.join(NOVEL_DIR, f"{ch['slug']}.md"), "w", encoding="utf-8") as f:
-            f.write("\n".join(lines))
+            # Kiểm tra 100% từ của bài học đều xuất hiện trong chương
+            found_primary = {k for k in occ_keys if k.startswith(lid + "__")}
+            expected_primary = set(lmeta["wordKeys"])
+            missing = expected_primary - found_primary
+            assert not missing, f"{novel['id']} Ch.{ch['num']} ({lid}) thiếu từ: {sorted(missing)}"
+            covered_words.update(found_primary)
+
+            extra_keys = []
+            for k in occ_keys:
+                if not k.startswith(lid + "__") and k not in extra_keys:
+                    extra_keys.append(k)
+
+            # Đếm số lần xuất hiện của từng từ
+            occ_counts = {}
+            for k in occ_keys:
+                occ_counts[k] = occ_counts.get(k, 0) + 1
+
+            soft_notes = [
+                {"afterPara": int(ap), "title": t, "body": b}
+                for ap, t, b in ch.get("soft_notes", [])
+            ]
+
+            quizzes_built = []
+            for q_idx, q in enumerate(ch["quiz"], 1):
+                assert len(q["options"]) == 4 and 1 <= q["ans"] <= 4
+                assert len(q["wrong_exps"]) == 4 and q.get("right_exp")
+                quizzes_built.append({
+                    "num": q_idx,
+                    "prompt": q["prompt"],
+                    "options": q["options"],
+                    "ans": q["ans"],
+                    "rightExp": q["right_exp"],
+                    "wrongExps": q["wrong_exps"],
+                })
+
+            chapters_built.append({
+                "num": ch["num"],
+                "slug": ch["slug"],
+                "lessonId": lid,
+                "lessonNum": lmeta["num"],
+                "lessonLabel": f"Bài {lmeta['num']:02d}/37 • 第{lmeta['partNum']}部 {lmeta['chapter']} ({lmeta['lesson']}): {lmeta['title_vi']}",
+                "lessonShort": f"Bài {lmeta['num']:02d} • {lmeta['title_vi']}",
+                "lessonWordCount": lmeta["wordCount"],
+                "mdLessonRel": lmeta["mdLink"],
+                "flashLessonRel": lmeta["flashLink"],
+                "titleJp": ch["title_jp"],
+                "titleSegments": title_segs,
+                "titleVi": ch["title_vi"],
+                "yukiTop": ch["yuki_reminder_top"],
+                "yukiBottom": ch["yuki_reminder_bottom"],
+                "softNotes": soft_notes,
+                "paragraphs": para_built,
+                "lessonVocabKeys": list(lmeta["wordKeys"]),
+                "extraVocabKeys": extra_keys,
+                "occCounts": occ_counts,
+                "quiz": quizzes_built,
+            })
+
+        novels_built.append({
+            "id": novel["id"],
+            "slug": novel["slug"],
+            "genreBadge": novel["genre_badge"],
+            "themeColor": novel["theme_color"],
+            "themeSoft": novel["theme_soft"],
+            "titleJp": novel["title_jp"],
+            "titleVi": novel["title_vi"],
+            "tagline": novel["tagline"],
+            "yukiIntro": novel["yuki_intro"],
+            "characters": novel["characters"],
+            "chapterCount": len(chapters_built),
+            "wordTotal": novel_word_total,
+            "examReviewId": f"review-{novel['id']}",
+            "chapters": chapters_built,
+        })
+
+    assert len(covered_lessons) == 37, f"Expected 37 lessons, got {len(covered_lessons)}"
+    assert len(covered_words) == 780, f"Expected 780 words, got {len(covered_words)}"
+    return novels_built, lesson_to_novel_map
+
+
+def build_novel_markdown(novels_built, glossary):
+    """Sinh 37 tệp Markdown (novel/{romcom,yandere,isekai}/chuong-XX.md) và novel/README.md."""
+    # Dọn các file markdown cũ ở novel/ nếu còn sót
+    for name in os.listdir(NOVEL_DIR):
+        if name.startswith("chuong-") and name.endswith(".md"):
+            os.remove(os.path.join(NOVEL_DIR, name))
+
+    for novel in novels_built:
+        sub_dir = os.path.join(NOVEL_DIR, novel["slug"])
+        os.makedirs(sub_dir, exist_ok=True)
+        # Xóa file cũ nếu số chương giảm
+        for f in os.listdir(sub_dir):
+            if f.endswith(".md"):
+                os.remove(os.path.join(sub_dir, f))
+
+        for ch in novel["chapters"]:
+            notes_by_para = {}
+            for sn in ch["softNotes"]:
+                notes_by_para.setdefault(sn["afterPara"], []).append(sn)
+
+            title_jp_clean = "".join(s["v"] for s in ch["titleSegments"])
+            lines = [
+                f"# {novel['genreBadge']} — {novel['titleVi']}",
+                f"## {ch['titleVi']}",
+                f"### {title_jp_clean}",
+                "",
+                f"📚 **Bài học Shinkanzen trong chương:** `{ch['lessonLabel']}` ({ch['lessonWordCount']} từ vựng)  ",
+                f"🎴 [**Flashcards bài này**](../{ch['flashLessonRel']}) | 📖 [**Bài học gốc Shinkanzen**](../{ch['mdLessonRel']}) | ✨ [**Mở bản Web Tương Tác**](../index.html?novel={novel['id']}&chapter={ch['num']})",
+                "",
+                "> 🌸 **Nhắc nhẹ từ chị Yuki:**  ",
+                f"> {ch['yukiTop']}",
+                "",
+                "---",
+                "",
+                "## 1. Nội Dung Chương Truyện (Từ Shinkanzen được in đậm)",
+                "",
+            ]
+
+            for idx_p, p in enumerate(ch["paragraphs"], 1):
+                md_p = "".join(
+                    f"**{seg['v']}**" if seg["t"] == "tok" else seg["v"]
+                    for seg in p["segments"]
+                )
+                lines.append(md_p)
+                lines.append("")
+                if idx_p in notes_by_para:
+                    for sn in notes_by_para[idx_p]:
+                        lines.append(f"> 💡 **{sn['title']}**: {sn['body']}")
+                        lines.append("")
+
+            lines.extend([
+                "---",
+                "",
+                f"## 🇻🇳 2. Bản Dịch Tiếng Việt Trọn Chương {ch['num']:02d}",
+                "",
+            ])
+            for idx_p, p in enumerate(ch["paragraphs"], 1):
+                lines.append(f"**Đoạn {idx_p}:** {p['vi']}")
+                lines.append("")
+
+            lines.extend([
+                "> 🌸 **Lời nhắn cuối chương từ chị Yuki:**  ",
+                f"> {ch['yukiBottom']}",
+                "",
+                "---",
+                "",
+                f"## 📚 3. Bảng Đầy Đủ Nghĩa Từ Vựng — {ch['lessonShort']} ({len(ch['lessonVocabKeys'])} từ)",
+                "",
+                "| # | Từ vựng (Kanji) | Cách đọc | Hán Việt | Nghĩa tiếng Việt | Ví dụ Shinkanzen |",
+                "| :---: | :--- | :--- | :--- | :--- | :--- |",
+            ])
+            for k in ch["lessonVocabKeys"]:
+                item = glossary[k]
+                mean_esc = item["mean"].replace("|", "\\|")
+                col_esc = f"{item['collocJp']} ({item['collocVi']})".replace("|", "\\|")
+                lines.append(
+                    f"| {item['wIdx']} | **{item['furi']}** | `{item['reading']}` | {item['hv']} | {mean_esc} | {col_esc} |"
+                )
+
+            if ch["extraVocabKeys"]:
+                lines.extend(["", f"*(Tham khảo thêm {len(ch['extraVocabKeys'])} từ liên kết từ bài khác: " + ", ".join(glossary[ek]["plain"] for ek in ch["extraVocabKeys"]) + ")*"])
+
+            lines.extend([
+                "",
+                "---",
+                "",
+                f"## ✍️ 4. Câu Hỏi Trắc Nghiệm Chương {ch['num']:02d} (Giải Thích Chi Tiết Đúng & Sai)",
+                "",
+            ])
+            for q in ch["quiz"]:
+                lines.append(f"### Câu {q['num']}: {q['prompt']}")
+                for oi, opt in enumerate(q["options"], 1):
+                    mark = "✅" if oi == q["ans"] else "•"
+                    lines.append(f"{oi}. {opt}  ")
+                lines.append("")
+                lines.append("<details><summary>👉 Xem đáp án đúng & giải thích cả 4 lựa chọn</summary>\n")
+                lines.append(f"- ✅ **Đáp án đúng: {q['ans']} (`{q['options'][q['ans'] - 1]}`)** — {q['rightExp']}")
+                for oi, wexp in enumerate(q["wrongExps"], 1):
+                    if oi != q["ans"]:
+                        lines.append(f"- ❌ **Nếu chọn {oi} (`{q['options'][oi - 1]}`):** {wexp}")
+                lines.append("</details>\n")
+
+            nav = []
+            if ch["num"] > 1:
+                nav.append(f"[⬅️ Chương {ch['num'] - 1:02d}](./chuong-{ch['num'] - 1:02d}.md)")
+            nav.append("[📋 Mục lục 3 Tiểu thuyết](../README.md)")
+            nav.append(f"[✨ Đọc Tương tác](../index.html?novel={novel['id']}&chapter={ch['num']})")
+            if ch["num"] < novel["chapterCount"]:
+                nav.append(f"[Chương {ch['num'] + 1:02d} ➡️](./chuong-{ch['num'] + 1:02d}.md)")
+            lines.append("---")
+            lines.append(" | ".join(nav) + "\n")
+
+            with open(os.path.join(sub_dir, f"{ch['slug']}.md"), "w", encoding="utf-8") as f:
+                f.write("\n".join(lines))
 
     # Build novel/README.md
     readme = [
-        f"# 📖 {NOVEL_META['title_jp']} — {NOVEL_META['title_vi']}",
+        "# 📖 Hệ Thống 3 Bộ Tiểu Thuyết Tương Tác JLPT N2 (37/37 Bài • 780/780 Từ Shinkanzen)",
         "",
-        f"> 🌸 **Lời nhắn của chị Yuki:** *\"{NOVEL_META['author_note']}\"*",
+        "> 🌸 **Lời chào từ chị Yuki:** *\"Chào em yêu~ Toàn bộ 780 từ vựng và 37 bài học của giáo trình **Shinkanzen Master Goi N2** đã được dệt trọn vẹn vào 3 bộ tiểu thuyết cực cuốn: **Romcom (13 chương)**, **Yandere Tâm Lý (12 chương)** và **Isekai Kiến Quốc (12 chương)**! Mỗi chương đều ghi rõ bài học Shinkanzen, có dịch tiếng Việt từng đoạn & cả chương, bảng giải nghĩa đầy đủ ngay bên dưới, lời nhắc nhẹ nhàng và 5 câu trắc nghiệm giải thích siêu kỹ nha~\"*",
         "",
-        "✨ [**Mở Bản Web Tương Tác Chính Thức (Click từ trong truyện -> Sáng lên + Bảng hướng dẫn Shinkanzen)**](./index.html)",
+        "✨ [**Mở Trình Đọc Tiểu Thuyết Tương Tác Chính Thức**](./index.html) | 🎯 [**Trung Tâm Thi Thử Chuẩn JLPT N2 (222 Câu)**](../exam/index.html) | 🎴 [**Flashcards 780 Từ**](../shinkanzen/tu-vung/flashcards.html)",
         "",
         "---",
         "",
-        "## 📑 Mục Lục 6 Chương Tiểu Thuyết",
-        "",
-        "| Chương | Tiêu đề (日本語) | Tên Tiếng Việt | Số từ Shinkanzen | Mở đọc |",
-        "| :---: | :--- | :--- | :---: | :--- |",
     ]
-    for ch in chapters_built:
-        t_clean = "".join(seg["v"] for seg in ch["title_segments"])
-        readme.append(
-            f"| **{ch['num']:02d}** | {t_clean} | [**{ch['title_vi']}**](./{ch['slug']}.md) | {len(ch['vocab_keys'])} | [✨ Tương tác](./index.html?chapter={ch['num']}) |"
-        )
-    readme.extend(["", "---", "[🏠 Quay lại Trang chủ PentaNihonGo](../README.md)", ""])
+
+    for idx_n, novel in enumerate(novels_built, 1):
+        readme.extend([
+            f"## Bộ {idx_n}: {novel['genreBadge']} — {novel['titleVi']}",
+            f"**Tên tiếng Nhật:** `{novel['titleJp']}` • **{novel['chapterCount']} chương ({novel['wordTotal']} từ Shinkanzen)**  ",
+            f"👉 [**Đọc Bộ {idx_n} bản Tương tác**](./index.html?novel={novel['id']}) | 🧪 [**Làm Đề Ôn Tập Bộ {idx_n} (20 câu)**](../exam/index.html?exam={novel['examReviewId']})",
+            "",
+            "| Chương | Bài Shinkanzen Chứa Trong Chương | Số Từ | Tên Chương (Tiếng Việt) | Mở đọc |",
+            "| :---: | :--- | :---: | :--- | :--- |",
+        ])
+        for ch in novel["chapters"]:
+            readme.append(
+                f"| **{ch['num']:02d}** | `{ch['lessonShort']}` | {ch['lessonWordCount']} | [**{ch['titleVi']}**](./{novel['slug']}/{ch['slug']}.md) | [✨ Tương tác](./index.html?novel={novel['id']}&chapter={ch['num']}) |"
+            )
+        readme.extend(["", "---", ""])
+
+    readme.append("[🏠 Quay lại Trang chủ PentaNihonGo](../README.md)\n")
     with open(os.path.join(NOVEL_DIR, "README.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(readme))
 
 
 def render_novel_html():
-    return """<!DOCTYPE html>
+    return r"""<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiểu Thuyết Tương Tác N2 — Căn Phòng Đọc Nhỏ Giữa Lòng Tokyo</title>
-  <meta name="description" content="Tiểu thuyết ngắn 6 chương vận dụng từ vựng & ngữ pháp Shinkanzen Master N2 có Hiragana kế bên, click từ để sáng lên và xem bảng hướng dẫn chi tiết kèm câu hỏi từng chương.">
+  <title>3 Bộ Tiểu Thuyết Tương Tác N2 — Romcom, Yandere &amp; Isekai | PentaNihonGo</title>
+  <meta name="description" content="Hệ thống 3 tiểu thuyết Romcom, Yandere, Isekai phủ 100% toàn bộ 37 bài / 780 từ vựng Shinkanzen Master N2: kèm dịch từng chương, bảng nghĩa chi tiết ở dưới mỗi chương, audio phát âm, lời nhắc dịu dàng của Yuki và trắc nghiệm giải thích đúng/sai.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
   <style>
     :root {
-      --bg: #f8f5ef;
-      --paper: #fffdf8;
+      color-scheme: light dark;
+      --bg: #f8f6f2;
+      --paper: #fffdf9;
       --panel: #ffffff;
-      --text: #221f1c;
-      --text-muted: #5c564f;
-      --border: #e4ddd2;
-      --border-strong: #c8bfb0;
+      --surface-soft: #f3efe7;
+      --text: #1f1c18;
+      --text-muted: #554f47;
+      --border: #dfd8cc;
+      --border-strong: #bfb4a3;
       --accent: #b92b27;
       --accent-soft: #fff1ef;
+      --accent-ink: #7f1d1d;
       --glow: #ffe066;
-      --glow-border: #e09f00;
-      --highlight-idle-bg: #fff8dc;
-      --highlight-idle-line: #d4a72c;
-      --grammar-idle-bg: #eef4ff;
-      --grammar-idle-line: #3b6fd8;
-      --ok: #2b8a3e;
+      --glow-border: #d97706;
+      --tok-bg: #fff8db;
+      --tok-line: #b45309;
+      --tok-extra-bg: #eef2ff;
+      --tok-extra-line: #4338ca;
+      --ok: #1b6e2f;
       --ok-bg: #ebfbee;
-      --err: #c92a2a;
+      --ok-border: #2f9e44;
+      --err: #b81d1d;
       --err-bg: #fff5f5;
-      --radius: 10px;
+      --err-border: #e03131;
+      --yuki-bg: #fff5f8;
+      --yuki-border: #f3b8ca;
+      --radius: 12px;
       --font-vi: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-jp: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      overflow-x: clip;
-      overscroll-behavior-x: none;
-      max-width: 100%;
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141210;
+        --paper: #1d1a17;
+        --panel: #24201c;
+        --surface-soft: #2c2722;
+        --text: #f3efe8;
+        --text-muted: #bdb4a7;
+        --border: #3a342d;
+        --border-strong: #574e44;
+        --accent: #ff7b76;
+        --accent-soft: #3a1f1e;
+        --accent-ink: #ffd1cf;
+        --glow: #854d0e;
+        --glow-border: #fbbf24;
+        --tok-bg: #2e2514;
+        --tok-line: #f59e0b;
+        --tok-extra-bg: #1e2240;
+        --tok-extra-line: #818cf8;
+        --ok: #69db7c;
+        --ok-bg: #132a19;
+        --ok-border: #40c057;
+        --err: #ff8787;
+        --err-bg: #321616;
+        --err-border: #fa5252;
+        --yuki-bg: #2b1a22;
+        --yuki-border: #8a3d5e;
+      }
     }
 
-    body {
+    :root[data-theme="dark"] {
+      --bg: #141210;
+      --paper: #1d1a17;
+      --panel: #24201c;
+      --surface-soft: #2c2722;
+      --text: #f3efe8;
+      --text-muted: #bdb4a7;
+      --border: #3a342d;
+      --border-strong: #574e44;
+      --accent: #ff7b76;
+      --accent-soft: #3a1f1e;
+      --accent-ink: #ffd1cf;
+      --glow: #854d0e;
+      --glow-border: #fbbf24;
+      --tok-bg: #2e2514;
+      --tok-line: #f59e0b;
+      --tok-extra-bg: #1e2240;
+      --tok-extra-line: #818cf8;
+      --ok: #69db7c;
+      --ok-bg: #132a19;
+      --ok-border: #40c057;
+      --err: #ff8787;
+      --err-bg: #321616;
+      --err-border: #fa5252;
+      --yuki-bg: #2b1a22;
+      --yuki-border: #8a3d5e;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow-x: clip;
+      max-width: 100%;
+    }
+    body {
       font-family: var(--font-vi);
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
       overflow-wrap: anywhere;
+    }
+
+    :where(a, button, summary, input, [tabindex="0"]):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
     }
 
     .visually-hidden:where(:not(:focus-within, :active)) {
@@ -319,1770 +512,1474 @@ def render_novel_html():
     }
 
     .skip-link {
-      background: #111;
+      position: fixed;
+      inset-block-start: 10px;
+      inset-inline-start: 10px;
+      z-index: 9999;
+      background: var(--accent);
       color: #fff;
       padding: 8px 14px;
+      border-radius: 8px;
       font-weight: 700;
       text-decoration: none;
-      z-index: 999;
-      position: fixed;
-      top: 8px;
-      left: 8px;
-      border-radius: 6px;
     }
 
-    :where(a:any-link, button, summary, input, select):focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    /* TOP BAR */
+    /* Top Header */
     .topbar {
       background: var(--panel);
-      border-bottom: 1px solid var(--border);
+      border-block-end: 1px solid var(--border);
       position: sticky;
-      top: 0;
+      inset-block-start: 0;
       z-index: 40;
     }
-
     .topbar-inner {
-      max-width: 1280px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 10px 18px;
+      padding: 10px 16px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
     }
-
-    .nav-group {
+    .brand {
       display: flex;
-      gap: 8px;
       align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
     }
+    .brand-home {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+    .brand-home:hover { border-color: var(--accent); }
+    .brand-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--accent);
+    }
 
-    .nav-btn {
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .nav-pill-btn {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      min-block-size: 36px;
       padding: 6px 12px;
+      border-radius: 999px;
       border: 1px solid var(--border-strong);
-      border-radius: 6px;
-      background: #fff;
+      background: var(--panel);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .nav-btn:hover {
-      background: #f3efe8;
-    }
-
-    .nav-btn.is-on {
-      background: #1f1c19;
-      color: #fff;
-      border-color: #1f1c19;
-    }
-
-    /* HERO HEADER */
-    .book-header {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px 18px 12px;
-    }
-
-    .book-eyebrow {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border: 1px solid #f4c7c5;
-      padding: 2px 10px;
-      border-radius: 99px;
-      margin-bottom: 8px;
-    }
-
-    .book-header h1 {
-      font-size: 1.7rem;
-      line-height: 1.3;
-      margin: 0 0 6px;
-    }
-
-    .book-subtitle {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-      margin: 0 0 14px;
-    }
-
-    /* CHAPTER TABS */
-    .chapter-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .chap-tab {
-      min-block-size: 38px;
-      padding: 6px 14px;
-      border: 1px solid var(--border-strong);
-      border-radius: 99px;
-      background: #fff;
-      color: var(--text);
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
-
-    .chap-tab.active {
+    .nav-pill-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-pill-btn.exam-cta {
       background: var(--accent);
-      color: #fff;
       border-color: var(--accent);
+      color: #fff;
     }
 
-    .chap-tab .quiz-done-dot {
-      font-size: 0.78rem;
+    /* Novel Switcher & Chapter Ribbon */
+    .hub-bar {
+      max-width: 1380px;
+      margin: 14px auto 0;
+      padding: 0 16px;
+      display: grid;
+      gap: 12px;
     }
+    .novel-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+    }
+    .novel-card-btn {
+      text-align: start;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      gap: 4px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .novel-card-btn:hover { border-color: var(--card-accent, var(--accent)); transform: translateY(-1px); }
+    .novel-card-btn[aria-current="true"] {
+      border-color: var(--card-accent, var(--accent));
+      background: var(--accent-soft);
+    }
+    .nc-badge { font-size: 0.75rem; font-weight: 800; color: var(--card-accent, var(--accent)); }
+    .nc-title { font-size: 0.98rem; font-weight: 800; }
+    .nc-meta { font-size: 0.8rem; color: var(--text-muted); }
 
-    /* TOOLBAR */
-    .reading-controls {
+    /* Progress + Chapters Nav */
+    .chap-strip {
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 10px 14px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      padding: 12px 14px;
+      display: grid;
       gap: 10px;
     }
-
-    .toggle-pill {
+    .chap-strip-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.86rem;
+    }
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+    progress {
+      width: 130px;
+      height: 10px;
+      accent-color: var(--accent);
+    }
+    .chapter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chap-btn {
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      min-block-size: 34px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--border-strong);
-      background: #faf7f2;
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
+      gap: 4px;
+    }
+    .chap-btn[aria-current="page"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .chap-btn.done::after {
+      content: "✓";
+      font-size: 0.78rem;
+      color: var(--ok);
+      font-weight: 900;
+    }
+    .chap-btn[aria-current="page"].done::after {
+      color: #fff;
     }
 
-    .toggle-pill[aria-pressed="true"] {
-      background: #fff7d6;
-      border-color: #d4a72c;
-      color: #6b4c00;
-    }
-
-    /* TWO-COLUMN WORKSPACE: BOOK PAGE + COMPANION PANEL */
+    /* Main Workspace Grid */
     .workspace {
-      max-width: 1280px;
-      margin: 0 auto 50px;
-      padding: 10px 18px;
+      max-width: 1380px;
+      margin: 14px auto 40px;
+      padding: 0 16px;
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
-      gap: 22px;
+      gap: 18px;
       align-items: start;
     }
 
-    /* BOOK PAGE */
-    .book-page {
+    @media (max-width: 1020px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Story Column */
+    .story-card {
       background: var(--paper);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px 30px;
-      box-shadow: 0 6px 24px rgba(34, 31, 28, 0.05);
+      padding: 20px 22px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     }
-
-    .chapter-title-jp {
-      font-family: var(--font-jp);
-      font-size: 1.4rem;
-      font-weight: 800;
-      margin: 0 0 4px;
-      color: #111;
-    }
-
-    .chapter-title-vi {
-      font-size: 1rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      margin: 0 0 16px;
-    }
-
-    .yuki-tip-box {
-      background: var(--accent-soft);
-      border-left: 4px solid var(--accent);
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 22px;
-      font-size: 0.92rem;
-    }
-
-    .story-body {
-      font-family: var(--font-jp);
-      font-size: 1.16rem;
-      line-height: 2.15;
-      letter-spacing: 0.02em;
-    }
-
-    .para-block {
-      margin-bottom: 18px;
-      padding: 6px 8px 12px;
-      border-radius: 8px;
-      border-bottom: 1px dashed #ece5da;
-      transition: background-color 0.18s ease;
-    }
-
-    .para-block.is-speaking {
-      background: #fffbeb;
-      box-shadow: inset 3px 0 0 #d97706;
-    }
-
-    .para-block:last-child {
-      border-bottom: none;
-    }
-
-    .para-jp-row {
+    .lesson-banner {
       display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-strong);
+      margin-bottom: 14px;
+    }
+    .lesson-badge-title {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--accent-ink);
+    }
+    .lesson-badge-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .mini-link {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      text-decoration: none;
+    }
+    .mini-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    h1.chap-title-vi {
+      margin: 0 0 4px;
+      font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+      line-height: 1.3;
+    }
+    .chap-title-jp {
+      font-family: var(--font-jp);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 14px;
     }
 
-    .para-jp-text {
-      flex: 1;
+    /* Gentle Yuki Notes */
+    .yuki-note {
+      background: var(--yuki-bg);
+      border: 1px solid var(--yuki-border);
+      border-inline-start: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 11px 14px;
+      margin: 12px 0;
+      font-size: 0.9rem;
+    }
+    .yuki-note strong { color: var(--accent); }
+
+    .soft-note-inline {
+      background: var(--surface-soft);
+      border: 1px dashed var(--border-strong);
+      border-radius: 10px;
+      padding: 10px 13px;
+      margin: 10px 0 16px;
+      font-size: 0.87rem;
+    }
+    .soft-note-inline .sn-head {
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    /* Controls Toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 0;
+      border-block: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .ctrl-btn {
+      padding: 6px 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ctrl-btn[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .speed-sel {
+      padding: 5px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.83rem;
+      font-weight: 600;
+    }
+
+    /* Story Paragraphs */
+    .para-block {
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .para-block.speaking {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+    .para-jp {
+      font-family: var(--font-jp);
+      font-size: 1.12rem;
+      line-height: 2.05;
       margin: 0;
     }
-
-    .para-speak-btn {
-      flex-shrink: 0;
-      min-block-size: 32px;
-      min-inline-size: 32px;
-      border: 1px solid var(--border-strong);
-      border-radius: 6px;
-      background: #fff;
-      cursor: pointer;
-      font-size: 0.85rem;
+    .para-vi {
+      margin-top: 8px;
+      padding: 8px 12px;
+      border-inline-start: 3px solid var(--border-strong);
+      background: var(--surface-soft);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .para-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
       margin-top: 6px;
     }
-
-    .para-speak-btn:hover,
-    .para-speak-btn.is-playing {
-      background: #1f1c19;
-      color: #fff;
-      border-color: #1f1c19;
-    }
-
-    .audio-speed-select {
-      min-block-size: 36px;
-      padding: 4px 8px;
-      border: 1px solid var(--border-strong);
+    .para-mini-btn {
+      font-size: 0.76rem;
+      padding: 3px 8px;
       border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-      font-size: max(16px, 0.85rem);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text-muted);
+      cursor: pointer;
       font-weight: 600;
     }
+    .para-mini-btn:hover { color: var(--accent); border-color: var(--accent); }
 
-    .vg-speak-btn {
-      background: #1f1c19;
-      color: #fff;
-      border: 1px solid #1f1c19;
-    }
-
-    .vg-speak-btn:hover {
-      background: #3d3832;
-    }
-
-    .para-vi {
-      margin: 8px 0 0;
-      padding: 8px 12px;
-      background: #f4f1ea;
-      border-radius: 6px;
-      font-family: var(--font-vi);
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: #3d3832;
-    }
-
-    .hide-translations .para-vi {
-      display: none;
-    }
-
-    /* HIRAGANA INLINE TOGGLE */
-    .furi-inline {
-      color: #6b645c;
-      font-size: 0.84em;
-      font-weight: 500;
-    }
-
-    .hide-furi .furi-inline {
-      display: none;
-    }
-
-    /* SHINKANZEN INTERACTIVE WORD TOKENS */
+    /* Interactive Word Token */
     .skz-word {
       appearance: none;
       font: inherit;
       color: inherit;
-      background: transparent;
-      border: 1px solid transparent;
-      border-bottom: 2px dotted transparent;
-      border-radius: 5px;
-      padding: 1px 3px;
+      border: none;
+      padding: 1px 4px;
       margin: 0 1px;
+      border-radius: 6px;
       cursor: pointer;
       display: inline;
-      text-align: inherit;
-      line-height: 1.5;
-      transition: background-color 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, transform 0.12s ease;
+      line-height: inherit;
+      background: var(--tok-bg);
+      border-bottom: 2px solid var(--tok-line);
+      transition: background 0.12s, box-shadow 0.12s;
     }
-
-    /* Mode 1: Highlighter luôn sáng nhẹ từ có trong Shinkanzen */
-    .highlight-all .skz-word[data-kind="vocab"],
-    .highlight-all .skz-word[data-kind="kanji"] {
-      background: var(--highlight-idle-bg);
-      border-bottom: 2px solid var(--highlight-idle-line);
+    .skz-word[data-extra="1"] {
+      background: var(--tok-extra-bg);
+      border-bottom-color: var(--tok-extra-line);
     }
-
-    .highlight-all .skz-word[data-kind="grammar"] {
-      background: var(--grammar-idle-bg);
-      border-bottom: 2px dashed var(--grammar-idle-line);
-    }
-
-    /* Mode 2: Click-to-glow (ẩn highlight cho tới khi hover/focus/click) */
-    .skz-word:hover {
-      background: #fff3bf;
-      border-color: #f08c00;
-    }
-
-    /* Trạng thái SÁNG RỰC KHI ĐƯỢC CLICK */
-    .skz-word.is-lit,
+    .skz-word:hover { filter: brightness(0.96); }
+    .skz-word.glowing,
     .skz-word[aria-pressed="true"] {
-      background: var(--glow) !important;
-      color: #000 !important;
-      border: 1.5px solid #c77c00 !important;
-      box-shadow: 0 0 0 3px rgba(255, 212, 59, 0.55), 0 3px 10px rgba(217, 119, 6, 0.25);
-      font-weight: 700;
+      background: var(--glow);
+      border-bottom: 2px solid var(--glow-border);
+      box-shadow: 0 0 0 2px var(--glow-border);
+      color: #1c1917;
+    }
+    body.hide-highlights .skz-word:not(.glowing) {
+      background: transparent;
+      border-bottom-color: transparent;
     }
 
-    .skz-word.is-mastered::after {
-      content: " ✓";
-      font-size: 0.75em;
-      color: var(--ok);
-      font-weight: 800;
+    ruby rt {
+      font-size: 0.56em;
+      color: var(--text-muted);
+      font-weight: 600;
     }
+    body.hide-furi ruby rt { display: none; }
 
-    .chapter-footer-nav {
-      margin-top: 26px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* COMPANION PANEL (KẾ BÊN CHƯƠNG TIỂU THUYẾT) */
-    .companion-panel {
+    /* Full Translation Card Below Story */
+    .full-trans-card,
+    .chapter-vocab-section {
+      margin-top: 22px;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      position: sticky;
-      top: 68px;
-      max-height: calc(100vh - 86px);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      padding: 16px 18px;
     }
-
-    .panel-tabs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border);
-      background: #faf7f2;
-    }
-
-    .panel-tab-btn {
-      min-block-size: 44px;
-      border: none;
-      background: transparent;
-      padding: 10px 12px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-    }
-
-    .panel-tab-btn[aria-selected="true"] {
-      background: #fff;
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .panel-body {
-      padding: 16px;
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .panel-heading {
-      font-size: 1rem;
-      margin: 0 0 12px;
-      color: #111;
-    }
-
-    /* QUIZ CARDS */
-    .quiz-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 14px;
-      background: #fcfbfa;
-    }
-
-    .quiz-prompt {
-      font-family: var(--font-jp);
-      font-size: 0.96rem;
-      font-weight: 700;
+    .section-h2 {
       margin: 0 0 10px;
-      line-height: 1.65;
-    }
-
-    .quiz-options {
+      font-size: 1.08rem;
       display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .quiz-opt-btn {
-      width: 100%;
-      text-align: left;
-      min-block-size: 36px;
-      padding: 8px 10px;
-      border: 1px solid var(--border-strong);
-      border-radius: 6px;
-      background: #fff;
-      font-family: var(--font-jp);
-      font-size: 0.88rem;
-      line-height: 1.45;
-      cursor: pointer;
-    }
-
-    .quiz-opt-btn:hover {
-      background: #f5f0e8;
-    }
-
-    .quiz-opt-btn.is-correct {
-      background: var(--ok-bg);
-      border-color: var(--ok);
-      color: #165924;
-      font-weight: 700;
-    }
-
-    .quiz-opt-btn.is-wrong {
-      background: var(--err-bg);
-      border-color: var(--err);
-      color: #9e1c1c;
-    }
-
-    .quiz-exp {
-      margin-top: 10px;
-      padding: 9px 11px;
-      border-radius: 6px;
-      background: #eef6ff;
-      border-left: 3px solid #228be6;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    .quiz-score-banner {
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: #fff7e6;
-      border: 1px solid #ffd480;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-      display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
       align-items: center;
-    }
-
-    /* VOCAB LIST IN PANEL */
-    .glossary-item {
-      width: 100%;
-      text-align: left;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #fff;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 8px;
     }
 
-    .glossary-item:hover {
-      border-color: #d4a72c;
-      background: #fffdf0;
+    /* Responsive Vocab Table (follows modern-web-guidance responsive-table) */
+    .vocab-table-wrap {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: 560px;
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    table.vocab-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.88rem;
+      --col-2: "Cách đọc & Hán Việt";
+      --col-3: "Nghĩa tiếng Việt";
+      --col-4: "Ví dụ Shinkanzen";
+      --col-5: "Thao tác";
+    }
+    table.vocab-table caption {
+      text-align: start;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--surface-soft);
+    }
+    table.vocab-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--surface-soft);
+    }
+    table.vocab-table th,
+    table.vocab-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: start;
+      vertical-align: top;
+    }
+    table.vocab-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--panel);
+      font-family: var(--font-jp);
+      font-size: 0.96rem;
+      z-index: 1;
+      min-width: 140px;
+    }
+    @container (width < 580px) {
+      table.vocab-table,
+      table.vocab-table thead,
+      table.vocab-table tbody,
+      table.vocab-table tr,
+      table.vocab-table th,
+      table.vocab-table td {
+        display: block;
+      }
+      table.vocab-table thead {
+        display: none;
+      }
+      table.vocab-table tr {
+        margin-block-end: 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      table.vocab-table tbody th {
+        position: static;
+        background: var(--surface-soft);
+        border-bottom: 1px solid var(--border);
+      }
+      table.vocab-table td:nth-child(2)::before { content: var(--col-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.vocab-table td:nth-child(3)::before { content: var(--col-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.vocab-table td:nth-child(4)::before { content: var(--col-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.vocab-table td:nth-child(5)::before { content: var(--col-5) ": "; font-weight: 700; color: var(--text-muted); }
     }
 
-    .glossary-item.is-lit {
-      border-color: #d97706;
-      background: #fff3bf;
+    /* Companion Right Pane & Accessible Tabs (modern-web-guidance tabs) */
+    .companion-pane {
+      position: sticky;
+      inset-block-start: 68px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    @media (max-width: 1020px) {
+      .companion-pane { position: static; }
+    }
+    .tablist {
+      display: flex;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+      scroll-snap-type: inline proximity;
+    }
+    .tab-btn {
+      flex: none;
+      position: relative;
+      padding: 11px 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+    .tab-btn[aria-selected="true"] {
+      color: var(--accent);
+    }
+    .tab-btn[aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      border-block-end: 3px solid var(--accent);
+    }
+    .tab-panel-inner {
+      padding: 16px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+    }
+    @media (max-width: 1020px) {
+      .tab-panel-inner { max-height: none; }
     }
 
-    .gl-jp {
+    /* Quiz Styling */
+    .quiz-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: var(--paper);
+    }
+    .quiz-q {
       font-family: var(--font-jp);
       font-weight: 700;
       font-size: 0.96rem;
+      margin-bottom: 9px;
     }
-
-    .gl-mean {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
+    .quiz-opts {
+      display: grid;
+      gap: 6px;
     }
-
-    .gl-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 99px;
-      background: #f1f3f5;
-      color: #495057;
-      white-space: nowrap;
-    }
-
-    /* NATIVE POPOVER VOCAB GUIDE DIALOG (Rule 2 Modern Web Guidance) */
-    dialog#vocab-guide {
-      border: 2px solid #1f1c19;
-      border-radius: 12px;
-      padding: 0;
-      max-width: 440px;
-      width: calc(100vw - 24px);
-      max-height: calc(100vh - 36px);
-      overflow-y: auto;
-      background: #fff;
+    .opt-btn {
+      text-align: start;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
       color: var(--text);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
-      z-index: 200;
-      touch-action: pan-y;
-      overscroll-behavior-x: contain;
+      font-family: var(--font-jp);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--accent); }
+    .opt-btn.is-right {
+      background: var(--ok-bg);
+      border-color: var(--ok-border);
+      color: var(--ok);
+      font-weight: 700;
+    }
+    .opt-btn.is-wrong {
+      background: var(--err-bg);
+      border-color: var(--err-border);
+      color: var(--err);
+      font-weight: 700;
+    }
+    .quiz-feedback {
+      margin-top: 9px;
+      padding: 9px 11px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+    }
+    .quiz-feedback.right {
+      background: var(--ok-bg);
+      border-color: var(--ok-border);
+    }
+    .quiz-feedback.wrong {
+      background: var(--err-bg);
+      border-color: var(--err-border);
+    }
+    .exp-all-list {
+      margin: 8px 0 0;
+      padding-left: 16px;
+      font-size: 0.82rem;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      dialog#vocab-guide {
-        transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.18s ease-out;
-      }
-      dialog#vocab-guide.is-dragging {
-        transition: none;
-      }
-    }
-
-    dialog#vocab-guide.is-dragging {
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    dialog#vocab-guide:is(:popover-open, .\\:popover-open) {
-      display: block;
-    }
-
-    dialog#vocab-guide.is-fallback-open {
-      display: block;
-    }
-
-    @supports (position-area: block-end) {
-      dialog#vocab-guide.is-anchored {
-        inset: auto;
-        margin: 0;
-        position-anchor: --active-skz-word;
-        position-area: block-end span-inline-end;
-        position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
-      }
-    }
-
-    dialog#vocab-guide:not(.is-anchored) {
-      position: fixed;
-      inset: auto 20px 20px auto;
+    /* Popover Dialog (modern-web-guidance dialog Rule 2) */
+    dialog#vocab-guide {
       margin: 0;
+      padding: 14px 16px;
+      width: min(360px, calc(100vw - 24px));
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+      z-index: 100;
     }
-
-    @supports not (position-area: block-end) {
-      dialog#vocab-guide {
-        position: fixed;
-        inset: auto 20px 20px auto;
-        margin: 0;
-      }
+    dialog#vocab-guide[popover]:is(:popover-open, .\:popover-open) {
+      display: block;
     }
-
     .vg-head {
-      background: #1f1c19;
-      color: #fff;
-      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
     }
-
-    .vg-title {
+    .vg-word {
       margin: 0;
       font-family: var(--font-jp);
-      font-size: 1.18rem;
-      line-height: 1.3;
+      font-size: 1.2rem;
+      color: var(--accent);
     }
-
-    .vg-close-btn {
-      min-block-size: 32px;
-      min-inline-size: 32px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 6px;
-      background: transparent;
-      color: #fff;
-      font-size: 1rem;
+    .vg-close {
+      border: 1px solid var(--border-strong);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 4px 10px;
       font-weight: 700;
       cursor: pointer;
     }
-
-    .vg-body {
-      padding: 15px 16px 16px;
-      font-size: 0.9rem;
-    }
-
-    .vg-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
+    .vg-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+    .vg-mean { font-weight: 700; font-size: 0.96rem; margin-bottom: 8px; }
+    .vg-colloc {
+      background: var(--surface-soft);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.84rem;
       margin-bottom: 10px;
     }
-
-    .vg-hv {
-      background: #f1ede4;
-      color: #4a3f32;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.8px;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .vg-book {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .vg-mean {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #111;
-      margin: 0 0 10px;
-    }
-
-    .vg-colloc {
-      background: #f8f6f1;
-      border-left: 3px solid #1f1c19;
-      padding: 8px 12px;
-      border-radius: 0 6px 6px 0;
-      margin-bottom: 12px;
-    }
-
-    .vg-colloc-jp {
-      font-family: var(--font-jp);
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .vg-colloc-vi {
-      color: var(--text-muted);
-      font-size: 0.84rem;
-    }
-
     .vg-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .vg-action-link, .vg-action-btn {
-      display: inline-flex;
-      align-items: center;
-      min-block-size: 34px;
-      padding: 5px 11px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .vg-action-link {
-      background: #f1f3f5;
-      color: #212529;
-      border: 1px solid #ced4da;
-    }
-
-    .vg-action-link:hover {
-      background: #e9ecef;
-    }
-
-    .vg-action-btn {
-      background: #fff;
-      color: var(--ok);
-      border: 1px solid var(--ok);
-    }
-
-    .vg-action-btn[aria-pressed="true"] {
-      background: var(--ok);
-      color: #fff;
-    }
-
-    .vg-swipe-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
-    }
-
-    .vg-nav-btn {
-      min-block-size: 32px;
-      padding: 4px 10px;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-
-    .vg-nav-btn:hover:not(:disabled) {
-      background: #f1f3f5;
-      border-color: #495057;
-    }
-
-    .vg-nav-btn:disabled {
-      opacity: 0.45;
-      cursor: default;
-    }
-
-    .vg-counter {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 700;
-      text-align: center;
+      gap: 6px;
     }
 
     @media (pointer: coarse) {
-      .vg-close-btn,
-      .vg-nav-btn,
-      .vg-action-link,
-      .vg-action-btn {
+      .ctrl-btn, .chap-btn, .opt-btn, .vg-close, .tab-btn, .mini-link {
         min-block-size: 44px;
       }
     }
 
-    footer {
-      text-align: center;
-      padding: 24px 18px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
-      background: var(--panel);
-    }
-
-    @media (max-width: 960px) {
-      .workspace {
-        grid-template-columns: 1fr;
-      }
-      .companion-panel {
-        position: static;
-        max-height: none;
-      }
-      @supports not (position-area: block-end) {
-        dialog#vocab-guide {
-          inset: auto 12px 12px 12px;
-          width: auto;
-        }
-      }
-    }
-
-    @media (max-width: 768px) {
-      dialog#vocab-guide,
-      dialog#vocab-guide.is-anchored {
-        position: fixed !important;
-        position-anchor: none !important;
-        position-area: none !important;
-        inset: auto 10px max(10px, env(safe-area-inset-bottom, 0px)) 10px !important;
-        width: auto !important;
-        max-width: none !important;
-        max-height: 58dvh;
-        margin: 0 !important;
-        z-index: 250;
-      }
+    @media (forced-colors: active) {
+      .skz-word.glowing { outline: 2px solid Highlight; }
+      .opt-btn.is-right, .opt-btn.is-wrong { border: 2px solid CanvasText; }
     }
   </style>
 </head>
 <body>
-  <a href="#novel-main" class="skip-link visually-hidden">Chuyển tới nội dung chương truyện</a>
+  <a href="#main-content" class="skip-link visually-hidden">Chuyển thẳng tới nội dung chương truyện</a>
+  <div id="live-status" class="visually-hidden" aria-live="polite"></div>
 
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="nav-group">
-        <a href="../index.html" class="nav-btn">🏠 Trang chủ</a>
-        <a href="../reader.html?file=shinkanzen/README.md" class="nav-btn">📚 Giáo trình Shinkanzen</a>
-        <a href="../shinkanzen/tu-vung/flashcards.html" class="nav-btn">🎴 Flashcards 37 Bài</a>
+      <div class="brand">
+        <a href="../index.html" class="brand-home">🏠 PentaNihonGo</a>
+        <span class="brand-title">📚 3 Bộ Tiểu Thuyết Shinkanzen N2</span>
       </div>
-      <div class="nav-group">
-        <button type="button" id="btn-speak-chapter" class="nav-btn">🔊 Nghe đọc chương</button>
-        <select id="novel-speed" class="audio-speed-select" aria-label="Tốc độ đọc truyện">
-          <option value="0.85">0.85x</option>
-          <option value="1" selected>1.0x</option>
-          <option value="1.15">1.15x</option>
-        </select>
+      <div class="top-links">
+        <button type="button" id="btn-theme" class="nav-pill-btn">🌙 Giao diện</button>
+        <a href="../shinkanzen/tu-vung/flashcards.html" class="nav-pill-btn">🎴 Flashcards 780 Từ</a>
+        <a href="../reader.html?file=novel/README.md" class="nav-pill-btn">📄 Mục lục MD</a>
+        <a href="../exam/index.html" class="nav-pill-btn exam-cta">🎯 Đề Thi Chuẩn JLPT N2</a>
       </div>
     </div>
   </header>
 
-  <div class="book-header">
-    <span class="book-eyebrow">Tiểu Thuyết Ngắn Thực Chiến Shinkanzen Master N2 • 6 Chương</span>
-    <h1 lang="ja">東京（とうきょう）の小さな書斎（しょさい） — <span lang="vi">Căn Phòng Đọc Nhỏ Giữa Lòng Tokyo</span></h1>
-    <p class="book-subtitle" id="book-subtitle">Vận dụng từ vựng &amp; ngữ pháp Shinkanzen có Hiragana đứng kế bên. Bấm vào bất kỳ từ Shinkanzen nào trong truyện để bật sáng và mở bảng hướng dẫn!</p>
-
-    <nav class="chapter-nav" id="chapter-nav" aria-label="Chọn chương tiểu thuyết"></nav>
-
-    <div class="reading-controls">
-      <div class="nav-group">
-        <button type="button" id="btn-toggle-highlight" class="toggle-pill" aria-pressed="true">
-          ✨ Luôn đánh dấu nhẹ từ Shinkanzen
-        </button>
-        <button type="button" id="btn-toggle-furi" class="toggle-pill" aria-pressed="true">
-          🔤 Hiragana kế bên
-        </button>
-        <button type="button" id="btn-toggle-vi" class="toggle-pill" aria-pressed="false">
-          🇻🇳 Hiện dịch tiếng Việt
-        </button>
+  <section class="hub-bar" aria-label="Chọn bộ tiểu thuyết và chương">
+    <nav id="novel-nav" class="novel-nav" aria-label="3 Bộ Tiểu Thuyết"></nav>
+    <nav class="chap-strip" aria-label="Danh sách chương theo bài Shinkanzen">
+      <div class="chap-strip-head">
+        <div id="novel-intro-line"></div>
+        <div class="progress-wrap">
+          <span id="progress-label">Tiến độ: 0/37 chương</span>
+          <progress id="progress-bar" max="37" value="0"></progress>
+        </div>
       </div>
-      <div id="chapter-vocab-counter" style="font-size: 0.84rem; font-weight: 700; color: var(--text-muted);">
-        Đang tải dữ liệu...
+      <div id="chapter-pills" class="chapter-pills"></div>
+    </nav>
+  </section>
+
+  <main id="main-content" tabindex="-1" class="workspace">
+    <article class="story-card" aria-labelledby="chap-heading">
+      <div class="lesson-banner">
+        <div id="lesson-badge" class="lesson-badge-title"></div>
+        <div class="lesson-badge-links">
+          <a id="link-lesson-md" class="mini-link" href="#">📖 Bài học Shinkanzen</a>
+          <a id="link-lesson-flash" class="mini-link" href="#">🎴 Flashcard bài này</a>
+          <a id="link-novel-exam" class="mini-link" href="#">🧪 Đề ôn bộ này</a>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <main id="novel-main" class="workspace" tabindex="-1">
-    <article class="book-page hide-translations highlight-all" id="book-page" aria-labelledby="chap-title-jp">
-      <h2 class="chapter-title-jp" id="chap-title-jp" lang="ja"></h2>
-      <div class="chapter-title-vi" id="chap-title-vi"></div>
-      <div class="yuki-tip-box" id="yuki-tip"></div>
-      <div class="story-body" id="story-body"></div>
+      <h1 id="chap-heading" class="chap-title-vi"></h1>
+      <div id="chap-title-jp" class="chap-title-jp" lang="ja"></div>
 
-      <div class="chapter-footer-nav">
-        <button type="button" id="btn-prev-chap" class="nav-btn">⬅️ Chương trước</button>
-        <a id="link-chapter-md" href="../reader.html?file=novel/chuong-01.md" class="nav-btn">📝 Mở bản Markdown</a>
-        <button type="button" id="btn-next-chap" class="nav-btn">Chương tiếp theo ➡️</button>
+      <details style="margin-bottom:12px;">
+        <summary style="cursor:pointer;font-weight:700;font-size:0.88rem;color:var(--accent);">👥 Nhân vật &amp; Dẫn nhập của chị Yuki</summary>
+        <div id="novel-chars-box" style="margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--surface-soft);font-size:0.86rem;"></div>
+      </details>
+
+      <div id="yuki-top-note" class="yuki-note"></div>
+
+      <div class="toolbar" role="toolbar" aria-label="Công cụ đọc truyện">
+        <button type="button" id="btn-furi" class="ctrl-btn" aria-pressed="true">あ Furigana</button>
+        <button type="button" id="btn-hl" class="ctrl-btn" aria-pressed="true">✨ Tô sáng Từ vựng</button>
+        <button type="button" id="btn-trans-inline" class="ctrl-btn" aria-pressed="true">🇻🇳 Dịch từng đoạn</button>
+        <button type="button" id="btn-tts-all" class="ctrl-btn">🔊 Nghe đọc chương</button>
+        <button type="button" id="btn-tts-stop" class="ctrl-btn" hidden>⏹ Dừng đọc</button>
+        <label style="font-size:0.8rem;display:inline-flex;align-items:center;gap:4px;">Tốc độ:
+          <select id="tts-rate" class="speed-sel" aria-label="Tốc độ đọc tiếng Nhật">
+            <option value="0.8">0.8x</option>
+            <option value="0.95" selected>0.95x</option>
+            <option value="1.1">1.1x</option>
+          </select>
+        </label>
+        <button type="button" id="btn-rand-word" class="ctrl-btn">🎲 Gợi 1 từ</button>
+      </div>
+
+      <div id="story-body" lang="ja"></div>
+
+      <div id="yuki-bottom-note" class="yuki-note"></div>
+
+      <section class="full-trans-card" aria-labelledby="full-trans-h2">
+        <h2 id="full-trans-h2" class="section-h2">
+          <span>🇻🇳 Bản Dịch Tiếng Việt Trọn Chương</span>
+        </h2>
+        <div id="full-translation-body" style="font-size:0.94rem;"></div>
+      </section>
+
+      <section class="chapter-vocab-section" aria-labelledby="chap-vocab-h2">
+        <h2 id="chap-vocab-h2" class="section-h2">
+          <span id="chap-vocab-heading-txt">📚 Bảng Từ Vựng &amp; Ý Nghĩa Trong Chương</span>
+        </h2>
+        <div tabindex="0" role="region" aria-labelledby="chap-vocab-h2" class="vocab-table-wrap">
+          <table class="vocab-table">
+            <caption id="vocab-table-caption">Bảng từ vựng Shinkanzen N2 xuất hiện trong chương</caption>
+            <thead>
+              <tr>
+                <th scope="col">Từ vựng (Kanji)</th>
+                <th scope="col">Cách đọc &amp; Hán Việt</th>
+                <th scope="col">Nghĩa tiếng Việt</th>
+                <th scope="col">Ví dụ Shinkanzen</th>
+                <th scope="col">Nghe / Tìm</th>
+              </tr>
+            </thead>
+            <tbody id="vocab-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <button type="button" id="btn-prev-chap" class="ctrl-btn">⬅️ Chương trước</button>
+        <button type="button" id="btn-next-chap" class="ctrl-btn">Chương tiếp theo ➡️</button>
       </div>
     </article>
 
-    <aside class="companion-panel" aria-label="Câu hỏi và kho từ vựng chương">
-      <div class="panel-tabs" role="tablist" aria-label="Công cụ học tập bên cạnh chương">
-        <button type="button" role="tab" id="tab-quiz" class="panel-tab-btn" aria-selected="true" aria-controls="panel-quiz">
-          ❓ Câu hỏi chương
-        </button>
-        <button type="button" role="tab" id="tab-vocab" class="panel-tab-btn" aria-selected="false" aria-controls="panel-vocab">
-          📚 Từ Shinkanzen
-        </button>
+    <aside class="companion-pane" aria-label="Luyện tập và Tra cứu từ vựng chương">
+      <div id="companion-tablist" class="tablist" role="tablist" aria-label="Chế độ luyện tập chương">
+        <button type="button" role="tab" id="tab-quiz" class="tab-btn" aria-selected="true">✍️ Trắc Nghiệm (5 Câu)</button>
+        <button type="button" role="tab" id="tab-vocab" class="tab-btn" aria-selected="false">📇 Thẻ Nhanh Chương</button>
       </div>
 
-      <div class="panel-body">
-        <section id="panel-quiz" role="tabpanel" aria-labelledby="tab-quiz">
-          <div class="quiz-score-banner">
-            <span id="quiz-score-text">Điểm chương này: 0 / 0</span>
-            <button type="button" id="btn-reset-quiz" class="nav-btn" style="min-block-size:28px; padding:2px 8px; font-size:0.78rem;">↺ Làm lại</button>
-          </div>
-          <h2 class="panel-heading" id="quiz-heading">Kiểm tra đọc hiểu &amp; từ vựng chương</h2>
-          <div id="quiz-container"></div>
-        </section>
+      <div id="panel-quiz" role="tabpanel" aria-labelledby="tab-quiz" tabindex="0">
+        <div class="tab-panel-inner">
+          <div id="quiz-summary" style="font-size:0.86rem;font-weight:700;margin-bottom:10px;"></div>
+          <div id="quiz-list"></div>
+        </div>
+      </div>
 
-        <section id="panel-vocab" role="tabpanel" aria-labelledby="tab-vocab" hidden>
-          <h2 class="panel-heading">Từ Shinkanzen dùng trong chương (bấm để bật sáng)</h2>
-          <div id="glossary-list"></div>
-        </section>
+      <div id="panel-vocab" role="tabpanel" aria-labelledby="tab-vocab" hidden="until-found">
+        <div class="tab-panel-inner">
+          <div style="margin-bottom:10px;">
+            <label for="side-vocab-filter" class="visually-hidden">Lọc từ vựng trong chương</label>
+            <input id="side-vocab-filter" type="search" placeholder="🔍 Lọc nhanh từ vựng / nghĩa..." style="width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--border-strong);background:var(--paper);color:var(--text);">
+          </div>
+          <div id="side-vocab-list" style="display:grid;gap:8px;"></div>
+        </div>
       </div>
     </aside>
   </main>
 
-  <dialog id="vocab-guide" popover="manual" aria-labelledby="vg-title">
+  <dialog id="vocab-guide" popover="manual" aria-labelledby="vg-word">
     <div class="vg-head">
-      <h3 class="vg-title" id="vg-title" lang="ja">Từ vựng</h3>
-      <button type="button" id="vg-close" class="vg-close-btn" popovertarget="vocab-guide" popovertargetaction="hide" aria-label="Đóng bảng hướng dẫn từ vựng">✕</button>
+      <h3 id="vg-word" class="vg-word"></h3>
+      <button type="button" id="vg-close" class="vg-close" aria-label="Đóng bảng hướng dẫn từ vựng">✕ Đóng</button>
     </div>
-    <div class="vg-body">
-      <div class="vg-meta-row">
-        <span class="vg-hv" id="vg-hv"></span>
-        <span class="vg-book" id="vg-book"></span>
-      </div>
-      <p class="vg-mean" id="vg-mean"></p>
-      <div class="vg-colloc">
-        <div class="vg-colloc-jp" id="vg-colloc-jp" lang="ja"></div>
-        <div class="vg-colloc-vi" id="vg-colloc-vi"></div>
-      </div>
-      <div class="vg-actions">
-        <button type="button" id="vg-speak-word" class="vg-action-btn vg-speak-btn">🔊 Nghe phát âm</button>
-        <a id="vg-open-lesson" href="#" class="vg-action-link">📖 Xem bài Shinkanzen</a>
-        <a id="vg-open-flash" href="#" class="vg-action-link" hidden>🎴 Luyện Flashcard</a>
-        <button type="button" id="vg-mark-mastered" class="vg-action-btn" aria-pressed="false">✓ Đánh dấu đã thuộc</button>
-      </div>
-      <div class="vg-swipe-bar">
-        <button type="button" id="vg-prev-word" class="vg-nav-btn" aria-label="Từ Shinkanzen trước trong chương">◀ Từ trước</button>
-        <span class="vg-counter" id="vg-counter">1 / 1 • Vuốt ⇄</span>
-        <button type="button" id="vg-next-word" class="vg-nav-btn" aria-label="Từ Shinkanzen tiếp theo trong chương">Từ sau ▶</button>
-      </div>
+    <div id="vg-meta" class="vg-meta"></div>
+    <div id="vg-mean" class="vg-mean"></div>
+    <div id="vg-colloc" class="vg-colloc"></div>
+    <div class="vg-actions">
+      <button type="button" id="vg-play-word" class="mini-link" style="cursor:pointer;">🔊 Nghe từ</button>
+      <button type="button" id="vg-play-colloc" class="mini-link" style="cursor:pointer;">🗣️ Nghe ví dụ</button>
+      <a id="vg-flash-link" class="mini-link" href="#">🎴 Flashcard</a>
+      <a id="vg-md-link" class="mini-link" href="#">📖 Bài Shinkanzen</a>
     </div>
   </dialog>
 
-  <div id="live-announcer" class="visually-hidden" aria-live="polite"></div>
-
-  <audio id="novelAudio" preload="none"></audio>
-
-  <footer>
-    🌸 <strong>PentaNihonGo Novel</strong> — Tiểu thuyết thực chiến tích hợp kho dữ liệu 5 cuốn <strong>Shinkanzen Master N2</strong>.
-  </footer>
-
   <script src="./novel-data.js"></script>
-  <script src="./audio-map.js"></script>
-  <script type="module">
-    if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
-      import("https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js").catch(() => {});
-    }
-  </script>
   <script>
+    // Feature-detect native popover before touching .popover IDL (modern-web-guidance dialog rule)
+    if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
+      const s = document.createElement("script");
+      s.src = "https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js";
+      document.head.appendChild(s);
+    }
+
     (function () {
-      const DATA = window.SHINKANZEN_NOVEL_DATA;
-      const VOCAB_AUDIO = window.SHINKANZEN_NOVEL_AUDIO || {};
-      if (!DATA || !DATA.chapters) return;
+      const DATA = window.NOVEL_DATA;
+      if (!DATA) return;
+      const NOVELS = DATA.novels;
+      const GLOSSARY = DATA.glossary;
 
-      const novelAudio = document.getElementById("novelAudio");
-      const speedSelect = document.getElementById("novel-speed");
-      let audioRate = 1.0;
-      let chapterPlaying = false;
-      let currentPlayingTag = null;
-      let playSessionId = 0;
+      const LS_QUIZ = "penta_novel_quiz_v2";
+      const LS_THEME = "penta_novel_theme";
+      let quizState = {};
+      try { quizState = JSON.parse(localStorage.getItem(LS_QUIZ) || "{}"); } catch (_) {}
 
-      const STORAGE_MASTERED = "penta_novel_mastered_v1";
-      const STORAGE_QUIZ = "penta_novel_quiz_v1";
-      let masteredSet = new Set(JSON.parse(localStorage.getItem(STORAGE_MASTERED) || "[]"));
-      let quizState = JSON.parse(localStorage.getItem(STORAGE_QUIZ) || "{}");
+      let curNovelIdx = 0;
+      let curChapIdx = 0;
+      let activeAudio = null;
+      let speakingCancel = false;
+      let curGlowBtns = [];
 
-      let currentChapterNum = 1;
-      let activeKey = null;
-      let activeTokenEl = null;
+      const rootEl = document.documentElement;
+      const savedTheme = localStorage.getItem(LS_THEME);
+      if (savedTheme === "dark" || savedTheme === "light") rootEl.setAttribute("data-theme", savedTheme);
 
-      const bookPage = document.getElementById("book-page");
-      const chapterNav = document.getElementById("chapter-nav");
-      const storyBody = document.getElementById("story-body");
-      const quizContainer = document.getElementById("quiz-container");
-      const glossaryList = document.getElementById("glossary-list");
-      const vocabDialog = document.getElementById("vocab-guide");
-      const announcer = document.getElementById("live-announcer");
-
+      const $ = (id) => document.getElementById(id);
+      const live = $("live-status");
       function announce(msg) {
-        announcer.textContent = msg;
+        if (!live) return;
+        live.textContent = "";
+        requestAnimationFrame(() => { live.textContent = msg; });
       }
 
-      function formatFuriHTML(raw) {
-        const safe = String(raw || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-        return safe.replace(/（([^）]+)）/g, '<span class="furi-inline">（$1）</span>');
+      function syncAccentTheme() {
+        const nov = NOVELS[curNovelIdx];
+        const isDark = (rootEl.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+        if (isDark) {
+          rootEl.style.removeProperty("--accent");
+          rootEl.style.removeProperty("--accent-soft");
+        } else if (nov) {
+          rootEl.style.setProperty("--accent", nov.themeColor);
+          rootEl.style.setProperty("--accent-soft", nov.themeSoft);
+        }
       }
 
-      function formatRichNote(raw) {
-        return formatFuriHTML(raw)
-          .replace(/\\*\\*([^*]+)\\*\\*/g, "<strong>$1</strong>")
-          .replace(/`([^`]+)`/g, "<code>$1</code>");
+      $("btn-theme").addEventListener("click", () => {
+        const cur = rootEl.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const next = cur === "dark" ? "light" : "dark";
+        rootEl.setAttribute("data-theme", next);
+        localStorage.setItem(LS_THEME, next);
+        syncAccentTheme();
+      });
+
+      function parseParams() {
+        const params = new URLSearchParams(location.search);
+        const nid = params.get("novel");
+        const cid = parseInt(params.get("chapter") || "1", 10);
+        if (nid) {
+          const ni = NOVELS.findIndex(n => n.id === nid || n.slug === nid);
+          if (ni >= 0) curNovelIdx = ni;
+        }
+        const nov = NOVELS[curNovelIdx];
+        if (!isNaN(cid) && cid >= 1 && cid <= nov.chapters.length) {
+          curChapIdx = cid - 1;
+        }
       }
 
-      function stripFuri(raw) {
-        return String(raw || "").replace(/（[^）]*）/g, "");
+      function updateUrl() {
+        const nov = NOVELS[curNovelIdx];
+        const ch = nov.chapters[curChapIdx];
+        const url = new URL(location.href);
+        url.searchParams.set("novel", nov.id);
+        url.searchParams.set("chapter", String(ch.num));
+        history.replaceState(null, "", url.toString());
       }
 
-      function renderSegmentsInto(parentEl, segments) {
-        segments.forEach(seg => {
-          if (seg.t === "text") {
+      function buildRubyHtml(txt) {
+        return txt.replace(/([一-龯々ヶ]+)（([^）]+)）/g, "<ruby>$1<rt>$2</rt></ruby>");
+      }
+
+      function renderSegments(segs) {
+        const frag = document.createDocumentFragment();
+        const ch = NOVELS[curNovelIdx].chapters[curChapIdx];
+        for (const s of segs) {
+          if (s.t === "text") {
             const span = document.createElement("span");
-            span.innerHTML = formatFuriHTML(seg.v);
-            parentEl.appendChild(span);
+            span.innerHTML = buildRubyHtml(s.v);
+            frag.appendChild(span);
           } else {
-            const entry = DATA.glossary[seg.k];
             const btn = document.createElement("button");
             btn.type = "button";
             btn.className = "skz-word";
-            btn.dataset.key = seg.k;
-            btn.dataset.kind = entry ? entry.kind : "vocab";
+            btn.dataset.key = s.k;
+            if (!s.k.startsWith(ch.lessonId + "__")) btn.dataset.extra = "1";
             btn.setAttribute("aria-pressed", "false");
-            btn.setAttribute("lang", "ja");
-            if (masteredSet.has(seg.k)) btn.classList.add("is-mastered");
-            btn.innerHTML = formatFuriHTML(seg.v);
+            btn.innerHTML = buildRubyHtml(s.v);
             btn.addEventListener("click", (e) => {
               e.stopPropagation();
-              selectShinkanzenWord(seg.k, btn);
+              selectWordToken(s.k, btn);
             });
-            parentEl.appendChild(btn);
-          }
-        });
-      }
-
-      function clearWordHighlights() {
-        document.querySelectorAll(".skz-word.is-lit, .glossary-item.is-lit").forEach(el => {
-          el.classList.remove("is-lit");
-          if (el.hasAttribute("aria-pressed")) el.setAttribute("aria-pressed", "false");
-        });
-        if (activeTokenEl) {
-          activeTokenEl.style.removeProperty("anchor-name");
-          activeTokenEl = null;
-        }
-      }
-
-      const prefersReducedMotion = () => Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-      let vgAnimTimer = null;
-      let vgEnterRaf = null;
-
-      function clearVgAnim() {
-        if (vgAnimTimer) { clearTimeout(vgAnimTimer); vgAnimTimer = null; }
-        if (vgEnterRaf) { cancelAnimationFrame(vgEnterRaf); vgEnterRaf = null; }
-        vocabDialog.classList.remove("is-dragging");
-        vocabDialog.style.transform = "";
-        vocabDialog.style.opacity = "";
-      }
-
-      function hideVocabGuide() {
-        clearVgAnim();
-        if (typeof vocabDialog.hidePopover === "function") {
-          try { vocabDialog.hidePopover(); } catch (_) {}
-        }
-        vocabDialog.classList.remove("is-fallback-open");
-        clearWordHighlights();
-      }
-
-      function selectShinkanzenWord(key, sourceBtn, scrollIntoView = false) {
-        const entry = DATA.glossary[key];
-        if (!entry) return;
-
-        clearVgAnim();
-        clearWordHighlights();
-        activeKey = key;
-
-        // Thắp sáng toàn bộ từ này trong chương hiện tại & thẻ danh sách bên phải
-        const matches = Array.from(storyBody.querySelectorAll('.skz-word[data-key="' + CSS.escape(key) + '"]'));
-        matches.forEach(m => {
-          m.classList.add("is-lit");
-          m.setAttribute("aria-pressed", "true");
-        });
-
-        const targetToken = (sourceBtn && sourceBtn.classList.contains("skz-word")) ? sourceBtn : matches[0];
-        vocabDialog.classList.toggle("is-anchored", Boolean(targetToken));
-        if (targetToken) {
-          activeTokenEl = targetToken;
-          targetToken.style.setProperty("anchor-name", "--active-skz-word");
-          if (scrollIntoView) {
-            const behavior = prefersReducedMotion() ? "auto" : "smooth";
-            if (window.innerWidth <= 768) {
-              const rect = targetToken.getBoundingClientRect();
-              const top = Math.max(0, rect.top + window.scrollY - window.innerHeight * 0.25);
-              window.scrollTo({ top, behavior });
-            } else {
-              targetToken.scrollIntoView({ behavior, block: "center" });
-            }
+            frag.appendChild(btn);
           }
         }
+        return frag;
+      }
 
-        const listMatch = glossaryList.querySelector('.glossary-item[data-key="' + CSS.escape(key) + '"]');
-        if (listMatch) listMatch.classList.add("is-lit");
+      function stopAudio() {
+        if (activeAudio) {
+          try { activeAudio.pause(); activeAudio.currentTime = 0; } catch (_) {}
+          activeAudio = null;
+        }
+        if ("speechSynthesis" in window) {
+          try { speechSynthesis.cancel(); } catch (_) {}
+        }
+      }
 
-        // Điền nội dung Bảng Hướng Dẫn Từ Vựng
-        document.getElementById("vg-title").innerHTML = formatFuriHTML(entry.furi);
-        document.getElementById("vg-hv").textContent = entry.hv ? `[ ${entry.hv} ]` : "SHINKANZEN N2";
-        document.getElementById("vg-book").textContent = entry.bookLabel;
-        document.getElementById("vg-mean").textContent = entry.mean;
-        document.getElementById("vg-colloc-jp").innerHTML = formatFuriHTML(entry.collocJp);
-        document.getElementById("vg-colloc-vi").textContent = entry.collocVi ? `↳ ${entry.collocVi}` : "";
-
-        const openLesson = document.getElementById("vg-open-lesson");
-        openLesson.href = "../reader.html?file=" + encodeURIComponent(entry.mdLink.replace("../", ""));
-
-        const openFlash = document.getElementById("vg-open-flash");
-        if (entry.flashLink) {
-          openFlash.href = entry.flashLink;
-          openFlash.hidden = false;
+      function playMp3OrTts(mp3Path, fallbackJp) {
+        stopAudio();
+        if (mp3Path) {
+          const audio = new Audio(mp3Path);
+          activeAudio = audio;
+          audio.playbackRate = parseFloat($("tts-rate").value || "0.95");
+          audio.play().catch(() => speakTts(fallbackJp));
         } else {
-          openFlash.hidden = true;
+          speakTts(fallbackJp);
         }
-
-        const masterBtn = document.getElementById("vg-mark-mastered");
-        const isMastered = masteredSet.has(key);
-        masterBtn.setAttribute("aria-pressed", String(isMastered));
-        masterBtn.textContent = isMastered ? "✓ Đã thuộc từ này" : "✓ Đánh dấu đã thuộc";
-
-        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
-        const chapKeys = ch && Array.isArray(ch.vocab_keys) ? ch.vocab_keys : [];
-        const wordPos = Math.max(0, chapKeys.indexOf(key));
-        const totalWords = Math.max(1, chapKeys.length);
-        document.getElementById("vg-counter").textContent = `${wordPos + 1} / ${totalWords} • Vuốt ⇄`;
-        document.getElementById("vg-prev-word").disabled = chapKeys.length <= 1;
-        document.getElementById("vg-next-word").disabled = chapKeys.length <= 1;
-
-        // Mở Popover không chặn thao tác cuộn/click khác (Dialog Rule 2)
-        if (typeof vocabDialog.showPopover === "function") {
-          try {
-            if (!vocabDialog.matches(":popover-open")) {
-              vocabDialog.showPopover();
-            }
-          } catch (_) {
-            vocabDialog.classList.add("is-fallback-open");
-          }
-        } else {
-          vocabDialog.classList.add("is-fallback-open");
-        }
-        announce(`Đang xem hướng dẫn từ ${stripFuri(entry.plain)}: ${entry.mean}`);
       }
 
-      function renderChapterNav() {
-        chapterNav.innerHTML = "";
-        DATA.chapters.forEach(ch => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "chap-tab" + (ch.num === currentChapterNum ? " active" : "");
-          const ansMap = quizState[ch.num] || {};
-          const solved = Object.keys(ansMap).length;
-          const allRight = solved === ch.quiz.length && ch.quiz.every((q, i) => ansMap[i] === q.ans);
-          btn.innerHTML = `<span>Chương ${ch.num}</span>` + (allRight ? `<span class="quiz-done-dot" aria-label="Đã hoàn thành">✅</span>` : "");
-          btn.addEventListener("click", () => loadChapter(ch.num));
-          chapterNav.appendChild(btn);
-        });
-      }
-
-      function renderQuiz(ch) {
-        quizContainer.innerHTML = "";
-        if (!quizState[ch.num]) quizState[ch.num] = {};
-
-        const updateScoreBanner = () => {
-          const map = quizState[ch.num] || {};
-          let score = 0;
-          ch.quiz.forEach((q, idx) => {
-            if (map[idx] === q.ans) score++;
-          });
-          document.getElementById("quiz-score-text").textContent = `Điểm chương ${ch.num}: ${score} / ${ch.quiz.length}`;
-          renderChapterNav();
-        };
-
-        ch.quiz.forEach((q, qIdx) => {
-          const card = document.createElement("div");
-          card.className = "quiz-card";
-
-          const promptP = document.createElement("p");
-          promptP.className = "quiz-prompt";
-          const numSpan = document.createElement("span");
-          numSpan.textContent = `Câu ${qIdx + 1}: `;
-          promptP.appendChild(numSpan);
-          renderSegmentsInto(promptP, q.prompt_segments);
-          card.appendChild(promptP);
-
-          const optsWrap = document.createElement("div");
-          optsWrap.className = "quiz-options";
-
-          const expDiv = document.createElement("div");
-          expDiv.className = "quiz-exp";
-          expDiv.hidden = true;
-          expDiv.innerHTML = `<strong>Giải thích:</strong> ${formatRichNote(q.exp)}`;
-
-          const applyChoice = (chosenIdx) => {
-            const optBtns = optsWrap.querySelectorAll(".quiz-opt-btn");
-            optBtns.forEach((b, bIdx) => {
-              const oNum = bIdx + 1;
-              b.classList.remove("is-correct", "is-wrong");
-              if (oNum === q.ans) b.classList.add("is-correct");
-              else if (oNum === chosenIdx) b.classList.add("is-wrong");
-            });
-            expDiv.hidden = false;
-          };
-
-          q.options.forEach((optText, oIdx) => {
-            const oNum = oIdx + 1;
-            const ob = document.createElement("button");
-            ob.type = "button";
-            ob.className = "quiz-opt-btn";
-            ob.innerHTML = `${oNum}. ${formatFuriHTML(optText)}`;
-            ob.addEventListener("click", () => {
-              quizState[ch.num][qIdx] = oNum;
-              localStorage.setItem(STORAGE_QUIZ, JSON.stringify(quizState));
-              applyChoice(oNum);
-              updateScoreBanner();
-              announce(oNum === q.ans ? `Câu ${qIdx + 1} chính xác!` : `Câu ${qIdx + 1} chưa đúng, hãy xem giải thích bên dưới.`);
-            });
-            optsWrap.appendChild(ob);
-          });
-
-          if (quizState[ch.num][qIdx]) {
-            applyChoice(quizState[ch.num][qIdx]);
-          }
-
-          card.appendChild(optsWrap);
-          card.appendChild(expDiv);
-          quizContainer.appendChild(card);
-        });
-
-        updateScoreBanner();
-      }
-
-      function renderGlossaryPanel(ch) {
-        glossaryList.innerHTML = "";
-        ch.vocab_keys.forEach(k => {
-          const item = DATA.glossary[k];
-          if (!item) return;
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "glossary-item" + (activeKey === k ? " is-lit" : "");
-          btn.dataset.key = k;
-          btn.innerHTML = `
-            <div>
-              <div class="gl-jp" lang="ja">${formatFuriHTML(item.furi)}</div>
-              <div class="gl-mean">${formatRichNote(item.mean)}</div>
-            </div>
-            <span class="gl-badge">${item.kind === "grammar" ? "Ngữ pháp" : item.kind === "kanji" ? "Chữ Hán" : "Từ vựng"}</span>
-          `;
-          btn.addEventListener("click", () => selectShinkanzenWord(k, null, true));
-          glossaryList.appendChild(btn);
-        });
-      }
-
-      function clearSpeakingHighlight() {
-        document.querySelectorAll(".para-block.is-speaking").forEach(el => el.classList.remove("is-speaking"));
-        document.querySelectorAll(".para-speak-btn.is-playing").forEach(el => el.classList.remove("is-playing"));
-      }
-
-      function stopAllAudio() {
-        playSessionId++;
-        chapterPlaying = false;
-        currentPlayingTag = null;
-        if (novelAudio) {
-          novelAudio.onended = null;
-          novelAudio.onerror = null;
-          novelAudio.pause();
-          novelAudio.removeAttribute("src");
-        }
-        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-        clearSpeakingHighlight();
-        const chBtn = document.getElementById("btn-speak-chapter");
-        if (chBtn) chBtn.textContent = "🔊 Nghe đọc chương";
-      }
-
-      function speakWithBrowser(text, onFinished) {
+      function speakTts(text, onEnd) {
         if (!("speechSynthesis" in window)) {
-          announce("Trình duyệt hiện tại không hỗ trợ đọc giọng nói TTS.");
-          if (onFinished) onFinished();
+          if (onEnd) onEnd();
           return;
         }
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(stripFuri(text));
-        utter.lang = "ja-JP";
-        utter.rate = Math.max(0.7, Math.min(1.5, audioRate * 0.94));
-        if (onFinished) {
-          utter.onend = onFinished;
-          utter.onerror = onFinished;
-        }
-        window.speechSynthesis.speak(utter);
+        const clean = text.replace(/（[^）]*）/g, "");
+        const u = new SpeechSynthesisUtterance(clean);
+        u.lang = "ja-JP";
+        u.rate = parseFloat($("tts-rate").value || "0.95");
+        u.onend = () => { if (onEnd) onEnd(); };
+        u.onerror = () => { if (onEnd) onEnd(); };
+        speechSynthesis.speak(u);
       }
 
-      function playMp3Track(src, fallbackText, tag, onDone) {
-        const mySession = playSessionId;
-        clearSpeakingHighlight();
-        currentPlayingTag = tag;
-        if (!novelAudio || !src) {
-          speakWithBrowser(fallbackText, () => {
-            if (playSessionId === mySession && onDone) onDone();
-          });
-          return;
+      function hidePopover() {
+        const pop = $("vocab-guide");
+        if (pop && pop.matches(":popover-open, .\\:popover-open")) {
+          try { pop.hidePopover(); } catch (_) { pop.removeAttribute("open"); }
         }
-        novelAudio.playbackRate = audioRate;
-        novelAudio.onended = () => {
-          if (playSessionId !== mySession) return;
-          if (onDone) onDone();
-        };
-        novelAudio.onerror = () => {
-          if (playSessionId !== mySession) return;
-          speakWithBrowser(fallbackText, () => {
-            if (playSessionId === mySession && onDone) onDone();
-          });
-        };
-        novelAudio.src = src;
-        novelAudio.play().catch(() => {
-          if (playSessionId !== mySession) return;
-          speakWithBrowser(fallbackText, () => {
-            if (playSessionId === mySession && onDone) onDone();
-          });
+        curGlowBtns.forEach(b => {
+          b.classList.remove("glowing");
+          b.setAttribute("aria-pressed", "false");
+        });
+        curGlowBtns = [];
+      }
+
+      function selectWordToken(key, anchorEl) {
+        const item = GLOSSARY[key];
+        if (!item) return;
+        curGlowBtns.forEach(b => { b.classList.remove("glowing"); b.setAttribute("aria-pressed", "false"); });
+        curGlowBtns = [];
+        document.querySelectorAll('.skz-word[data-key="' + key + '"]').forEach(el => {
+          el.classList.add("glowing");
+          el.setAttribute("aria-pressed", "true");
+          curGlowBtns.push(el);
+        });
+
+        $("vg-word").innerHTML = buildRubyHtml(item.furi);
+        $("vg-meta").textContent = `${item.reading} • Hán Việt: ${item.hv} • ${item.bookLabel}`;
+        $("vg-mean").textContent = `Nghĩa: ${item.mean}`;
+        $("vg-colloc").innerHTML = `<div lang="ja" style="font-family:var(--font-jp);font-weight:700;">${buildRubyHtml(item.collocJp)}</div><div style="color:var(--text-muted);">${item.collocVi}</div>`;
+        $("vg-play-word").onclick = () => playMp3OrTts(item.wordAudio, item.plain);
+        $("vg-play-colloc").onclick = () => playMp3OrTts(item.collocAudio, item.collocJp);
+        $("vg-flash-link").href = item.flashLink;
+        $("vg-md-link").href = "../reader.html?file=" + item.mdLink.replace("../", "");
+
+        const pop = $("vocab-guide");
+        try {
+          if (!pop.matches(":popover-open, .\\:popover-open")) pop.showPopover();
+        } catch (_) {
+          pop.setAttribute("open", "");
+        }
+        if (anchorEl) {
+          const r = anchorEl.getBoundingClientRect();
+          const pw = Math.min(360, window.innerWidth - 24);
+          let left = Math.max(12, Math.min(r.left, window.innerWidth - pw - 12));
+          let top = r.bottom + 8;
+          if (top + 250 > window.innerHeight) {
+            top = Math.max(12, r.top - 260);
+          }
+          pop.style.position = "fixed";
+          pop.style.left = left + "px";
+          pop.style.top = top + "px";
+        }
+        playMp3OrTts(item.wordAudio, item.plain);
+      }
+
+      $("vg-close").addEventListener("click", hidePopover);
+
+      function saveQuizAnswer(novelId, chapNum, qNum, chosenIdx) {
+        const ck = `${novelId}__${chapNum}`;
+        quizState[ck] = quizState[ck] || {};
+        quizState[ck][qNum] = chosenIdx;
+        localStorage.setItem(LS_QUIZ, JSON.stringify(quizState));
+        updateProgressUI();
+      }
+
+      function isChapterCompleted(novelId, chap) {
+        const ck = `${novelId}__${chap.num}`;
+        const ansMap = quizState[ck] || {};
+        return chap.quiz.every(q => ansMap[q.num] != null);
+      }
+
+      function updateProgressUI() {
+        let doneCount = 0;
+        let totalCh = 0;
+        NOVELS.forEach(n => n.chapters.forEach(c => {
+          totalCh++;
+          if (isChapterCompleted(n.id, c)) doneCount++;
+        }));
+        $("progress-label").textContent = `Hoàn thành quiz: ${doneCount}/${totalCh} chương`;
+        $("progress-bar").max = totalCh;
+        $("progress-bar").value = doneCount;
+
+        const nov = NOVELS[curNovelIdx];
+        document.querySelectorAll("#chapter-pills .chap-btn").forEach((b, idx) => {
+          const ch = nov.chapters[idx];
+          if (ch) b.classList.toggle("done", isChapterCompleted(nov.id, ch));
         });
       }
 
-      function loadChapter(num) {
-        stopAllAudio();
-        hideVocabGuide();
+      function renderNovelNav() {
+        const nav = $("novel-nav");
+        nav.innerHTML = "";
+        NOVELS.forEach((n, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "novel-card-btn";
+          btn.style.setProperty("--card-accent", n.themeColor);
+          btn.setAttribute("aria-current", idx === curNovelIdx ? "true" : "false");
+          btn.innerHTML = `<span class="nc-badge">${n.genreBadge}</span><span class="nc-title">${n.titleVi}</span><span class="nc-meta">${n.chapterCount} chương • ${n.wordTotal} từ Shinkanzen</span>`;
+          btn.addEventListener("click", () => {
+            curNovelIdx = idx;
+            curChapIdx = 0;
+            renderAll();
+          });
+          nav.appendChild(btn);
+        });
+      }
 
-        const ch = DATA.chapters.find(c => c.num === num) || DATA.chapters[0];
-        currentChapterNum = ch.num;
+      function renderChapterPills() {
+        const nov = NOVELS[curNovelIdx];
+        $("novel-intro-line").innerHTML = `<strong>${nov.titleVi}</strong> — ${nov.tagline}`;
+        const box = $("chapter-pills");
+        box.innerHTML = "";
+        nov.chapters.forEach((ch, idx) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "chap-btn" + (isChapterCompleted(nov.id, ch) ? " done" : "");
+          if (idx === curChapIdx) b.setAttribute("aria-current", "page");
+          b.textContent = `Ch.${String(ch.num).padStart(2, "0")} (${ch.lessonWordCount}t)`;
+          b.title = ch.lessonLabel;
+          b.addEventListener("click", () => {
+            curChapIdx = idx;
+            renderChapter();
+          });
+          box.appendChild(b);
+        });
+      }
 
-        const titleJpEl = document.getElementById("chap-title-jp");
-        titleJpEl.innerHTML = "";
-        renderSegmentsInto(titleJpEl, ch.title_segments);
+      function renderChapter() {
+        stopAudio();
+        hidePopover();
+        updateUrl();
 
-        document.getElementById("chap-title-vi").textContent = ch.title_vi;
-        document.getElementById("yuki-tip").innerHTML = `🌸 <strong>Lời dặn của chị Yuki:</strong> ${formatRichNote(ch.yuki_tip)}`;
-        document.getElementById("chapter-vocab-counter").textContent = `Chương ${ch.num}/6 • ${ch.vocab_keys.length} từ & mẫu Shinkanzen tương tác`;
+        const nov = NOVELS[curNovelIdx];
+        const ch = nov.chapters[curChapIdx];
+        syncAccentTheme();
 
-        storyBody.innerHTML = "";
+        document.querySelectorAll("#chapter-pills .chap-btn").forEach((b, idx) => {
+          if (idx === curChapIdx) b.setAttribute("aria-current", "page");
+          else b.removeAttribute("aria-current");
+        });
+
+        $("lesson-badge").textContent = `📘 ${ch.lessonLabel} (${ch.lessonWordCount} từ Shinkanzen)`;
+        $("link-lesson-md").href = "../reader.html?file=" + ch.mdLessonRel.replace("../", "");
+        $("link-lesson-flash").href = ch.flashLessonRel;
+        $("link-novel-exam").href = `../exam/index.html?exam=${nov.examReviewId}`;
+
+        $("chap-heading").textContent = ch.titleVi;
+        const jpT = $("chap-title-jp");
+        jpT.innerHTML = "";
+        jpT.appendChild(renderSegments(ch.titleSegments));
+
+        const charsHtml = [
+          `<p style="margin:0 0 8px;">🌸 <strong>Giới thiệu bộ truyện:</strong> ${nov.yukiIntro}</p>`,
+          `<ul style="margin:0;padding-left:18px;">` +
+          nov.characters.map(c => `<li><strong>${c.name}</strong> (${c.role}): ${c.desc}</li>`).join("") +
+          `</ul>`
+        ].join("");
+        $("novel-chars-box").innerHTML = charsHtml;
+
+        $("yuki-top-note").innerHTML = `<strong>🌸 Nhắc nhẹ trước giờ đọc:</strong> ${ch.yukiTop}`;
+        $("yuki-bottom-note").innerHTML = `<strong>💖 Lời nhắn dịu dàng sau chương:</strong> ${ch.yukiBottom}`;
+
+        const notesMap = {};
+        ch.softNotes.forEach(sn => { (notesMap[sn.afterPara] = notesMap[sn.afterPara] || []).push(sn); });
+
+        const body = $("story-body");
+        body.innerHTML = "";
+        const fullTransEl = $("full-translation-body");
+        fullTransEl.innerHTML = "";
+        const showInlineTrans = $("btn-trans-inline").getAttribute("aria-pressed") === "true";
+
         ch.paragraphs.forEach((p, idx) => {
           const pNum = idx + 1;
-          const pTag = `c${String(ch.num).padStart(2, "0")}_p${String(pNum).padStart(2, "0")}`;
-          const mp3Src = `./audio/p/${pTag}.mp3`;
+          const wrap = document.createElement("div");
+          wrap.className = "para-block";
+          wrap.id = "para-" + pNum;
 
-          const block = document.createElement("div");
-          block.className = "para-block";
-          block.dataset.ptag = pTag;
+          const pJp = document.createElement("p");
+          pJp.className = "para-jp";
+          pJp.appendChild(renderSegments(p.segments));
+          wrap.appendChild(pJp);
 
-          const jpRow = document.createElement("div");
-          jpRow.className = "para-jp-row";
+          const pVi = document.createElement("div");
+          pVi.className = "para-vi";
+          pVi.lang = "vi";
+          pVi.textContent = p.vi;
+          pVi.hidden = !showInlineTrans;
+          wrap.appendChild(pVi);
 
-          const jpP = document.createElement("p");
-          jpP.className = "para-jp-text";
-          jpP.setAttribute("lang", "ja");
-          renderSegmentsInto(jpP, p.segments);
-
-          const spBtn = document.createElement("button");
-          spBtn.type = "button";
-          spBtn.className = "para-speak-btn";
-          spBtn.setAttribute("aria-label", `Nghe đọc đoạn ${pNum} bằng tiếng Nhật`);
-          spBtn.textContent = "🔊";
-          spBtn.addEventListener("click", () => {
-            if (currentPlayingTag === pTag && !chapterPlaying) {
-              stopAllAudio();
-              return;
-            }
-            stopAllAudio();
-            block.classList.add("is-speaking");
-            spBtn.classList.add("is-playing");
-            playMp3Track(mp3Src, p.plain_text, pTag, () => {
-              stopAllAudio();
-            });
+          const acts = document.createElement("div");
+          acts.className = "para-actions";
+          const ttsBtn = document.createElement("button");
+          ttsBtn.type = "button";
+          ttsBtn.className = "para-mini-btn";
+          ttsBtn.textContent = `🔊 Nghe đoạn ${pNum}`;
+          ttsBtn.addEventListener("click", () => {
+            stopAudio();
+            document.querySelectorAll(".para-block.speaking").forEach(x => x.classList.remove("speaking"));
+            wrap.classList.add("speaking");
+            const plainJp = p.segments.map(s => s.v).join("");
+            speakTts(plainJp, () => wrap.classList.remove("speaking"));
           });
+          acts.appendChild(ttsBtn);
+          wrap.appendChild(acts);
+          body.appendChild(wrap);
 
-          jpRow.appendChild(jpP);
-          jpRow.appendChild(spBtn);
+          const fullP = document.createElement("p");
+          fullP.innerHTML = `<strong>Đoạn ${pNum}:</strong> ${p.vi}`;
+          fullTransEl.appendChild(fullP);
 
-          const viP = document.createElement("p");
-          viP.className = "para-vi";
-          viP.textContent = p.vi;
-
-          block.appendChild(jpRow);
-          block.appendChild(viP);
-          storyBody.appendChild(block);
+          if (notesMap[pNum]) {
+            notesMap[pNum].forEach(sn => {
+              const nb = document.createElement("aside");
+              nb.className = "soft-note-inline";
+              nb.innerHTML = `<div class="sn-head">💡 ${sn.title}</div><div>${sn.body.replace(/\n/g, "<br>")}</div>`;
+              body.appendChild(nb);
+            });
+          }
         });
 
-        document.getElementById("link-chapter-md").href = `../reader.html?file=novel/${ch.slug}.md`;
-        document.getElementById("btn-prev-chap").disabled = ch.num <= 1;
-        document.getElementById("btn-next-chap").disabled = ch.num >= DATA.chapters.length;
+        renderVocabTable(ch);
+        renderQuiz(nov, ch);
+        renderSideVocab(ch);
 
-        renderQuiz(ch);
-        renderGlossaryPanel(ch);
-        renderChapterNav();
-
-        const url = new URL(window.location.href);
-        url.searchParams.set("chapter", String(ch.num));
-        window.history.replaceState({}, "", url.toString());
-        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+        $("btn-prev-chap").disabled = curChapIdx === 0;
+        $("btn-next-chap").disabled = curChapIdx >= nov.chapters.length - 1;
+        updateProgressUI();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      // EVENT LISTENERS (Không dùng inline onclick theo Modern Web Guidance)
-      speedSelect.addEventListener("change", function () {
-        const val = parseFloat(this.value);
-        audioRate = Number.isFinite(val) ? val : 1.0;
-        if (novelAudio) novelAudio.playbackRate = audioRate;
-      });
+      function renderVocabTable(ch) {
+        $("chap-vocab-heading-txt").textContent = `📚 Bảng Từ Vựng & Ý Nghĩa Dưới Chương (${ch.lessonWordCount} từ — ${ch.lessonShort})`;
+        $("vocab-table-caption").textContent = `Toàn bộ ${ch.lessonWordCount} từ vựng của ${ch.lessonLabel}`;
+        const tbody = $("vocab-table-body");
+        tbody.innerHTML = "";
+        const allKeys = ch.lessonVocabKeys.concat(ch.extraVocabKeys || []);
+        allKeys.forEach((k) => {
+          const item = GLOSSARY[k];
+          if (!item) return;
+          const isExtra = !ch.lessonVocabKeys.includes(k);
+          const tr = document.createElement("tr");
 
-      document.getElementById("btn-toggle-highlight").addEventListener("click", function () {
-        const pressed = this.getAttribute("aria-pressed") === "true";
-        const next = !pressed;
-        this.setAttribute("aria-pressed", String(next));
-        bookPage.classList.toggle("highlight-all", next);
-        this.textContent = next ? "✨ Luôn đánh dấu nhẹ từ Shinkanzen" : "👆 Chỉ sáng khi Click vào từ";
-      });
+          const th = document.createElement("th");
+          th.scope = "row";
+          th.lang = "ja";
+          th.innerHTML = `#${item.wIdx} ${buildRubyHtml(item.furi)}` + (isExtra ? ` <span style="font-size:0.72rem;color:var(--tok-extra-line);">(Bổ sung)</span>` : "");
 
-      document.getElementById("btn-toggle-furi").addEventListener("click", function () {
-        const pressed = this.getAttribute("aria-pressed") === "true";
-        const next = !pressed;
-        this.setAttribute("aria-pressed", String(next));
-        bookPage.classList.toggle("hide-furi", !next);
-        this.textContent = next ? "🔤 Hiragana kế bên: Bật" : "🔤 Hiragana kế bên: Tắt";
-      });
+          const tdRead = document.createElement("td");
+          tdRead.innerHTML = `<div><code>${item.reading}</code></div><div style="font-size:0.8rem;color:var(--text-muted);">${item.hv}</div>`;
 
-      document.getElementById("btn-toggle-vi").addEventListener("click", function () {
-        const pressed = this.getAttribute("aria-pressed") === "true";
-        const next = !pressed;
-        this.setAttribute("aria-pressed", String(next));
-        bookPage.classList.toggle("hide-translations", !next);
-        this.textContent = next ? "🇻🇳 Đang hiện dịch tiếng Việt" : "🇻🇳 Hiện dịch tiếng Việt";
-      });
+          const tdMean = document.createElement("td");
+          tdMean.innerHTML = `<strong>${item.mean}</strong>`;
 
-      document.getElementById("btn-speak-chapter").addEventListener("click", function () {
-        if (chapterPlaying) {
-          stopAllAudio();
-          return;
+          const tdCol = document.createElement("td");
+          tdCol.innerHTML = `<div lang="ja" style="font-family:var(--font-jp);">${buildRubyHtml(item.collocJp)}</div><div style="font-size:0.8rem;color:var(--text-muted);">${item.collocVi}</div>`;
+
+          const tdAct = document.createElement("td");
+          const playB = document.createElement("button");
+          playB.type = "button";
+          playB.className = "para-mini-btn";
+          playB.textContent = "🔊 Nghe";
+          playB.addEventListener("click", () => playMp3OrTts(item.wordAudio, item.plain));
+
+          const findB = document.createElement("button");
+          findB.type = "button";
+          findB.className = "para-mini-btn";
+          findB.style.marginLeft = "4px";
+          findB.textContent = "🔍 Trong truyện";
+          findB.addEventListener("click", () => {
+            const target = document.querySelector(`.skz-word[data-key="${k}"]`);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "center" });
+              selectWordToken(k, target);
+            }
+          });
+          tdAct.append(playB, findB);
+
+          tr.append(th, tdRead, tdMean, tdCol, tdAct);
+          tbody.appendChild(tr);
+        });
+      }
+
+      function renderQuiz(nov, ch) {
+        const ck = `${nov.id}__${ch.num}`;
+        const saved = quizState[ck] || {};
+        const list = $("quiz-list");
+        list.innerHTML = "";
+
+        function updateSum() {
+          const rightC = ch.quiz.filter(q => saved[q.num] === q.ans).length;
+          const doneC = ch.quiz.filter(q => saved[q.num] != null).length;
+          $("quiz-summary").textContent = `📊 Đã trả lời: ${doneC}/${ch.quiz.length} câu • Đúng: ${rightC}/${ch.quiz.length}`;
         }
-        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
-        if (!ch || !ch.paragraphs.length) return;
+        updateSum();
 
-        stopAllAudio();
-        chapterPlaying = true;
-        const mySession = playSessionId;
-        const blocks = Array.from(storyBody.querySelectorAll(".para-block"));
+        ch.quiz.forEach((q) => {
+          const card = document.createElement("div");
+          card.className = "quiz-card";
+          const qTxt = document.createElement("div");
+          qTxt.className = "quiz-q";
+          qTxt.lang = "ja";
+          qTxt.textContent = `Câu ${q.num}: ${q.prompt}`;
+          card.appendChild(qTxt);
 
-        const playNext = (idx) => {
-          if (!chapterPlaying || playSessionId !== mySession) return;
-          if (idx >= ch.paragraphs.length) {
-            stopAllAudio();
+          const opts = document.createElement("div");
+          opts.className = "quiz-opts";
+          const fb = document.createElement("div");
+          fb.className = "quiz-feedback";
+          fb.hidden = true;
+
+          function showFeedback(chosen) {
+            const isOk = chosen === q.ans;
+            fb.hidden = false;
+            fb.className = "quiz-feedback " + (isOk ? "right" : "wrong");
+            const optButtons = opts.querySelectorAll("button.opt-btn");
+            optButtons.forEach((b, idx) => {
+              const oNum = idx + 1;
+              b.classList.remove("is-right", "is-wrong");
+              if (oNum === q.ans) b.classList.add("is-right");
+              else if (oNum === chosen && !isOk) b.classList.add("is-wrong");
+            });
+            const headMsg = isOk
+              ? `✅ <strong>Chuẩn xác rồi em ơi!</strong> ${q.rightExp}`
+              : `❌ <strong>Chưa đúng rồi (~ chọn đáp án ${q.ans}: ${q.options[q.ans - 1]} mới chuẩn nha)!</strong><br>💡 <em>Vì sao lựa chọn ${chosen} sai:</em> ${q.wrongExps[chosen - 1]}<br>✨ <em>Vì sao đáp án ${q.ans} đúng:</em> ${q.rightExp}`;
+
+            const detailsHtml = `<details style="margin-top:6px;"><summary style="cursor:pointer;font-weight:700;">🔎 Xem giải thích cả 4 lựa chọn</summary><ul class="exp-all-list">` +
+              q.options.map((op, i) => `<li><strong>${i + 1}. ${op}</strong> (${i + 1 === q.ans ? "✅ Đúng" : "❌ Sai"}): ${q.wrongExps[i]}</li>`).join("") +
+              `</ul></details>`;
+            fb.innerHTML = headMsg + detailsHtml;
+          }
+
+          q.options.forEach((opt, i) => {
+            const oNum = i + 1;
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "opt-btn";
+            b.innerHTML = `<span><strong>${oNum}.</strong></span><span>${opt}</span>`;
+            b.addEventListener("click", () => {
+              saved[q.num] = oNum;
+              saveQuizAnswer(nov.id, ch.num, q.num, oNum);
+              showFeedback(oNum);
+              updateSum();
+              announce(oNum === q.ans ? `Câu ${q.num} chính xác!` : `Câu ${q.num} chưa đúng, đáp án đúng là ${q.ans}`);
+            });
+            opts.appendChild(b);
+          });
+
+          card.append(opts, fb);
+          if (saved[q.num] != null) showFeedback(saved[q.num]);
+          list.appendChild(card);
+        });
+      }
+
+      function renderSideVocab(ch) {
+        const box = $("side-vocab-list");
+        const filterEl = $("side-vocab-filter");
+        function draw() {
+          const q = (filterEl.value || "").trim().toLowerCase();
+          box.innerHTML = "";
+          ch.lessonVocabKeys.forEach((k) => {
+            const item = GLOSSARY[k];
+            if (!item) return;
+            const hay = `${item.plain} ${item.reading} ${item.hv} ${item.mean}`.toLowerCase();
+            if (q && !hay.includes(q)) return;
+            const d = document.createElement("div");
+            d.className = "quiz-card";
+            d.style.marginBottom = "0";
+            d.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;"><strong lang="ja" style="font-family:var(--font-jp);">${buildRubyHtml(item.furi)}</strong><span style="font-size:0.76rem;color:var(--text-muted);">${item.hv}</span></div><div style="font-size:0.84rem;margin:4px 0;">${item.mean}</div>`;
+            const act = document.createElement("div");
+            const bPlay = document.createElement("button");
+            bPlay.type = "button";
+            bPlay.className = "para-mini-btn";
+            bPlay.textContent = "🔊 Nghe";
+            bPlay.addEventListener("click", () => playMp3OrTts(item.wordAudio, item.plain));
+            const bJump = document.createElement("button");
+            bJump.type = "button";
+            bJump.className = "para-mini-btn";
+            bJump.style.marginLeft = "4px";
+            bJump.textContent = "🔍 Tô sáng";
+            bJump.addEventListener("click", () => {
+              const target = document.querySelector(`.skz-word[data-key="${k}"]`);
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "center" });
+                selectWordToken(k, target);
+              }
+            });
+            act.append(bPlay, bJump);
+            d.appendChild(act);
+            box.appendChild(d);
+          });
+        }
+        filterEl.oninput = draw;
+        draw();
+      }
+
+      function renderAll() {
+        renderNovelNav();
+        renderChapterPills();
+        renderChapter();
+      }
+
+      // Controls listeners
+      $("btn-furi").addEventListener("click", function () {
+        const on = this.getAttribute("aria-pressed") === "true";
+        this.setAttribute("aria-pressed", String(!on));
+        document.body.classList.toggle("hide-furi", on);
+      });
+      $("btn-hl").addEventListener("click", function () {
+        const on = this.getAttribute("aria-pressed") === "true";
+        this.setAttribute("aria-pressed", String(!on));
+        document.body.classList.toggle("hide-highlights", on);
+      });
+      $("btn-trans-inline").addEventListener("click", function () {
+        const on = this.getAttribute("aria-pressed") === "true";
+        const next = !on;
+        this.setAttribute("aria-pressed", String(next));
+        document.querySelectorAll(".para-vi").forEach(el => { el.hidden = !next; });
+      });
+
+      $("btn-tts-all").addEventListener("click", () => {
+        stopAudio();
+        speakingCancel = false;
+        const ch = NOVELS[curNovelIdx].chapters[curChapIdx];
+        let idx = 0;
+        $("btn-tts-stop").hidden = false;
+        function step() {
+          if (speakingCancel || idx >= ch.paragraphs.length) {
+            $("btn-tts-stop").hidden = true;
+            document.querySelectorAll(".para-block.speaking").forEach(x => x.classList.remove("speaking"));
             return;
           }
-          const p = ch.paragraphs[idx];
-          const pTag = `c${String(ch.num).padStart(2, "0")}_p${String(idx + 1).padStart(2, "0")}`;
-          const mp3Src = `./audio/p/${pTag}.mp3`;
-          this.textContent = `⏹ Dừng (${idx + 1}/${ch.paragraphs.length})`;
-
-          playMp3Track(mp3Src, p.plain_text, pTag, () => playNext(idx + 1));
-          const blk = blocks[idx];
-          if (blk) {
-            blk.classList.add("is-speaking");
-            const sb = blk.querySelector(".para-speak-btn");
-            if (sb) sb.classList.add("is-playing");
+          const wrap = $("para-" + (idx + 1));
+          document.querySelectorAll(".para-block.speaking").forEach(x => x.classList.remove("speaking"));
+          if (wrap) {
+            wrap.classList.add("speaking");
+            wrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }
-        };
-
-        playNext(0);
+          const jp = ch.paragraphs[idx].segments.map(s => s.v).join("");
+          idx++;
+          speakTts(jp, step);
+        }
+        step();
       });
 
-      document.getElementById("vg-speak-word").addEventListener("click", () => {
-        if (!activeKey) return;
-        const entry = DATA.glossary[activeKey];
-        if (!entry) return;
-        stopAllAudio();
-        const audioFile = VOCAB_AUDIO[activeKey];
-        const mp3Src = audioFile ? `./audio/v/${audioFile}` : null;
-        const fallback = (entry.reading && entry.kind !== "grammar")
-          ? entry.reading
-          : stripFuri(entry.plain || entry.furi || activeKey).replace(/〜/g, "");
-        playMp3Track(mp3Src, fallback, `v_${activeKey}`, () => {
-          currentPlayingTag = null;
+      $("btn-tts-stop").addEventListener("click", () => {
+        speakingCancel = true;
+        stopAudio();
+        $("btn-tts-stop").hidden = true;
+        document.querySelectorAll(".para-block.speaking").forEach(x => x.classList.remove("speaking"));
+      });
+
+      $("btn-rand-word").addEventListener("click", () => {
+        const ch = NOVELS[curNovelIdx].chapters[curChapIdx];
+        const randKey = ch.lessonVocabKeys[Math.floor(Math.random() * ch.lessonVocabKeys.length)];
+        const target = document.querySelector(`.skz-word[data-key="${randKey}"]`);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          selectWordToken(randKey, target);
+        }
+      });
+
+      $("btn-prev-chap").addEventListener("click", () => {
+        if (curChapIdx > 0) { curChapIdx--; renderChapter(); }
+      });
+      $("btn-next-chap").addEventListener("click", () => {
+        if (curChapIdx < NOVELS[curNovelIdx].chapters.length - 1) { curChapIdx++; renderChapter(); }
+      });
+
+      // Accessible Tabs (modern-web-guidance tabs pattern)
+      const tabBtns = Array.from(document.querySelectorAll('#companion-tablist [role="tab"]'));
+      const tabPanels = [ $("panel-quiz"), $("panel-vocab") ];
+      function selectTab(idx) {
+        tabBtns.forEach((t, i) => {
+          const sel = i === idx;
+          t.setAttribute("aria-selected", String(sel));
+          if (sel) {
+            tabPanels[i].removeAttribute("hidden");
+            tabPanels[i].setAttribute("tabindex", "0");
+            t.scrollIntoView({ block: "nearest", inline: "nearest", container: "nearest" });
+          } else {
+            tabPanels[i].setAttribute("hidden", "until-found");
+            tabPanels[i].removeAttribute("tabindex");
+          }
         });
-      });
-
-      document.getElementById("btn-prev-chap").addEventListener("click", () => {
-        if (currentChapterNum > 1) loadChapter(currentChapterNum - 1);
-      });
-
-      document.getElementById("btn-next-chap").addEventListener("click", () => {
-        if (currentChapterNum < DATA.chapters.length) loadChapter(currentChapterNum + 1);
-      });
-
-      document.getElementById("btn-reset-quiz").addEventListener("click", () => {
-        quizState[currentChapterNum] = {};
-        localStorage.setItem(STORAGE_QUIZ, JSON.stringify(quizState));
-        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
-        if (ch) renderQuiz(ch);
-      });
-
-      // Companion Tabs
-      const tabQuiz = document.getElementById("tab-quiz");
-      const tabVocab = document.getElementById("tab-vocab");
-      const panelQuiz = document.getElementById("panel-quiz");
-      const panelVocab = document.getElementById("panel-vocab");
-
-      function switchCompanionTab(target) {
-        const isQuiz = target === "quiz";
-        tabQuiz.setAttribute("aria-selected", String(isQuiz));
-        tabVocab.setAttribute("aria-selected", String(!isQuiz));
-        panelQuiz.hidden = !isQuiz;
-        panelVocab.hidden = isQuiz;
       }
-
-      tabQuiz.addEventListener("click", () => switchCompanionTab("quiz"));
-      tabVocab.addEventListener("click", () => switchCompanionTab("vocab"));
-
-      // Mastered toggle inside popover
-      document.getElementById("vg-mark-mastered").addEventListener("click", function () {
-        if (!activeKey) return;
-        if (masteredSet.has(activeKey)) masteredSet.delete(activeKey);
-        else masteredSet.add(activeKey);
-        localStorage.setItem(STORAGE_MASTERED, JSON.stringify(Array.from(masteredSet)));
-
-        const nowMastered = masteredSet.has(activeKey);
-        this.setAttribute("aria-pressed", String(nowMastered));
-        this.textContent = nowMastered ? "✓ Đã thuộc từ này" : "✓ Đánh dấu đã thuộc";
-        storyBody.querySelectorAll('.skz-word[data-key="' + CSS.escape(activeKey) + '"]').forEach(el => {
-          el.classList.toggle("is-mastered", nowMastered);
+      tabBtns.forEach((t, idx) => {
+        t.addEventListener("click", () => selectTab(idx));
+        t.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") { e.preventDefault(); const n = (idx + 1) % tabBtns.length; tabBtns[n].focus(); selectTab(n); }
+          if (e.key === "ArrowLeft") { e.preventDefault(); const p = (idx - 1 + tabBtns.length) % tabBtns.length; tabBtns[p].focus(); selectTab(p); }
+          if (e.key === "Home") { e.preventDefault(); tabBtns[0].focus(); selectTab(0); }
+          if (e.key === "End") { e.preventDefault(); tabBtns[tabBtns.length - 1].focus(); selectTab(tabBtns.length - 1); }
         });
       });
-
-      document.getElementById("vg-close").addEventListener("click", hideVocabGuide);
-
-      function stepChapterVocab(step, animate = true) {
-        const ch = DATA.chapters.find(c => c.num === currentChapterNum);
-        const chapKeys = ch && Array.isArray(ch.vocab_keys) ? ch.vocab_keys : [];
-        if (chapKeys.length <= 1) return;
-        const idx = chapKeys.indexOf(activeKey);
-        const nextIdx = idx >= 0 ? (idx + step + chapKeys.length) % chapKeys.length : 0;
-        const nextKey = chapKeys[nextIdx];
-
-        if (vgAnimTimer) { clearTimeout(vgAnimTimer); vgAnimTimer = null; }
-        if (vgEnterRaf) { cancelAnimationFrame(vgEnterRaf); vgEnterRaf = null; }
-
-        if (!animate || prefersReducedMotion()) {
-          vocabDialog.style.transform = "";
-          vocabDialog.style.opacity = "";
-          selectShinkanzenWord(nextKey, null, true);
-          return;
-        }
-
-        vocabDialog.classList.remove("is-dragging");
-        vocabDialog.style.transform = `translate3d(${step > 0 ? -48 : 48}px, 0, 0)`;
-        vocabDialog.style.opacity = "0";
-        vgAnimTimer = setTimeout(() => {
-          vgAnimTimer = null;
-          selectShinkanzenWord(nextKey, null, true);
-          vocabDialog.classList.add("is-dragging");
-          vocabDialog.style.transform = `translate3d(${step > 0 ? 36 : -36}px, 0, 0)`;
-          vocabDialog.style.opacity = "0";
-          void vocabDialog.offsetWidth;
-          vgEnterRaf = requestAnimationFrame(() => {
-            vgEnterRaf = null;
-            vocabDialog.classList.remove("is-dragging");
-            vocabDialog.style.transform = "";
-            vocabDialog.style.opacity = "";
-          });
-        }, 95);
-      }
-
-      document.getElementById("vg-prev-word").addEventListener("click", () => stepChapterVocab(-1));
-      document.getElementById("vg-next-word").addEventListener("click", () => stepChapterVocab(1));
-
-      (function attachVocabGuideSwipe() {
-        // Touch phones: passive:false touchmove guarantees iOS Safari & Android Chrome won't cancel horizontal thumb swipes
-        let tId = null;
-        let tStartX = 0;
-        let tStartY = 0;
-        let tStartTime = 0;
-        let tLastDx = 0;
-        let tAxis = null;
-
-        vocabDialog.addEventListener("touchstart", (e) => {
-          if (e.touches.length !== 1) return;
-          if (e.target.closest("a, button")) return;
-          const t = e.touches[0];
-          tId = t.identifier;
-          tStartX = t.clientX;
-          tStartY = t.clientY;
-          tStartTime = Date.now();
-          tLastDx = 0;
-          tAxis = null;
-        }, { passive: true });
-
-        vocabDialog.addEventListener("touchmove", (e) => {
-          if (tId === null) return;
-          const t = Array.from(e.touches).find(pt => pt.identifier === tId);
-          if (!t) return;
-          const dx = t.clientX - tStartX;
-          const dy = t.clientY - tStartY;
-          const adx = Math.abs(dx);
-          const ady = Math.abs(dy);
-
-          if (tAxis === null) {
-            if (adx < 8 && ady < 8) return;
-            if (adx >= 8 && adx >= ady * 0.85) {
-              tAxis = "x";
-              vocabDialog.classList.add("is-dragging");
-            } else if (ady > 16 && ady > adx * 1.35) {
-              tAxis = "y";
-              return;
-            } else {
-              return;
-            }
-          }
-
-          if (tAxis === "x") {
-            e.preventDefault();
-            tLastDx = dx;
-            const slideX = Math.max(-54, Math.min(54, dx * 0.55));
-            vocabDialog.style.transform = `translate3d(${slideX}px, 0, 0)`;
-            vocabDialog.style.opacity = String(Math.max(0.65, 1 - Math.abs(slideX) / 220));
-          }
-        }, { passive: false });
-
-        function endTouchSwipe() {
-          if (tId === null) return;
-          const wasX = tAxis === "x";
-          const dx = tLastDx;
-          const vel = Math.abs(dx) / Math.max(1, Date.now() - tStartTime);
-          tId = null;
-          tAxis = null;
-          vocabDialog.classList.remove("is-dragging");
-          if (wasX) {
-            if (Math.abs(dx) >= 32 || (Math.abs(dx) >= 18 && vel >= 0.25)) {
-              stepChapterVocab(dx < 0 ? 1 : -1, true);
-            } else {
-              vocabDialog.style.transform = "";
-              vocabDialog.style.opacity = "";
-            }
-          }
-        }
-
-        vocabDialog.addEventListener("touchend", endTouchSwipe);
-        vocabDialog.addEventListener("touchcancel", endTouchSwipe);
-
-        // Desktop mouse & pen pointer drag (touches are handled above by native touch listeners)
-        let activeId = null;
-        let startX = 0;
-        let startY = 0;
-        let startTime = 0;
-        let lastDx = 0;
-        let isHorizontal = false;
-        let isVertical = false;
-
-        vocabDialog.addEventListener("pointerdown", (e) => {
-          if (!e.isPrimary || e.pointerType === "touch") return;
-          if (e.pointerType === "mouse" && e.button !== 0) return;
-          if (e.target.closest("a, button")) return;
-          activeId = e.pointerId;
-          startX = e.clientX;
-          startY = e.clientY;
-          startTime = Date.now();
-          lastDx = 0;
-          isHorizontal = false;
-          isVertical = false;
-        });
-
-        vocabDialog.addEventListener("pointermove", (e) => {
-          if (activeId !== e.pointerId || isVertical || e.pointerType === "touch") return;
-          const dx = e.clientX - startX;
-          const dy = e.clientY - startY;
-          if (!isHorizontal) {
-            if (Math.abs(dy) > 12 && Math.abs(dy) >= Math.abs(dx) * 1.2) {
-              isVertical = true;
-              activeId = null;
-              return;
-            }
-            if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
-              isHorizontal = true;
-              vocabDialog.classList.add("is-dragging");
-              try { vocabDialog.setPointerCapture(e.pointerId); } catch (_) {}
-            } else {
-              return;
-            }
-          }
-          lastDx = dx;
-          const slideX = Math.max(-54, Math.min(54, dx * 0.55));
-          vocabDialog.style.transform = `translate3d(${slideX}px, 0, 0)`;
-          vocabDialog.style.opacity = String(Math.max(0.65, 1 - Math.abs(slideX) / 220));
-        });
-
-        function endVgSwipe(e) {
-          if (activeId !== e.pointerId || e.pointerType === "touch") return;
-          const wasHorizontal = isHorizontal;
-          const dx = lastDx;
-          const velocity = Math.abs(dx) / Math.max(1, Date.now() - startTime);
-          activeId = null;
-          isHorizontal = false;
-          isVertical = false;
-          vocabDialog.classList.remove("is-dragging");
-          if (wasHorizontal) {
-            const threshold = Math.min(56, Math.max(32, vocabDialog.clientWidth * 0.14));
-            if (Math.abs(dx) >= threshold || (Math.abs(dx) >= 20 && velocity >= 0.25)) {
-              stepChapterVocab(dx < 0 ? 1 : -1, true);
-            } else {
-              vocabDialog.style.transform = "";
-              vocabDialog.style.opacity = "";
-            }
-          }
-        }
-
-        vocabDialog.addEventListener("pointerup", endVgSwipe);
-        vocabDialog.addEventListener("pointercancel", endVgSwipe);
-
-        let vgWheelLock = 0;
-        vocabDialog.addEventListener("wheel", (e) => {
-          if (e.ctrlKey) return;
-          if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.45 && Math.abs(e.deltaX) >= 24) {
-            e.preventDefault();
-            const now = Date.now();
-            if (now < vgWheelLock) return;
-            vgWheelLock = now + 520;
-            stepChapterVocab(e.deltaX > 0 ? 1 : -1, true);
-          }
-        }, { passive: false });
-      })();
-
-      document.addEventListener("pointerdown", (e) => {
-        const isOpen = vocabDialog.classList.contains("is-fallback-open") ||
-          (typeof vocabDialog.matches === "function" && vocabDialog.matches(":popover-open"));
-        if (!isOpen) return;
-        if (e.target.closest("#vocab-guide, .skz-word, .glossary-item")) return;
-        hideVocabGuide();
+      tabPanels.forEach((panel, idx) => {
+        panel.addEventListener("beforematch", () => selectTab(idx));
       });
 
-      document.addEventListener("keydown", (e) => {
-        const isOpen = vocabDialog.classList.contains("is-fallback-open") ||
-          (typeof vocabDialog.matches === "function" && vocabDialog.matches(":popover-open"));
-        if (e.key === "Escape") {
-          hideVocabGuide();
-        } else if (isOpen && vocabDialog.contains(document.activeElement)) {
-          if (e.key === "ArrowLeft") {
-            e.preventDefault();
-            stepChapterVocab(-1);
-          } else if (e.key === "ArrowRight") {
-            e.preventDefault();
-            stepChapterVocab(1);
-          }
-        }
-      });
-
-      // Init từ URL param
-      const reqChap = parseInt(new URLSearchParams(window.location.search).get("chapter") || "1", 10);
-      loadChapter(Number.isFinite(reqChap) && reqChap >= 1 && reqChap <= DATA.chapters.length ? reqChap : 1);
+      parseParams();
+      renderAll();
     })();
   </script>
 </body>
@@ -2092,80 +1989,33 @@ def render_novel_html():
 
 def build_novel():
     os.makedirs(NOVEL_DIR, exist_ok=True)
-    vocab_index = build_unified_shinkanzen_index()
-    auto_regex, _ = compile_auto_goi_regex(vocab_index)
-
-    chapters_built = []
-    used_glossary_keys = set()
-
-    for ch in NOVEL_CHAPTERS:
-        title_segs, title_keys = parse_text_segments(ch["title_jp"], vocab_index, auto_regex)
-        chap_keys = list(dict.fromkeys(title_keys))
-
-        paras_built = []
-        for raw_jp, vi_txt in ch["paragraphs"]:
-            segs, keys = parse_text_segments(raw_jp, vocab_index, auto_regex)
-            for k in keys:
-                if k not in chap_keys:
-                    chap_keys.append(k)
-            plain_clean = "".join(strip_furi(s["v"]) for s in segs)
-            paras_built.append({
-                "segments": segs,
-                "plain_text": plain_clean,
-                "vi": vi_txt,
-            })
-
-        quizzes_built = []
-        for q_prompt, q_opts, q_ans, q_exp in ch["quiz"]:
-            assert 1 <= q_ans <= len(q_opts), f"Invalid quiz ans in chapter {ch['num']}"
-            q_segs, q_keys = parse_text_segments(q_prompt, vocab_index, auto_regex)
-            for k in q_keys:
-                if k not in chap_keys:
-                    chap_keys.append(k)
-            quizzes_built.append({
-                "prompt_segments": q_segs,
-                "options": q_opts,
-                "ans": q_ans,
-                "exp": q_exp,
-            })
-
-        used_glossary_keys.update(chap_keys)
-        chapters_built.append({
-            "num": ch["num"],
-            "slug": ch["slug"],
-            "title_jp": ch["title_jp"],
-            "title_vi": ch["title_vi"],
-            "title_segments": title_segs,
-            "yuki_tip": ch["yuki_tip"],
-            "paragraphs": paras_built,
-            "quiz": quizzes_built,
-            "vocab_keys": chap_keys,
-        })
-
-    # Chỉ xuất từ điển rút gọn cho những từ/mẫu xuất hiện thực tế trong tiểu thuyết
-    glossary_out = {k: vocab_index[k] for k in sorted(used_glossary_keys)}
+    glossary, lessons_meta = build_unified_shinkanzen_index()
+    novels_built, lesson_to_novel_map = build_novels_data(glossary, lessons_meta)
 
     payload = {
-        "meta": NOVEL_META,
-        "chapters": chapters_built,
-        "glossary": glossary_out,
+        "novels": novels_built,
+        "glossary": glossary,
+        "lessonToNovel": lesson_to_novel_map,
     }
-
-    with open(os.path.join(NOVEL_DIR, "novel-data.js"), "w", encoding="utf-8") as f:
+    js_path = os.path.join(NOVEL_DIR, "novel-data.js")
+    with open(js_path, "w", encoding="utf-8") as f:
         f.write("// Auto-generated by scripts/build_novel.py — Do not edit manually\n")
-        f.write("window.SHINKANZEN_NOVEL_DATA = ")
-        json.dump(payload, f, ensure_ascii=False, indent=2)
+        f.write("window.NOVEL_DATA = ")
+        json.dump(payload, f, ensure_ascii=False)
         f.write(";\n")
 
-    with open(os.path.join(NOVEL_DIR, "index.html"), "w", encoding="utf-8") as f:
+    html_path = os.path.join(NOVEL_DIR, "index.html")
+    with open(html_path, "w", encoding="utf-8") as f:
         f.write(render_novel_html())
 
-    build_novel_markdown(chapters_built, glossary_out)
+    build_novel_markdown(novels_built, glossary)
 
     print(
-        f"✅ Built Shinkanzen Interactive Novel: {len(chapters_built)} chapters, "
-        f"{len(glossary_out)} unique clickable Shinkanzen N2 terms matched across the novel."
+        f"✅ Đã build Hệ Thống 3 Tiểu Thuyết: 3 bộ, "
+        f"{sum(n['chapterCount'] for n in novels_built)} chương, "
+        f"{len(glossary)}/780 từ vựng Shinkanzen & {sum(len(c['quiz']) for n in novels_built for c in n['chapters'])} câu trắc nghiệm!"
     )
+    return novels_built, lesson_to_novel_map
 
 
 if __name__ == "__main__":

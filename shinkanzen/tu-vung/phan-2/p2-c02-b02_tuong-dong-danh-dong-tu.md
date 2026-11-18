@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 2 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 2章 2課: 名詞・動詞)** phân biệt ranh giới sử dụng giữa các danh từ và động từ gần nghĩa trong tiếng Nhật."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c02_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 2 Yandere — Chương 07 (Chương 07: Bản Chất Của Tình Yêu & Dũng Khí Nhìn Lại Quá Khứ)**](../../../novel/index.html?novel=yandere&chapter=7) ([Bản MD](../../../novel/yandere/chuong-07.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c02_b02)
 
 ---
 

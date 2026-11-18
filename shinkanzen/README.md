@@ -1,35 +1,31 @@
-# 📚 Trọn Bộ Giáo Trình Shinkanzen Master N2 (新完全マスター N2 — Chuẩn 5 Cuốn)
+# 📚 Hệ Thống Học Tập Shinkanzen N2 × 3 Bộ Tiểu Thuyết & Đề Thi Chuẩn JLPT
 
-> 🌸 **Lời nhắn của chị Yuki:**  
-> *"Bộ giáo trình này được tái cấu trúc chuẩn 100% theo **5 cuốn sách gốc 新完全マスター N2** của nhà xuất bản 3A Corporation (スリーエーネットワーク). Em không còn phải học gộp lệch bài nữa — mỗi kỹ năng đều đi đúng thứ tự chương, bài, chủ điểm, bẫy đề thi JLPT thực chiến và đầy đủ Furigana!"*
+> 🌸 **Lời nhắn nhẹ nhàng từ chị Yuki:**  
+> *"Hệ thống mới của tụi mình đã loại bỏ hoàn toàn các bài Đọc hiểu & Nghe hiểu cũ, thay bằng **3 Bộ Tiểu Thuyết Romcom — Yandere — Isekai (37 chương)** chứa trọn vẹn **100% 37 bài / 780 từ vựng Shinkanzen Từ Vựng N2**, kèm **Trung tâm Đề Thi Chuẩn JLPT N2 (222 câu tự chấm & giải thích Đúng/Sai)**! Học mà cuốn như đọc light novel luôn đó em~ 💕"*
 
 ---
 
-## 🗺️ Bản Đồ 5 Cuốn Sách Shinkanzen Master N2
+## 🗺️ Bản Đồ Hệ Thống N2 Mới
 
-| Cuốn sách (日本語) | Thư mục & Mục lục | Quy mô chuẩn sách gốc | Công cụ đặc biệt đi kèm |
+| Phân hệ (日本語) | Thư mục & Mục lục | Quy mô nội dung | Công cụ nổi bật đi kèm |
 | :--- | :--- | :--- | :--- |
-| **1. 文法 (Ngữ pháp)** | [**`ngu-phap/README.md`**](./ngu-phap/README.md) | **Phần 1** (`26 bài`) + **Phần 2 ★** (`3 bài`) + **Phần 3** (`12 bài`) + **Kính ngữ** (`42 bài`) | Bảng đối chiếu mẫu dễ nhầm, bẫy thi & quiz Mondai 7–9 |
-| **2. 語彙 (Từ vựng)** | [**`tu-vung/README.md`**](./tu-vung/README.md) | **Phần 1 (Chủ đề):** `9 chương, 21 bài` + **Phần 2 (Tính chất):** `7 chương, 16 bài` (`37 bài`, `780 từ`) | [**🎴 Web Flashcards Trắng Đen + In A4 + Anki TSV**](./tu-vung/flashcards.html) |
+| **1. 文法 (Ngữ pháp)** | [**`ngu-phap/README.md`**](./ngu-phap/README.md) | **Phần 1** (`26 bài`) + **Phần 2 ★** (`3 bài`) + **Phần 3** (`12 bài`) + **Kính ngữ** | Bảng đối chiếu mẫu dễ nhầm, bẫy thi & quiz Mondai 7–9 |
+| **2. 語彙 (Từ vựng)** | [**`tu-vung/README.md`**](./tu-vung/README.md) | **Phần 1:** `9 chương, 21 bài` + **Phần 2:** `7 chương, 16 bài` (`37 bài`, `780 từ`) | [**🎴 Flashcards 780 Từ**](./tu-vung/flashcards.html) + Link thẳng tới từng chương Tiểu thuyết |
 | **3. 漢字 (Chữ Hán)** | [**`kanji/README.md`**](./kanji/README.md) | **Step 1** (`14 bài`) + **Step 2** (`16 bài`) + **Step 3** (`23 bài`) = **53 bài (`1.046 chữ`)** | **2 Cột Challenge & Phụ lục 別冊1** (Âm đọc đặc biệt) |
-| **4. 読解 (Đọc hiểu)** | [**`doc-hieu/README.md`**](./doc-hieu/README.md) | **Phần 1 & 2 (Kỹ năng):** `4 bài` + **Phần 3 (Thực chiến):** `4 dạng Mondai` (`8 bài`) | Bài đọc 100% Furigana + bẫy loại trừ `言い過ぎ・逆転・※` |
-| **5. 聴解 (Nghe hiểu)** | [**`nghe-hieu/README.md`**](./nghe-hieu/README.md) | **Chương I – VI:** Đặc trưng âm, Phản xạ nhanh, Mondai 1–5 (`6 chương`) | Kịch bản chuẩn TTS (`track_id` / `speakers`) + luyện Shadowing |
+| **4. 📓 3 Bộ Tiểu Thuyết** | [**`../novel/README.md`**](../novel/README.md) | **Romcom** (`13 chương`) + **Yandere** (`12 chương`) + **Isekai** (`12 chương`) | [**✨ Đọc Tương Tác**](../novel/index.html) • Dịch trọn chương • Bảng nghĩa bên dưới • 185 Câu Quiz |
+| **5. 🎯 Đề Thi Chuẩn JLPT** | [**`../exam/README.md`**](../exam/README.md) | **3 Đề Full JLPT N2 (Mondai 1–9)** + **3 Đề Ôn Tiểu thuyết** (`222 câu`) | [**🎯 Thi Thử Auto-Grade**](../exam/index.html) • Giải thích chi tiết cả ĐÚNG lẫn SAI |
 
 ---
 
 ## 🚀 Lộ Trình Đề Xuất Dành Cho Em
 
-1. **Mỗi ngày 1 cặp Từ vựng + Chữ Hán (30 phút):**
-   - Mở 1 bài trong [**Từ vựng (37 bài)**](./tu-vung/README.md) và lật luôn bộ [**Flashcards 37 bài**](./tu-vung/flashcards.html) (hoặc in A4 gập đôi mang theo bên người).
-   - Đi kèm 1 bài trong [**Chữ Hán (53 bài — 1.046 chữ)**](./kanji/README.md), mỗi bài chỉ ~18–20 chữ kèm 2 từ ghép sát đề thi.
-2. **Cách ngày 1 bài Ngữ pháp (30 phút):**
-   - Hoàn thành trọn [**Phần 1: 26 bài Văn pháp 1**](./ngu-phap/phan-1/bai-01.md) để nắm 100% mẫu câu N2.
-   - Chuyển sang [**Phần 2: Sắp xếp dấu sao ★**](./ngu-phap/phan-2/bai-01.md) và [**Phần 3: Ngữ pháp đoạn văn (12 bài)**](./ngu-phap/phan-3/bai-01.md).
-3. **Cuối tuần luyện Đọc hiểu & Nghe hiểu (45 phút):**
-   - Học kỹ 4 bài kỹ năng trước rồi bấm giờ giải 4 dạng Mondai trong [**Đọc hiểu**](./doc-hieu/README.md).
-   - Đọc Shadowing toàn bộ kịch bản văn nói rút gọn trong [**Nghe hiểu Chương I–VI**](./nghe-hieu/README.md).
-4. **Đọc thư giãn & ôn phản xạ thực chiến với Tiểu thuyết tương tác ([`novel/index.html`](../novel/index.html)):**
-   - Đọc trọn bộ tiểu thuyết ngắn 6 chương **「東京（とうきょう）の小さな書斎（しょさい）」** đầy đủ Hiragana kế bên; bấm vào bất kỳ từ Shinkanzen nào trong truyện để bật sáng và mở ngay Bảng Hướng Dẫn chi tiết kèm câu hỏi từng chương!
+1. **Học từ vựng qua Tiểu thuyết mỗi ngày 1 chương:**
+   - Chọn thể loại em mê trong [**3 Bộ Tiểu Thuyết N2**](../novel/index.html): 💕 **Romcom** (Bài 1–14...), 🖤 **Yandere Tâm Lý** (Cảm xúc, Công nghệ, Phó từ...), ⚔️ **Isekai Kiến Quốc** (Kinh tế, Chính trị, Khoa học, Onomatopoeia, Cấu tạo từ!).
+   - Bấm vào từ phát sáng để nghe MP3 chuẩn Nhật, xem bản dịch tiếng Việt & bảng từ vựng đầy đủ ngay dưới mỗi chương, rồi làm ngay 5 câu quiz kèm lời nhắc dịu dàng của chị Yuki.
+2. **Củng cố Chữ Hán & Ngữ pháp song song:**
+   - Đi kèm 1 bài [**Ngữ pháp (42 bài)**](./ngu-phap/README.md) và 1 bài [**Chữ Hán (53 bài)**](./kanji/README.md).
+3. **Kiểm tra thực chiến với Đề Chuẩn JLPT N2 ([`exam/index.html`](../exam/index.html)):**
+   - Làm Đề Ôn 20 câu ngay khi đọc xong mỗi bộ truyện, rồi bấm giờ 55 phút làm trọn **3 Đề Full JLPT N2 言語知識（文字・語彙・文法）**!
 
 ---
 [🏠 Quay lại Trang chủ PentaNihonGo](../README.md)

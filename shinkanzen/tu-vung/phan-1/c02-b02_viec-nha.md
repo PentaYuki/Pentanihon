@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 2 Chương 2 của **Shinkanzen Master Từ vựng N2 (2章 2課: 家事)** tập hợp từ vựng về **nấu nướng bếp núc, quét dọn, giặt giũ, phân loại rác, sửa chữa đồ đạc và chăm sóc con nhỏ**."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c02_b02)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 1 Romcom — Chương 04 (Chương 04: Đống Quần Áo Phơi & Khoảng Trống Trái Tim Được Thu Gọn)**](../../../novel/index.html?novel=romcom&chapter=4) ([Bản MD](../../../novel/romcom/chuong-04.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c02_b02)
 
 ---
 

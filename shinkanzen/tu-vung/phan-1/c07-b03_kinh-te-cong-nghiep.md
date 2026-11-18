@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 3 Chương 7 của **Shinkanzen Master Từ vựng N2 (7章 3課: 経済・産業)** trang bị từ vựng kinh tế vĩ mô, tài chính doanh nghiệp, buôn bán xuất nhập khẩu và thị trường lao động."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p1_c07_b03)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 02 (Chương 02: Thoát Khỏi Thâm Hụt! Đại Cải Cách Kinh Tế & Thương Mại)**](../../../novel/index.html?novel=isekai&chapter=2) ([Bản MD](../../../novel/isekai/chuong-02.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p1_c07_b03)
 
 ---
 

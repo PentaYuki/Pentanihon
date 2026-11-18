@@ -4,7 +4,7 @@
 > 🌸 **Lời dặn của chị Yuki:**  
 > *"Bài 3 Chương 7 Phần 2 của **Shinkanzen Master Từ vựng N2 (第2部 7章 3課: 単語の後ろに漢字をプラス)** là trọng tâm lớn nhất của Mondai 3: phân biệt hậu tố chỉ tiền nong (`料・代・費・賃`) và hậu tố trừu tượng (`〜性・〜的・〜化・〜感・〜力・〜率`)."*
 
-🎴 [**Mở Flashcards tương tác & Bản in A4 riêng cho bài này**](../flashcards.html?lesson=p2_c07_b03)
+📖 [**Học bài này qua Tiểu thuyết: Bộ 3 Isekai — Chương 11 (Chương 11: Cảm Giác An Tâm Của Người Dân & Hệ Thống Thành Phố An Toàn)**](../../../novel/index.html?novel=isekai&chapter=11) ([Bản MD](../../../novel/isekai/chuong-11.md)) | 🎴 [**Mở Flashcards & Bản in A4**](../flashcards.html?lesson=p2_c07_b03)
 
 ---
 
