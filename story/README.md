@@ -63,6 +63,7 @@ graph TD
 | **23** | [**深夜（しんや）の危機（きき）と問題（もんだい）解決（かいけつ）（第23話）**<br>*(Khủng Hoảng Lúc Nửa Đêm & Bản Lĩnh Xử Lý Sự Cố (Tập 23))*](./series-01_tap-23_aozora_tokyo.md) | `〜ざるを得ない, 〜末に, 〜どころか, 〜一方（で）` | ✅ Đã phát hành |
 | **24** | [**顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第24話）**<br>*(Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 24))*](./series-01_tap-24_aozora_tokyo.md) | `〜に応えて, 〜を通じて, 〜にほかならない, 〜限り` | ✅ Đã phát hành |
 | **25** | [**失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第25話）**<br>*(Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 25))*](./series-01_tap-25_aozora_tokyo.md) | `〜まい, 〜てたまらない, 〜のみならず, 〜を込めて` | ✅ Đã phát hành |
+| **26** | [**神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第26話）**<br>*(Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 26))*](./series-01_tap-26_aozora_tokyo.md) | `〜つつある, 〜にすぎない, 〜ものなら, 〜からには` | ✅ Đã phát hành |
 
 ---
 

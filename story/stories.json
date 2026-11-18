@@ -1,11 +1,11 @@
 {
-  "total_episodes": 25,
+  "total_episodes": 26,
   "latest_episode": {
-    "ep": 25,
-    "file": "story/series-01_tap-25_aozora_tokyo.md",
-    "filename": "series-01_tap-25_aozora_tokyo.md",
-    "title_jp": "失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第25話）",
-    "title_vi": "Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 25)",
+    "ep": 26,
+    "file": "story/series-01_tap-26_aozora_tokyo.md",
+    "filename": "series-01_tap-26_aozora_tokyo.md",
+    "title_jp": "神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第26話）",
+    "title_vi": "Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 26)",
     "quote_jp": "",
     "quote_vi": ""
   },
@@ -16,6 +16,15 @@
     "quote_vi": "Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi tính toán thu vén chi tiêu gia đình nhé!"
   },
   "episodes": [
+    {
+      "ep": 26,
+      "file": "story/series-01_tap-26_aozora_tokyo.md",
+      "filename": "series-01_tap-26_aozora_tokyo.md",
+      "title_jp": "神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第26話）",
+      "title_vi": "Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 26)",
+      "quote_jp": "",
+      "quote_vi": ""
+    },
     {
       "ep": 25,
       "file": "story/series-01_tap-25_aozora_tokyo.md",
