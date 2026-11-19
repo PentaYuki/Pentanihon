@@ -64,6 +64,7 @@ graph TD
 | **24** | [**顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第24話）**<br>*(Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 24))*](./series-01_tap-24_aozora_tokyo.md) | `〜に応えて, 〜を通じて, 〜にほかならない, 〜限り` | ✅ Đã phát hành |
 | **25** | [**失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第25話）**<br>*(Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 25))*](./series-01_tap-25_aozora_tokyo.md) | `〜まい, 〜てたまらない, 〜のみならず, 〜を込めて` | ✅ Đã phát hành |
 | **26** | [**神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第26話）**<br>*(Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 26))*](./series-01_tap-26_aozora_tokyo.md) | `〜つつある, 〜にすぎない, 〜ものなら, 〜からには` | ✅ Đã phát hành |
+| **27** | [**アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第27話）**<br>*(Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 27))*](./series-01_tap-27_aozora_tokyo.md) | `〜に違いない, 〜に際して, 〜やまない, 〜かねない` | ✅ Đã phát hành |
 
 ---
 
