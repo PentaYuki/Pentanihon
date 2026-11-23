@@ -68,6 +68,7 @@ graph TD
 | **28** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第28話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 28))*](./series-01_tap-28_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
 | **29** | [**チームワークと信頼（しんらい）の絆（きずな）（第29話）**<br>*(Tinh Thần Đồng Đội & Sợi Dây Gắn Kết Niềm Tin (Tập 29))*](./series-01_tap-29_aozora_tokyo.md) | `〜に相違ない, 〜からこそ, 〜抜く, 〜を契機に` | ✅ Đã phát hành |
 | **30** | [**深夜（しんや）の危機（きき）と問題（もんだい）解決（かいけつ）（第30話）**<br>*(Khủng Hoảng Lúc Nửa Đêm & Bản Lĩnh Xử Lý Sự Cố (Tập 30))*](./series-01_tap-30_aozora_tokyo.md) | `〜ざるを得ない, 〜末に, 〜どころか, 〜一方（で）` | ✅ Đã phát hành |
+| **31** | [**顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第31話）**<br>*(Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 31))*](./series-01_tap-31_aozora_tokyo.md) | `〜に応えて, 〜を通じて, 〜にほかならない, 〜限り` | ✅ Đã phát hành |
 
 ---
 
