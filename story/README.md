@@ -69,6 +69,7 @@ graph TD
 | **29** | [**チームワークと信頼（しんらい）の絆（きずな）（第29話）**<br>*(Tinh Thần Đồng Đội & Sợi Dây Gắn Kết Niềm Tin (Tập 29))*](./series-01_tap-29_aozora_tokyo.md) | `〜に相違ない, 〜からこそ, 〜抜く, 〜を契機に` | ✅ Đã phát hành |
 | **30** | [**深夜（しんや）の危機（きき）と問題（もんだい）解決（かいけつ）（第30話）**<br>*(Khủng Hoảng Lúc Nửa Đêm & Bản Lĩnh Xử Lý Sự Cố (Tập 30))*](./series-01_tap-30_aozora_tokyo.md) | `〜ざるを得ない, 〜末に, 〜どころか, 〜一方（で）` | ✅ Đã phát hành |
 | **31** | [**顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第31話）**<br>*(Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 31))*](./series-01_tap-31_aozora_tokyo.md) | `〜に応えて, 〜を通じて, 〜にほかならない, 〜限り` | ✅ Đã phát hành |
+| **32** | [**失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第32話）**<br>*(Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 32))*](./series-01_tap-32_aozora_tokyo.md) | `〜まい, 〜てたまらない, 〜のみならず, 〜を込めて` | ✅ Đã phát hành |
 
 ---
 

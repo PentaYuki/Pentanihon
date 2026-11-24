@@ -1,11 +1,11 @@
 {
-  "total_episodes": 31,
+  "total_episodes": 32,
   "latest_episode": {
-    "ep": 31,
-    "file": "story/series-01_tap-31_aozora_tokyo.md",
-    "filename": "series-01_tap-31_aozora_tokyo.md",
-    "title_jp": "顧客（こきゃく）への提案（ていあん）と共感（きょうかん）の力（ちから）（第31話）",
-    "title_vi": "Đề Xuất Dự Án & Sức Mạnh Thấu Cảm Khách Hàng (Tập 31)",
+    "ep": 32,
+    "file": "story/series-01_tap-32_aozora_tokyo.md",
+    "filename": "series-01_tap-32_aozora_tokyo.md",
+    "title_jp": "失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第32話）",
+    "title_vi": "Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 32)",
     "quote_jp": "",
     "quote_vi": ""
   },
@@ -16,6 +16,15 @@
     "quote_vi": "Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi tính toán thu vén chi tiêu gia đình nhé!"
   },
   "episodes": [
+    {
+      "ep": 32,
+      "file": "story/series-01_tap-32_aozora_tokyo.md",
+      "filename": "series-01_tap-32_aozora_tokyo.md",
+      "title_jp": "失敗（しっぱい）から学（まな）ぶプロフェッショナルの誇（ほこ）り（第32話）",
+      "title_vi": "Học Hỏi Từ Thất Bại & Niềm Tự Hào Chuyên Nghiệp (Tập 32)",
+      "quote_jp": "",
+      "quote_vi": ""
+    },
     {
       "ep": 31,
       "file": "story/series-01_tap-31_aozora_tokyo.md",
