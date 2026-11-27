@@ -1,11 +1,11 @@
 {
-  "total_episodes": 34,
+  "total_episodes": 35,
   "latest_episode": {
-    "ep": 34,
-    "file": "story/series-01_tap-34_aozora_tokyo.md",
-    "filename": "series-01_tap-34_aozora_tokyo.md",
-    "title_jp": "アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第34話）",
-    "title_vi": "Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 34)",
+    "ep": 35,
+    "file": "story/series-01_tap-35_aozora_tokyo.md",
+    "filename": "series-01_tap-35_aozora_tokyo.md",
+    "title_jp": "東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第35話）",
+    "title_vi": "Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 35)",
     "quote_jp": "",
     "quote_vi": ""
   },
@@ -16,6 +16,15 @@
     "quote_vi": "Nếu tìm được một căn phòng cách ga 5 phút đi bộ và đón nắng tốt, hãy kiểm tra kỹ tiền cọc và tiền lễ trước khi tính toán thu vén chi tiêu gia đình nhé!"
   },
   "episodes": [
+    {
+      "ep": 35,
+      "file": "story/series-01_tap-35_aozora_tokyo.md",
+      "filename": "series-01_tap-35_aozora_tokyo.md",
+      "title_jp": "東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第35話）",
+      "title_vi": "Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 35)",
+      "quote_jp": "",
+      "quote_vi": ""
+    },
     {
       "ep": 34,
       "file": "story/series-01_tap-34_aozora_tokyo.md",
