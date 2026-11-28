@@ -73,6 +73,7 @@ graph TD
 | **33** | [**神保町（じんぼうちょう）の週末（しゅうまつ）と未来（みらい）への語（かた）らい（第33話）**<br>*(Cuối Tuần Ở Jimbocho & Cuộc Trò Chuyện Về Tương Lai (Tập 33))*](./series-01_tap-33_aozora_tokyo.md) | `〜つつある, 〜にすぎない, 〜ものなら, 〜からには` | ✅ Đã phát hành |
 | **34** | [**アオイの挑戦（ちょうせん）と仲間（なかま）の温（あたた）かい応援（おうえん）（第34話）**<br>*(Thử Thách Của Aoi & Sự Tiếp Sức Ấm Áp Của Đồng Đội (Tập 34))*](./series-01_tap-34_aozora_tokyo.md) | `〜に違いない, 〜に際して, 〜やまない, 〜かねない` | ✅ Đã phát hành |
 | **35** | [**東京（とうきょう）の青空（あおぞら）と次（つぎ）なる高（たか）みへ（第35話）**<br>*(Bầu Trời Xanh Tokyo & Khát Vọng Chinh Phục Đỉnh Cao Mới (Tập 35))*](./series-01_tap-35_aozora_tokyo.md) | `〜を契機に, 〜限る, 〜とともに, 〜にほかならない` | ✅ Đã phát hành |
+| **36** | [**チームワークと信頼（しんらい）の絆（きずな）（第36話）**<br>*(Tinh Thần Đồng Đội & Sợi Dây Gắn Kết Niềm Tin (Tập 36))*](./series-01_tap-36_aozora_tokyo.md) | `〜に相違ない, 〜からこそ, 〜抜く, 〜を契機に` | ✅ Đã phát hành |
 
 ---
 
